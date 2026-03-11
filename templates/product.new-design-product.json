@@ -413,6 +413,7 @@
             "open_by_default": true,
             "title": "Retinyl palmitate",
             "tag": "Vitamin A form",
+            "icon_image": "shopify://shop_images/Ingredient_Icon_48389f50-4a42-479f-9607-b66f7484bb07.png",
             "main_image": "shopify://shop_images/image_1218.png",
             "description": "A bio‑identical form of Vitamin A your skin recognizes as its own. Gentler than harsh retinol; supports collagen production without typical redness or peeling (edit if needed).",
             "benefits": "Supports barrier • nourishes without clogging pores • helps maintain moisture balance"
@@ -425,6 +426,7 @@
             "title": "Italian olive oil",
             "tag": "Antioxidant + nourishment",
             "icon_image": "shopify://shop_images/Ingredient_Icon_48389f50-4a42-479f-9607-b66f7484bb07.png",
+            "main_image": "shopify://shop_images/image_1218.png",
             "description": "Rich in vitamins and antioxidants, Italian olive oil helps protect the skin from environmental stressors while providing deep nourishment.",
             "benefits": "Benefit 1 • Benefit 2 • Benefit 3"
           }
@@ -436,6 +438,7 @@
             "title": "Sodium hyaluronate",
             "tag": "Smooths deep wrinkles",
             "icon_image": "shopify://shop_images/icon_1_2.png",
+            "main_image": "shopify://shop_images/image_1218.png",
             "description": "A salt form of hyaluronic acid that penetrates deep into the skin to lock in moisture and visibly smooth out fine lines and wrinkles.",
             "benefits": "Benefit 1 • Benefit 2 • Benefit 3"
           }
