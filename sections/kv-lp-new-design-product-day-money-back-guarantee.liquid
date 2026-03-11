@@ -1,12 +1,19 @@
 {{ 'kv-lp-new-design-product-day-money-back-guarantee.css' | asset_url | stylesheet_tag }}
 <section class="lp-guarantee" id="lp-guarantee-{{ section.id }}">
   {%- if section.settings.background_image != blank -%}
-    <img 
-      src="{{ section.settings.background_image | image_url: width: 2000 }}" 
-      alt="{{ section.settings.background_image.alt | escape }}" 
-      class="lp-guarantee__bg-image" 
-      loading="lazy"
-    >
+    <picture class="lp-guarantee__bg-image">
+      {%- if section.settings.mobile_background_image != blank -%}
+        <source 
+          media="(max-width: 749px)" 
+          srcset="{{ section.settings.mobile_background_image | image_url: width: 800 }}"
+        >
+      {%- endif -%}
+      <img 
+        src="{{ section.settings.background_image | image_url: width: 2000 }}" 
+        alt="{{ section.settings.background_image.alt | escape }}" 
+        loading="lazy"
+      >
+    </picture>
   {%- endif -%}
   <div class="lp-guarantee__overlay"></div>
   
@@ -36,7 +43,12 @@
     {
       "type": "image_picker",
       "id": "background_image",
-      "label": "Background Image"
+      "label": "Background Image for Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile Background Image"
     },
     {
       "type": "image_picker",

@@ -26,9 +26,9 @@
 
 .lp-faq__title {
   font-size: 38px;
-  font-weight: 500;
-  line-height: 1.02;
-  letter-spacing: -1px;
+  font-weight: 500 !important;
+  line-height: 39px !important;
+  letter-spacing: -1px !important;
   margin: 0;
   color: var(--text-color);
 }
@@ -42,7 +42,7 @@
 .lp-faq__list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  /* gap: 12px; */
 }
 
 .lp-faq__item {
@@ -72,6 +72,7 @@
   opacity: var(--text-opacity);
   flex: 1;
   padding-right: 15px;
+  letter-spacing: 0px;
 }
 
 .lp-faq__icon {
@@ -97,6 +98,7 @@
 
 .lp-faq__answer p {
   margin: 0;
+  letter-spacing: 0px;
 }
 
 @media (min-width: 768px) {

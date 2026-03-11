@@ -14,7 +14,6 @@
     <div class="lp-comparison-table__wrapper">
       <div class="lp-comparison-table__grid">
         <div class="lp-comparison-table__col lp-comparison-table__col--features">
-          <div class="lp-comparison-table__cell lp-comparison-table__cell--header"></div>
           {% for block in section.blocks %}
             <div class="lp-comparison-table__cell lp-comparison-table__cell--feature" {{ block.shopify_attributes }}>
               {{ block.settings.feature_name }}
@@ -24,16 +23,15 @@
 
         <div class="lp-comparison-table__col lp-comparison-table__col--brand">
           <div class="lp-comparison-table__cell lp-comparison-table__cell--header">
-            {% if section.settings.brand_logo != blank %}
+           
               <img src="{{ section.settings.brand_logo | image_url: width: 100 }}" alt="Brand Logo" class="lp-comparison-table__logo">
-            {% else %}
               <span class="lp-comparison-table__brand-name">Brand</span>
-            {% endif %}
+           
           </div>
           {% for block in section.blocks %}
             <div class="lp-comparison-table__cell lp-comparison-table__cell--brand-status">
               <span class="lp-comparison-table__icon lp-comparison-table__icon--check">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
             </div>
           {% endfor %}
@@ -46,7 +44,7 @@
           {% for block in section.blocks %}
             <div class="lp-comparison-table__cell lp-comparison-table__cell--others-status">
               <span class="lp-comparison-table__icon lp-comparison-table__icon--cross">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
             </div>
           {% endfor %}
