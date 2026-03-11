@@ -399,8 +399,9 @@
     "kv-lp-new-design-product-note-from-our-italian": {
       "type": "kv-lp-new-design-product-note-from-our-italian",
       "settings": {
-        "heading": "Note from our \nItalian lab",
-        "content": "<p>SerlinoLab is produced in a family-owned Italian lab, based in the Italian countryside, where every batch is made with hands-on care and strict quality control.</p><p>This isn’t mass production. It’s an authentic, controlled process designed for one thing: consistent results you can trust, batch after batch. That’s our core US selling point—Italian-made quality, done properly.</p><p>— SerlinoLab<br>Family-made in Italy</p>",
+        "heading": "Note from our Italian lab",
+        "content": "<p>SerlinoLab is produced in a family-owned Italian lab, based in the Italian countryside, where every batch is made with hands-on care and strict quality control.</p><p>This isn’t mass production. It’s an authentic, controlled process designed for one thing: consistent results you can trust, batch after batch. That’s our core US selling point—Italian-made quality, done properly.</p><p>— SerlinoLab<br/>Family-made in Italy</p>",
+        "image": "shopify://shop_images/4a8f6802150b59f89646381a7195a5386b3966b1.jpg",
         "image_border_radius": 30
       }
     },
