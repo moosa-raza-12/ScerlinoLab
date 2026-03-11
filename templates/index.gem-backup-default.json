@@ -1,0 +1,186 @@
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "OMNIS Takes The US",
+            "heading_size": "h1"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify:\/\/collections\/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Homepage_desktop_v6.webp",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-2",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "frontpage",
+        "products_to_show": 3,
+        "title": "Best Seller",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-2",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "image_with_text_gJkenD": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_xQN9Xq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real Men Real Results",
+            "heading_size": "h1"
+          }
+        },
+        "text_mikY6z": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xQN9Xq",
+        "text_mikY6z"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Untitled_design_-_2025-04-19T094856.980.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_3LXGBm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_VYETd7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_delivery_box.png",
+            "title": "Shipping in 24\/48 hours",
+            "text": "<p>FREE Shipping for orders over $45<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_AtCTy8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_cash.png",
+            "title": "Cash on Delivery",
+            "text": "<p>Pay conveniently in cash when your package arrives<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_XMgdEM": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_star.png",
+            "title": "4.7\/5 ⭐️⭐️⭐️⭐️⭐️",
+            "text": "<p>The best brand in Italy for men's skincare<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_FaNKHn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/whatsapp-logo-png_seeklogo-168310.png",
+            "title": "WhatsApp Support",
+            "text": "<p>Available 5 days a week: <\/p><p>+39 327 690 8653<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_VYETd7",
+        "column_AtCTy8",
+        "column_XMgdEM",
+        "column_FaNKHn"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection",
+    "image_with_text_gJkenD",
+    "multicolumn_3LXGBm"
+  ]
+}
