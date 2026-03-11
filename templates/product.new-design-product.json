@@ -424,6 +424,7 @@
             "open_by_default": false,
             "title": "Italian olive oil",
             "tag": "Antioxidant + nourishment",
+            "icon_image": "shopify://shop_images/Ingredient_Icon_48389f50-4a42-479f-9607-b66f7484bb07.png",
             "description": "Rich in vitamins and antioxidants, Italian olive oil helps protect the skin from environmental stressors while providing deep nourishment.",
             "benefits": "Benefit 1 • Benefit 2 • Benefit 3"
           }
@@ -434,6 +435,7 @@
             "open_by_default": false,
             "title": "Sodium hyaluronate",
             "tag": "Smooths deep wrinkles",
+            "icon_image": "shopify://shop_images/icon_1_2.png",
             "description": "A salt form of hyaluronic acid that penetrates deep into the skin to lock in moisture and visibly smooth out fine lines and wrinkles.",
             "benefits": "Benefit 1 • Benefit 2 • Benefit 3"
           }
