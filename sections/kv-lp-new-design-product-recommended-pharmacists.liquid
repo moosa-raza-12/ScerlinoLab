@@ -1,0 +1,113 @@
+{{ 'kv-lp-new-design-product-recommended-pharmacists.css' | asset_url | stylesheet_tag }}
+
+<section class="lp-pharmacists-section" id="lp-section-{{ section.id }}">
+  <div class="lp-pharmacists-container">
+    {% if section.settings.heading != blank %}
+      <header class="lp-pharmacists-header">
+        <h2 class="lp-pharmacists-title">{{ section.settings.heading }}</h2>
+      </header>
+    {% endif %}
+
+    <div class="lp-pharmacists-grid-wrapper">
+      <div class="lp-pharmacists-grid">
+        {% for block in section.blocks %}
+          <div class="lp-pharmacist-card" {{ block.shopify_attributes }}>
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'lp-pharmacist-image', alt: block.settings.name }}
+            {% else %}
+              <div class="lp-pharmacist-image-placeholder"></div>
+            {% endif %}
+
+            <div class="lp-pharmacist-info">
+              <div class="lp-pharmacist-content-box">
+                <blockquote class="lp-pharmacist-quote">
+                  “{{ block.settings.quote }}”
+                </blockquote>
+                <div class="lp-pharmacist-profile">
+                  <p class="lp-pharmacist-name">{{ block.settings.name }}</p>
+                  <p class="lp-pharmacist-role">{{ block.settings.role }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Pharmacist Recommends",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Recommended by pharmacists in Italy"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Pharmacist Image"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role/Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pharmacist Recommends",
+      "settings": {
+        "heading": "Recommended by\npharmacists in Italy"
+      },
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Advanced formulas and quality actives, Made in Italy excellence.",
+            "name": "Marco Filomeni",
+            "role": "Pharmacist, Venice"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "After 18 years as SerlinoLab is the only men's brand that has truly convinced me.",
+            "name": "Dr. Rossella Romano",
+            "role": "Hospital Pharmacy Specialist"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "As a pharmacist, SerlinoLab creams are the only ones I've seen that work on men.",
+            "name": "Dr. Silvia Lanza",
+            "role": "Expert in Skin Health and Medicine"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

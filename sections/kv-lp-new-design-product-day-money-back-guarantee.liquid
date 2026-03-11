@@ -1,0 +1,69 @@
+{{ 'kv-lp-new-design-product-day-money-back-guarantee.css' | asset_url | stylesheet_tag }}
+<section class="lp-guarantee" id="lp-guarantee-{{ section.id }}">
+  {%- if section.settings.background_image != blank -%}
+    <img 
+      src="{{ section.settings.background_image | image_url: width: 2000 }}" 
+      alt="{{ section.settings.background_image.alt | escape }}" 
+      class="lp-guarantee__bg-image" 
+      loading="lazy"
+    >
+  {%- endif -%}
+  <div class="lp-guarantee__overlay"></div>
+  
+  <div class="lp-guarantee__container">
+    <div class="lp-guarantee__badge">
+      {%- if section.settings.badge_icon != blank -%}
+        {{ section.settings.badge_icon | image_url: width: 160 | image_tag: class: 'lp-guarantee__badge-icon', loading: 'lazy' }}
+      {%- else -%}
+        <svg class="lp-guarantee__badge-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40 76.3366C62.0914 76.3366 80 59.2483 80 38.1683C80 17.0883 62.0914 0 40 0C17.9086 0 0 17.0883 0 38.1683C0 59.2483 17.9086 76.3366 40 76.3366Z" fill="#111827"/>
+          <path d="M24.2256 38.1683L34.7417 48.6844L55.7744 27.6517" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      {%- endif -%}
+    </div>
+    
+    <div class="lp-guarantee__content">
+      <h2 class="lp-guarantee__title">{{ section.settings.title }}</h2>
+      <div class="lp-guarantee__subtitle">{{ section.settings.subtitle }}</div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Guarantee Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "badge_icon",
+      "label": "Badge Icon"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "60-day money-back guarantee"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "<p>Every bottle is backed by our 60-day money-back promise, so you can try it with confidence.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Guarantee Section",
+      "settings": {
+        "title": "60-day money-back guarantee",
+        "subtitle": "<p>Every bottle is backed by our 60-day money-back promise, so you can try it with confidence.</p>"
+      }
+    }
+  ]
+}
+{% endschema %}

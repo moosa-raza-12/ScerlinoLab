@@ -1,0 +1,166 @@
+{{ 'kv-lp-new-design-product-what-to-expect.css' | asset_url | stylesheet_tag }}
+
+<section class="lp-wte" id="lp-wte-{{ section.id }}">
+  <div class="lp-wte__container">
+    <header class="lp-wte__header">
+      <h2 class="lp-wte__heading">{{ section.settings.heading }}</h2>
+      <p class="lp-wte__subheading">{{ section.settings.subheading }}</p>
+    </header>
+
+    <div class="lp-wte__timeline-wrapper">
+      <div class="lp-wte__timeline-track">
+        <div class="lp-wte__timeline-line"></div>
+        {% for block in section.blocks %}
+          <div class="lp-wte__timeline-dot" data-index="{{ forloop.index0 }}"></div>
+        {% endfor %}
+      </div>
+
+      <div class="lp-wte__cards">
+        {% for block in section.blocks %}
+          <div class="lp-wte__card" {{ block.shopify_attributes }}>
+            <div class="lp-wte__card-image-wrapper">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 800 | image_tag: class: 'lp-wte__card-image', loading: 'lazy' }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'lp-wte__card-image' }}
+              {% endif %}
+            </div>
+            
+            <div class="lp-wte__card-content">
+              <span class="lp-wte__badge">{{ block.settings.badge }}</span>
+              <h3 class="lp-wte__card-title">{{ block.settings.title }}</h3>
+              
+              <ul class="lp-wte__list">
+                {% if block.settings.feature_1 != blank %}
+                  <li class="lp-wte__list-item">
+                    <span class="lp-wte__icon">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.6666 3.5L5.24992 9.91667L2.33325 7" stroke="#17162E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    {{ block.settings.feature_1 }}
+                  </li>
+                {% endif %}
+                {% if block.settings.feature_2 != blank %}
+                  <li class="lp-wte__list-item">
+                    <span class="lp-wte__icon">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.6666 3.5L5.24992 9.91667L2.33325 7" stroke="#17162E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    {{ block.settings.feature_2 }}
+                  </li>
+                {% endif %}
+                {% if block.settings.feature_3 != blank %}
+                  <li class="lp-wte__list-item">
+                    <span class="lp-wte__icon">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.6666 3.5L5.24992 9.91667L2.33325 7" stroke="#17162E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    {{ block.settings.feature_3 }}
+                  </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "What to expect",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What to expect"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Your results timeline (first 12 weeks)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Timeline Step",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge Text",
+          "default": "WEEK 1–2"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Hydration & Comfort"
+        },
+        {
+          "type": "text",
+          "id": "feature_1",
+          "label": "Feature 1",
+          "default": "Skin feels more hydrated and comfortable"
+        },
+        {
+          "type": "text",
+          "id": "feature_2",
+          "label": "Feature 2",
+          "default": "Less dryness / tight feeling after cleansing"
+        },
+        {
+          "type": "text",
+          "id": "feature_3",
+          "label": "Feature 3",
+          "default": "Texture starts to feel softer and smoother"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "What to expect",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "badge": "WEEK 1–2",
+            "title": "Hydration & Comfort",
+            "feature_1": "Skin feels more hydrated and comfortable",
+            "feature_2": "Less dryness / tight feeling after cleansing",
+            "feature_3": "Texture starts to feel softer and smoother"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "badge": "WEEK 3–6",
+            "title": "Visible Improvement",
+            "feature_1": "Skin texture looks more even",
+            "feature_2": "Fine lines begin to look less noticeable",
+            "feature_3": "Complexion appears more rested and fresh"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "badge": "WEEK 8–12",
+            "title": "Transformation",
+            "feature_1": "Skin looks firmer and more toned",
+            "feature_2": "Overall skin looks healthier",
+            "feature_3": "Lines appear visibly reduced"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

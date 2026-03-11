@@ -1,0 +1,582 @@
+{
+  "sections": {
+    "kv-lp-new-design-product-night-cream-anti-aging": {
+      "type": "kv-lp-new-design-product-night-cream-anti-aging",
+      "blocks": {
+        "block_0": {
+          "type": "benefit",
+          "settings": {
+            "icon": "<svg width=\"28\" height=\"28\" viewbox=\"0 0 28 28\" fill=\"none\"><circle cx=\"14\" cy=\"14\" r=\"12\" stroke=\"#17162E\" stroke-width=\"1.5\"></circle><path d=\"M9 14L12.5 17.5L19 11\" stroke=\"#17162E\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+            "text": "Visibly Younger Looking Skin"
+          }
+        },
+        "block_1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "<svg width=\"28\" height=\"28\" viewbox=\"0 0 28 28\" fill=\"none\"><path d=\"M14 4L22 8V14C22 19.5 18.5 23.5 14 24.5C9.5 23.5 6 19.5 6 14V8L14 4Z\" stroke=\"#17162E\" stroke-width=\"1.5\" stroke-linejoin=\"round\"></path></svg>",
+            "text": "60-day guarantee"
+          }
+        },
+        "block_2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "<svg width=\"28\" height=\"28\" viewbox=\"0 0 28 28\" fill=\"none\"><path d=\"M8 6H20V22H8V6Z\" stroke=\"#17162E\" stroke-width=\"1.5\"></path><path d=\"M11 11H17M11 14H17M11 17H17\" stroke=\"#17162E\" stroke-width=\"1.5\"></path></svg>",
+            "text": "Italian lab origin"
+          }
+        },
+        "block_3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "<svg width=\"28\" height=\"28\" viewbox=\"0 0 28 28\" fill=\"none\"><circle cx=\"14\" cy=\"14\" r=\"10\" stroke=\"#17162E\" stroke-width=\"1.5\"></circle><circle cx=\"14\" cy=\"14\" r=\"4\" fill=\"#17162E\"></circle></svg>",
+            "text": "Dermatologist Tested"
+          }
+        },
+        "block_4": {
+          "type": "bundle",
+          "settings": {
+            "title": "6-month treatment",
+            "badge_text": "Best Value",
+            "badge_type": "gold",
+            "shipping_info": "Free Shipping",
+            "old_price": "$69",
+            "new_price": "$24.99",
+            "gift_value": "$100",
+            "free_gift_content": "<p>Free eye contour(worth $40)</p><p>Free body cream (worth $60)</p>"
+          }
+        },
+        "block_5": {
+          "type": "bundle",
+          "settings": {
+            "title": "3-month treatment",
+            "badge_text": "Most Popular",
+            "badge_type": "navy",
+            "shipping_info": "Free Shipping",
+            "old_price": "$69",
+            "new_price": "$39.99",
+            "gift_value": "",
+            "free_gift_content": ""
+          }
+        },
+        "block_6": {
+          "type": "bundle",
+          "settings": {
+            "title": "1-month treatment",
+            "badge_text": "",
+            "badge_type": "gold",
+            "shipping_info": "+ $4.95 Shipping",
+            "old_price": "",
+            "new_price": "$69.99",
+            "gift_value": "",
+            "free_gift_content": ""
+          }
+        },
+        "block_7": {
+          "type": "faq",
+          "settings": {
+            "question": "What happened to Omnis? Why is it now SerlinoLab?",
+            "answer": "<p>SerlinoLab is the new global brand of Omnis, bringing the same Italian quality with enhanced formulas.</p>"
+          }
+        },
+        "block_8": {
+          "type": "faq",
+          "settings": {
+            "question": "Will SerlinoLab work for me?",
+            "answer": "<p>Our formulas are dermatologically tested for all skin types targeting specific aging concerns.</p>"
+          }
+        },
+        "block_9": {
+          "type": "testimonial_video",
+          "settings": {
+            "video_url": ""
+          }
+        },
+        "block_10": {
+          "type": "testimonial_video",
+          "settings": {
+            "video_url": ""
+          }
+        },
+        "block_11": {
+          "type": "testimonial_video",
+          "settings": {
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_0",
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4",
+        "block_5",
+        "block_6",
+        "block_7",
+        "block_8",
+        "block_9",
+        "block_10",
+        "block_11"
+      ],
+      "settings": {
+        "title": "Night cream anti-aging formula",
+        "description": "Pharmaceutical-grade retinyl palmitate meets organic Italian olive oil. Targets wrinkles, firmness, and tired skin while you sleep."
+      }
+    },
+    "kv-lp-new-design-product-results-others-notice": {
+      "type": "kv-lp-new-design-product-results-others-notice",
+      "blocks": {
+        "block_0": {
+          "type": "review",
+          "settings": {
+            "label_before": "Before",
+            "label_after": "Month 5",
+            "reviewer_name": "Jason",
+            "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
+            "testimonial": "\u201cAfter a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed \u2014 without any greasy feel.\u201d",
+            "tag_1": "\u2728 Smoother texture",
+            "tag_2": "\ud83d\udcaa Firmer feel",
+            "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
+          }
+        },
+        "block_1": {
+          "type": "review",
+          "settings": {
+            "label_before": "Before",
+            "label_after": "Month 5",
+            "reviewer_name": "Jason",
+            "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
+            "testimonial": "\u201cAfter a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed \u2014 without any greasy feel.\u201d",
+            "tag_1": "\u2728 Smoother texture",
+            "tag_2": "\ud83d\udcaa Firmer feel",
+            "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
+          }
+        },
+        "block_2": {
+          "type": "review",
+          "settings": {
+            "label_before": "Before",
+            "label_after": "Month 5",
+            "reviewer_name": "Jason",
+            "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
+            "testimonial": "\u201cAfter a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed \u2014 without any greasy feel.\u201d",
+            "tag_1": "\u2728 Smoother texture",
+            "tag_2": "\ud83d\udcaa Firmer feel",
+            "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
+          }
+        }
+      },
+      "block_order": [
+        "block_0",
+        "block_1",
+        "block_2"
+      ],
+      "settings": {
+        "title": "Results other will\nnotice."
+      }
+    },
+    "kv-lp-new-design-product-clinically-validated": {
+      "type": "kv-lp-new-design-product-clinically-validated",
+      "blocks": {
+        "block_0": {
+          "type": "usp",
+          "settings": {
+            "percentage": "98%",
+            "text": "Visible wrinkle \nreduction* in 4 weeks"
+          }
+        },
+        "block_1": {
+          "type": "usp",
+          "settings": {
+            "percentage": "94%",
+            "text": "Confirms rapid absorption without greasy effect"
+          }
+        }
+      },
+      "block_order": [
+        "block_0",
+        "block_1"
+      ],
+      "settings": {
+        "title": "Clinically\nvalidated efficacy",
+        "subtitle": "Independent dermatological testing on 124 volunteers, ages 50-70, over 28 days",
+        "disclaimer": "*Tests conducted on 124 men for 60 day"
+      }
+    },
+    "kv-lp-new-design-product-recommended-pharmacists": {
+      "type": "kv-lp-new-design-product-recommended-pharmacists",
+      "blocks": {
+        "block_0": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Advanced formulas and quality actives, Made in Italy excellence.",
+            "name": "Marco Filomeni",
+            "role": "Pharmacist, Venice"
+          }
+        },
+        "block_1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "After 18 years as SerlinoLab is the only men's brand that has truly convinced me.",
+            "name": "Dr. Rossella Romano",
+            "role": "Hospital Pharmacy Specialist"
+          }
+        },
+        "block_2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "As a pharmacist, SerlinoLab creams are the only ones I've seen that work on men.",
+            "name": "Dr. Silvia Lanza",
+            "role": "Expert in Skin Health and Medicine"
+          }
+        }
+      },
+      "block_order": [
+        "block_0",
+        "block_1",
+        "block_2"
+      ],
+      "settings": {
+        "heading": "Recommended by\npharmacists in Italy"
+      }
+    },
+    "kv-lp-new-design-product-what-serlinolab-does-for": {
+      "type": "kv-lp-new-design-product-what-serlinolab-does-for",
+      "blocks": {
+        "block_0": {
+          "type": "benefit",
+          "settings": {
+            "title": "Visible wrinkle reduction*"
+          }
+        },
+        "block_1": {
+          "type": "benefit",
+          "settings": {
+            "title": "Firmer feel in 2 weeks*"
+          }
+        },
+        "block_2": {
+          "type": "benefit",
+          "settings": {
+            "title": "Softer, more elastic skin*"
+          }
+        },
+        "block_3": {
+          "type": "benefit",
+          "settings": {
+            "title": "Rapid absorption"
+          }
+        }
+      },
+      "block_order": [
+        "block_0",
+        "block_1",
+        "block_2",
+        "block_3"
+      ],
+      "settings": {
+        "heading": "What SerlinoLab does\nfor your skin",
+        "trustpilot_score": "4.6 Excellent",
+        "trustpilot_reviews": "3,439+ reviews"
+      }
+    },
+    "kv-lp-new-design-product-trustpilot-section": {
+      "type": "kv-lp-new-design-product-trustpilot-section",
+      "settings": {
+        "title": "Trustpilot Section",
+        "bg_color": "#dfdfdf",
+        "text_color": "#1a2a49"
+      }
+    },
+    "kv-lp-new-design-product-what-to-expect": {
+      "type": "kv-lp-new-design-product-what-to-expect",
+      "blocks": {
+        "block_0": {
+          "type": "step",
+          "settings": {
+            "badge": "WEEK 1\u20132",
+            "title": "Hydration & Comfort",
+            "feature_1": "Skin feels more hydrated and comfortable",
+            "feature_2": "Less dryness / tight feeling after cleansing",
+            "feature_3": "Texture starts to feel softer and smoother"
+          }
+        },
+        "block_1": {
+          "type": "step",
+          "settings": {
+            "badge": "WEEK 3\u20136",
+            "title": "Visible Improvement",
+            "feature_1": "Skin texture looks more even",
+            "feature_2": "Fine lines begin to look less noticeable",
+            "feature_3": "Complexion appears more rested and fresh"
+          }
+        },
+        "block_2": {
+          "type": "step",
+          "settings": {
+            "badge": "WEEK 8\u201312",
+            "title": "Transformation",
+            "feature_1": "Skin looks firmer and more toned",
+            "feature_2": "Overall skin looks healthier",
+            "feature_3": "Lines appear visibly reduced"
+          }
+        }
+      },
+      "block_order": [
+        "block_0",
+        "block_1",
+        "block_2"
+      ],
+      "settings": {
+        "heading": "What to expect",
+        "subheading": "Your results timeline (first 12 weeks)"
+      }
+    },
+    "kv-lp-new-design-product-italian-formula": {
+      "type": "kv-lp-new-design-product-italian-formula",
+      "blocks": {
+        "block_0": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Hydrates skin"
+          }
+        },
+        "block_1": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Stimulates new collagen production"
+          }
+        },
+        "block_2": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Won't cause redness, peeling, or irritation"
+          }
+        },
+        "block_3": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Recommended by Pharmacists in Italy"
+          }
+        },
+        "block_4": {
+          "type": "row",
+          "settings": {
+            "feature_name": "No alcohol, silicones, or parabens"
+          }
+        },
+        "block_5": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Made in a 38-year-old family lab in Italy"
+          }
+        }
+      },
+      "block_order": [
+        "block_0",
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4",
+        "block_5"
+      ],
+      "settings": {
+        "heading": "Italian formula. Not generic.",
+        "others_label": "Others",
+        "badge_text": "96% notices visible results in ~4 weeks. *",
+        "overlay_color": "#0a1124",
+        "overlay_opacity": 0.7
+      }
+    },
+    "kv-lp-new-design-product-note-from-our-italian": {
+      "type": "kv-lp-new-design-product-note-from-our-italian",
+      "settings": {
+        "heading": "Note from our \nItalian lab",
+        "content": "<p>SerlinoLab is produced in a family-owned Italian lab, based in the Italian countryside, where every batch is made with hands-on care and strict quality control.</p><p>This isn\u2019t mass production. It\u2019s an authentic, controlled process designed for one thing: consistent results you can trust, batch after batch. That\u2019s our core US selling point\u2014Italian-made quality, done properly.</p><p>\u2014 SerlinoLab<br>Family-made in Italy</p>",
+        "image_border_radius": 30
+      }
+    },
+    "kv-lp-new-design-product-only-what-your-skin": {
+      "type": "kv-lp-new-design-product-only-what-your-skin",
+      "blocks": {
+        "block_0": {
+          "type": "ingredient",
+          "settings": {
+            "open_by_default": true,
+            "title": "Retinyl palmitate",
+            "tag": "Vitamin A form",
+            "description": "A bio\u2011identical form of Vitamin A your skin recognizes as its own. Gentler than harsh retinol; supports collagen production without typical redness or peeling (edit if needed).",
+            "benefits": "Supports barrier \u2022 nourishes without clogging pores \u2022 helps maintain moisture balance"
+          }
+        },
+        "block_1": {
+          "type": "ingredient",
+          "settings": {
+            "open_by_default": false,
+            "title": "Italian olive oil",
+            "tag": "Antioxidant + nourishment",
+            "description": "Rich in vitamins and antioxidants, Italian olive oil helps protect the skin from environmental stressors while providing deep nourishment.",
+            "benefits": "Benefit 1 \u2022 Benefit 2 \u2022 Benefit 3"
+          }
+        },
+        "block_2": {
+          "type": "ingredient",
+          "settings": {
+            "open_by_default": false,
+            "title": "Sodium hyaluronate",
+            "tag": "Smooths deep wrinkles",
+            "description": "A salt form of hyaluronic acid that penetrates deep into the skin to lock in moisture and visibly smooth out fine lines and wrinkles.",
+            "benefits": "Benefit 1 \u2022 Benefit 2 \u2022 Benefit 3"
+          }
+        }
+      },
+      "block_order": [
+        "block_0",
+        "block_1",
+        "block_2"
+      ],
+      "settings": {
+        "heading": "Only what your skin needs",
+        "subheading": "Not just hydration \u2014 ingredients selected to actively fight signs of time.",
+        "full_list_text": "Full Ingredient List",
+        "full_list_content": ""
+      }
+    },
+    "kv-lp-new-design-product-how-to-use-it": {
+      "type": "kv-lp-new-design-product-how-to-use-it",
+      "blocks": {
+        "block_0": {
+          "type": "step",
+          "settings": {
+            "step_title": "01 - Apply at night",
+            "description": "Use on clean, dry skin before bed."
+          }
+        },
+        "block_1": {
+          "type": "step",
+          "settings": {
+            "step_title": "02 - Face + neck",
+            "description": "Focus on areas with visible texture and wrinkles."
+          }
+        },
+        "block_2": {
+          "type": "step",
+          "settings": {
+            "step_title": "03 - Be consistent",
+            "description": "Most visible changes come from daily use across multiple weeks."
+          }
+        }
+      },
+      "block_order": [
+        "block_0",
+        "block_1",
+        "block_2"
+      ],
+      "settings": {
+        "heading": "How to Use it",
+        "subheading": "Simple nightly routine. Keep it easy to start tonight.",
+        "advice_text": "Expert Advice"
+      }
+    },
+    "kv-lp-new-design-product-day-money-back-guarantee": {
+      "type": "kv-lp-new-design-product-day-money-back-guarantee",
+      "settings": {
+        "title": "60-day money-back guarantee",
+        "subtitle": "<p>Every bottle is backed by our 60-day money-back promise, so you can try it with confidence.</p>"
+      }
+    },
+    "kv-lp-new-design-product-do-you-still-have": {
+      "type": "kv-lp-new-design-product-do-you-still-have",
+      "blocks": {
+        "block_0": {
+          "type": "faq",
+          "settings": {
+            "question": "What happened to Omnis? Why is it now SerlinoLab?",
+            "answer": "<p>We rebranded to SerlinoLab to better reflect our commitment to laboratory-backed skincare solutions while maintaining the same high-quality formulas you love.</p>"
+          }
+        },
+        "block_1": {
+          "type": "faq",
+          "settings": {
+            "question": "Will SerlinoLab work for me?",
+            "answer": "<p>Our formulas are dermatologically tested and designed for all skin types, including sensitive skin. Results may vary, but most users see improvements within weeks.</p>"
+          }
+        },
+        "block_2": {
+          "type": "faq",
+          "settings": {
+            "question": "Can it be found in stores/pharmacies?",
+            "answer": "<p>Currently, SerlinoLab is exclusively available through our official online store to ensure you receive the freshest batches and best customer support.</p>"
+          }
+        },
+        "block_3": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does it last?",
+            "answer": "<p>A single bottle typically lasts 30-45 days depending on your usage frequency and the size of the treatment area.</p>"
+          }
+        },
+        "block_4": {
+          "type": "faq",
+          "settings": {
+            "question": "How to use it?",
+            "answer": "<p>Apply 2-3 drops to clean, dry skin daily. Gently massage until fully absorbed. For best results, use before applying moisturizer.</p>"
+          }
+        },
+        "block_5": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does it take to see results?",
+            "answer": "<p>While some notice immediate hydration, significant results typically appear after 4-6 weeks of consistent daily application.</p>"
+          }
+        },
+        "block_6": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Orders are usually processed within 24 hours. Standard shipping takes 3-7 business days depending on your location.</p>"
+          }
+        },
+        "block_7": {
+          "type": "faq",
+          "settings": {
+            "question": "Where is the formula produced?",
+            "answer": "<p>Our formulas are developed and produced in certified laboratories in Italy, adhering to the highest EU safety and quality standards.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_0",
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4",
+        "block_5",
+        "block_6",
+        "block_7"
+      ],
+      "settings": {
+        "title": "Do you still have any doubts?"
+      }
+    },
+    "kv-lp-new-design-product-what-our-customers-say": {
+      "type": "kv-lp-new-design-product-what-our-customers-say",
+      "settings": {}
+    }
+  },
+  "order": [
+    "kv-lp-new-design-product-night-cream-anti-aging",
+    "kv-lp-new-design-product-results-others-notice",
+    "kv-lp-new-design-product-clinically-validated",
+    "kv-lp-new-design-product-recommended-pharmacists",
+    "kv-lp-new-design-product-what-serlinolab-does-for",
+    "kv-lp-new-design-product-trustpilot-section",
+    "kv-lp-new-design-product-what-to-expect",
+    "kv-lp-new-design-product-italian-formula",
+    "kv-lp-new-design-product-note-from-our-italian",
+    "kv-lp-new-design-product-only-what-your-skin",
+    "kv-lp-new-design-product-how-to-use-it",
+    "kv-lp-new-design-product-day-money-back-guarantee",
+    "kv-lp-new-design-product-do-you-still-have",
+    "kv-lp-new-design-product-what-our-customers-say"
+  ]
+}

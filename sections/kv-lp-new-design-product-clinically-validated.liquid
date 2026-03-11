@@ -1,0 +1,107 @@
+{{ 'kv-lp-new-design-product-clinically-validated.css' | asset_url | stylesheet_tag }}
+
+<section class="lp-efficacy" id="lp-efficacy-{{ section.id }}" style="--bg-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}');">
+  <div class="lp-efficacy__overlay"></div>
+  <div class="lp-efficacy__container">
+    <div class="lp-efficacy__content">
+      <header class="lp-efficacy__header">
+        {% if section.settings.title != blank %}
+          <h2 class="lp-efficacy__title">{{ section.settings.title | newline_to_br }}</h2>
+        {% endif %}
+        {% if section.settings.subtitle != blank %}
+          <p class="lp-efficacy__subtitle">{{ section.settings.subtitle | newline_to_br }}</p>
+        {% endif %}
+      </header>
+
+      <div class="lp-efficacy__stats">
+        {% for block in section.blocks %}
+          <div class="lp-efficacy__usp" {{ block.shopify_attributes }}>
+            {% if block.settings.percentage != blank %}
+              <span class="lp-efficacy__percentage">{{ block.settings.percentage }}</span>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <span class="lp-efficacy__usp-text">{{ block.settings.text | newline_to_br }}</span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if section.settings.disclaimer != blank %}
+        <p class="lp-efficacy__disclaimer">{{ section.settings.disclaimer }}</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Clinically Validated",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Clinically\nvalidated efficacy"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Independent dermatological testing on 124 volunteers, ages 50-70, over 28 days"
+    },
+    {
+      "type": "text",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "*Tests conducted on 124 men for 60 day"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "percentage",
+          "label": "Percentage",
+          "default": "98%"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Visible wrinkle \nreduction* in 4 weeks"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clinically Validated",
+      "blocks": [
+        {
+          "type": "usp",
+          "settings": {
+            "percentage": "98%",
+            "text": "Visible wrinkle \nreduction* in 4 weeks"
+          }
+        },
+        {
+          "type": "usp",
+          "settings": {
+            "percentage": "94%",
+            "text": "Confirms rapid absorption without greasy effect"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

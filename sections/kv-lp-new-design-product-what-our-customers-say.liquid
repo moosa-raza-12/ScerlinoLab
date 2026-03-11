@@ -1,0 +1,260 @@
+{{ 'kv-lp-new-design-product-what-our-customers-say.css' | asset_url | stylesheet_tag }}
+
+<section class="lp-reviews" id="lp-reviews-{{ section.id }}">
+  <div class="lp-reviews__container">
+    <h2 class="lp-reviews__heading">{{ section.settings.heading }}</h2>
+
+    <div class="lp-reviews__summary-box">
+      <p class="lp-reviews__summary-title">{{ section.settings.summary_title }}</p>
+      <div class="lp-reviews__stars-container">
+        <div class="lp-reviews__stars-row">
+          {% for i in (1..5) %}
+            <span class="lp-reviews__star">{% if i <= 4 %}{% else %}{% endif %}</span>
+          {% endfor %}
+          <span class="lp-reviews__average">{{ section.settings.average_rating }}</span>
+        </div>
+        <p class="lp-reviews__review-count">{{ section.settings.review_count_text }}</p>
+      </div>
+    </div>
+
+    <div class="lp-reviews__toolbar">
+      <div class="lp-reviews__count-display">{{ section.blocks.size }} reviews</div>
+      <div class="lp-reviews__sort">
+        <span>Sort by:</span>
+        <div class="lp-reviews__sort-dropdown">
+          {{ section.settings.sort_default }}
+          <svg width="13" height="7" viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6.5 6L12 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="lp-reviews__grid">
+      {% for block in section.blocks %}
+        <div class="lp-reviews__card" {{ block.shopify_attributes }}>
+          <div class="lp-reviews__card-header">
+            <div class="lp-reviews__author-info">
+              {% if block.settings.show_avatar %}
+                <div class="lp-reviews__avatar" style="background-color: #041E42;">
+                  {{ block.settings.author_name | slice: 0 | upcase }}
+                </div>
+              {% endif %}
+              <div class="lp-reviews__author-details">
+                <span class="lp-reviews__author-name">{{ block.settings.author_name }}</span>
+                {% if block.settings.verified %}
+                  <div class="lp-reviews__verified">
+                    <span class="lp-reviews__verified-icon"></span>
+                    <span class="lp-reviews__verified-text">Verified Purchase</span>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            {% if block.settings.recommend %}
+              <div class="lp-reviews__recommend">
+                <span class="lp-reviews__recommend-icon">✓</span>
+                <span>I recommend this product</span>
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="lp-reviews__card-rating">
+            {% for i in (1..5) %}
+              <span class="lp-reviews__star-mini">{% if i <= block.settings.rating %}{% else %}{% endif %}</span>
+            {% endfor %}
+          </div>
+
+          {% if block.settings.title != blank %}
+            <h3 class="lp-reviews__card-title">{{ block.settings.title }}</h3>
+          {% endif %}
+
+          {% if block.settings.image != blank %}
+            <div class="lp-reviews__card-media">
+              {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'lp-reviews__card-image' }}
+            </div>
+          {% endif %}
+
+          <div class="lp-reviews__card-content">
+            <p class="lp-reviews__card-text">{{ block.settings.text }}</p>
+            {% if block.settings.text.size > 150 %}
+              <button class="lp-reviews__read-more">Read more</button>
+            {% endif %}
+          </div>
+
+          <div class="lp-reviews__card-footer">
+            <span class="lp-reviews__helpful-label">Helpful?</span>
+            <button class="lp-reviews__helpful-btn lp-reviews__helpful-btn--yes">YES</button>
+            <button class="lp-reviews__helpful-btn lp-reviews__helpful-btn--no">No</button>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="lp-reviews__pagination">
+      <span class="lp-reviews__page lp-reviews__page--active">1</span>
+      <span class="lp-reviews__page">2</span>
+      <span class="lp-reviews__page">3</span>
+      <span class="lp-reviews__page-icon"></span>
+      <span class="lp-reviews__page-icon"></span>
+    </div>
+
+    <div class="lp-reviews__write-section">
+      <a href="#" class="lp-reviews__write-btn">
+        <span class="lp-reviews__write-icon"></span>
+        Write A Review
+      </a>
+    </div>
+
+    <div class="lp-reviews__trustpilot">
+      <div class="lp-reviews__trustpilot-logo">
+        <img src="https://cdn.shopify.com/s/files/1/0663/1230/6933/files/trustpilot-logo.svg?v=1" alt="Trustpilot" width="127" height="31" loading="lazy" style="filter: brightness(0.2);">
+      </div>
+      <div class="lp-reviews__trustpilot-stars">
+        <img src="https://cdn.shopify.com/s/files/1/0663/1230/6933/files/trustpilot-stars.svg?v=1" alt="5 stars" width="150" height="28" loading="lazy">
+      </div>
+      <a href="{{ section.settings.trustpilot_link }}" class="lp-reviews__trustpilot-all">Read all {{ section.settings.total_global_reviews }} reviews on Trustpilot →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('#lp-reviews-{{ section.id }}');
+  if (!section) return;
+
+  section.querySelectorAll('.lp-reviews__read-more').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const text = btn.previousElementSibling;
+      text.classList.toggle('lp-reviews__card-text--expanded');
+      btn.textContent = text.classList.contains('lp-reviews__card-text--expanded') ? 'Read less' : 'Read more';
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "LP Reviews Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What our customers say"
+    },
+    {
+      "type": "text",
+      "id": "summary_title",
+      "label": "Summary Title",
+      "default": "Customer Reviews"
+    },
+    {
+      "type": "text",
+      "id": "average_rating",
+      "label": "Average Rating",
+      "default": "4.47 out of 5"
+    },
+    {
+      "type": "text",
+      "id": "review_count_text",
+      "label": "Review Count Text",
+      "default": "Based on 734 reviews"
+    },
+    {
+      "type": "text",
+      "id": "sort_default",
+      "label": "Default Sort Label",
+      "default": "Pictures First"
+    },
+    {
+      "type": "text",
+      "id": "total_global_reviews",
+      "label": "Total Global Reviews Count",
+      "default": "2,341"
+    },
+    {
+      "type": "url",
+      "id": "trustpilot_link",
+      "label": "Trustpilot Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "text", "id": "author_name", "label": "Author Name" },
+        { "type": "checkbox", "id": "show_avatar", "label": "Show Avatar", "default": false },
+        { "type": "checkbox", "id": "verified", "label": "Verified Purchase", "default": true },
+        { "type": "checkbox", "id": "recommend", "label": "Recommend product", "default": false },
+        { "type": "range", "id": "rating", "min": 1, "max": 5, "step": 1, "label": "Rating", "default": 5 },
+        { "type": "text", "id": "title", "label": "Review Title" },
+        { "type": "textarea", "id": "text", "label": "Review Text" },
+        { "type": "image_picker", "id": "image", "label": "Review Image" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Reviews Grid",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "author_name": "Gabriele L.",
+            "rating": 5,
+            "text": "I've always been skeptical, but this product really works. I recommend it to everyone.",
+            "verified": true
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author_name": "Laurence C.",
+            "rating": 5,
+            "text": "Easy to apply. The instructions clearly indicate the amount to apply.",
+            "verified": true
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author_name": "Daniele R.",
+            "rating": 5,
+            "text": "With consistent use, the product has shown amazing results.",
+            "verified": true
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author_name": "Eddie P.",
+            "rating": 5,
+            "text": "I've never used a night cream before, but I don't think I need to try other companies' products. This one is...",
+            "verified": true
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author_name": "Phillip G.",
+            "rating": 5,
+            "text": "I love this cream: it's not greasy and doesn't cause any burning. It's the perfect level of hydration.",
+            "verified": true
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author_name": "Michelle M.",
+            "show_avatar": true,
+            "recommend": true,
+            "rating": 5,
+            "title": "HEART EYES!!!",
+            "text": "I am so glad I got this skirt with the crop top! It's so beautiful together. I wish the bottom was a little longer, but I love it.",
+            "verified": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

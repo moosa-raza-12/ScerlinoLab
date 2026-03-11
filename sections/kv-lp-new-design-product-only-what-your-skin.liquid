@@ -1,0 +1,196 @@
+{{ 'kv-lp-new-design-product-only-what-your-skin.css' | asset_url | stylesheet_tag }}
+
+<section class="lp-ingredients" id="lp-ingredients-{{ section.id }}">
+  <div class="lp-ingredients__container">
+    <header class="lp-ingredients__header">
+      <h2 class="lp-ingredients__title">{{ section.settings.heading }}</h2>
+      <p class="lp-ingredients__subheading">{{ section.settings.subheading }}</p>
+    </header>
+
+    <div class="lp-ingredients__list">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'ingredient' -%}
+          <details class="lp-ingredient-card" {{ block.settings.open_by_default | aria_checked: 'true' | replace: 'aria-checked="true"', 'open' }} {{ block.shopify_attributes }}>
+            <summary class="lp-ingredient-card__summary">
+              <div class="lp-ingredient-card__summary-left">
+                <div class="lp-ingredient-card__icon-wrap">
+                  {%- if block.settings.icon_image != blank -%}
+                    {{ block.settings.icon_image | image_url: width: 68 | image_tag: class: 'lp-ingredient-card__icon', loading: 'lazy' }}
+                  {%- else -%}
+                    <div class="lp-ingredient-card__icon-placeholder"></div>
+                  {%- endif -%}
+                </div>
+                <div class="lp-ingredient-card__info">
+                  <h3 class="lp-ingredient-card__name">{{ block.settings.title }}</h3>
+                  {%- if block.settings.tag != blank -%}
+                    <span class="lp-ingredient-card__tag">{{ block.settings.tag }}</span>
+                  {%- endif -%}
+                </div>
+              </div>
+              <div class="lp-ingredient-card__toggle">
+                <span class="lp-ingredient-card__toggle-plus">+</span>
+                <span class="lp-ingredient-card__toggle-minus">−</span>
+              </div>
+            </summary>
+            
+            <div class="lp-ingredient-card__content">
+              <div class="lp-ingredient-card__divider"></div>
+              <div class="lp-ingredient-card__details">
+                {%- if block.settings.main_image != blank -%}
+                  {{ block.settings.main_image | image_url: width: 200 | image_tag: class: 'lp-ingredient-card__image', loading: 'lazy' }}
+                {%- endif -%}
+                <div class="lp-ingredient-card__description">
+                  {{ block.settings.description }}
+                </div>
+              </div>
+              {%- if block.settings.benefits != blank -%}
+                <div class="lp-ingredient-card__benefits">
+                  {{ block.settings.benefits }}
+                </div>
+              {%- endif -%}
+            </div>
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if section.settings.full_list_text != blank -%}
+        <details class="lp-ingredient-card lp-ingredient-card--simple">
+          <summary class="lp-ingredient-card__summary">
+            <div class="lp-ingredient-card__summary-left">
+              <h3 class="lp-ingredient-card__name">{{ section.settings.full_list_text }}</h3>
+            </div>
+            <div class="lp-ingredient-card__toggle">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+          </summary>
+          <div class="lp-ingredient-card__content">
+            <div class="lp-ingredient-card__full-content">
+              {{ section.settings.full_list_content }}
+            </div>
+          </div>
+        </details>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Anti-aging Ingredients",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Only what your skin needs"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Not just hydration — ingredients selected to actively fight signs of time."
+    },
+    {
+      "type": "text",
+      "id": "full_list_text",
+      "label": "Full List Label",
+      "default": "Full Ingredient List"
+    },
+    {
+      "type": "richtext",
+      "id": "full_list_content",
+      "label": "Full List Content"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "open_by_default",
+          "label": "Open by default",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Name",
+          "default": "Ingredient Name"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag",
+          "default": "Benefit tag"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Collapsed Icon Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "main_image",
+          "label": "Expanded Main Image"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Description of the ingredient."
+        },
+        {
+          "type": "text",
+          "id": "benefits",
+          "label": "Benefits List (separated by dots)",
+          "default": "Benefit 1 • Benefit 2 • Benefit 3"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anti-aging Ingredients",
+      "settings": {
+        "heading": "Only what your skin needs",
+        "subheading": "Not just hydration — ingredients selected to actively fight signs of time.",
+        "full_list_text": "Full Ingredient List"
+      },
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Retinyl palmitate",
+            "tag": "Vitamin A form",
+            "description": "A bio‑identical form of Vitamin A your skin recognizes as its own. Gentler than harsh retinol; supports collagen production without typical redness or peeling (edit if needed).",
+            "benefits": "Supports barrier • nourishes without clogging pores • helps maintain moisture balance",
+            "open_by_default": true
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Italian olive oil",
+            "tag": "Antioxidant + nourishment",
+            "description": "Rich in vitamins and antioxidants, Italian olive oil helps protect the skin from environmental stressors while providing deep nourishment.",
+            "open_by_default": false
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Sodium hyaluronate",
+            "tag": "Smooths deep wrinkles",
+            "description": "A salt form of hyaluronic acid that penetrates deep into the skin to lock in moisture and visibly smooth out fine lines and wrinkles.",
+            "open_by_default": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

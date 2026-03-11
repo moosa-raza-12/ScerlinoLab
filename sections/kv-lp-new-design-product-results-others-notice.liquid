@@ -1,0 +1,153 @@
+{{ 'kv-lp-new-design-product-results-others-notice.css' | asset_url | stylesheet_tag }}
+
+<section class="lp-results-notice" id="lp-section-{{ section.id }}">
+  <div class="lp-results-notice__container">
+    {% if section.settings.title != blank %}
+      <header class="lp-results-notice__header">
+        <h2 class="lp-results-notice__title">{{ section.settings.title | newline_to_br }}</h2>
+      </header>
+    {% endif %}
+
+    <div class="lp-results-notice__list-wrapper">
+      <div class="lp-results-notice__list">
+        {% for block in section.blocks %}
+          <div class="lp-results-notice__card" {{ block.shopify_attributes }}>
+            <div class="lp-results-notice__media">
+              <div class="lp-results-notice__images-grid">
+                <div class="lp-results-notice__img-box">
+                  {% if block.settings.image_before != blank %}
+                    {{ block.settings.image_before | image_url: width: 400 | image_tag: loading: 'lazy', class: 'lp-results-notice__img' }}
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'lp-results-notice__placeholder' }}
+                  {% endif %}
+                  <span class="lp-results-notice__label">{{ block.settings.label_before }}</span>
+                </div>
+                <div class="lp-results-notice__img-box">
+                  {% if block.settings.image_after != blank %}
+                    {{ block.settings.image_after | image_url: width: 400 | image_tag: loading: 'lazy', class: 'lp-results-notice__img' }}
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'lp-results-notice__placeholder' }}
+                  {% endif %}
+                  <span class="lp-results-notice__label">{{ block.settings.label_after }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lp-results-notice__info">
+              <h3 class="lp-results-notice__reviewer-name">{{ block.settings.reviewer_name }}</h3>
+              <p class="lp-results-notice__reviewer-subtitle">{{ block.settings.reviewer_subtitle }}</p>
+              <blockquote class="lp-results-notice__testimonial">
+                {{ block.settings.testimonial }}
+              </blockquote>
+              <div class="lp-results-notice__tags">
+                {% if block.settings.tag_1 != blank %}
+                  <span class="lp-results-notice__tag">{{ block.settings.tag_1 }}</span>
+                {% endif %}
+                {% if block.settings.tag_2 != blank %}
+                  <span class="lp-results-notice__tag">{{ block.settings.tag_2 }}</span>
+                {% endif %}
+              </div>
+              <p class="lp-results-notice__routine">{{ block.settings.product_info | newline_to_br }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Results Notice",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Results other will\nnotice."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_before",
+          "label": "Image Before"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_after",
+          "label": "Image After"
+        },
+        {
+          "type": "text",
+          "id": "label_before",
+          "label": "Label Before",
+          "default": "Before"
+        },
+        {
+          "type": "text",
+          "id": "label_after",
+          "label": "Label After",
+          "default": "Month 5"
+        },
+        {
+          "type": "text",
+          "id": "reviewer_name",
+          "label": "Reviewer Name",
+          "default": "Jason"
+        },
+        {
+          "type": "text",
+          "id": "reviewer_subtitle",
+          "label": "Reviewer Subtitle",
+          "default": "Before vs. 5 months using SerlinoLab"
+        },
+        {
+          "type": "textarea",
+          "id": "testimonial",
+          "label": "Testimonial",
+          "default": "“After a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed — without any greasy feel.”"
+        },
+        {
+          "type": "text",
+          "id": "tag_1",
+          "label": "Tag 1",
+          "default": "✨ Smoother texture"
+        },
+        {
+          "type": "text",
+          "id": "tag_2",
+          "label": "Tag 2",
+          "default": "💪 Firmer feel"
+        },
+        {
+          "type": "textarea",
+          "id": "product_info",
+          "label": "Product Info",
+          "default": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Results Notice",
+      "blocks": [
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

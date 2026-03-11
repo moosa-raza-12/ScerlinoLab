@@ -1,0 +1,133 @@
+{{ 'kv-lp-new-design-product-do-you-still-have.css' | asset_url | stylesheet_tag }}
+
+<section class="lp-faq" id="lp-faq-{{ section.id }}">
+  <div class="lp-faq__wrapper">
+    <header class="lp-faq__header">
+      <h2 class="lp-faq__title">{{ section.settings.title }}</h2>
+    </header>
+
+    <div class="lp-faq__container">
+      <div class="lp-faq__list">
+        {% for block in section.blocks %}
+          {% if block.settings.question != blank %}
+            <details class="lp-faq__item" {{ block.shopify_attributes }}>
+              <summary class="lp-faq__summary">
+                <span class="lp-faq__question">{{ block.settings.question }}</span>
+                <span class="lp-faq__icon">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.1875 8.25L11 14.4375L4.8125 8.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </summary>
+              <div class="lp-faq__content">
+                <div class="lp-faq__answer">
+                  {{ block.settings.answer }}
+                </div>
+              </div>
+            </details>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQs",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "Do you still have any doubts?"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Question text goes here"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Answer text goes here with more details about the product or service.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQs",
+      "settings": {
+        "title": "Do you still have any doubts?"
+      },
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What happened to Omnis? Why is it now SerlinoLab?",
+            "answer": "<p>We rebranded to SerlinoLab to better reflect our commitment to laboratory-backed skincare solutions while maintaining the same high-quality formulas you love.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Will SerlinoLab work for me?",
+            "answer": "<p>Our formulas are dermatologically tested and designed for all skin types, including sensitive skin. Results may vary, but most users see improvements within weeks.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Can it be found in stores/pharmacies?",
+            "answer": "<p>Currently, SerlinoLab is exclusively available through our official online store to ensure you receive the freshest batches and best customer support.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How long does it last?",
+            "answer": "<p>A single bottle typically lasts 30-45 days depending on your usage frequency and the size of the treatment area.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How to use it?",
+            "answer": "<p>Apply 2-3 drops to clean, dry skin daily. Gently massage until fully absorbed. For best results, use before applying moisturizer.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How long does it take to see results?",
+            "answer": "<p>While some notice immediate hydration, significant results typically appear after 4-6 weeks of consistent daily application.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Orders are usually processed within 24 hours. Standard shipping takes 3-7 business days depending on your location.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Where is the formula produced?",
+            "answer": "<p>Our formulas are developed and produced in certified laboratories in Italy, adhering to the highest EU safety and quality standards.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

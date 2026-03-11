@@ -1,0 +1,141 @@
+{{ 'kv-lp-new-design-product-italian-formula.css' | asset_url | stylesheet_tag }}
+
+<section class="lp-comparison-table" id="lp-section-{{ section.id }}">
+  {% if section.settings.bg_image != blank %}
+    <img src="{{ section.settings.bg_image | image_url: width: 2000 }}" class="lp-comparison-table__bg" alt="" loading="lazy">
+  {% endif %}
+  <div class="lp-comparison-table__overlay" style="background-color: {{ section.settings.overlay_color }}; opacity: {{ section.settings.overlay_opacity }};"></div>
+
+  <div class="lp-comparison-table__container">
+    <div class="lp-comparison-table__header">
+      <h2 class="lp-comparison-table__heading">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="lp-comparison-table__wrapper">
+      <div class="lp-comparison-table__grid">
+        <div class="lp-comparison-table__col lp-comparison-table__col--features">
+          <div class="lp-comparison-table__cell lp-comparison-table__cell--header"></div>
+          {% for block in section.blocks %}
+            <div class="lp-comparison-table__cell lp-comparison-table__cell--feature" {{ block.shopify_attributes }}>
+              {{ block.settings.feature_name }}
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="lp-comparison-table__col lp-comparison-table__col--brand">
+          <div class="lp-comparison-table__cell lp-comparison-table__cell--header">
+            {% if section.settings.brand_logo != blank %}
+              <img src="{{ section.settings.brand_logo | image_url: width: 100 }}" alt="Brand Logo" class="lp-comparison-table__logo">
+            {% else %}
+              <span class="lp-comparison-table__brand-name">Brand</span>
+            {% endif %}
+          </div>
+          {% for block in section.blocks %}
+            <div class="lp-comparison-table__cell lp-comparison-table__cell--brand-status">
+              <span class="lp-comparison-table__icon lp-comparison-table__icon--check">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="lp-comparison-table__col lp-comparison-table__col--others">
+          <div class="lp-comparison-table__cell lp-comparison-table__cell--header">
+            <span class="lp-comparison-table__others-label">{{ section.settings.others_label }}</span>
+          </div>
+          {% for block in section.blocks %}
+            <div class="lp-comparison-table__cell lp-comparison-table__cell--others-status">
+              <span class="lp-comparison-table__icon lp-comparison-table__icon--cross">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="lp-comparison-table__badge">
+      <div class="lp-comparison-table__badge-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" fill="#0A1124"/><path d="M13.5 8L9.5 12L7.5 10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <p class="lp-comparison-table__badge-text">{{ section.settings.badge_text }}</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Comparison Table",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Italian formula. Not generic."
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo",
+      "label": "Brand Logo"
+    },
+    {
+      "type": "text",
+      "id": "others_label",
+      "label": "Competitor Label",
+      "default": "Others"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "96% notices visible results in ~4 weeks. *"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#0A1124"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Overlay Opacity",
+      "default": 0.7
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Feature Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_name",
+          "label": "Feature Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Table",
+      "blocks": [
+        { "type": "row", "settings": { "feature_name": "Hydrates skin" } },
+        { "type": "row", "settings": { "feature_name": "Stimulates new collagen production" } },
+        { "type": "row", "settings": { "feature_name": "Won't cause redness, peeling, or irritation" } },
+        { "type": "row", "settings": { "feature_name": "Recommended by Pharmacists in Italy" } },
+        { "type": "row", "settings": { "feature_name": "No alcohol, silicones, or parabens" } },
+        { "type": "row", "settings": { "feature_name": "Made in a 38-year-old family lab in Italy" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

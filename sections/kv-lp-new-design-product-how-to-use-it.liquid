@@ -1,0 +1,186 @@
+{{ 'kv-lp-new-design-product-how-to-use-it.css' | asset_url | stylesheet_tag }}
+
+<section class="lp-how-to-use" id="lp-how-to-use-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="lp-how-to-use__container">
+    <div class="lp-how-to-use__header">
+      {% if section.settings.heading != blank %}
+        <h2 class="lp-how-to-use__title">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="lp-how-to-use__subtitle">{{ section.settings.subheading }}</p>
+      {% endif %}
+      
+      {% if section.settings.advice_text != blank %}
+        <div class="lp-how-to-use__advice">
+          <span>{{ section.settings.advice_text }}</span>
+          <div class="lp-how-to-use__advice-toggle">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 9L7.5 6L4.5 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="lp-how-to-use__grid-wrapper">
+      <div class="lp-how-to-use__grid" data-carousel>
+        {% for block in section.blocks %}
+          <div class="lp-how-to-use__card" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}">
+            <div class="lp-how-to-use__card-image">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 1024px) 33vw, 80vw' }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+            <div class="lp-how-to-use__card-info">
+              {% if block.settings.step_title != blank %}
+                <div class="lp-how-to-use__card-step">
+                  {{ block.settings.step_title }}
+                </div>
+              {% endif %}
+              {% if block.settings.description != blank %}
+                <div class="lp-how-to-use__card-desc">
+                  {{ block.settings.description }}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="lp-how-to-use__nav">
+      <button class="lp-how-to-use__arrow lp-how-to-use__arrow--prev" data-nav="prev" aria-label="Previous step">
+        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 1L1 8L8 15M1 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="lp-how-to-use__dots">
+        {% for block in section.blocks %}
+          <span class="lp-how-to-use__dot{% if forloop.first %} is-active{% endif %}" data-dot="{{ forloop.index0 }}"></span>
+        {% endfor %}
+      </div>
+      <button class="lp-how-to-use__arrow lp-how-to-use__arrow--next" data-nav="next" aria-label="Next step">
+        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 1L19 8L12 15M19 8H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const section = document.querySelector('#lp-how-to-use-{{ section.id }}');
+  if (!section) return;
+
+  const grid = section.querySelector('[data-carousel]');
+  const dots = section.querySelectorAll('[data-dot]');
+  const prevBtn = section.querySelector('[data-nav="prev"]');
+  const nextBtn = section.querySelector('[data-nav="next"]');
+  const cards = section.querySelectorAll('.lp-how-to-use__card');
+
+  function updateDots() {
+    const scrollPosition = grid.scrollLeft;
+    const cardWidth = cards[0].offsetWidth + 20;
+    const activeIndex = Math.round(scrollPosition / cardWidth);
+    
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('is-active', index === activeIndex);
+    });
+  }
+
+  grid.addEventListener('scroll', updateDots);
+
+  prevBtn.addEventListener('click', () => {
+    grid.scrollBy({ left: -(cards[0].offsetWidth + 20), behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    grid.scrollBy({ left: (cards[0].offsetWidth + 20), behavior: 'smooth' });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "How to use it",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How to Use it"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Simple nightly routine. Keep it easy to start tonight."
+    },
+    {
+      "type": "text",
+      "id": "advice_text",
+      "label": "Advice Label",
+      "default": "Expert Advice"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Step Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How to use it",
+      "settings": {
+        "heading": "How to Use it",
+        "subheading": "Simple nightly routine. Keep it easy to start tonight.",
+        "advice_text": "Expert Advice"
+      },
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step_title": "01 - Apply at night",
+            "description": "Use on clean, dry skin before bed."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_title": "02 - Face + neck",
+            "description": "Focus on areas with visible texture and wrinkles."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_title": "03 - Be consistent",
+            "description": "Most visible changes come from daily use across multiple weeks."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

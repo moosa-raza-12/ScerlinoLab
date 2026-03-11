@@ -1,0 +1,85 @@
+{{ 'kv-lp-new-design-product-trustpilot-section.css' | asset_url | stylesheet_tag }}
+
+<section class="lp-trustpilot-section" id="lp-section-{{ section.id }}" style="--bg-color: {{ section.settings.bg_color }}; --text-color: {{ section.settings.text_color }};">
+  <div class="lp-trustpilot-container">
+    {%- if section.settings.trust_image != blank -%}
+      <div class="lp-trustpilot-logo">
+        {{ section.settings.trust_image | image_url: width: 200 | image_tag: loading: 'lazy', alt: section.settings.title }}
+      </div>
+    {%- endif -%}
+    
+    <h2 class="lp-trustpilot-title">{{ section.settings.title }}</h2>
+    
+    {%- if section.blocks.size > 0 -%}
+      <div class="lp-trustpilot-rating-list">
+        {%- for block in section.blocks -%}
+          <div class="lp-trustpilot-rating-item" {{ block.shopify_attributes }}>
+            {%- if block.settings.icon_svg != blank -%}
+              <div class="lp-rating-icon">{{ block.settings.icon_svg }}</div>
+            {%- endif -%}
+            <span class="lp-rating-text">{{ block.settings.rating_text }}</span>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trustpilot Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Trustpilot Section"
+    },
+    {
+      "type": "image_picker",
+      "id": "trust_image",
+      "label": "Trustpilot Logo (Optional)"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#dfdfdf"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#1a2a49"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "rating",
+      "name": "Rating Item",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG (Stars)"
+        },
+        {
+          "type": "text",
+          "id": "rating_text",
+          "label": "Rating Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trustpilot Section",
+      "settings": {
+        "title": "Trustpilot Section",
+        "bg_color": "#dfdfdf",
+        "text_color": "#1a2a49"
+      }
+    }
+  ]
+}
+{% endschema %}

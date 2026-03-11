@@ -1,0 +1,74 @@
+{{ 'kv-lp-new-design-product-note-from-our-italian.css' | asset_url | stylesheet_tag }}
+
+<section class="lp-note-lab" id="lp-note-lab-{{ section.id }}">
+  <div class="lp-note-lab__container">
+    <div class="lp-note-lab__text-content">
+      {% if section.settings.heading != blank %}
+        <h2 class="lp-note-lab__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      
+      {% if section.settings.content != blank %}
+        <div class="lp-note-lab__description">
+          {{ section.settings.content }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="lp-note-lab__image-wrapper">
+      {% if section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 1000 | image_tag: 
+          class: 'lp-note-lab__image', 
+          loading: 'lazy',
+          alt: section.settings.image.alt | default: section.settings.heading
+        }}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'lp-note-lab__image placeholder-svg' }}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Note from our Italian lab",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Note from our Italian lab"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>SerlinoLab is produced in a family-owned Italian lab, based in the Italian countryside, where every batch is made with hands-on care and strict quality control.</p><p>This isn’t mass production. It’s an authentic, controlled process designed for one thing: consistent results you can trust, batch after batch. That’s our core US selling point—Italian-made quality, done properly.</p><p>— SerlinoLab<br>Family-made in Italy</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Image Corner Radius",
+      "default": 30
+    }
+  ],
+  "presets": [
+    {
+      "name": "Note from our Italian lab",
+      "settings": {
+        "heading": "Note from our \nItalian lab",
+        "content": "<p>SerlinoLab is produced in a family-owned Italian lab, based in the Italian countryside, where every batch is made with hands-on care and strict quality control.</p><p>This isn’t mass production. It’s an authentic, controlled process designed for one thing: consistent results you can trust, batch after batch. That’s our core US selling point—Italian-made quality, done properly.</p><p>— SerlinoLab<br>Family-made in Italy</p>",
+        "image_border_radius": 30
+      }
+    }
+  ]
+}
+{% endschema %}

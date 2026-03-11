@@ -1,0 +1,173 @@
+.lp-pharmacists-section {
+  --bg-color: #ffffff;
+  --text-color: #17162e;
+  --overlay-bg: rgba(0, 0, 0, 0.47);
+  --white: #ffffff;
+  background-color: var(--bg-color);
+  padding: 40px 0;
+  overflow: hidden;
+}
+
+.lp-pharmacists-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.lp-pharmacists-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.lp-pharmacists-title {
+  color: var(--text-color);
+  font-size: clamp(32px, 5vw, 42px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -1.68px;
+  margin: 0 auto;
+  white-space: pre-line;
+  max-width: 1040px;
+}
+
+.lp-pharmacists-grid-wrapper {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  margin: 0 -20px;
+  padding: 0 20px;
+}
+
+.lp-pharmacists-grid-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.lp-pharmacists-grid {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+}
+
+.lp-pharmacist-card {
+  position: relative;
+  width: 309px;
+  height: 392px;
+  border-radius: 12px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.lp-pharmacist-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.lp-pharmacist-image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  z-index: 1;
+}
+
+.lp-pharmacist-info {
+  position: relative;
+  z-index: 2;
+  background: var(--overlay-bg);
+  padding: 16px 20px;
+  backdrop-filter: blur(4px);
+  width: 100%;
+  min-height: 142px;
+  display: flex;
+  align-items: center;
+}
+
+.lp-pharmacist-content-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.lp-pharmacist-quote {
+  margin: 0;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 350;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.lp-pharmacist-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lp-pharmacist-name {
+  margin: 0;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.lp-pharmacist-role {
+  margin: 0;
+  color: var(--white);
+  font-size: 12px;
+  opacity: 0.9;
+  line-height: 1.2;
+}
+
+@media (min-width: 1024px) {
+  .lp-pharmacists-section {
+    padding: 64px 0;
+  }
+
+  .lp-pharmacists-container {
+    padding: 0 200px;
+  }
+
+  .lp-pharmacists-header {
+    margin-bottom: 40px;
+  }
+
+  .lp-pharmacists-grid-wrapper {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .lp-pharmacists-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 24px;
+  }
+
+  .lp-pharmacist-card {
+    width: 100%;
+  }
+
+  .lp-pharmacist-info {
+    min-height: 172px;
+    padding: 28px 20px;
+  }
+
+  .lp-pharmacist-quote {
+    font-size: 16px;
+  }
+}
