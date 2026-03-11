@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "kv-lp-new-design-product-night-cream-anti-aging": {
@@ -132,9 +141,9 @@
             "label_after": "Month 5",
             "reviewer_name": "Jason",
             "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
-            "testimonial": "\u201cAfter a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed \u2014 without any greasy feel.\u201d",
-            "tag_1": "\u2728 Smoother texture",
-            "tag_2": "\ud83d\udcaa Firmer feel",
+            "testimonial": "“After a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed — without any greasy feel.”",
+            "tag_1": "✨ Smoother texture",
+            "tag_2": "💪 Firmer feel",
             "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
           }
         },
@@ -145,9 +154,9 @@
             "label_after": "Month 5",
             "reviewer_name": "Jason",
             "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
-            "testimonial": "\u201cAfter a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed \u2014 without any greasy feel.\u201d",
-            "tag_1": "\u2728 Smoother texture",
-            "tag_2": "\ud83d\udcaa Firmer feel",
+            "testimonial": "“After a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed — without any greasy feel.”",
+            "tag_1": "✨ Smoother texture",
+            "tag_2": "💪 Firmer feel",
             "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
           }
         },
@@ -158,9 +167,9 @@
             "label_after": "Month 5",
             "reviewer_name": "Jason",
             "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
-            "testimonial": "\u201cAfter a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed \u2014 without any greasy feel.\u201d",
-            "tag_1": "\u2728 Smoother texture",
-            "tag_2": "\ud83d\udcaa Firmer feel",
+            "testimonial": "“After a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed — without any greasy feel.”",
+            "tag_1": "✨ Smoother texture",
+            "tag_2": "💪 Firmer feel",
             "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
           }
         }
@@ -293,7 +302,7 @@
         "block_0": {
           "type": "step",
           "settings": {
-            "badge": "WEEK 1\u20132",
+            "badge": "WEEK 1–2",
             "title": "Hydration & Comfort",
             "feature_1": "Skin feels more hydrated and comfortable",
             "feature_2": "Less dryness / tight feeling after cleansing",
@@ -303,7 +312,7 @@
         "block_1": {
           "type": "step",
           "settings": {
-            "badge": "WEEK 3\u20136",
+            "badge": "WEEK 3–6",
             "title": "Visible Improvement",
             "feature_1": "Skin texture looks more even",
             "feature_2": "Fine lines begin to look less noticeable",
@@ -313,7 +322,7 @@
         "block_2": {
           "type": "step",
           "settings": {
-            "badge": "WEEK 8\u201312",
+            "badge": "WEEK 8–12",
             "title": "Transformation",
             "feature_1": "Skin looks firmer and more toned",
             "feature_2": "Overall skin looks healthier",
@@ -391,7 +400,7 @@
       "type": "kv-lp-new-design-product-note-from-our-italian",
       "settings": {
         "heading": "Note from our \nItalian lab",
-        "content": "<p>SerlinoLab is produced in a family-owned Italian lab, based in the Italian countryside, where every batch is made with hands-on care and strict quality control.</p><p>This isn\u2019t mass production. It\u2019s an authentic, controlled process designed for one thing: consistent results you can trust, batch after batch. That\u2019s our core US selling point\u2014Italian-made quality, done properly.</p><p>\u2014 SerlinoLab<br>Family-made in Italy</p>",
+        "content": "<p>SerlinoLab is produced in a family-owned Italian lab, based in the Italian countryside, where every batch is made with hands-on care and strict quality control.</p><p>This isn’t mass production. It’s an authentic, controlled process designed for one thing: consistent results you can trust, batch after batch. That’s our core US selling point—Italian-made quality, done properly.</p><p>— SerlinoLab<br>Family-made in Italy</p>",
         "image_border_radius": 30
       }
     },
@@ -404,8 +413,8 @@
             "open_by_default": true,
             "title": "Retinyl palmitate",
             "tag": "Vitamin A form",
-            "description": "A bio\u2011identical form of Vitamin A your skin recognizes as its own. Gentler than harsh retinol; supports collagen production without typical redness or peeling (edit if needed).",
-            "benefits": "Supports barrier \u2022 nourishes without clogging pores \u2022 helps maintain moisture balance"
+            "description": "A bio‑identical form of Vitamin A your skin recognizes as its own. Gentler than harsh retinol; supports collagen production without typical redness or peeling (edit if needed).",
+            "benefits": "Supports barrier • nourishes without clogging pores • helps maintain moisture balance"
           }
         },
         "block_1": {
@@ -415,7 +424,7 @@
             "title": "Italian olive oil",
             "tag": "Antioxidant + nourishment",
             "description": "Rich in vitamins and antioxidants, Italian olive oil helps protect the skin from environmental stressors while providing deep nourishment.",
-            "benefits": "Benefit 1 \u2022 Benefit 2 \u2022 Benefit 3"
+            "benefits": "Benefit 1 • Benefit 2 • Benefit 3"
           }
         },
         "block_2": {
@@ -425,7 +434,7 @@
             "title": "Sodium hyaluronate",
             "tag": "Smooths deep wrinkles",
             "description": "A salt form of hyaluronic acid that penetrates deep into the skin to lock in moisture and visibly smooth out fine lines and wrinkles.",
-            "benefits": "Benefit 1 \u2022 Benefit 2 \u2022 Benefit 3"
+            "benefits": "Benefit 1 • Benefit 2 • Benefit 3"
           }
         }
       },
@@ -436,7 +445,7 @@
       ],
       "settings": {
         "heading": "Only what your skin needs",
-        "subheading": "Not just hydration \u2014 ingredients selected to actively fight signs of time.",
+        "subheading": "Not just hydration — ingredients selected to actively fight signs of time.",
         "full_list_text": "Full Ingredient List",
         "full_list_content": ""
       }
@@ -480,6 +489,8 @@
     "kv-lp-new-design-product-day-money-back-guarantee": {
       "type": "kv-lp-new-design-product-day-money-back-guarantee",
       "settings": {
+        "background_image": "shopify://shop_images/BG_4.png",
+        "badge_icon": "shopify://shop_images/BG_5.png",
         "title": "60-day money-back guarantee",
         "subtitle": "<p>Every bottle is backed by our 60-day money-back promise, so you can try it with confidence.</p>"
       }
@@ -560,7 +571,15 @@
     },
     "kv-lp-new-design-product-what-our-customers-say": {
       "type": "kv-lp-new-design-product-what-our-customers-say",
-      "settings": {}
+      "settings": {
+        "heading": "What our customers say",
+        "summary_title": "Customer Reviews",
+        "average_rating": "4.47 out of 5",
+        "review_count_text": "Based on 734 reviews",
+        "sort_default": "Pictures First",
+        "total_global_reviews": "2,341",
+        "trustpilot_link": ""
+      }
     }
   },
   "order": [
