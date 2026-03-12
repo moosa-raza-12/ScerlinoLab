@@ -302,6 +302,7 @@
         "block_0": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/before_after_4_step_1.png",
             "badge": "WEEK 1–2",
             "title": "Hydration & Comfort",
             "feature_1": "Skin feels more hydrated and comfortable",
@@ -312,6 +313,7 @@
         "block_1": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/before_after_4_step_1_51f7ae0e-fdf9-4af8-a78c-d601ca50a0e8.png",
             "badge": "WEEK 3–6",
             "title": "Visible Improvement",
             "feature_1": "Skin texture looks more even",
@@ -322,6 +324,7 @@
         "block_2": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/before_after_4_step_1_6cfb0828-efce-4956-884a-5737477113cc.png",
             "badge": "WEEK 8–12",
             "title": "Transformation",
             "feature_1": "Skin looks firmer and more toned",
