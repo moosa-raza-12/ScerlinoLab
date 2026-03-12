@@ -152,6 +152,8 @@
         "block_1": {
           "type": "review",
           "settings": {
+            "image_before": "shopify://shop_images/Rectangle_4395_99d3268b-8b7d-42c2-9b17-5db0e270c8e6.png",
+            "image_after": "shopify://shop_images/Rectangle_4395.png",
             "label_before": "Before",
             "label_after": "Month 5",
             "reviewer_name": "Jason",
@@ -165,6 +167,8 @@
         "block_2": {
           "type": "review",
           "settings": {
+            "image_before": "shopify://shop_images/Rectangle_4395_99d3268b-8b7d-42c2-9b17-5db0e270c8e6.png",
+            "image_after": "shopify://shop_images/Rectangle_4395.png",
             "label_before": "Before",
             "label_after": "Month 5",
             "reviewer_name": "Jason",
