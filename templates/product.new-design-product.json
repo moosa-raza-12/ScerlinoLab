@@ -190,14 +190,14 @@
           "type": "usp",
           "settings": {
             "percentage": "98%",
-            "text": "Visible wrinkle \nreduction* in 4 weeks"
+            "text": "<p>Visible<strong> wrinkle <br/>reduction* in 4 weeks</strong></p>"
           }
         },
         "block_1": {
           "type": "usp",
           "settings": {
             "percentage": "94%",
-            "text": "Confirms rapid absorption without greasy effect"
+            "text": "<p>Confirms rapid absorption without greasy effect</p>"
           }
         }
       },
