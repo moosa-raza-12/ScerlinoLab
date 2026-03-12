@@ -197,7 +197,7 @@
           "type": "usp",
           "settings": {
             "percentage": "94%",
-            "text": "<p>Confirms rapid absorption without greasy effect</p>"
+            "text": "<p>Confirms rapid absorption without <strong>greasy effect</strong></p>"
           }
         }
       },
