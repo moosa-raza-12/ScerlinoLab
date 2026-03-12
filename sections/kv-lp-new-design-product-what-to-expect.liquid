@@ -9,9 +9,14 @@
 
     <div class="lp-wte__timeline-wrapper">
       <div class="lp-wte__timeline-track">
-        <div class="lp-wte__timeline-line"></div>
+        <div class="lp-wte__timeline-line" style="display: block !important;"></div>
         {% for block in section.blocks %}
-          <div class="lp-wte__timeline-dot" data-index="{{ forloop.index0 }}"></div>
+          <div class="lp-wte__timeline-dot" data-index="{{ forloop.index0 }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                <circle cx="12.1929" cy="12.1928" r="8.19289" transform="rotate(-90 12.1929 12.1928)" fill="#17162E"/>
+                <circle cx="12.1929" cy="12.1928" r="10.1929" transform="rotate(-90 12.1929 12.1928)" stroke="#17162E" stroke-opacity="0.2" stroke-width="4"/>
+              </svg>
+            </div>
         {% endfor %}
       </div>
 
@@ -34,7 +39,11 @@
                 {% if block.settings.feature_1 != blank %}
                   <li class="lp-wte__list-item">
                     <span class="lp-wte__icon">
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.6666 3.5L5.24992 9.91667L2.33325 7" stroke="#17162E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      {% if block.settings.icon != blank %}
+                        {{ block.settings.icon | image_url: width: 28 | image_tag: loading: 'lazy' }}
+                      {% else %}
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.6666 3.5L5.24992 9.91667L2.33325 7" stroke="#17162E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      {% endif %}
                     </span>
                     {{ block.settings.feature_1 }}
                   </li>
@@ -42,7 +51,11 @@
                 {% if block.settings.feature_2 != blank %}
                   <li class="lp-wte__list-item">
                     <span class="lp-wte__icon">
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.6666 3.5L5.24992 9.91667L2.33325 7" stroke="#17162E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      {% if block.settings.icon != blank %}
+                        {{ block.settings.icon | image_url: width: 28 | image_tag: loading: 'lazy' }}
+                      {% else %}
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.6666 3.5L5.24992 9.91667L2.33325 7" stroke="#17162E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      {% endif %}
                     </span>
                     {{ block.settings.feature_2 }}
                   </li>
@@ -50,7 +63,11 @@
                 {% if block.settings.feature_3 != blank %}
                   <li class="lp-wte__list-item">
                     <span class="lp-wte__icon">
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.6666 3.5L5.24992 9.91667L2.33325 7" stroke="#17162E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      {% if block.settings.icon != blank %}
+                        {{ block.settings.icon | image_url: width: 28 | image_tag: loading: 'lazy' }}
+                      {% else %}
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.6666 3.5L5.24992 9.91667L2.33325 7" stroke="#17162E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      {% endif %}
                     </span>
                     {{ block.settings.feature_3 }}
                   </li>
@@ -91,6 +108,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Feature Icon"
         },
         {
           "type": "text",
