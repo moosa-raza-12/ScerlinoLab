@@ -78,9 +78,9 @@
   height: 25px;
 }
 
-.lp-wte__timeline-dot[data-index="0"] { top: 0; }
+.lp-wte__timeline-dot[data-index="0"] {     top: 156px; }
 .lp-wte__timeline-dot[data-index="1"] { top: 50%; transform: translate(-50%, -50%); }
-.lp-wte__timeline-dot[data-index="2"] { bottom: 0; }
+.lp-wte__timeline-dot[data-index="2"] { bottom: 352px; }
 
 .lp-wte__cards {
   display: flex;

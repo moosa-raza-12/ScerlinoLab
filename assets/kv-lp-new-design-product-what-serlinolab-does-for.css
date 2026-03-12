@@ -42,7 +42,7 @@
 
 .lp-what-serlinolab__container {
   position: relative;
-  z-index: 3;
+  z-index: 1;
   width: 100%;
   max-width: 1440px;
   padding: 40px 20px;
@@ -61,7 +61,7 @@
 .lp-what-serlinolab__heading {
   font-family: inherit;
   font-size: 38px;
-  font-weight: 500;
+  font-weight: 500 !important;
   line-height: 1.1;
   letter-spacing: -1.52px;
   margin: 0 0 32px 0;
