@@ -254,24 +254,28 @@
         "block_0": {
           "type": "benefit",
           "settings": {
+            "icon": "shopify://shop_images/Icon_d9a91418-6571-4a6c-8251-945409d082f2.png",
             "title": "Visible wrinkle reduction*"
           }
         },
         "block_1": {
           "type": "benefit",
           "settings": {
+            "icon": "shopify://shop_images/fi_833593.png",
             "title": "Firmer feel in 2 weeks*"
           }
         },
         "block_2": {
           "type": "benefit",
           "settings": {
+            "icon": "shopify://shop_images/fi_10560079.png",
             "title": "Softer, more elastic skin*"
           }
         },
         "block_3": {
           "type": "benefit",
           "settings": {
+            "icon": "shopify://shop_images/fi_9893834.png",
             "title": "Rapid absorption"
           }
         }
