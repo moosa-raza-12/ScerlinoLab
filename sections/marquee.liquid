@@ -16,7 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 18px;
   white-space: nowrap;
   width: 100%;
   padding: 0 20px;
@@ -26,6 +26,7 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  display: none;
 }
 
 .section-{{ section.id }} .marquee-icon svg {
@@ -38,14 +39,15 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: {{ section.settings.font_size }}px;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.3px;
+  letter-spacing: 0px;
 }
 
 .section-{{ section.id }} .marquee-text-highlight {
-  font-weight: 700;
+  font-weight: 500;
   color: {{ section.settings.colorText }};
+  line-height: 14px;
 }
 
 .section-{{ section.id }} .marquee-text-regular {
@@ -56,47 +58,52 @@
 
 .section-{{ section.id }} .marquee-countdown {
   display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-left: 8px;
-  flex-shrink: 0;
+    align-items: center;
+    gap: 6px;
+    /* margin-left: 8px; */
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.20);
+    border-radius: 4px;
+    padding: 6px 8px;
+    height: 32px;
 }
 
 .section-{{ section.id }} .countdown-block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(255, 255, 255, 0.12);
+  /* background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
+  border-radius: 4px; */
   padding: 3px 6px;
   min-width: 32px;
   line-height: 1;
 }
 
 .section-{{ section.id }} .countdown-number {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: {{ section.settings.colorText }};
-  line-height: 1.2;
+  font-weight: 500;
+line-height: 12px;
 }
 
 .section-{{ section.id }} .countdown-label {
-  font-size: 7px;
-  font-weight: 500;
+  font-size: 8px;
+  font-weight: 350;
   color: {{ section.settings.colorText }};
-  opacity: 0.7;
+  opacity: 1;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0px;
   line-height: 1.2;
-  margin-top: 1px;
+  margin-top: 4px;
 }
 
 .section-{{ section.id }} .countdown-separator {
   font-size: 14px;
-  font-weight: 700;
+  /* font-weight: 700; */
   color: {{ section.settings.colorText }};
-  opacity: 0.5;
+  opacity: 1;
   padding: 0 1px;
   margin-bottom: 6px;
 }
@@ -105,21 +112,13 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  margin-left: 8px;
+  margin-left: 18px;
   opacity: 0.7;
   transition: opacity 0.2s ease;
 }
 
 .section-{{ section.id }} .marquee-link-icon:hover {
   opacity: 1;
-}
-
-.section-{{ section.id }} .marquee-link-icon svg {
-  width: 14px;
-  height: 14px;
-  fill: none;
-  stroke: {{ section.settings.colorText }};
-  stroke-width: 2;
 }
 
 .section-{{ section.id }}.custom-marquee a {
@@ -132,30 +131,69 @@
 }
 
 @media screen and (max-width: 749px) {
+  .section-{{ section.id }}.custom-marquee {
+    display: flex;
+    padding: 8px 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #17162E;
+    height: auto;
+  }
+
   .section-{{ section.id }} .marquee-inner {
-    gap: 10px;
-    padding: 0 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    white-space: normal;
   }
 
   .section-{{ section.id }} .marquee-text-content {
-    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    gap: 2px;
+    flex-shrink: 1;
+    width: 4;
+  }
+
+  .section-{{ section.id }} .marquee-text-content span {
+    /* white-space: nowrap; */
+  }
+
+  .section-{{ section.id }} .marquee-countdown {
+    padding: 4px 0px;
+    gap: 0px;
+    height: auto;
   }
 
   .section-{{ section.id }} .countdown-block {
     padding: 2px 4px;
-    min-width: 26px;
+    min-width: 24px;
   }
 
   .section-{{ section.id }} .countdown-number {
-    font-size: 11px;
+    font-size: 12px;
+    line-height: 12px;
   }
 
   .section-{{ section.id }} .countdown-label {
     font-size: 6px;
+    font-weight: 350;
+    margin-top: 2px;
   }
 
   .section-{{ section.id }} .countdown-separator {
     font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .section-{{ section.id }} .marquee-link-icon {
+    margin-left: 0;
   }
 }
 </style>
@@ -173,13 +211,13 @@
         </span>
       {%- endif -%}
 
-      <span class="marquee-text-content">
+      <div class="marquee-text-content">
         {%- for block in section.blocks -%}
           {%- if block.type == 'text' -%}
             <span class="marquee-text-{{ block.settings.text_style }}" {{ block.shopify_attributes }}>{{ block.settings.new_text | escape }}</span>
           {%- endif -%}
         {%- endfor -%}
-      </span>
+      </div>
 
       {%- if section.settings.enable_countdown -%}
         <div class="marquee-countdown" data-countdown-target="{{ section.settings.countdown_date }}">
@@ -205,13 +243,11 @@
         </div>
       {%- endif -%}
 
-      {%- if section.settings.link != blank -%}
-        <span class="marquee-link-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round"/>
+      <span class="marquee-link-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1 2H3.5V3H1V7H5V4.5H6V7C6 7.26522 5.89464 7.51957 5.70711 7.70711C5.51957 7.89464 5.26522 8 5 8H1C0.734784 8 0.48043 7.89464 0.292893 7.70711C0.105357 7.51957 0 7.26522 0 7V3C0 2.73478 0.105357 2.48043 0.292893 2.29289C0.48043 2.10536 0.734784 2 1 2ZM6.307 1H4V0H8V4H7V1.721L4.332 4.389L3.625 3.682L6.307 1Z" fill="white"/>
           </svg>
         </span>
-      {%- endif -%}
     </div>
   {% if section.settings.link != blank -%}
     </a>

@@ -120,8 +120,8 @@
 
 .lp-comparison-table__col--brand .lp-comparison-table__cell--header {
   height: 80px;
-  flex-direction: column;
-  gap: 6px;
+  /* flex-direction: column; */
+  gap: 10px;
   border-bottom: 1px solid rgba(10, 17, 36, 0.08);
 }
 
@@ -194,6 +194,7 @@
   align-items: center;
   gap: 12px;
   margin-top: 10px;
+  display: none;
 }
 
 .lp-comparison-table__badge-icon {
