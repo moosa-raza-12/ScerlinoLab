@@ -147,14 +147,16 @@
           "text_gpNtnP": {
             "type": "text",
             "settings": {
-              "new_text": "🔴 Omnis becomes SERLINOLAB"
+              "new_text": "❄️Winter sale Flat 47% off and free shipping",
+              "text_style": "highlight"
             }
           },
           "text_7MJDHc": {
             "type": "text",
             "disabled": true,
             "settings": {
-              "new_text": "Same Formulas, New Look"
+              "new_text": "Same Formulas, New Look",
+              "text_style": "highlight"
             }
           }
         },
@@ -171,7 +173,10 @@
           "colorText": "#ffffff",
           "link": "",
           "marquee_height": 54,
-          "font_size": 24
+          "font_size": 24,
+          "show_icon": true,
+          "enable_countdown": true,
+          "countdown_date": "2026-04-30T23:59:59"
         }
       }
     },
