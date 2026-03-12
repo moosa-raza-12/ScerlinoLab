@@ -8,6 +8,9 @@
   padding: 10px;
   box-sizing: border-box;
 }
+.lp-trustpilot-section{
+  display: none;
+}
 
 .lp-trustpilot-container {
   display: flex;

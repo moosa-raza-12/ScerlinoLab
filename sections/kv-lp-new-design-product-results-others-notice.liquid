@@ -4,7 +4,7 @@
   <div class="lp-results-notice__container">
     {% if section.settings.title != blank %}
       <header class="lp-results-notice__header">
-        <h2 class="lp-results-notice__title">{{ section.settings.title | newline_to_br }}</h2>
+        <h2 class="lp-results-notice__title">{{ section.settings.title }}</h2>
       </header>
     {% endif %}
 
@@ -36,9 +36,9 @@
             <div class="lp-results-notice__info">
               <h3 class="lp-results-notice__reviewer-name">{{ block.settings.reviewer_name }}</h3>
               <p class="lp-results-notice__reviewer-subtitle">{{ block.settings.reviewer_subtitle }}</p>
-              <blockquote class="lp-results-notice__testimonial">
+              <p class="lp-results-notice__testimonial">
                 {{ block.settings.testimonial }}
-              </blockquote>
+              </p>
               <div class="lp-results-notice__tags">
                 {% if block.settings.tag_1 != blank %}
                   <span class="lp-results-notice__tag">{{ block.settings.tag_1 }}</span>

@@ -2,158 +2,375 @@
 .section-{{ section.id }}.custom-marquee {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: {{ section.settings.marquee_height }}px;
   width: 100vw;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   background: {{ section.settings.colorBackground }};
   color: {{ section.settings.colorText }};
+  position: relative;
+}
+
+.section-{{ section.id }} .marquee-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  white-space: nowrap;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.section-{{ section.id }} .marquee-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.section-{{ section.id }} .marquee-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: {{ section.settings.colorText }};
+}
+
+.section-{{ section.id }} .marquee-text-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: {{ section.settings.font_size }}px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.section-{{ section.id }} .marquee-text-highlight {
+  font-weight: 700;
+  color: {{ section.settings.colorText }};
+}
+
+.section-{{ section.id }} .marquee-text-regular {
+  font-weight: 400;
+  color: {{ section.settings.colorText }};
+  opacity: 0.9;
+}
+
+.section-{{ section.id }} .marquee-countdown {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.section-{{ section.id }} .countdown-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 3px 6px;
+  min-width: 32px;
+  line-height: 1;
+}
+
+.section-{{ section.id }} .countdown-number {
+  font-size: 13px;
+  font-weight: 700;
+  color: {{ section.settings.colorText }};
+  line-height: 1.2;
+}
+
+.section-{{ section.id }} .countdown-label {
+  font-size: 7px;
+  font-weight: 500;
+  color: {{ section.settings.colorText }};
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  margin-top: 1px;
+}
+
+.section-{{ section.id }} .countdown-separator {
+  font-size: 14px;
+  font-weight: 700;
+  color: {{ section.settings.colorText }};
+  opacity: 0.5;
+  padding: 0 1px;
+  margin-bottom: 6px;
+}
+
+.section-{{ section.id }} .marquee-link-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 8px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.section-{{ section.id }} .marquee-link-icon:hover {
+  opacity: 1;
+}
+
+.section-{{ section.id }} .marquee-link-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: {{ section.settings.colorText }};
+  stroke-width: 2;
 }
 
 .section-{{ section.id }}.custom-marquee a {
   color: {{ section.settings.colorText }};
   text-decoration: none;
-}
-
-.section-{{ section.id }}.custom-marquee .track {
   display: flex;
   align-items: center;
-  white-space: nowrap;
-  will-change: transform;
-  animation: marquee 20s linear infinite;
+  justify-content: center;
+  width: 100%;
 }
 
-.section-{{ section.id }}.custom-marquee .content::after {
-  content: "●";
-  margin-left: 60px;
-  margin-right: 60px;
-  color: {{ section.settings.colorText }};
-  font-size: inherit;
-}
-
-/* NEW: Make the text bold */
-.section-{{ section.id }}.custom-marquee .content {
-  font-weight: bold;
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
+@media screen and (max-width: 749px) {
+  .section-{{ section.id }} .marquee-inner {
+    gap: 10px;
+    padding: 0 12px;
   }
-  to {
-    transform: translateX(-20%);
+
+  .section-{{ section.id }} .marquee-text-content {
+    font-size: 11px;
+  }
+
+  .section-{{ section.id }} .countdown-block {
+    padding: 2px 4px;
+    min-width: 26px;
+  }
+
+  .section-{{ section.id }} .countdown-number {
+    font-size: 11px;
+  }
+
+  .section-{{ section.id }} .countdown-label {
+    font-size: 6px;
+  }
+
+  .section-{{ section.id }} .countdown-separator {
+    font-size: 12px;
   }
 }
 </style>
 
-<div class="section-{{ section.id }} custom-marquee " role="region" {{ block.shopify_attributes }}>
+<div class="section-{{ section.id }} custom-marquee" role="region">
   {% if section.settings.link != blank -%}
-    <a href="{{ section.settings.link }}" class="">
+    <a href="{{ section.settings.link }}">
   {% endif -%}
-    <div class="track ">
-      {% for block in section.blocks -%}
-        <span class="content marquee-text">{{ block.settings.new_text | escape }}</span>
-      {% endfor -%}
-      {% for block in section.blocks -%}
-        <span class="content marquee-text">{{ block.settings.new_text | escape }}</span>
-      {% endfor -%}
-      {% for block in section.blocks -%}
-        <span class="content marquee-text">{{ block.settings.new_text | escape }}</span>
-      {% endfor -%}
-      {% for block in section.blocks -%}
-        <span class="content marquee-text">{{ block.settings.new_text | escape }}</span>
-      {% endfor -%}
-      {% for block in section.blocks -%}
-        <span class="content marquee-text">{{ block.settings.new_text | escape }}</span>
-      {% endfor -%}
-      {% for block in section.blocks -%}
-        <span class="content marquee-text">{{ block.settings.new_text | escape }}</span>
-      {% endfor -%}
-      {% for block in section.blocks -%}
-        <span class="content marquee-text">{{ block.settings.new_text | escape }}</span>
-      {% endfor -%}
-      {% for block in section.blocks -%}
-        <span class="content marquee-text">{{ block.settings.new_text | escape }}</span>
-      {% endfor -%}
-      {% if section.settings.link != blank -%}
-        {% render 'icon-arrow' %}
-      {% endif -%}
+    <div class="marquee-inner">
+      {%- if section.settings.show_icon -%}
+        <span class="marquee-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 2L13.09 8.26L18 6L14.74 10.91L21 12L14.74 13.09L18 18L13.09 15.74L12 22L10.91 15.74L6 18L9.26 13.09L3 12L9.26 10.91L6 6L10.91 8.26L12 2Z"/>
+          </svg>
+        </span>
+      {%- endif -%}
+
+      <span class="marquee-text-content">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'text' -%}
+            <span class="marquee-text-{{ block.settings.text_style }}" {{ block.shopify_attributes }}>{{ block.settings.new_text | escape }}</span>
+          {%- endif -%}
+        {%- endfor -%}
+      </span>
+
+      {%- if section.settings.enable_countdown -%}
+        <div class="marquee-countdown" data-countdown-target="{{ section.settings.countdown_date }}">
+          <div class="countdown-block">
+            <span class="countdown-number" data-days>00</span>
+            <span class="countdown-label">DAYS</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-block">
+            <span class="countdown-number" data-hours>00</span>
+            <span class="countdown-label">HRS</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-block">
+            <span class="countdown-number" data-minutes>00</span>
+            <span class="countdown-label">MIN</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-block">
+            <span class="countdown-number" data-seconds>00</span>
+            <span class="countdown-label">SEC</span>
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.link != blank -%}
+        <span class="marquee-link-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      {%- endif -%}
     </div>
   {% if section.settings.link != blank -%}
     </a>
   {% endif -%}
 </div>
 
+{%- if section.settings.enable_countdown -%}
+<script>
+  (function() {
+    const countdownEl = document.querySelector('.section-{{ section.id }} .marquee-countdown');
+    if (!countdownEl) return;
+
+    const targetDate = new Date(countdownEl.dataset.countdownTarget).getTime();
+    const daysEl = countdownEl.querySelector('[data-days]');
+    const hoursEl = countdownEl.querySelector('[data-hours]');
+    const minutesEl = countdownEl.querySelector('[data-minutes]');
+    const secondsEl = countdownEl.querySelector('[data-seconds]');
+
+    function pad(n) { return n < 10 ? '0' + n : n; }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      daysEl.textContent = pad(days);
+      hoursEl.textContent = pad(hours);
+      minutesEl.textContent = pad(minutes);
+      secondsEl.textContent = pad(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  })();
+</script>
+{%- endif -%}
+
 {% schema %}
 {
-  "name": "Marquee Text",
+  "name": "Marquee Announcement",
   "settings": [
     {
       "type": "color",
       "id": "colorBackground",
       "label": "Background color",
-      "default": "#000"
+      "default": "#1a1a2e"
     },
-{
-  "type": "color",
-  "id": "colorText",
-  "label": "Text color",
-  "default": "#ffffff"
-},
-{
-  "type": "url",
-  "id": "link",
-  "label": "Link"
-},
-{
-  "type": "range",
-  "id": "marquee_height",
-  "min": 24,
-  "max": 200,
-  "step": 2,
-  "default": 46,
-  "label": "Marquee height"
-},
-{
-  "type": "range",
-  "id": "font_size",
-  "min": 8,
-  "max": 100,
-  "step": 2,
-  "default": 24,
-  "label": "Font size"
-}
-],
-"blocks": [
-  {
-    "type": "text",
-    "name": "Text",
-    "limit": 20,
-    "settings": [
-      {
-        "type": "text",
-        "id": "new_text",
-        "default": "Welcome to store",
-        "label": "Text"
-      }
-    ]
-  }
-],
-"presets": [
-  {
-    "name": "Marquee",
-    "blocks": [
-      {
-        "type": "text"
-      },
-      {
-        "type": "text"
-      },
-      {
-        "type": "text"
-      }
-    ]
-  }
-]
+    {
+      "type": "color",
+      "id": "colorText",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "range",
+      "id": "marquee_height",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "default": 44,
+      "label": "Bar height"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "default": 13,
+      "label": "Font size"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon",
+      "label": "Show icon before text",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_countdown",
+      "label": "Enable countdown timer",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "countdown_date",
+      "label": "Countdown end date",
+      "default": "2026-04-30T23:59:59",
+      "info": "Format: YYYY-MM-DDTHH:MM:SS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "text",
+          "id": "new_text",
+          "default": "Winter sale",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "label": "Text style",
+          "default": "highlight",
+          "options": [
+            {
+              "value": "highlight",
+              "label": "Bold / Highlight"
+            },
+            {
+              "value": "regular",
+              "label": "Regular"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee Announcement",
+      "blocks": [
+        {
+          "type": "text",
+          "settings": {
+            "new_text": "❄ Winter sale",
+            "text_style": "highlight"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "new_text": "Flat 47% off and free shipping",
+            "text_style": "regular"
+          }
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}
