@@ -20,7 +20,7 @@
               <span class="lp-efficacy__percentage">{{ block.settings.percentage }}</span>
             {% endif %}
             {% if block.settings.text != blank %}
-              <span class="lp-efficacy__usp-text">{{ block.settings.text | newline_to_br }}</span>
+              <span class="lp-efficacy__usp-text">{{ block.settings.text }}</span>
             {% endif %}
           </div>
         {% endfor %}
@@ -79,10 +79,10 @@
           "default": "98%"
         },
         {
-          "type": "textarea",
+          "type": "richtext",
           "id": "text",
           "label": "Text",
-          "default": "Visible wrinkle \nreduction* in 4 weeks"
+          "default": "<p>Visible wrinkle reduction* in 4 weeks</p>"
         }
       ]
     }
@@ -95,14 +95,14 @@
           "type": "usp",
           "settings": {
             "percentage": "98%",
-            "text": "Visible wrinkle \nreduction* in 4 weeks"
+            "text": "<p>Visible wrinkle reduction* in 4 weeks</p>"
           }
         },
         {
           "type": "usp",
           "settings": {
             "percentage": "94%",
-            "text": "Confirms rapid absorption without greasy effect"
+            "text": "<p>Confirms rapid absorption without greasy effect</p>"
           }
         }
       ]
