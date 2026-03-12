@@ -128,74 +128,6 @@
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
-    "color_schemes": {
-      "scheme-1": {
-        "settings": {
-          "background": "#ffffff",
-          "background_gradient": "",
-          "text": "#17162e",
-          "button": "#17162e",
-          "button_label": "#17162e",
-          "secondary_button_label": "#17162e",
-          "shadow": "#17162e"
-        }
-      },
-      "scheme-2": {
-        "settings": {
-          "background": "#ffffff",
-          "background_gradient": "",
-          "text": "#151723",
-          "button": "#ffd700",
-          "button_label": "#151723",
-          "secondary_button_label": "#151723",
-          "shadow": "#151723"
-        }
-      },
-      "scheme-3": {
-        "settings": {
-          "background": "#242833",
-          "background_gradient": "",
-          "text": "#ffffff",
-          "button": "#ffffff",
-          "button_label": "#000000",
-          "secondary_button_label": "#ffffff",
-          "shadow": "#121212"
-        }
-      },
-      "scheme-4": {
-        "settings": {
-          "background": "#17162e",
-          "background_gradient": "",
-          "text": "#ffffff",
-          "button": "#ffffff",
-          "button_label": "#121212",
-          "secondary_button_label": "#ffffff",
-          "shadow": "#121212"
-        }
-      },
-      "scheme-5": {
-        "settings": {
-          "background": "#17162e",
-          "background_gradient": "",
-          "text": "#ffffff",
-          "button": "#ffffff",
-          "button_label": "#17162e",
-          "secondary_button_label": "#ffffff",
-          "shadow": "#17162e"
-        }
-      },
-      "scheme-79fcacf1-4b41-43d9-9d33-295c56e381e8": {
-        "settings": {
-          "background": "#ffffff",
-          "background_gradient": "",
-          "text": "#ffffff",
-          "button": "#ffd700",
-          "button_label": "#ffd700",
-          "secondary_button_label": "#151723",
-          "shadow": "#151723"
-        }
-      }
-    },
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
@@ -214,12 +146,14 @@
         "blocks": {
           "text_gpNtnP": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "new_text": "🔴 Omnis becomes SERLINOLAB"
             }
           },
           "text_7MJDHc": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "new_text": "Same Formulas, New Look"
             }
@@ -288,6 +222,74 @@
         "type": "shopify://apps/aftersell-by-rokt/blocks/utm-triggers/509ec35d-0632-4dfc-a105-fa799cd9d149",
         "disabled": false,
         "settings": {}
+      }
+    },
+    "color_schemes": {
+      "scheme-1": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#17162e",
+          "button": "#17162e",
+          "button_label": "#17162e",
+          "secondary_button_label": "#17162e",
+          "shadow": "#17162e"
+        }
+      },
+      "scheme-2": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#151723",
+          "button": "#ffd700",
+          "button_label": "#151723",
+          "secondary_button_label": "#151723",
+          "shadow": "#151723"
+        }
+      },
+      "scheme-3": {
+        "settings": {
+          "background": "#242833",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#000000",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-4": {
+        "settings": {
+          "background": "#17162e",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#121212",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-5": {
+        "settings": {
+          "background": "#17162e",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#17162e",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#17162e"
+        }
+      },
+      "scheme-79fcacf1-4b41-43d9-9d33-295c56e381e8": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffd700",
+          "button_label": "#ffd700",
+          "secondary_button_label": "#151723",
+          "shadow": "#151723"
+        }
       }
     }
   },
