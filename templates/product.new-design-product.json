@@ -284,6 +284,8 @@
       ],
       "settings": {
         "heading": "What SerlinoLab does\nfor your skin",
+        "image_desktop": "shopify://shop_images/696eaaac5e09a324d06f9057d076eb2d38e71bfc.png",
+        "image_mobile": "shopify://shop_images/696eaaac5e09a324d06f9057d076eb2d38e71bfc.png",
         "trustpilot_score": "4.6 Excellent",
         "trustpilot_reviews": "3,439+ reviews"
       }
@@ -303,6 +305,7 @@
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/before_after_4_step_1.png",
+            "icon": "shopify://shop_images/Icon.png",
             "badge": "WEEK 1–2",
             "title": "Hydration & Comfort",
             "feature_1": "Skin feels more hydrated and comfortable",
@@ -314,6 +317,7 @@
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/before_after_4_step_1_51f7ae0e-fdf9-4af8-a78c-d601ca50a0e8.png",
+            "icon": "shopify://shop_images/Icon.png",
             "badge": "WEEK 3–6",
             "title": "Visible Improvement",
             "feature_1": "Skin texture looks more even",
@@ -325,6 +329,7 @@
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/before_after_4_step_1_6cfb0828-efce-4956-884a-5737477113cc.png",
+            "icon": "shopify://shop_images/Icon.png",
             "badge": "WEEK 8–12",
             "title": "Transformation",
             "feature_1": "Skin looks firmer and more toned",
