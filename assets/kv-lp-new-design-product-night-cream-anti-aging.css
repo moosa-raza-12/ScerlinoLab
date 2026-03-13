@@ -152,6 +152,7 @@
   margin: 0;
   line-height: 1.2;
   letter-spacing: 0px;
+  width: 85%;
 }
 @media (min-width: 1024px) {
   .lp-benefit-text { font-size: 12px; }
@@ -464,13 +465,13 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 120px;
+  /* width is set dynamically via JS based on visible ratio */
   height: 3px;
   border-radius: 16px;
   background: #17162E;
   cursor: grab;
   transition: left 0.08s linear;
-display: block !important;
+  display: block !important;
 }
 .lp-testimonials__scroll-bar.is-dragging .lp-testimonials__scroll-thumb {
   cursor: grabbing;
@@ -483,7 +484,7 @@ display: block !important;
 .lp-quick-links__pills { display: flex; flex-wrap: wrap; gap: 8px; }
 .lp-pill {
   background: var(--white);
-  padding: 8px 12px;
+  padding: 8px 9px;
   border-radius: 99px;
   font-size: 12px;
   font-weight: 350;
