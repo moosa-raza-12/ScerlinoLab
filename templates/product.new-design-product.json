@@ -173,6 +173,20 @@
             "label": "Guarantee",
             "section_id": ""
           }
+        },
+        "quick_link_UnVtce": {
+          "type": "quick_link",
+          "settings": {
+            "label": "FAQs",
+            "section_id": ""
+          }
+        },
+        "quick_link_BgKdhq": {
+          "type": "quick_link",
+          "settings": {
+            "label": "Reviews",
+            "section_id": ""
+          }
         }
       },
       "block_order": [
@@ -196,7 +210,9 @@
         "quick_link_UzhmMP",
         "quick_link_pHbkGi",
         "quick_link_3RgagG",
-        "quick_link_RAEJcF"
+        "quick_link_RAEJcF",
+        "quick_link_UnVtce",
+        "quick_link_BgKdhq"
       ],
       "settings": {
         "title_override": "",
