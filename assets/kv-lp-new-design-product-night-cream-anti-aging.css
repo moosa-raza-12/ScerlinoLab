@@ -292,6 +292,7 @@
   margin: 16px 0 32px;
 }
 .lp-guarantee-icon { flex-shrink: 0; }
+.lp-guarantee-icon-img { display: block; width: 40px; height: 40px; object-fit: contain; }
 .lp-guarantee-text p { margin: 0; }
 
 /* FAQs */
