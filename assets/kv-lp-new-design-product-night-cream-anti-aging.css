@@ -35,14 +35,11 @@
 }
 .lp-product-gallery__track {
   display: flex;
-  scroll-snap-type: x mandatory;
-  overflow-x: auto;
-  scrollbar-width: none;
+  transition: transform 0.4s ease;
 }
-.lp-product-gallery__track::-webkit-scrollbar { display: none; }
 .lp-product-gallery__item {
   min-width: 100%;
-  scroll-snap-align: start;
+  flex-shrink: 0;
   aspect-ratio: 1 / 1;
 }
 .lp-product-gallery__img {

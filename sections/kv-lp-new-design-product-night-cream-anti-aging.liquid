@@ -1,33 +1,41 @@
 {{ 'kv-lp-new-design-product-night-cream-anti-aging.css' | asset_url | stylesheet_tag }}
 
-<section class="lp-product-details" data-section-id="{{ section.id }}">
+{%- assign product = section.settings.product -%}
+
+<section class="lp-product-details" data-section-id="{{ section.id }}" data-product-url="{{ product.url | within: collection }}">
   <div class="lp-product-details__container">
     {% comment %} Gallery Section {% endcomment %}
     <div class="lp-product-gallery">
       <div class="lp-product-gallery__main">
         <div class="lp-product-gallery__track" id="GalleryTrack-{{ section.id }}">
-          <div class="lp-product-gallery__item">
-            {% if section.settings.image != blank %}
-              {{ section.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'lp-product-gallery__img' }}
-            {% else %}
+          {% if product.images.size > 0 %}
+            {% for image in product.images %}
+              <div class="lp-product-gallery__item{% if forloop.first %} active{% endif %}">
+                {{ image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'lp-product-gallery__img', alt: image.alt | default: product.title }}
+              </div>
+            {% endfor %}
+          {% else %}
+            <div class="lp-product-gallery__item active">
               {{ 'product-1' | placeholder_svg_tag: 'lp-product-gallery__img' }}
-            {% endif %}
-          </div>
+            </div>
+          {% endif %}
         </div>
         
-        <div class="lp-product-gallery__nav">
-          <button class="lp-product-gallery__arrow lp-product-gallery__arrow--prev" aria-label="Previous">
-            <svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M8 1L1 8L8 15M1 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="lp-product-gallery__dots">
-            <span class="lp-product-gallery__dot active"></span>
-            <span class="lp-product-gallery__dot"></span>
-            <span class="lp-product-gallery__dot"></span>
+        {% if product.images.size > 1 %}
+          <div class="lp-product-gallery__nav">
+            <button class="lp-product-gallery__arrow lp-product-gallery__arrow--prev" aria-label="Previous">
+              <svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M8 1L1 8L8 15M1 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="lp-product-gallery__dots">
+              {% for image in product.images %}
+                <span class="lp-product-gallery__dot{% if forloop.first %} active{% endif %}" data-index="{{ forloop.index0 }}"></span>
+              {% endfor %}
+            </div>
+            <button class="lp-product-gallery__arrow lp-product-gallery__arrow--next" aria-label="Next">
+              <svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M12 1L19 8L12 15M19 8H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
           </div>
-          <button class="lp-product-gallery__arrow lp-product-gallery__arrow--next" aria-label="Next">
-            <svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M12 1L19 8L12 15M19 8H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
+        {% endif %}
       </div>
     </div>
 
@@ -42,8 +50,8 @@
         </div>
       </div>
 
-      <h1 class="lp-product-title">{{ section.settings.title }}</h1>
-      <p class="lp-product-description">{{ section.settings.description }}</p>
+      <h1 class="lp-product-title">{{ product.title | default: section.settings.fallback_title }}</h1>
+      <p class="lp-product-description">{{ product.description | default: section.settings.fallback_description }}</p>
 
       <div class="lp-benefits-grid">
         {% for block in section.blocks %}
@@ -64,8 +72,17 @@
         <div class="lp-variant-picker__options">
           {% for block in section.blocks %}
             {% if block.type == 'bundle' %}
-              <div class="lp-bundle-item">
-                <input type="radio" name="bundle-selection" id="bundle-{{ block.id }}" class="lp-bundle-radio" {% if forloop.first %}checked{% endif %}>
+              {%- assign bundle_product = block.settings.variant_product -%}
+              {%- assign bundle_variant = bundle_product.selected_or_first_available_variant -%}
+              <div class="lp-bundle-item" {{ block.shopify_attributes }}>
+                <input
+                  type="radio"
+                  name="bundle-selection"
+                  id="bundle-{{ block.id }}"
+                  class="lp-bundle-radio"
+                  {% if bundle_variant %}data-variant-id="{{ bundle_variant.id }}"{% endif %}
+                  {% if forloop.first %}checked{% endif %}
+                >
                 <label for="bundle-{{ block.id }}" class="lp-bundle-card">
                   {% if block.settings.badge_text != blank %}
                     <span class="lp-bundle-badge lp-bundle-badge--{{ block.settings.badge_type }}">{{ block.settings.badge_text }}</span>
@@ -79,10 +96,17 @@
                       {% endif %}
                     </div>
                     <div class="lp-bundle-pricing">
-                      {% if block.settings.old_price != blank %}
-                        <span class="lp-bundle-price-old">{{ block.settings.old_price }}</span>
+                      {% if bundle_variant %}
+                        {% if bundle_variant.compare_at_price > bundle_variant.price %}
+                          <span class="lp-bundle-price-old">{{ bundle_variant.compare_at_price | money }}</span>
+                        {% endif %}
+                        <span class="lp-bundle-price-new">{{ bundle_variant.price | money }}<small>/ea</small></span>
+                      {% else %}
+                        {% if block.settings.old_price != blank %}
+                          <span class="lp-bundle-price-old">{{ block.settings.old_price }}</span>
+                        {% endif %}
+                        <span class="lp-bundle-price-new">{{ block.settings.new_price }}<small>/ea</small></span>
                       {% endif %}
-                      <span class="lp-bundle-price-new">{{ block.settings.new_price }}<small>/ea</small></span>
                     </div>
                   </div>
                   
@@ -104,15 +128,23 @@
       <p class="lp-results-note">Visible results in ~4 weeks. Maximum effectiveness commonly reported after 2 bottles. Results may vary person to person</p>
 
       <div class="lp-atc-section">
-        <button class="lp-atc-button">
-          <span>Add to cart</span>
-          <span class="lp-atc-price">
-            <del>$209</del>
-            <strong>$74.99</strong>
-          </span>
-        </button>
+        {%- assign selected_variant = product.selected_or_first_available_variant -%}
+        <product-form>
+          {%- form 'product', product, id: 'ProductForm-lp', novalidate: 'novalidate' -%}
+            <input type="hidden" name="id" value="{{ selected_variant.id }}" id="lpVariantId-{{ section.id }}">
+            <button type="submit" class="lp-atc-button" {% unless selected_variant.available %}disabled{% endunless %}>
+              <span>{% if selected_variant.available %}Add to cart{% else %}Sold out{% endif %}</span>
+              <span class="lp-atc-price">
+                {% if selected_variant.compare_at_price > selected_variant.price %}
+                  <del>{{ selected_variant.compare_at_price | money }}</del>
+                {% endif %}
+                <strong>{{ selected_variant.price | money }}</strong>
+              </span>
+            </button>
+          {%- endform -%}
+        </product-form>
         <div class="lp-shipping-meta">
-          <span class="lp-meta-item"><span class="lp-dot"></span> Delivers by Feb 21</span>
+          <span class="lp-meta-item"><span class="lp-dot"></span> Fast delivery</span>
           <span class="lp-meta-item"><img src="https://cdn.shopify.com/s/files/1/0656/3453/3633/files/truck.png?v=1715587421" alt="" width="16"> FREE Shipping to USA</span>
         </div>
       </div>
@@ -181,11 +213,67 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const slider = document.querySelector('.lp-testimonials__slider');
-  const progress = document.querySelector('.lp-testimonials__scroll-progress');
-  
+  const section = document.querySelector('[data-section-id="{{ section.id }}"]');
+  if (!section) return;
+
+  /* --- Image gallery carousel --- */
+  const track = section.querySelector('#GalleryTrack-{{ section.id }}');
+  const items = track ? Array.from(track.querySelectorAll('.lp-product-gallery__item')) : [];
+  const dots = section.querySelectorAll('.lp-product-gallery__dot');
+  const prevBtn = section.querySelector('.lp-product-gallery__arrow--prev');
+  const nextBtn = section.querySelector('.lp-product-gallery__arrow--next');
+  let currentSlide = 0;
+
+  function goToSlide(index) {
+    if (items.length === 0) return;
+    currentSlide = (index + items.length) % items.length;
+    track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+    dots.forEach(function(dot, i) {
+      dot.classList.toggle('active', i === currentSlide);
+    });
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', function() { goToSlide(currentSlide - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function() { goToSlide(currentSlide + 1); });
+  dots.forEach(function(dot, i) {
+    dot.addEventListener('click', function() { goToSlide(i); });
+  });
+
+  /* --- Bundle selection → update variant id & ATC price --- */
+  const bundleRadios = section.querySelectorAll('.lp-bundle-radio');
+  const variantInput = section.querySelector('[id^="lpVariantId"]');
+  const atcPrice = section.querySelector('.lp-atc-price');
+  const atcButton = section.querySelector('.lp-atc-button');
+
+  bundleRadios.forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      const variantId = this.dataset.variantId;
+      if (variantId && variantInput) {
+        variantInput.value = variantId;
+      }
+      const label = this.nextElementSibling;
+      if (label && atcPrice) {
+        const oldP = label.querySelector('.lp-bundle-price-old');
+        const newP = label.querySelector('.lp-bundle-price-new');
+        if (newP) {
+          let priceHtml = '';
+          if (oldP) priceHtml += '<del>' + oldP.textContent + '</del> ';
+          priceHtml += '<strong>' + newP.childNodes[0].textContent.trim() + '</strong>';
+          atcPrice.innerHTML = priceHtml;
+        }
+      }
+      if (atcButton) {
+        atcButton.disabled = false;
+        atcButton.querySelector('span:first-child').textContent = 'Add to cart';
+      }
+    });
+  });
+
+  /* --- Testimonials scroll progress --- */
+  const slider = section.querySelector('.lp-testimonials__slider');
+  const progress = section.querySelector('.lp-testimonials__scroll-progress');
   if (slider && progress) {
-    slider.addEventListener('scroll', () => {
+    slider.addEventListener('scroll', function() {
       const scrollPercent = (slider.scrollLeft / (slider.scrollWidth - slider.clientWidth)) * 100;
       progress.style.width = scrollPercent + '%';
     });
@@ -198,21 +286,23 @@ document.addEventListener('DOMContentLoaded', function() {
   "name": "Product Details Serlino",
   "settings": [
     {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Product Image"
+      "type": "product",
+      "id": "product",
+      "label": "Product"
     },
     {
       "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "Night cream anti-aging formula"
+      "id": "fallback_title",
+      "label": "Fallback Title",
+      "default": "Night cream anti-aging formula",
+      "info": "Shown only when no product is selected"
     },
     {
       "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "Pharmaceutical-grade retinyl palmitate meets organic Italian olive oil. Targets wrinkles, firmness, and tired skin while you sleep."
+      "id": "fallback_description",
+      "label": "Fallback Description",
+      "default": "Pharmaceutical-grade retinyl palmitate meets organic Italian olive oil. Targets wrinkles, firmness, and tired skin while you sleep.",
+      "info": "Shown only when no product is selected"
     }
   ],
   "blocks": [
@@ -236,6 +326,12 @@ document.addEventListener('DOMContentLoaded', function() {
       "type": "bundle",
       "name": "Bundle Option",
       "settings": [
+        {
+          "type": "product",
+          "id": "variant_product",
+          "label": "Product (for variant pricing)",
+          "info": "Select the product whose variant to use for pricing. Leave blank to use manual prices."
+        },
         {
           "type": "text",
           "id": "title",

@@ -106,6 +106,7 @@
   font-size: 13px;
   font-weight: 400;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  letter-spacing: 0px;
 }
 
 .lp-comparison-table__cell:last-child {
