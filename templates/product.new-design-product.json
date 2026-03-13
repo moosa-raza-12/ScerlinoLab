@@ -43,6 +43,7 @@
         "block_4": {
           "type": "bundle",
           "settings": {
+            "variant_product": "",
             "title": "6-month treatment",
             "badge_text": "Best Value",
             "badge_type": "gold",
@@ -56,6 +57,7 @@
         "block_5": {
           "type": "bundle",
           "settings": {
+            "variant_product": "",
             "title": "3-month treatment",
             "badge_text": "Most Popular",
             "badge_type": "navy",
@@ -69,6 +71,7 @@
         "block_6": {
           "type": "bundle",
           "settings": {
+            "variant_product": "",
             "title": "1-month treatment",
             "badge_text": "",
             "badge_type": "gold",
@@ -110,6 +113,18 @@
           "settings": {
             "video_url": ""
           }
+        },
+        "testimonial_video_ELzybj": {
+          "type": "testimonial_video",
+          "settings": {
+            "video_url": ""
+          }
+        },
+        "testimonial_video_RxUcTA": {
+          "type": "testimonial_video",
+          "settings": {
+            "video_url": ""
+          }
         }
       },
       "block_order": [
@@ -124,11 +139,14 @@
         "block_8",
         "block_9",
         "block_10",
-        "block_11"
+        "block_11",
+        "testimonial_video_ELzybj",
+        "testimonial_video_RxUcTA"
       ],
       "settings": {
-        "title": "Night cream anti-aging formula",
-        "description": "Pharmaceutical-grade retinyl palmitate meets organic Italian olive oil. Targets wrinkles, firmness, and tired skin while you sleep."
+        "product": "",
+        "fallback_title": "Night cream anti-aging formula",
+        "fallback_description": "Pharmaceutical-grade retinyl palmitate meets organic Italian olive oil. Targets wrinkles, firmness, and tired skin while you sleep."
       }
     },
     "kv-lp-new-design-product-results-others-notice": {
