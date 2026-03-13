@@ -291,6 +291,8 @@
   font-size: 14px;
   margin: 16px 0 32px;
 }
+.lp-guarantee-icon { flex-shrink: 0; }
+.lp-guarantee-text p { margin: 0; }
 
 /* FAQs */
 .lp-faq-item {
@@ -304,20 +306,22 @@
   align-items: center;
   cursor: pointer;
   font-weight: 350;
-  font-size: 14px;
+  font-size: 16px;
+  letter-spacing: 0px;
 }
 .lp-faq-summary::-webkit-details-marker { display: none; }
 .lp-faq-summary svg { transition: transform 0.2s; }
 .lp-faq-item[open] .lp-faq-summary svg { transform: rotate(180deg); }
-.lp-faq-content { padding-top: 12px; font-size: 14px; opacity: 0.7; }
+.lp-faq-content { padding-top: 12px; font-size: 14px; opacity: 0.7; letter-spacing: 0px; }
 
 /* Testimonials */
 .lp-testimonials { margin-top: 40px; }
 .lp-testimonials__title {
   font-size: 28px;
-  font-weight: 500;
+  font-weight: 500 !important;
   margin-bottom: 20px;
   text-align: left;
+  letter-spacing: 0px;
 }
 .lp-testimonials__slider {
   display: flex;
@@ -344,6 +348,15 @@
     min-width: 42%;
     flex: 0 0 42%;
   }
+}
+.lp-faq-summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 350;
+  font-size: 14px;
 }
 .lp-video-wrapper {
   width: 100%;
