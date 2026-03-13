@@ -145,6 +145,7 @@
       "settings": {
         "title_override": "",
         "description_override": "",
+        "guarantee_icon": "shopify://shop_images/Badge.png",
         "guarantee_text": "<p><strong>Less than 1% </strong>of customers claim our 60 Days Money Back Guarantee.</p>"
       }
     },
