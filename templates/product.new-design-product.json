@@ -43,13 +43,11 @@
         "block_4": {
           "type": "bundle",
           "settings": {
-            "variant_product": "",
+            "variant_index": 0,
             "title": "6-month treatment",
             "badge_text": "Best Value",
             "badge_type": "gold",
             "shipping_info": "Free Shipping",
-            "old_price": "$69",
-            "new_price": "$24.99",
             "gift_value": "$100",
             "free_gift_content": "<p>Free eye contour(worth $40)</p><p>Free body cream (worth $60)</p>"
           }
@@ -57,13 +55,11 @@
         "block_5": {
           "type": "bundle",
           "settings": {
-            "variant_product": "",
+            "variant_index": 0,
             "title": "3-month treatment",
             "badge_text": "Most Popular",
             "badge_type": "navy",
             "shipping_info": "Free Shipping",
-            "old_price": "$69",
-            "new_price": "$39.99",
             "gift_value": "",
             "free_gift_content": ""
           }
@@ -71,13 +67,11 @@
         "block_6": {
           "type": "bundle",
           "settings": {
-            "variant_product": "",
+            "variant_index": 0,
             "title": "1-month treatment",
             "badge_text": "",
             "badge_type": "gold",
             "shipping_info": "+ $4.95 Shipping",
-            "old_price": "",
-            "new_price": "$69.99",
             "gift_value": "",
             "free_gift_content": ""
           }
@@ -99,36 +93,36 @@
         "block_9": {
           "type": "testimonial_video",
           "settings": {
-            "video_poster": "shopify://shop_images/46f7d7eead8e9dce4769b39efeaf5834d8c772a1.png",
-            "video_url": ""
+            "video": "shopify://files/videos/moast-Ugc Video 08 Eng.mp4",
+            "video_caption": ""
           }
         },
         "block_10": {
           "type": "testimonial_video",
           "settings": {
-            "video_poster": "shopify://shop_images/46f7d7eead8e9dce4769b39efeaf5834d8c772a1.png",
-            "video_url": ""
+            "video": "shopify://files/videos/moast-Ugc Video 03 Eng.mp4",
+            "video_caption": ""
           }
         },
         "block_11": {
           "type": "testimonial_video",
           "settings": {
-            "video_poster": "shopify://shop_images/46f7d7eead8e9dce4769b39efeaf5834d8c772a1.png",
-            "video_url": ""
+            "video": "shopify://files/videos/moast-Ugc Video 01 Eng.mp4",
+            "video_caption": ""
           }
         },
         "testimonial_video_ELzybj": {
           "type": "testimonial_video",
           "settings": {
-            "video_poster": "shopify://shop_images/46f7d7eead8e9dce4769b39efeaf5834d8c772a1.png",
-            "video_url": ""
+            "video": "shopify://files/videos/moast-Ugc Video 09 Eng.mp4",
+            "video_caption": ""
           }
         },
         "testimonial_video_RxUcTA": {
           "type": "testimonial_video",
           "settings": {
-            "video_poster": "shopify://shop_images/46f7d7eead8e9dce4769b39efeaf5834d8c772a1.png",
-            "video_url": ""
+            "video": "shopify://files/videos/moast-Ugc Video 02 Eng.mp4",
+            "video_caption": ""
           }
         }
       },
@@ -149,9 +143,8 @@
         "testimonial_video_RxUcTA"
       ],
       "settings": {
-        "product": "",
-        "fallback_title": "Night cream anti-aging formula",
-        "fallback_description": "Pharmaceutical-grade retinyl palmitate meets organic Italian olive oil. Targets wrinkles, firmness, and tired skin while you sleep."
+        "title_override": "",
+        "description_override": ""
       }
     },
     "kv-lp-new-design-product-results-others-notice": {
