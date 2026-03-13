@@ -1,33 +1,68 @@
 {{ 'kv-lp-new-design-product-night-cream-anti-aging.css' | asset_url | stylesheet_tag }}
 
-{%- assign product = section.settings.product -%}
-
 <section class="lp-product-details" data-section-id="{{ section.id }}" data-product-url="{{ product.url | within: collection }}">
   <div class="lp-product-details__container">
     {% comment %} Gallery Section {% endcomment %}
     <div class="lp-product-gallery">
       <div class="lp-product-gallery__main">
+        {%- assign extra_image_count = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'gallery_image' and block.settings.image != blank -%}
+            {%- assign extra_image_count = extra_image_count | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- assign total_slides = product.images.size | plus: extra_image_count -%}
+        {%- assign slide_index = 0 -%}
+
         <div class="lp-product-gallery__track" id="GalleryTrack-{{ section.id }}">
           {% if product.images.size > 0 %}
             {% for image in product.images %}
-              <div class="lp-product-gallery__item{% if forloop.first %} active{% endif %}">
-                {{ image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'lp-product-gallery__img', alt: image.alt | default: product.title }}
+              {%- assign img_alt = image.alt | default: product.title -%}
+              <div class="lp-product-gallery__item{% if slide_index == 0 %} active{% endif %}">
+                <img
+                  src="{{ image | image_url: width: 800 }}"
+                  alt="{{ img_alt | escape }}"
+                  loading="lazy"
+                  width="{{ image.width }}"
+                  height="{{ image.height }}"
+                  class="lp-product-gallery__img"
+                >
               </div>
+              {%- assign slide_index = slide_index | plus: 1 -%}
             {% endfor %}
-          {% else %}
+          {% endif %}
+
+          {% for block in section.blocks %}
+            {% if block.type == 'gallery_image' and block.settings.image != blank %}
+              {%- assign extra_alt = block.settings.image.alt | default: product.title -%}
+              <div class="lp-product-gallery__item" {{ block.shopify_attributes }}>
+                <img
+                  src="{{ block.settings.image | image_url: width: 800 }}"
+                  alt="{{ extra_alt | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                  class="lp-product-gallery__img"
+                >
+              </div>
+              {%- assign slide_index = slide_index | plus: 1 -%}
+            {% endif %}
+          {% endfor %}
+
+          {% if total_slides == 0 %}
             <div class="lp-product-gallery__item active">
               {{ 'product-1' | placeholder_svg_tag: 'lp-product-gallery__img' }}
             </div>
           {% endif %}
         </div>
         
-        {% if product.images.size > 1 %}
+        {% if total_slides > 1 %}
           <div class="lp-product-gallery__nav">
             <button class="lp-product-gallery__arrow lp-product-gallery__arrow--prev" aria-label="Previous">
               <svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M8 1L1 8L8 15M1 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="lp-product-gallery__dots">
-              {% for image in product.images %}
+              {% for i in (1..total_slides) %}
                 <span class="lp-product-gallery__dot{% if forloop.first %} active{% endif %}" data-index="{{ forloop.index0 }}"></span>
               {% endfor %}
             </div>
@@ -50,8 +85,8 @@
         </div>
       </div>
 
-      <h1 class="lp-product-title">{{ product.title | default: section.settings.fallback_title }}</h1>
-      <p class="lp-product-description">{{ product.description | default: section.settings.fallback_description }}</p>
+      <h1 class="lp-product-title">{% if section.settings.title_override != blank %}{{ section.settings.title_override }}{% else %}{{ product.title }}{% endif %}</h1>
+      <div class="lp-product-description">{% if section.settings.description_override != blank %}{{ section.settings.description_override }}{% else %}{{ product.description }}{% endif %}</div>
 
       <div class="lp-benefits-grid">
         {% for block in section.blocks %}
@@ -72,15 +107,15 @@
         <div class="lp-variant-picker__options">
           {% for block in section.blocks %}
             {% if block.type == 'bundle' %}
-              {%- assign bundle_product = block.settings.variant_product -%}
-              {%- assign bundle_variant = bundle_product.selected_or_first_available_variant -%}
               <div class="lp-bundle-item" {{ block.shopify_attributes }}>
+                {%- assign variant_index = block.settings.variant_index | default: 0 -%}
+                {%- assign bundle_variant = product.variants[variant_index] -%}
                 <input
                   type="radio"
                   name="bundle-selection"
                   id="bundle-{{ block.id }}"
                   class="lp-bundle-radio"
-                  {% if bundle_variant %}data-variant-id="{{ bundle_variant.id }}"{% endif %}
+                  data-variant-id="{{ bundle_variant.id }}"
                   {% if forloop.first %}checked{% endif %}
                 >
                 <label for="bundle-{{ block.id }}" class="lp-bundle-card">
@@ -90,23 +125,16 @@
                   <div class="lp-bundle-header">
                     <div class="lp-bundle-title-group">
                       <span class="lp-bundle-selector-ui"></span>
-                      <span class="lp-bundle-title">{{ block.settings.title }}</span>
+                      <span class="lp-bundle-title">{{ block.settings.title | default: bundle_variant.title }}</span>
                       {% if block.settings.shipping_info != blank %}
                         <span class="lp-bundle-shipping-tag">{{ block.settings.shipping_info }}</span>
                       {% endif %}
                     </div>
                     <div class="lp-bundle-pricing">
-                      {% if bundle_variant %}
-                        {% if bundle_variant.compare_at_price > bundle_variant.price %}
-                          <span class="lp-bundle-price-old">{{ bundle_variant.compare_at_price | money }}</span>
-                        {% endif %}
-                        <span class="lp-bundle-price-new">{{ bundle_variant.price | money }}<small>/ea</small></span>
-                      {% else %}
-                        {% if block.settings.old_price != blank %}
-                          <span class="lp-bundle-price-old">{{ block.settings.old_price }}</span>
-                        {% endif %}
-                        <span class="lp-bundle-price-new">{{ block.settings.new_price }}<small>/ea</small></span>
+                      {% if bundle_variant.compare_at_price > bundle_variant.price %}
+                        <span class="lp-bundle-price-old">{{ bundle_variant.compare_at_price | money }}</span>
                       {% endif %}
+                      <span class="lp-bundle-price-new">{{ bundle_variant.price | money }}<small>/ea</small></span>
                     </div>
                   </div>
                   
@@ -174,37 +202,75 @@
 
       <div class="lp-testimonials">
         <h2 class="lp-testimonials__title">Join 100,000+ others</h2>
-        <div class="lp-testimonials__slider">
+        <div class="lp-testimonials__slider" id="TestimonialsSlider-{{ section.id }}">
           {% for block in section.blocks %}
             {% if block.type == 'testimonial_video' %}
-              <div class="lp-testimonial-card">
-                <div class="lp-video-placeholder">
-                   {% if block.settings.video_poster != blank %}
-                     {{ block.settings.video_poster | image_url: width: 300 | image_tag: loading: 'lazy' }}
-                   {% endif %}
-                   <button class="lp-video-play" aria-label="Play Video"></button>
+              <div class="lp-testimonial-card" {{ block.shopify_attributes }}>
+                <div class="lp-video-wrapper" data-video-type="hosted">
+                  {% if block.settings.video != blank %}
+                    <video
+                      class="lp-video-native"
+                      src="{{ block.settings.video.sources[1].url | default: block.settings.video.sources[0].url }}"
+                      muted
+                      loop
+                      playsinline
+                      preload="metadata"
+                    ></video>
+                  {% endif %}
+                  <button class="lp-video-play" aria-label="Play Video">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M14.9927 30C12.9221 30 10.9821 29.6079 9.17271 28.8238C7.36333 28.0494 5.77165 26.9748 4.39768 25.6002C3.02371 24.2256 1.94485 22.6331 1.1611 20.8228C0.387034 19.0126 0 17.0716 0 15C0 12.9284 0.387034 10.9874 1.1611 9.17715C1.94485 7.35721 3.02371 5.76476 4.39768 4.39981C5.77165 3.02517 7.36333 1.95063 9.17271 1.17619C10.9821 0.392062 12.9221 0 14.9927 0C17.0634 0 19.0034 0.392062 20.8128 1.17619C22.6318 1.95063 24.2284 3.02517 25.6023 4.39981C26.9763 5.76476 28.0503 7.35721 28.8244 9.17715C29.6081 10.9874 30 12.9284 30 15C30 17.0716 29.6081 19.0126 28.8244 20.8228C28.0503 22.6331 26.9763 24.2256 25.6023 25.6002C24.2284 26.9748 22.6318 28.0494 20.8128 28.8238C19.0034 29.6079 17.0634 30 14.9927 30ZM12.3803 20.9245L20.7547 15.9874C20.9966 15.8325 21.1563 15.6341 21.2337 15.3921C21.3208 15.1404 21.3208 14.8887 21.2337 14.637C21.1563 14.3853 20.9966 14.1917 20.7547 14.0561L12.3803 9.09003C12.119 8.93514 11.8481 8.87222 11.5675 8.90126C11.2966 8.9303 11.0692 9.03195 10.8853 9.2062C10.7015 9.37076 10.6096 9.6031 10.6096 9.90319V20.1113C10.6096 20.4114 10.7015 20.6534 10.8853 20.8374C11.0692 21.0116 11.2917 21.1133 11.553 21.1423C11.8239 21.1617 12.0997 21.0891 12.3803 20.9245Z" fill="white"/></svg>
+                  </button>
                 </div>
+                {% if block.settings.video_caption != blank %}
+                  <div class="lp-testimonial-card__caption">
+                    <span>{{ block.settings.video_caption }}</span>
+                  </div>
+                {% endif %}
               </div>
             {% endif %}
           {% endfor %}
         </div>
-        <div class="lp-testimonials__scroll-bar">
-          <div class="lp-testimonials__scroll-progress"></div>
+        {%- assign video_count = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'testimonial_video' -%}
+            {%- assign video_count = video_count | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+        <div class="lp-testimonials__scroll-bar" id="TestimonialsScrollBar-{{ section.id }}" data-video-count="{{ video_count }}">
+          <div class="lp-testimonials__scroll-thumb" id="TestimonialsScrollThumb-{{ section.id }}"></div>
         </div>
       </div>
 
       <div class="lp-quick-links">
         <h4 class="lp-quick-links__title">Learn more about:</h4>
         <div class="lp-quick-links__pills">
-          <a href="#" class="lp-pill">The Science</a>
-          <a href="#" class="lp-pill">Ingredients</a>
-          <a href="#" class="lp-pill">Real Results</a>
-          <a href="#" class="lp-pill">How to Use</a>
-          <a href="#" class="lp-pill">Comparison</a>
-          <a href="#" class="lp-pill">Tests</a>
-          <a href="#" class="lp-pill">Guarantee</a>
-          <a href="#" class="lp-pill">FAQs</a>
-          <a href="#" class="lp-pill">Reviews</a>
+          <a href="#" class="lp-pill"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="5" viewBox="0 0 9 5" fill="none">
+          <path d="M8.14619 0.146431C8.34144 -0.0488152 8.6583 -0.0488057 8.85356 0.146431C9.04881 0.341683 9.04881 0.658528 8.85356 0.853781L4.85367 4.85357C4.65842 5.04881 4.34156 5.04881 4.14631 4.85357L0.146426 0.853781C-0.0487989 0.658528 -0.0488182 0.341674 0.146426 0.146431C0.341673 -0.0487939 0.658537 -0.0487848 0.853791 0.146431L4.49999 3.79255L8.14619 0.146431Z" fill="#434356"/>
+        </svg> The Science</a>
+          <a href="#" class="lp-pill"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="5" viewBox="0 0 9 5" fill="none">
+          <path d="M8.14619 0.146431C8.34144 -0.0488152 8.6583 -0.0488057 8.85356 0.146431C9.04881 0.341683 9.04881 0.658528 8.85356 0.853781L4.85367 4.85357C4.65842 5.04881 4.34156 5.04881 4.14631 4.85357L0.146426 0.853781C-0.0487989 0.658528 -0.0488182 0.341674 0.146426 0.146431C0.341673 -0.0487939 0.658537 -0.0487848 0.853791 0.146431L4.49999 3.79255L8.14619 0.146431Z" fill="#434356"/>
+        </svg>Ingredients</a>
+          <a href="#" class="lp-pill"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="5" viewBox="0 0 9 5" fill="none">
+          <path d="M8.14619 0.146431C8.34144 -0.0488152 8.6583 -0.0488057 8.85356 0.146431C9.04881 0.341683 9.04881 0.658528 8.85356 0.853781L4.85367 4.85357C4.65842 5.04881 4.34156 5.04881 4.14631 4.85357L0.146426 0.853781C-0.0487989 0.658528 -0.0488182 0.341674 0.146426 0.146431C0.341673 -0.0487939 0.658537 -0.0487848 0.853791 0.146431L4.49999 3.79255L8.14619 0.146431Z" fill="#434356"/>
+        </svg>Real Results</a>
+          <a href="#" class="lp-pill"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="5" viewBox="0 0 9 5" fill="none">
+          <path d="M8.14619 0.146431C8.34144 -0.0488152 8.6583 -0.0488057 8.85356 0.146431C9.04881 0.341683 9.04881 0.658528 8.85356 0.853781L4.85367 4.85357C4.65842 5.04881 4.34156 5.04881 4.14631 4.85357L0.146426 0.853781C-0.0487989 0.658528 -0.0488182 0.341674 0.146426 0.146431C0.341673 -0.0487939 0.658537 -0.0487848 0.853791 0.146431L4.49999 3.79255L8.14619 0.146431Z" fill="#434356"/>
+        </svg>How to Use</a>
+          <a href="#" class="lp-pill"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="5" viewBox="0 0 9 5" fill="none">
+          <path d="M8.14619 0.146431C8.34144 -0.0488152 8.6583 -0.0488057 8.85356 0.146431C9.04881 0.341683 9.04881 0.658528 8.85356 0.853781L4.85367 4.85357C4.65842 5.04881 4.34156 5.04881 4.14631 4.85357L0.146426 0.853781C-0.0487989 0.658528 -0.0488182 0.341674 0.146426 0.146431C0.341673 -0.0487939 0.658537 -0.0487848 0.853791 0.146431L4.49999 3.79255L8.14619 0.146431Z" fill="#434356"/>
+        </svg>Comparison</a>
+          <a href="#" class="lp-pill"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="5" viewBox="0 0 9 5" fill="none">
+          <path d="M8.14619 0.146431C8.34144 -0.0488152 8.6583 -0.0488057 8.85356 0.146431C9.04881 0.341683 9.04881 0.658528 8.85356 0.853781L4.85367 4.85357C4.65842 5.04881 4.34156 5.04881 4.14631 4.85357L0.146426 0.853781C-0.0487989 0.658528 -0.0488182 0.341674 0.146426 0.146431C0.341673 -0.0487939 0.658537 -0.0487848 0.853791 0.146431L4.49999 3.79255L8.14619 0.146431Z" fill="#434356"/>
+        </svg>Tests</a>
+          <a href="#" class="lp-pill"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="5" viewBox="0 0 9 5" fill="none">
+          <path d="M8.14619 0.146431C8.34144 -0.0488152 8.6583 -0.0488057 8.85356 0.146431C9.04881 0.341683 9.04881 0.658528 8.85356 0.853781L4.85367 4.85357C4.65842 5.04881 4.34156 5.04881 4.14631 4.85357L0.146426 0.853781C-0.0487989 0.658528 -0.0488182 0.341674 0.146426 0.146431C0.341673 -0.0487939 0.658537 -0.0487848 0.853791 0.146431L4.49999 3.79255L8.14619 0.146431Z" fill="#434356"/>
+        </svg>Guarantee</a>
+          <a href="#" class="lp-pill"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="5" viewBox="0 0 9 5" fill="none">
+          <path d="M8.14619 0.146431C8.34144 -0.0488152 8.6583 -0.0488057 8.85356 0.146431C9.04881 0.341683 9.04881 0.658528 8.85356 0.853781L4.85367 4.85357C4.65842 5.04881 4.34156 5.04881 4.14631 4.85357L0.146426 0.853781C-0.0487989 0.658528 -0.0488182 0.341674 0.146426 0.146431C0.341673 -0.0487939 0.658537 -0.0487848 0.853791 0.146431L4.49999 3.79255L8.14619 0.146431Z" fill="#434356"/>
+        </svg>FAQs</a>
+          <a href="#" class="lp-pill"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="5" viewBox="0 0 9 5" fill="none">
+          <path d="M8.14619 0.146431C8.34144 -0.0488152 8.6583 -0.0488057 8.85356 0.146431C9.04881 0.341683 9.04881 0.658528 8.85356 0.853781L4.85367 4.85357C4.65842 5.04881 4.34156 5.04881 4.14631 4.85357L0.146426 0.853781C-0.0487989 0.658528 -0.0488182 0.341674 0.146426 0.146431C0.341673 -0.0487939 0.658537 -0.0487848 0.853791 0.146431L4.49999 3.79255L8.14619 0.146431Z" fill="#434356"/>
+        </svg>Reviews</a>
         </div>
       </div>
     </div>
@@ -269,13 +335,131 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  /* --- Testimonials scroll progress --- */
-  const slider = section.querySelector('.lp-testimonials__slider');
-  const progress = section.querySelector('.lp-testimonials__scroll-progress');
-  if (slider && progress) {
-    slider.addEventListener('scroll', function() {
-      const scrollPercent = (slider.scrollLeft / (slider.scrollWidth - slider.clientWidth)) * 100;
-      progress.style.width = scrollPercent + '%';
+  /* --- Testimonial Video: Autoplay on Hover --- */
+  section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
+    var video = card.querySelector('.lp-video-native');
+    var playBtn = card.querySelector('.lp-video-play');
+    if (!video) return;
+
+    var isPlaying = false;
+
+    function playVideo() {
+      video.currentTime = 0;
+      video.play().catch(function(){});
+      isPlaying = true;
+      card.classList.add('is-playing');
+    }
+
+    function pauseVideo() {
+      video.pause();
+      isPlaying = false;
+      card.classList.remove('is-playing');
+    }
+
+    /* Desktop: hover to play */
+    card.addEventListener('mouseenter', playVideo);
+    card.addEventListener('mouseleave', pauseVideo);
+
+    /* Mobile: tap play button to toggle */
+    if (playBtn) {
+      playBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (isPlaying) {
+          pauseVideo();
+        } else {
+          playVideo();
+        }
+      });
+    }
+  });
+
+  /* --- Testimonials scroll bar (progress bar synced with scroll) --- */
+  var slider = section.querySelector('.lp-testimonials__slider');
+  var scrollBar = section.querySelector('.lp-testimonials__scroll-bar');
+  var thumb = section.querySelector('.lp-testimonials__scroll-thumb');
+  var videoCount = parseInt(scrollBar ? scrollBar.dataset.videoCount : 0, 10) || 0;
+
+  if (slider && scrollBar && thumb && videoCount > 0) {
+    /* Set the track width dynamically: 120px per video */
+    var trackWidth = videoCount * 120;
+    scrollBar.style.width = trackWidth + 'px';
+
+    function getMaxScroll() {
+      return slider.scrollWidth - slider.clientWidth;
+    }
+
+    function updateThumbPosition() {
+      var max = getMaxScroll();
+      if (max <= 0) {
+        /* No overflow — thumb fills full track */
+        thumb.style.left = '0px';
+        thumb.style.width = trackWidth + 'px';
+        return;
+      }
+      /* Thumb width = 120px (fixed) */
+      var thumbW = 120;
+      thumb.style.width = thumbW + 'px';
+      var pct = slider.scrollLeft / max;
+      var maxLeft = trackWidth - thumbW;
+      thumb.style.left = (pct * maxLeft) + 'px';
+    }
+
+    slider.addEventListener('scroll', updateThumbPosition);
+    window.addEventListener('resize', function() {
+      trackWidth = videoCount * 120;
+      scrollBar.style.width = trackWidth + 'px';
+      updateThumbPosition();
+    });
+    updateThumbPosition();
+
+    /* Make thumb draggable */
+    var isDragging = false;
+    var dragStartX = 0;
+    var dragStartLeft = 0;
+
+    function onThumbDragStart(e) {
+      isDragging = true;
+      scrollBar.classList.add('is-dragging');
+      var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      dragStartX = clientX;
+      dragStartLeft = parseFloat(thumb.style.left) || 0;
+      e.preventDefault();
+    }
+
+    function handleThumbDrag(e) {
+      if (!isDragging) return;
+      var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      var delta = clientX - dragStartX;
+      var thumbW = 120;
+      var maxLeft = trackWidth - thumbW;
+      var newLeft = Math.min(Math.max(dragStartLeft + delta, 0), maxLeft);
+      var pct = maxLeft > 0 ? newLeft / maxLeft : 0;
+      slider.scrollLeft = pct * getMaxScroll();
+    }
+
+    function onThumbDragEnd() {
+      if (!isDragging) return;
+      isDragging = false;
+      scrollBar.classList.remove('is-dragging');
+    }
+
+    thumb.addEventListener('mousedown', onThumbDragStart);
+    thumb.addEventListener('touchstart', onThumbDragStart, { passive: false });
+    document.addEventListener('mousemove', handleThumbDrag);
+    document.addEventListener('touchmove', handleThumbDrag, { passive: false });
+    document.addEventListener('mouseup', onThumbDragEnd);
+    document.addEventListener('touchend', onThumbDragEnd);
+
+    /* Click on scroll bar track to jump */
+    scrollBar.addEventListener('click', function(e) {
+      if (e.target === thumb) return;
+      var rect = scrollBar.getBoundingClientRect();
+      var clickX = e.clientX - rect.left;
+      var thumbW = 120;
+      var maxLeft = trackWidth - thumbW;
+      var newLeft = Math.min(Math.max(clickX - thumbW / 2, 0), maxLeft);
+      var pct = maxLeft > 0 ? newLeft / maxLeft : 0;
+      slider.scrollLeft = pct * getMaxScroll();
     });
   }
 });
@@ -286,26 +470,30 @@ document.addEventListener('DOMContentLoaded', function() {
   "name": "Product Details Serlino",
   "settings": [
     {
-      "type": "product",
-      "id": "product",
-      "label": "Product"
-    },
-    {
       "type": "text",
-      "id": "fallback_title",
-      "label": "Fallback Title",
-      "default": "Night cream anti-aging formula",
-      "info": "Shown only when no product is selected"
+      "id": "title_override",
+      "label": "Title Override",
+      "info": "Leave blank to use the product title"
     },
     {
-      "type": "textarea",
-      "id": "fallback_description",
-      "label": "Fallback Description",
-      "default": "Pharmaceutical-grade retinyl palmitate meets organic Italian olive oil. Targets wrinkles, firmness, and tired skin while you sleep.",
-      "info": "Shown only when no product is selected"
+      "type": "richtext",
+      "id": "description_override",
+      "label": "Description Override",
+      "info": "Leave blank to use the product description"
     }
   ],
   "blocks": [
+    {
+      "type": "gallery_image",
+      "name": "Gallery Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
     {
       "type": "benefit",
       "name": "Benefit",
@@ -327,15 +515,17 @@ document.addEventListener('DOMContentLoaded', function() {
       "name": "Bundle Option",
       "settings": [
         {
-          "type": "product",
-          "id": "variant_product",
-          "label": "Product (for variant pricing)",
-          "info": "Select the product whose variant to use for pricing. Leave blank to use manual prices."
+          "type": "number",
+          "id": "variant_index",
+          "label": "Variant Index",
+          "default": 0,
+          "info": "0-based index of the product variant to use for this bundle (0 = first variant, 1 = second, etc.)"
         },
         {
           "type": "text",
           "id": "title",
-          "label": "Title"
+          "label": "Title Override",
+          "info": "Leave blank to use the variant title"
         },
         {
           "type": "text",
@@ -356,16 +546,6 @@ document.addEventListener('DOMContentLoaded', function() {
           "type": "text",
           "id": "shipping_info",
           "label": "Shipping Label"
-        },
-        {
-          "type": "text",
-          "id": "old_price",
-          "label": "Old Price"
-        },
-        {
-          "type": "text",
-          "id": "new_price",
-          "label": "New Price"
         },
         {
           "type": "text",
@@ -400,15 +580,16 @@ document.addEventListener('DOMContentLoaded', function() {
       "name": "Testimonial Video",
       "settings": [
         {
-          "type": "image_picker",
-          "id": "video_poster",
-          "label": "Video Placeholder Image"
+          "type": "video",
+          "id": "video",
+          "label": "Upload Video",
+          "info": "Upload a video directly to Shopify. The video will show its first frame as a thumbnail and autoplay on hover."
         },
         {
-          "type": "video_url",
-          "id": "video_url",
-          "label": "Video Link",
-          "accept": ["youtube", "vimeo"]
+          "type": "text",
+          "id": "video_caption",
+          "label": "Video Caption",
+          "info": "Caption text displayed at the bottom of the video card (e.g. 'I've been using it')"
         }
       ]
     }
@@ -421,9 +602,9 @@ document.addEventListener('DOMContentLoaded', function() {
         { "type": "benefit", "settings": { "text": "60-day guarantee", "icon": "<svg width='28' height='28' viewBox='0 0 28 28' fill='none'><path d='M14 4L22 8V14C22 19.5 18.5 23.5 14 24.5C9.5 23.5 6 19.5 6 14V8L14 4Z' stroke='#17162E' stroke-width='1.5' stroke-linejoin='round'/></svg>" } },
         { "type": "benefit", "settings": { "text": "Italian lab origin", "icon": "<svg width='28' height='28' viewBox='0 0 28 28' fill='none'><path d='M8 6H20V22H8V6Z' stroke='#17162E' stroke-width='1.5'/><path d='M11 11H17M11 14H17M11 17H17' stroke='#17162E' stroke-width='1.5'/></svg>" } },
         { "type": "benefit", "settings": { "text": "Dermatologist Tested", "icon": "<svg width='28' height='28' viewBox='0 0 28 28' fill='none'><circle cx='14' cy='14' r='10' stroke='#17162E' stroke-width='1.5'/><circle cx='14' cy='14' r='4' fill='#17162E'/></svg>" } },
-        { "type": "bundle", "settings": { "title": "6-month treatment", "badge_text": "Best Value", "badge_type": "gold", "shipping_info": "Free Shipping", "old_price": "$69", "new_price": "$24.99", "gift_value": "$100", "free_gift_content": "<p>Free eye contour(worth $40)</p><p>Free body cream (worth $60)</p>" } },
-        { "type": "bundle", "settings": { "title": "3-month treatment", "badge_text": "Most Popular", "badge_type": "navy", "shipping_info": "Free Shipping", "old_price": "$69", "new_price": "$39.99" } },
-        { "type": "bundle", "settings": { "title": "1-month treatment", "shipping_info": "+ $4.95 Shipping", "new_price": "$69.99" } },
+        { "type": "bundle", "settings": { "variant_index": 0, "title": "6-month treatment", "badge_text": "Best Value", "badge_type": "gold", "shipping_info": "Free Shipping", "gift_value": "$100", "free_gift_content": "<p>Free eye contour(worth $40)</p><p>Free body cream (worth $60)</p>" } },
+        { "type": "bundle", "settings": { "variant_index": 1, "title": "3-month treatment", "badge_text": "Most Popular", "badge_type": "navy", "shipping_info": "Free Shipping" } },
+        { "type": "bundle", "settings": { "variant_index": 2, "title": "1-month treatment", "shipping_info": "+ $4.95 Shipping" } },
         { "type": "faq", "settings": { "question": "What happened to Omnis? Why is it now SerlinoLab?", "answer": "<p>SerlinoLab is the new global brand of Omnis, bringing the same Italian quality with enhanced formulas.</p>" } },
         { "type": "faq", "settings": { "question": "Will SerlinoLab work for me?", "answer": "<p>Our formulas are dermatologically tested for all skin types targeting specific aging concerns.</p>" } },
         { "type": "testimonial_video", "settings": {} },
