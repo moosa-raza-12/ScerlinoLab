@@ -104,6 +104,20 @@
             "answer": ""
           }
         },
+        "faq_Kn34f9": {
+          "type": "faq",
+          "settings": {
+            "question": "How to use it?",
+            "answer": ""
+          }
+        },
+        "faq_WDr77L": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does it take to see results?",
+            "answer": ""
+          }
+        },
         "block_9": {
           "type": "testimonial_video",
           "settings": {
@@ -215,6 +229,8 @@
         "block_8",
         "faq_p7JYUk",
         "faq_EyrjLA",
+        "faq_Kn34f9",
+        "faq_WDr77L",
         "block_9",
         "block_10",
         "block_11",
