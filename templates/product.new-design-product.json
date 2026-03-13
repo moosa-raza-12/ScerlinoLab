@@ -259,6 +259,8 @@
         "trustpilot_text": "<p><strong>4.6 Excellent </strong>| 3,439+ reviews</p>",
         "title_override": "<p>Night cream</p><p>anti-aging formula</p>",
         "description_override": "<p>Pharmaceutical-grade retinyl palmitate meets organic <br/>Italian olive oil. Targets wrinkles, firmness, and tired skin while you sleep.</p>",
+        "trustpilot_bottom_icon": "shopify://shop_images/gempages_577442117282956003-375766c1-923e-428d-a501-a1218df76cbe_1.png",
+        "trustpilot_bottom_text": "<p><strong>4.6 Excellent</strong> | 3,439+ reviews</p>",
         "guarantee_icon": "shopify://shop_images/Badge.png",
         "guarantee_text": "<p><strong>Less than 1% </strong>of customers claim our 60 Days Money Back Guarantee.</p>"
       }
