@@ -88,6 +88,11 @@
 .lp-product-gallery__dot.active { background: var(--white); }
 
 /* Product Info */
+  .lp-product-info {
+    max-width: 488px;
+  }
+
+
 .lp-trustpilot-badge {
   display: flex;
   align-items: center;
@@ -133,13 +138,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+}
+.lp-benefit-icon-img {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 .lp-benefit-text {
   font-size: 10px;
   font-weight: 500;
   margin: 0;
   line-height: 1.2;
+  letter-spacing: 0px;
 }
 @media (min-width: 1024px) {
   .lp-benefit-text { font-size: 12px; }
@@ -288,8 +300,10 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 14px;
+  font-size: 16px;
   margin: 16px 0 32px;
+  letter-spacing: 0px;
+  line-height: 24px;
 }
 .lp-guarantee-icon { flex-shrink: 0; }
 .lp-guarantee-icon-img { display: block; width: 40px; height: 40px; object-fit: contain; }
@@ -438,8 +452,11 @@
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
+  max-width: 488px !important;
   /* width is set dynamically via JS based on video count */
 }
+
+
 .lp-testimonials__scroll-bar.is-dragging {
   cursor: grabbing;
 }
