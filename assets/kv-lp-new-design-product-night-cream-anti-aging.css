@@ -96,9 +96,9 @@
 .lp-trustpilot-badge {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   font-size: 16px;
-  font-weight: 500;
+  /* font-weight: 500; */
   margin-bottom: 12px;
 }
 .lp-trustpilot-icon-img {
@@ -115,6 +115,7 @@
 .lp-trust-text-content p {
   margin: 0;
   padding: 0;
+  letter-spacing: 0px;
 }
 .lp-trust-divider { opacity: 0.3; }
 .lp-trust-reviews { font-weight: 350; }
@@ -278,7 +279,9 @@ margin: 0;
 .lp-gift-items p { margin: 4px 0; display: flex; align-items: center; gap: 8px; }
 
 .lp-results-note {
-  font-size: 12px;
+  font-weight: 350;
+  font-size: 14px;
+  letter-spacing: 0px;
   opacity: 0.8;
   margin-top: 16px;
 }
@@ -354,6 +357,33 @@ margin: 0;
 .lp-faq-summary svg { transition: transform 0.2s; }
 .lp-faq-item[open] .lp-faq-summary svg { transform: rotate(180deg); }
 .lp-faq-content { padding-top: 12px; font-size: 14px; opacity: 0.7; letter-spacing: 0px; }
+
+/* Bottom Trustpilot Badge (after FAQs) */
+.lp-trustpilot-badge-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 16px;
+  padding: 14px 0;
+  letter-spacing: 0px;
+}
+.lp-trustpilot-bottom-icon-img {
+  display: block;
+  height: 18px;
+  width: auto;
+  object-fit: contain;
+}
+.lp-trust-bottom-text-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lp-trust-bottom-text-content p {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0px;
+}
 
 /* Testimonials */
 .lp-testimonials { margin-top: 40px; }
