@@ -116,6 +116,7 @@
   margin: 0;
   padding: 0;
   letter-spacing: 0px;
+  font-weight: 350;
 }
 .lp-trust-divider { opacity: 0.3; }
 .lp-trust-reviews { font-weight: 350; }
@@ -367,6 +368,7 @@ margin: 0;
   font-size: 16px;
   padding: 14px 0;
   letter-spacing: 0px;
+  border-bottom: 1px solid rgba(23, 22, 46, 0.10); 
 }
 .lp-trustpilot-bottom-icon-img {
   display: block;
@@ -386,7 +388,7 @@ margin: 0;
 }
 
 /* Testimonials */
-.lp-testimonials { margin-top: 40px; }
+.lp-testimonials { margin-top: 32px; }
 .lp-testimonials__title {
   font-size: 28px;
   font-weight: 500 !important;
@@ -535,7 +537,7 @@ margin: 0;
 }
 
 /* Quick Links */
-.lp-quick-links { margin-top: 40px; }
+.lp-quick-links { margin-top: 32px; }
 .lp-quick-links__title { font-size: 16px; font-weight: 500 !important; margin-bottom: 16px; letter-spacing: 0px; }
 .lp-quick-links__pills { display: flex; flex-wrap: wrap; gap: 8px; }
 .lp-pill {
