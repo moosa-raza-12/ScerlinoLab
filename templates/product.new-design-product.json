@@ -90,6 +90,20 @@
             "answer": "<p>Our formulas are dermatologically tested for all skin types targeting specific aging concerns.</p>"
           }
         },
+        "faq_p7JYUk": {
+          "type": "faq",
+          "settings": {
+            "question": "Can it be found in stores/pharmacies?",
+            "answer": ""
+          }
+        },
+        "faq_EyrjLA": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does it last?",
+            "answer": ""
+          }
+        },
         "block_9": {
           "type": "testimonial_video",
           "settings": {
@@ -199,6 +213,8 @@
         "block_6",
         "block_7",
         "block_8",
+        "faq_p7JYUk",
+        "faq_EyrjLA",
         "block_9",
         "block_10",
         "block_11",
