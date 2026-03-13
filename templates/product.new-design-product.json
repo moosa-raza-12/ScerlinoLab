@@ -118,6 +118,13 @@
             "answer": ""
           }
         },
+        "faq_9yzE3d": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": ""
+          }
+        },
         "block_9": {
           "type": "testimonial_video",
           "settings": {
@@ -231,6 +238,7 @@
         "faq_EyrjLA",
         "faq_Kn34f9",
         "faq_WDr77L",
+        "faq_9yzE3d",
         "block_9",
         "block_10",
         "block_11",
