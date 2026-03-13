@@ -78,10 +78,25 @@
     <div class="lp-product-info">
       <div class="lp-product-info__trust">
         <div class="lp-trustpilot-badge">
-          <svg width="92" height="18" viewBox="0 0 92 18" fill="none"><path d="M17.2275 6.518L10.6482 6.518L8.61375 0.25L6.5793 6.518L0 6.518L5.3242 10.385L3.28975 16.653L8.61395 12.786L13.9382 16.653L11.9037 10.385L17.2275 6.518Z" fill="#00B67A"/></svg>
-          <span class="lp-trust-text">4.6 Excellent</span>
-          <span class="lp-trust-divider">|</span>
-          <span class="lp-trust-reviews">3,439+ reviews</span>
+          {% if section.settings.trustpilot_icon != blank %}
+            <img
+              src="{{ section.settings.trustpilot_icon | image_url: width: 184 }}"
+              alt="Trustpilot"
+              loading="lazy"
+              width="{{ section.settings.trustpilot_icon.width }}"
+              height="{{ section.settings.trustpilot_icon.height }}"
+              class="lp-trustpilot-icon-img"
+            >
+          {% else %}
+            <svg width="92" height="18" viewBox="0 0 92 18" fill="none"><path d="M17.2275 6.518L10.6482 6.518L8.61375 0.25L6.5793 6.518L0 6.518L5.3242 10.385L3.28975 16.653L8.61395 12.786L13.9382 16.653L11.9037 10.385L17.2275 6.518Z" fill="#00B67A"/></svg>
+          {% endif %}
+          {% if section.settings.trustpilot_text != blank %}
+            <div class="lp-trust-text-content">{{ section.settings.trustpilot_text }}</div>
+          {% else %}
+            <span class="lp-trust-text">4.6 Excellent</span>
+            <span class="lp-trust-divider">|</span>
+            <span class="lp-trust-reviews">3,439+ reviews</span>
+          {% endif %}
         </div>
       </div>
 
@@ -481,6 +496,19 @@ document.addEventListener('DOMContentLoaded', function() {
 {
   "name": "Product Details Serlino",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "trustpilot_icon",
+      "label": "Trustpilot Badge Icon",
+      "info": "Upload a custom icon for the Trustpilot badge area"
+    },
+    {
+      "type": "richtext",
+      "id": "trustpilot_text",
+      "label": "Trustpilot Badge Text",
+      "default": "<p>4.6 Excellent | 3,439+ reviews</p>",
+      "info": "Rich text for the Trustpilot badge area. Supports bold, italic, etc."
+    },
     {
       "type": "richtext",
       "id": "title_override",
