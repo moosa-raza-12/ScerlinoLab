@@ -99,30 +99,35 @@
         "block_9": {
           "type": "testimonial_video",
           "settings": {
+            "video_poster": "shopify://shop_images/46f7d7eead8e9dce4769b39efeaf5834d8c772a1.png",
             "video_url": ""
           }
         },
         "block_10": {
           "type": "testimonial_video",
           "settings": {
+            "video_poster": "shopify://shop_images/46f7d7eead8e9dce4769b39efeaf5834d8c772a1.png",
             "video_url": ""
           }
         },
         "block_11": {
           "type": "testimonial_video",
           "settings": {
+            "video_poster": "shopify://shop_images/46f7d7eead8e9dce4769b39efeaf5834d8c772a1.png",
             "video_url": ""
           }
         },
         "testimonial_video_ELzybj": {
           "type": "testimonial_video",
           "settings": {
+            "video_poster": "shopify://shop_images/46f7d7eead8e9dce4769b39efeaf5834d8c772a1.png",
             "video_url": ""
           }
         },
         "testimonial_video_RxUcTA": {
           "type": "testimonial_video",
           "settings": {
+            "video_poster": "shopify://shop_images/46f7d7eead8e9dce4769b39efeaf5834d8c772a1.png",
             "video_url": ""
           }
         }
