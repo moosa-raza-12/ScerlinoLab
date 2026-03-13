@@ -164,7 +164,7 @@
           "type": "quick_link",
           "settings": {
             "label": "The Science",
-            "section_id": "lp-ingredients-template--25689012109559__kv-lp-new-design-product-only-what-your-skin"
+            "section_id": ""
           }
         },
         "quick_link_znBERe": {
@@ -185,14 +185,14 @@
           "type": "quick_link",
           "settings": {
             "label": "How to Use",
-            "section_id": ""
+            "section_id": "lp-ingredients-template--25689012109559__kv-lp-new-design-product-only-what-your-skin"
           }
         },
         "quick_link_pHbkGi": {
           "type": "quick_link",
           "settings": {
             "label": "Comparison",
-            "section_id": ""
+            "section_id": "lp-section-template--25689012109559__kv-lp-new-design-product-italian-formula"
           }
         },
         "quick_link_3RgagG": {
