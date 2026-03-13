@@ -15,28 +15,28 @@
         "block_0": {
           "type": "benefit",
           "settings": {
-            "icon": "<svg width=\"28\" height=\"28\" viewbox=\"0 0 28 28\" fill=\"none\"><circle cx=\"14\" cy=\"14\" r=\"12\" stroke=\"#17162E\" stroke-width=\"1.5\"></circle><path d=\"M9 14L12.5 17.5L19 11\" stroke=\"#17162E\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+            "icon": "shopify://shop_images/Icon_03f69a34-5cf1-480a-8fc0-7d26e5fa982f.png",
             "text": "Visibly Younger Looking Skin"
           }
         },
         "block_1": {
           "type": "benefit",
           "settings": {
-            "icon": "<svg width=\"28\" height=\"28\" viewbox=\"0 0 28 28\" fill=\"none\"><path d=\"M14 4L22 8V14C22 19.5 18.5 23.5 14 24.5C9.5 23.5 6 19.5 6 14V8L14 4Z\" stroke=\"#17162E\" stroke-width=\"1.5\" stroke-linejoin=\"round\"></path></svg>",
+            "icon": "shopify://shop_images/fi_10701637.png",
             "text": "60-day guarantee"
           }
         },
         "block_2": {
           "type": "benefit",
           "settings": {
-            "icon": "<svg width=\"28\" height=\"28\" viewbox=\"0 0 28 28\" fill=\"none\"><path d=\"M8 6H20V22H8V6Z\" stroke=\"#17162E\" stroke-width=\"1.5\"></path><path d=\"M11 11H17M11 14H17M11 17H17\" stroke=\"#17162E\" stroke-width=\"1.5\"></path></svg>",
+            "icon": "shopify://shop_images/fi_2858702.png",
             "text": "Italian lab origin"
           }
         },
         "block_3": {
           "type": "benefit",
           "settings": {
-            "icon": "<svg width=\"28\" height=\"28\" viewbox=\"0 0 28 28\" fill=\"none\"><circle cx=\"14\" cy=\"14\" r=\"10\" stroke=\"#17162E\" stroke-width=\"1.5\"></circle><circle cx=\"14\" cy=\"14\" r=\"4\" fill=\"#17162E\"></circle></svg>",
+            "icon": "shopify://shop_images/fi_4747505.png",
             "text": "Dermatologist Tested"
           }
         },
