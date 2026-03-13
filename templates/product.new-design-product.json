@@ -124,6 +124,55 @@
             "video": "shopify://files/videos/moast-Ugc Video 02 Eng.mp4",
             "video_caption": ""
           }
+        },
+        "quick_link_fWH9FJ": {
+          "type": "quick_link",
+          "settings": {
+            "label": "The Science",
+            "section_id": ""
+          }
+        },
+        "quick_link_znBERe": {
+          "type": "quick_link",
+          "settings": {
+            "label": "Ingredients",
+            "section_id": ""
+          }
+        },
+        "quick_link_K3biVT": {
+          "type": "quick_link",
+          "settings": {
+            "label": "Real Results",
+            "section_id": ""
+          }
+        },
+        "quick_link_UzhmMP": {
+          "type": "quick_link",
+          "settings": {
+            "label": "How to Use",
+            "section_id": ""
+          }
+        },
+        "quick_link_pHbkGi": {
+          "type": "quick_link",
+          "settings": {
+            "label": "Comparison",
+            "section_id": ""
+          }
+        },
+        "quick_link_3RgagG": {
+          "type": "quick_link",
+          "settings": {
+            "label": "Tests",
+            "section_id": ""
+          }
+        },
+        "quick_link_RAEJcF": {
+          "type": "quick_link",
+          "settings": {
+            "label": "Guarantee",
+            "section_id": ""
+          }
         }
       },
       "block_order": [
@@ -140,7 +189,14 @@
         "block_10",
         "block_11",
         "testimonial_video_ELzybj",
-        "testimonial_video_RxUcTA"
+        "testimonial_video_RxUcTA",
+        "quick_link_fWH9FJ",
+        "quick_link_znBERe",
+        "quick_link_K3biVT",
+        "quick_link_UzhmMP",
+        "quick_link_pHbkGi",
+        "quick_link_3RgagG",
+        "quick_link_RAEJcF"
       ],
       "settings": {
         "title_override": "",
