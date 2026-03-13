@@ -85,7 +85,7 @@
         </div>
       </div>
 
-      <h1 class="lp-product-title">{% if section.settings.title_override != blank %}{{ section.settings.title_override }}{% else %}{{ product.title }}{% endif %}</h1>
+      <div class="lp-product-title">{% if section.settings.title_override != blank %}{{ section.settings.title_override }}{% else %}<p>{{ product.title }}</p>{% endif %}</div>
       <div class="lp-product-description">{% if section.settings.description_override != blank %}{{ section.settings.description_override }}{% else %}{{ product.description }}{% endif %}</div>
 
       <div class="lp-benefits-grid">
@@ -482,10 +482,10 @@ document.addEventListener('DOMContentLoaded', function() {
   "name": "Product Details Serlino",
   "settings": [
     {
-      "type": "text",
+      "type": "richtext",
       "id": "title_override",
       "label": "Title Override",
-      "info": "Leave blank to use the product title"
+      "info": "Leave blank to use the product title. Supports bold, italic, etc."
     },
     {
       "type": "richtext",

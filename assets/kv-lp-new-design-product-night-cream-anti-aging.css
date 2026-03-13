@@ -106,18 +106,28 @@
 
 .lp-product-title {
   font-size: 28px;
-  font-weight: 500;
-  line-height: 1.1;
+  font-weight: 500 !important;
+  line-height: 30px;
   margin: 0 0 12px;
+  letter-spacing: 0px;
+}
+.lp-product-title p {
+  margin: 0;
+  padding: 0;
 }
 @media (min-width: 1024px) {
-  .lp-product-title { font-size: 36px; }
+  .lp-product-title { font-size: 36px; font-weight: 500 !important; line: height 30px;}
 }
 .lp-product-description {
   font-size: 14px;
   line-height: 1.4;
-  opacity: 0.8;
-  margin-bottom: 24px;
+  /* opacity: 0.8; */
+  margin-bottom: 12px;
+  letter-spacing: 0px;
+}
+.lp-product-description p{
+padding: 0;
+margin: 0;
 }
 @media (min-width: 1024px) {
   .lp-product-description { font-size: 16px; }
