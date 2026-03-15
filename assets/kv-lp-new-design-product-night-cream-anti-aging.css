@@ -215,9 +215,9 @@ margin: 0;
 }
 .lp-bundle-card {
   display: block;
-  background: var(--white);
-  border: 1.5px solid transparent;
+  /* background: var(--white); */
   border-radius: 6px;
+  border: 1px solid rgba(23, 22, 46, 0.10);
   padding: 16px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -301,17 +301,19 @@ letter-spacing: 0px;  background: var(--primary-text); color: white; font-size: 
   width: 40px; height: 40px; object-fit: contain; border-radius: 4px; flex-shrink: 0;
 }
 .lp-gift-row__text {
-  flex: 1; min-width: 0;
+  letter-spacing: 0px;
 }
 .lp-gift-row__primary {
   font-weight: 500;
 }
 .lp-gift-row__secondary {
-  opacity: 0.6; margin-left: 2px;
+  letter-spacing: 0px; margin-left: 2px;
 }
 .lp-gift-row__info-trigger {
-  position: relative; flex-shrink: 0; color: rgba(0,0,0,0.35); cursor: pointer;
+  position: relative; flex-shrink: 0; cursor: pointer;
   display: flex; align-items: center;
+  width: 12px;
+  height: 12px;
 }
 .lp-gift-row__info-trigger:hover,
 .lp-gift-row__info-trigger:focus {

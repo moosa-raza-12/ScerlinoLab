@@ -128,9 +128,9 @@
               {%- assign bundle_qty = block.settings.quantity | default: 1 -%}
               {%- assign bundle_variant = product.selected_or_first_available_variant -%}
               {%- assign base_price = bundle_variant.price -%}
-              {%- assign disc_pct = block.settings.discount_percentage | default: 0 -%}
+              {%- assign disc_pct = block.settings.discount_percentage | default: '0' | plus: 0 -%}
               {%- if disc_pct > 0 -%}
-                {%- assign discount_amount = base_price | times: disc_pct | divided_by: 100 -%}
+                {%- assign discount_amount = base_price | times: disc_pct | divided_by: 100.0 -%}
                 {%- assign discounted_price = base_price | minus: discount_amount -%}
               {%- else -%}
                 {%- assign discounted_price = base_price -%}
@@ -743,14 +743,11 @@ document.addEventListener('DOMContentLoaded', function() {
           "info": "e.g. '6-month treatment'"
         },
         {
-          "type": "range",
+          "type": "text",
           "id": "discount_percentage",
           "label": "Discount %",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "default": 0,
-          "info": "Percentage discount applied to the base price. Original price shown as strikethrough. Set to 0 for no discount."
+          "default": "0",
+          "info": "Percentage discount (e.g. '50' or '64.3'). Original price shown as strikethrough. Set to 0 for no discount."
         },
         {
           "type": "text",
@@ -925,9 +922,9 @@ document.addEventListener('DOMContentLoaded', function() {
         { "type": "benefit", "settings": { "text": "60-day guarantee" } },
         { "type": "benefit", "settings": { "text": "Italian lab origin" } },
         { "type": "benefit", "settings": { "text": "Dermatologist Tested" } },
-        { "type": "bundle", "settings": { "quantity": 6, "title": "6-month treatment", "discount_percentage": 50, "badge_text": "Best Value", "badge_type": "gold", "shipping_info": "Free Shipping", "enable_free_gifts": true, "gift_value": "$100", "gift_1_name": "Free eye contour", "gift_1_value": "worth $40", "gift_2_name": "Free body cream", "gift_2_value": "worth $60" } },
-        { "type": "bundle", "settings": { "quantity": 3, "title": "3-month treatment", "discount_percentage": 40, "badge_text": "Most Popular", "badge_type": "navy", "shipping_info": "Free Shipping" } },
-        { "type": "bundle", "settings": { "quantity": 1, "title": "1-month treatment", "discount_percentage": 0, "shipping_info": "+ $4.95 Shipping" } },
+        { "type": "bundle", "settings": { "quantity": 6, "title": "6-month treatment", "discount_percentage": "50", "badge_text": "Best Value", "badge_type": "gold", "shipping_info": "Free Shipping", "enable_free_gifts": true, "gift_value": "$100", "gift_1_name": "Free eye contour", "gift_1_value": "worth $40", "gift_2_name": "Free body cream", "gift_2_value": "worth $60" } },
+        { "type": "bundle", "settings": { "quantity": 3, "title": "3-month treatment", "discount_percentage": "40", "badge_text": "Most Popular", "badge_type": "navy", "shipping_info": "Free Shipping" } },
+        { "type": "bundle", "settings": { "quantity": 1, "title": "1-month treatment", "discount_percentage": "0", "shipping_info": "+ $4.95 Shipping" } },
         { "type": "faq", "settings": { "question": "What happened to Omnis? Why is it now SerlinoLab?", "answer": "<p>SerlinoLab is the new global brand of Omnis, bringing the same Italian quality with enhanced formulas.</p>" } },
         { "type": "faq", "settings": { "question": "Will SerlinoLab work for me?", "answer": "<p>Our formulas are dermatologically tested for all skin types targeting specific aging concerns.</p>" } },
         { "type": "testimonial_video", "settings": {} },
