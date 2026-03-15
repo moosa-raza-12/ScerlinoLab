@@ -61,11 +61,13 @@
         "block_4": {
           "type": "bundle",
           "settings": {
-            "variant_index": 0,
+            "quantity": 6,
             "title": "6-month treatment",
+            "discount_percentage": 50,
             "badge_text": "Best Value",
             "badge_type": "gold",
             "shipping_info": "Free Shipping",
+            "enable_free_gifts": true,
             "gift_value": "$100",
             "free_gift_content": "<p>Free eye contour(worth $40)</p><p>Free body cream (worth $60)</p>"
           }
@@ -73,11 +75,13 @@
         "block_5": {
           "type": "bundle",
           "settings": {
-            "variant_index": 0,
+            "quantity": 1,
             "title": "3-month treatment",
+            "discount_percentage": 0,
             "badge_text": "Most Popular",
             "badge_type": "navy",
             "shipping_info": "Free Shipping",
+            "enable_free_gifts": false,
             "gift_value": "",
             "free_gift_content": ""
           }
@@ -85,11 +89,13 @@
         "block_6": {
           "type": "bundle",
           "settings": {
-            "variant_index": 0,
+            "quantity": 1,
             "title": "1-month treatment",
+            "discount_percentage": 0,
             "badge_text": "",
             "badge_type": "gold",
             "shipping_info": "+ $4.95 Shipping",
+            "enable_free_gifts": false,
             "gift_value": "",
             "free_gift_content": ""
           }
