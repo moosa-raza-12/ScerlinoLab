@@ -124,15 +124,27 @@
         <div class="lp-variant-picker__options">
           {% for block in section.blocks %}
             {% if block.type == 'bundle' %}
+              {%- assign bundle_qty = block.settings.quantity | default: 1 -%}
+              {%- assign bundle_variant = product.selected_or_first_available_variant -%}
+              {%- assign base_price = bundle_variant.price -%}
+              {%- assign disc_pct = block.settings.discount_percentage | default: 0 -%}
+              {%- if disc_pct > 0 -%}
+                {%- assign discount_amount = base_price | times: disc_pct | divided_by: 100 -%}
+                {%- assign discounted_price = base_price | minus: discount_amount -%}
+              {%- else -%}
+                {%- assign discounted_price = base_price -%}
+              {%- endif -%}
               <div class="lp-bundle-item" {{ block.shopify_attributes }}>
-                {%- assign variant_index = block.settings.variant_index | default: 0 -%}
-                {%- assign bundle_variant = product.variants[variant_index] -%}
                 <input
                   type="radio"
                   name="bundle-selection"
                   id="bundle-{{ block.id }}"
                   class="lp-bundle-radio"
                   data-variant-id="{{ bundle_variant.id }}"
+                  data-quantity="{{ bundle_qty }}"
+                  data-discounted-price="{{ discounted_price }}"
+                  data-original-price="{{ base_price }}"
+                  data-discount="{{ disc_pct }}"
                   {% if forloop.first %}checked{% endif %}
                 >
                 <label for="bundle-{{ block.id }}" class="lp-bundle-card">
@@ -148,16 +160,16 @@
                       {% endif %}
                     </div>
                     <div class="lp-bundle-pricing">
-                      {% if bundle_variant.compare_at_price > bundle_variant.price %}
-                        <span class="lp-bundle-price-old">{{ bundle_variant.compare_at_price | money }}</span>
+                      {% if disc_pct > 0 %}
+                        <span class="lp-bundle-price-old">{{ base_price | money }}</span>
                       {% endif %}
-                      <span class="lp-bundle-price-new">{{ bundle_variant.price | money }}<small>/ea</small></span>
+                      <span class="lp-bundle-price-new">{{ discounted_price | money }}<small>/ea</small></span>
                     </div>
                   </div>
                   
-                  {% if block.settings.free_gift_content != blank %}
+                  {% if block.settings.enable_free_gifts and block.settings.free_gift_content != blank %}
                     <div class="lp-bundle-gifts">
-                      <div class="lp-gifts-header">Free gifts included (worth {{ block.settings.gift_value }}):</div>
+                      <div class="lp-gifts-header">Free gifts included{% if block.settings.gift_value != blank %} (worth {{ block.settings.gift_value }}){% endif %}:</div>
                       <div class="lp-gift-items">
                         {{ block.settings.free_gift_content }}
                       </div>
@@ -177,6 +189,7 @@
         <product-form>
           {%- form 'product', product, id: 'ProductForm-lp', novalidate: 'novalidate' -%}
             <input type="hidden" name="id" value="{{ selected_variant.id }}" id="lpVariantId-{{ section.id }}">
+            <input type="hidden" name="quantity" value="1" id="lpQuantity-{{ section.id }}">
             <button type="submit" class="lp-atc-button" {% unless selected_variant.available %}disabled{% endunless %}>
               <span>{% if selected_variant.available %}Add to cart{% else %}Sold out{% endif %}</span>
               <span class="lp-atc-price">
@@ -370,35 +383,42 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { passive: true });
   }
 
-  /* --- Bundle selection → update variant id & ATC price --- */
+  /* --- Bundle selection → update variant id, quantity & ATC price --- */
   const bundleRadios = section.querySelectorAll('.lp-bundle-radio');
   const variantInput = section.querySelector('[id^="lpVariantId"]');
+  const quantityInput = section.querySelector('[id^="lpQuantity"]');
   const atcPrice = section.querySelector('.lp-atc-price');
   const atcButton = section.querySelector('.lp-atc-button');
 
+  function syncBundle(radio) {
+    var variantId = radio.dataset.variantId;
+    var qty = radio.dataset.quantity || '1';
+    if (variantId && variantInput) variantInput.value = variantId;
+    if (quantityInput) quantityInput.value = qty;
+
+    var label = radio.nextElementSibling;
+    if (label && atcPrice) {
+      var oldP = label.querySelector('.lp-bundle-price-old');
+      var newP = label.querySelector('.lp-bundle-price-new');
+      if (newP) {
+        var priceHtml = '';
+        if (oldP) priceHtml += '<del>' + oldP.textContent + '</del> ';
+        priceHtml += '<strong>' + newP.childNodes[0].textContent.trim() + '</strong>';
+        atcPrice.innerHTML = priceHtml;
+      }
+    }
+    if (atcButton) {
+      atcButton.disabled = false;
+      atcButton.querySelector('span:first-child').textContent = 'Add to cart';
+    }
+  }
+
   bundleRadios.forEach(function(radio) {
-    radio.addEventListener('change', function() {
-      const variantId = this.dataset.variantId;
-      if (variantId && variantInput) {
-        variantInput.value = variantId;
-      }
-      const label = this.nextElementSibling;
-      if (label && atcPrice) {
-        const oldP = label.querySelector('.lp-bundle-price-old');
-        const newP = label.querySelector('.lp-bundle-price-new');
-        if (newP) {
-          let priceHtml = '';
-          if (oldP) priceHtml += '<del>' + oldP.textContent + '</del> ';
-          priceHtml += '<strong>' + newP.childNodes[0].textContent.trim() + '</strong>';
-          atcPrice.innerHTML = priceHtml;
-        }
-      }
-      if (atcButton) {
-        atcButton.disabled = false;
-        atcButton.querySelector('span:first-child').textContent = 'Add to cart';
-      }
-    });
+    radio.addEventListener('change', function() { syncBundle(this); });
   });
+
+  var checkedBundle = section.querySelector('.lp-bundle-radio:checked');
+  if (checkedBundle) syncBundle(checkedBundle);
 
   /* --- Testimonial Video: Autoplay on Hover --- */
   section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
@@ -643,17 +663,30 @@ document.addEventListener('DOMContentLoaded', function() {
       "name": "Bundle Option",
       "settings": [
         {
-          "type": "number",
-          "id": "variant_index",
-          "label": "Variant Index",
-          "default": 0,
-          "info": "0-based index of the product variant to use for this bundle (0 = first variant, 1 = second, etc.)"
+          "type": "range",
+          "id": "quantity",
+          "label": "Quantity",
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "default": 1,
+          "info": "Number of items added to cart when this bundle is selected (e.g. 6 for a 6-month supply)"
         },
         {
           "type": "text",
           "id": "title",
-          "label": "Title Override",
-          "info": "Leave blank to use the variant title"
+          "label": "Title",
+          "info": "e.g. '6-month treatment'"
+        },
+        {
+          "type": "range",
+          "id": "discount_percentage",
+          "label": "Discount %",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 0,
+          "info": "Percentage discount applied to the base price. Original price shown as strikethrough. Set to 0 for no discount."
         },
         {
           "type": "text",
@@ -676,9 +709,20 @@ document.addEventListener('DOMContentLoaded', function() {
           "label": "Shipping Label"
         },
         {
+          "type": "header",
+          "content": "Free Gifts"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_free_gifts",
+          "label": "Enable Free Gifts",
+          "default": false
+        },
+        {
           "type": "text",
           "id": "gift_value",
-          "label": "Gift Value Amount"
+          "label": "Gift Value Amount",
+          "info": "e.g. '$100'"
         },
         {
           "type": "richtext",
@@ -748,9 +792,9 @@ document.addEventListener('DOMContentLoaded', function() {
         { "type": "benefit", "settings": { "text": "60-day guarantee" } },
         { "type": "benefit", "settings": { "text": "Italian lab origin" } },
         { "type": "benefit", "settings": { "text": "Dermatologist Tested" } },
-        { "type": "bundle", "settings": { "variant_index": 0, "title": "6-month treatment", "badge_text": "Best Value", "badge_type": "gold", "shipping_info": "Free Shipping", "gift_value": "$100", "free_gift_content": "<p>Free eye contour(worth $40)</p><p>Free body cream (worth $60)</p>" } },
-        { "type": "bundle", "settings": { "variant_index": 1, "title": "3-month treatment", "badge_text": "Most Popular", "badge_type": "navy", "shipping_info": "Free Shipping" } },
-        { "type": "bundle", "settings": { "variant_index": 2, "title": "1-month treatment", "shipping_info": "+ $4.95 Shipping" } },
+        { "type": "bundle", "settings": { "quantity": 6, "title": "6-month treatment", "discount_percentage": 50, "badge_text": "Best Value", "badge_type": "gold", "shipping_info": "Free Shipping", "enable_free_gifts": true, "gift_value": "$100", "free_gift_content": "<p>Free eye contour(worth $40)</p><p>Free body cream (worth $60)</p>" } },
+        { "type": "bundle", "settings": { "quantity": 3, "title": "3-month treatment", "discount_percentage": 40, "badge_text": "Most Popular", "badge_type": "navy", "shipping_info": "Free Shipping" } },
+        { "type": "bundle", "settings": { "quantity": 1, "title": "1-month treatment", "discount_percentage": 0, "shipping_info": "+ $4.95 Shipping" } },
         { "type": "faq", "settings": { "question": "What happened to Omnis? Why is it now SerlinoLab?", "answer": "<p>SerlinoLab is the new global brand of Omnis, bringing the same Italian quality with enhanced formulas.</p>" } },
         { "type": "faq", "settings": { "question": "Will SerlinoLab work for me?", "answer": "<p>Our formulas are dermatologically tested for all skin types targeting specific aging concerns.</p>" } },
         { "type": "testimonial_video", "settings": {} },

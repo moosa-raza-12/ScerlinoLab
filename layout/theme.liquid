@@ -446,5 +446,15 @@
       border-color: #151723 !important;
    }
 </style>
+
+{% if template == 'product.new-design-product' %}
+<style>
+ .lp-product-details kaching-bundle,
+.lp-product-details kaching-bundles-block,
+.lp-product-details .kaching-bundles {
+  display: none !important;
+}
+</style>
+{% endif %}
   </body>
 </html>
