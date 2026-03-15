@@ -12,6 +12,15 @@
     "kv-lp-new-design-product-night-cream-anti-aging": {
       "type": "kv-lp-new-design-product-night-cream-anti-aging",
       "blocks": {
+        "free_gift_zFt7Yc": {
+          "type": "free_gift",
+          "settings": {
+            "for_bundle": 3,
+            "primary_text": "",
+            "secondary_text": "",
+            "info_text": ""
+          }
+        },
         "gallery_image_tUBcKN": {
           "type": "gallery_image",
           "settings": {
@@ -68,8 +77,8 @@
             "badge_type": "gold",
             "shipping_info": "Free Shipping",
             "enable_free_gifts": true,
-            "gift_value": "$100",
-            "free_gift_content": "<p>Free eye contour(worth $40)</p><p>Free body cream (worth $60)</p>"
+            "bundle_number": 1,
+            "gift_value": "$100"
           }
         },
         "block_5": {
@@ -82,8 +91,8 @@
             "badge_type": "navy",
             "shipping_info": "Free Shipping",
             "enable_free_gifts": false,
-            "gift_value": "",
-            "free_gift_content": ""
+            "bundle_number": 1,
+            "gift_value": ""
           }
         },
         "block_6": {
@@ -96,8 +105,8 @@
             "badge_type": "gold",
             "shipping_info": "+ $4.95 Shipping",
             "enable_free_gifts": false,
-            "gift_value": "",
-            "free_gift_content": ""
+            "bundle_number": 1,
+            "gift_value": ""
           }
         },
         "block_7": {
@@ -249,6 +258,7 @@
         }
       },
       "block_order": [
+        "free_gift_zFt7Yc",
         "gallery_image_tUBcKN",
         "gallery_image_CzBrYU",
         "gallery_image_iW8gjL",
