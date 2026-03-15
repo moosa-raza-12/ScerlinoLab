@@ -329,6 +329,47 @@ document.addEventListener('DOMContentLoaded', function() {
     dot.addEventListener('click', function() { goToSlide(i); });
   });
 
+  /* Touch / swipe support for mobile gallery */
+  var touchStartX = 0;
+  var touchEndX = 0;
+  var touchStartY = 0;
+  var touchEndY = 0;
+  var isSwiping = false;
+  var swipeThreshold = 40;
+
+  if (track) {
+    track.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+      isSwiping = true;
+    }, { passive: true });
+
+    track.addEventListener('touchmove', function(e) {
+      if (!isSwiping) return;
+      var diffX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+      var diffY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+      if (diffX > diffY && diffX > 10) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    track.addEventListener('touchend', function(e) {
+      if (!isSwiping) return;
+      isSwiping = false;
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      var diffX = touchStartX - touchEndX;
+      var diffY = Math.abs(touchStartY - touchEndY);
+      if (Math.abs(diffX) > swipeThreshold && Math.abs(diffX) > diffY) {
+        if (diffX > 0) {
+          goToSlide(currentSlide + 1);
+        } else {
+          goToSlide(currentSlide - 1);
+        }
+      }
+    }, { passive: true });
+  }
+
   /* --- Bundle selection → update variant id & ATC price --- */
   const bundleRadios = section.querySelectorAll('.lp-bundle-radio');
   const variantInput = section.querySelector('[id^="lpVariantId"]');
