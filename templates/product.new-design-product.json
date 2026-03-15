@@ -63,7 +63,7 @@
           "settings": {
             "quantity": 6,
             "title": "6-month treatment",
-            "discount_percentage": 50,
+            "discount_percentage": "57.28",
             "badge_text": "Best Value",
             "badge_type": "gold",
             "shipping_info": "Free Shipping",
@@ -87,7 +87,7 @@
           "settings": {
             "quantity": 3,
             "title": "3-month treatment",
-            "discount_percentage": 40,
+            "discount_percentage": "40",
             "badge_text": "Most Popular",
             "badge_type": "navy",
             "shipping_info": "Free Shipping",
@@ -109,7 +109,7 @@
           "settings": {
             "quantity": 1,
             "title": "1-month treatment",
-            "discount_percentage": 0,
+            "discount_percentage": "0",
             "badge_text": "",
             "badge_type": "gold",
             "shipping_info": "+ $4.95 Shipping",
