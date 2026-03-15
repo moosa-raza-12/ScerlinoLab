@@ -12,6 +12,18 @@
     "kv-lp-new-design-product-night-cream-anti-aging": {
       "type": "kv-lp-new-design-product-night-cream-anti-aging",
       "blocks": {
+        "gallery_image_CzBrYU": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/11_a_5150ea2f-ce56-4f3d-a1f4-b64a0e7f2dd0.webp"
+          }
+        },
+        "gallery_image_iW8gjL": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/Face_Cream_US_Image_10_8c06c39c-b651-4a3a-8cb3-094ad8593c5a.webp"
+          }
+        },
         "block_0": {
           "type": "benefit",
           "settings": {
@@ -225,6 +237,8 @@
         }
       },
       "block_order": [
+        "gallery_image_CzBrYU",
+        "gallery_image_iW8gjL",
         "block_0",
         "block_1",
         "block_2",
