@@ -121,6 +121,7 @@
       {% comment %} Quantity / Bundle Selector {% endcomment %}
       <div class="lp-variant-picker">
         <h3 class="lp-variant-picker__title">Select Quantity</h3>
+        {%- assign first_bundle_found = false -%}
         <div class="lp-variant-picker__options">
           {% for block in section.blocks %}
             {% if block.type == 'bundle' %}
@@ -145,8 +146,9 @@
                   data-discounted-price="{{ discounted_price }}"
                   data-original-price="{{ base_price }}"
                   data-discount="{{ disc_pct }}"
-                  {% if forloop.first %}checked{% endif %}
+                  {% unless first_bundle_found %}checked{% endunless %}
                 >
+                {%- assign first_bundle_found = true -%}
                 <label for="bundle-{{ block.id }}" class="lp-bundle-card">
                   {% if block.settings.badge_text != blank %}
                     <span class="lp-bundle-badge lp-bundle-badge--{{ block.settings.badge_type }}">{{ block.settings.badge_text }}</span>
@@ -167,13 +169,43 @@
                     </div>
                   </div>
                   
-                  {% if block.settings.enable_free_gifts and block.settings.free_gift_content != blank %}
-                    <div class="lp-bundle-gifts">
-                      <div class="lp-gifts-header">Free gifts included{% if block.settings.gift_value != blank %} (worth {{ block.settings.gift_value }}){% endif %}:</div>
-                      <div class="lp-gift-items">
-                        {{ block.settings.free_gift_content }}
+                  {% if block.settings.enable_free_gifts %}
+                    {%- assign bundle_num = block.settings.bundle_number -%}
+                    {%- assign has_gifts = false -%}
+                    {%- for gift_block in section.blocks -%}
+                      {%- if gift_block.type == 'free_gift' and gift_block.settings.for_bundle == bundle_num -%}
+                        {%- assign has_gifts = true -%}
+                        {%- break -%}
+                      {%- endif -%}
+                    {%- endfor -%}
+                    {% if has_gifts %}
+                      <div class="lp-bundle-gifts">
+                        <div class="lp-gifts-header">Free gifts included{% if block.settings.gift_value != blank %} (worth {{ block.settings.gift_value }}){% endif %}:</div>
+                        <div class="lp-gift-items">
+                          {% for gift_block in section.blocks %}
+                            {% if gift_block.type == 'free_gift' and gift_block.settings.for_bundle == bundle_num %}
+                              <div class="lp-gift-row" {{ gift_block.shopify_attributes }}>
+                                {% if gift_block.settings.image != blank %}
+                                  <img class="lp-gift-row__img" src="{{ gift_block.settings.image | image_url: width: 80 }}" alt="{{ gift_block.settings.primary_text | escape }}" width="40" height="40" loading="lazy">
+                                {% endif %}
+                                <div class="lp-gift-row__text">
+                                  <span class="lp-gift-row__primary">{{ gift_block.settings.primary_text }}</span>
+                                  {% if gift_block.settings.secondary_text != blank %}
+                                    <span class="lp-gift-row__secondary">({{ gift_block.settings.secondary_text }})</span>
+                                  {% endif %}
+                                </div>
+                                {% if gift_block.settings.info_text != blank %}
+                                  <span class="lp-gift-row__info-trigger" tabindex="0" aria-label="More info">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7.5" stroke="currentColor"/><path d="M8 7V11M8 5.5V5" stroke="currentColor" stroke-linecap="round"/></svg>
+                                    <span class="lp-gift-row__info-tooltip">{{ gift_block.settings.info_text }}</span>
+                                  </span>
+                                {% endif %}
+                              </div>
+                            {% endif %}
+                          {% endfor %}
+                        </div>
                       </div>
-                    </div>
+                    {% endif %}
                   {% endif %}
                 </label>
               </div>
@@ -719,15 +751,59 @@ document.addEventListener('DOMContentLoaded', function() {
           "default": false
         },
         {
+          "type": "range",
+          "id": "bundle_number",
+          "label": "Bundle #",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 1,
+          "info": "Unique number for this bundle. Free Gift blocks with the same number will appear here."
+        },
+        {
           "type": "text",
           "id": "gift_value",
-          "label": "Gift Value Amount",
-          "info": "e.g. '$100'"
+          "label": "Total Gift Value",
+          "info": "e.g. '$100' — shown in the header"
+        }
+      ]
+    },
+    {
+      "type": "free_gift",
+      "name": "Free Gift",
+      "settings": [
+        {
+          "type": "range",
+          "id": "for_bundle",
+          "label": "For Bundle #",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 1,
+          "info": "Must match the Bundle # of the bundle this gift belongs to"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Gift Image"
+        },
+        {
+          "type": "text",
+          "id": "primary_text",
+          "label": "Gift Name",
+          "info": "e.g. 'Free eye contour'"
+        },
+        {
+          "type": "text",
+          "id": "secondary_text",
+          "label": "Value Text",
+          "info": "e.g. 'worth $40'"
         },
         {
           "type": "richtext",
-          "id": "free_gift_content",
-          "label": "Free Gift List Content"
+          "id": "info_text",
+          "label": "Info Tooltip",
+          "info": "Shown when hovering/tapping the ⓘ icon"
         }
       ]
     },
@@ -792,9 +868,11 @@ document.addEventListener('DOMContentLoaded', function() {
         { "type": "benefit", "settings": { "text": "60-day guarantee" } },
         { "type": "benefit", "settings": { "text": "Italian lab origin" } },
         { "type": "benefit", "settings": { "text": "Dermatologist Tested" } },
-        { "type": "bundle", "settings": { "quantity": 6, "title": "6-month treatment", "discount_percentage": 50, "badge_text": "Best Value", "badge_type": "gold", "shipping_info": "Free Shipping", "enable_free_gifts": true, "gift_value": "$100", "free_gift_content": "<p>Free eye contour(worth $40)</p><p>Free body cream (worth $60)</p>" } },
-        { "type": "bundle", "settings": { "quantity": 3, "title": "3-month treatment", "discount_percentage": 40, "badge_text": "Most Popular", "badge_type": "navy", "shipping_info": "Free Shipping" } },
-        { "type": "bundle", "settings": { "quantity": 1, "title": "1-month treatment", "discount_percentage": 0, "shipping_info": "+ $4.95 Shipping" } },
+        { "type": "bundle", "settings": { "quantity": 6, "title": "6-month treatment", "discount_percentage": 50, "badge_text": "Best Value", "badge_type": "gold", "shipping_info": "Free Shipping", "enable_free_gifts": true, "bundle_number": 1, "gift_value": "$100" } },
+        { "type": "free_gift", "settings": { "for_bundle": 1, "primary_text": "Free eye contour", "secondary_text": "worth $40" } },
+        { "type": "free_gift", "settings": { "for_bundle": 1, "primary_text": "Free body cream", "secondary_text": "worth $60" } },
+        { "type": "bundle", "settings": { "quantity": 3, "title": "3-month treatment", "discount_percentage": 40, "badge_text": "Most Popular", "badge_type": "navy", "shipping_info": "Free Shipping", "bundle_number": 2 } },
+        { "type": "bundle", "settings": { "quantity": 1, "title": "1-month treatment", "discount_percentage": 0, "shipping_info": "+ $4.95 Shipping", "bundle_number": 3 } },
         { "type": "faq", "settings": { "question": "What happened to Omnis? Why is it now SerlinoLab?", "answer": "<p>SerlinoLab is the new global brand of Omnis, bringing the same Italian quality with enhanced formulas.</p>" } },
         { "type": "faq", "settings": { "question": "Will SerlinoLab work for me?", "answer": "<p>Our formulas are dermatologically tested for all skin types targeting specific aging concerns.</p>" } },
         { "type": "testimonial_video", "settings": {} },
