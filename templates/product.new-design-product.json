@@ -408,10 +408,11 @@
       ],
       "settings": {
         "bg_image": "shopify://shop_images/Serlino_Lab_30_2.png",
-        "bg_image_mobile": "shopify://shop_images/The_science_behind_SerlinoLab.png",
+        "bg_image_mobile": "shopify://shop_images/Clinically_Validated_Efficacy.png",
         "title": "Clinically\nvalidated efficacy",
         "subtitle": "Independent dermatological testing on 124 volunteers, ages 50-70, over 28 days",
-        "disclaimer": "*Tests conducted on 124 men for 60 day"
+        "disclaimer": "*Tests conducted on 124 men for 60 day",
+        "mobile_height": 700
       }
     },
     "kv-lp-new-design-product-recommended-pharmacists": {
