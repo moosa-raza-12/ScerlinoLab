@@ -3,7 +3,7 @@
   width: 100%;
   min-height: 700px;
   display: flex;
-  align-items: start !important;
+  align-items: center;
   justify-content: center;
   background-image: var(--bg-image-mobile);
   background-size: cover;
@@ -36,7 +36,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
 }
 
 .lp-efficacy__header {
@@ -46,7 +46,7 @@
 }
 
 .lp-efficacy__title {
-  font-size: clamp(32px, 5vw, 42px);
+  font-size: clamp(38px, 5vw, 42px);
   font-weight: 500 !important;
   line-height: 1.1;
   letter-spacing: -1.52px;
@@ -110,6 +110,12 @@
 @media (max-width: 768px) {
   .lp-efficacy {
     align-items: start !important;
+  }
+  .lp-efficacy__content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 }
 
