@@ -376,7 +376,7 @@
         <h4 class="lp-quick-links__title">Learn more about:</h4>
         <div class="lp-quick-links__pills">
           {% for block in section.blocks %}
-            {% if block.type == 'quick_link' %}
+            {% if block.type == 'quick_link' and block.settings.section_id != blank %}
               <a href="#{{ block.settings.section_id }}" class="lp-pill lp-pill--scroll" {{ block.shopify_attributes }}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="9" height="5" viewBox="0 0 9 5" fill="none">
                   <path d="M8.14619 0.146431C8.34144 -0.0488152 8.6583 -0.0488057 8.85356 0.146431C9.04881 0.341683 9.04881 0.658528 8.85356 0.853781L4.85367 4.85357C4.65842 5.04881 4.34156 5.04881 4.14631 4.85357L0.146426 0.853781C-0.0487989 0.658528 -0.0488182 0.341674 0.146426 0.146431C0.341673 -0.0487939 0.658537 -0.0487848 0.853791 0.146431L4.49999 3.79255L8.14619 0.146431Z" fill="#434356"/>
@@ -597,7 +597,12 @@ document.addEventListener('DOMContentLoaded', function() {
       var targetEl = document.querySelector(targetId);
       if (targetEl) {
         e.preventDefault();
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        /* Account for sticky header height + a small gap */
+        var stickyHeader = document.querySelector('sticky-header') || document.querySelector('.shopify-section-header');
+        var headerOffset = stickyHeader ? stickyHeader.offsetHeight : 0;
+        var elementPosition = targetEl.getBoundingClientRect().top + window.pageYOffset;
+        var offsetPosition = elementPosition - headerOffset - 16;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       }
     });
   });

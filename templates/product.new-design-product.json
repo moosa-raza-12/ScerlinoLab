@@ -222,7 +222,7 @@
           "type": "quick_link",
           "settings": {
             "label": "The Science",
-            "section_id": ""
+            "section_id": "lp-efficacy-template--25689012109559__kv-lp-new-design-product-clinically-validated"
           }
         },
         "quick_link_znBERe": {
@@ -243,7 +243,7 @@
           "type": "quick_link",
           "settings": {
             "label": "How to Use",
-            "section_id": "lp-ingredients-template--25689012109559__kv-lp-new-design-product-only-what-your-skin"
+            "section_id": "lp-how-to-use-template--25689012109559__kv-lp-new-design-product-how-to-use-it"
           }
         },
         "quick_link_pHbkGi": {
@@ -257,7 +257,7 @@
           "type": "quick_link",
           "settings": {
             "label": "Tests",
-            "section_id": ""
+            "section_id": "lp-efficacy-template--25689012109559__kv-lp-new-design-product-clinically-validated"
           }
         },
         "quick_link_RAEJcF": {
@@ -278,7 +278,7 @@
           "type": "quick_link",
           "settings": {
             "label": "Reviews",
-            "section_id": ""
+            "section_id": "lp-reviews-template--25689012109559__kv_lp_new_design_product_what_our_customers_say_tNAnyb"
           }
         }
       },
