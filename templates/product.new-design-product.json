@@ -804,6 +804,101 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "kv_lp_new_design_product_what_our_customers_say_tNAnyb": {
+      "type": "kv-lp-new-design-product-what-our-customers-say",
+      "blocks": {
+        "review_GLkKeG": {
+          "type": "review",
+          "settings": {
+            "author_name": "Gabriele L.",
+            "show_avatar": false,
+            "verified": true,
+            "recommend": false,
+            "rating": 5,
+            "title": "",
+            "text": "I've always been skeptical, but this product really works. I recommend it to everyone."
+          }
+        },
+        "review_JDqi7d": {
+          "type": "review",
+          "settings": {
+            "author_name": "Laurence C.",
+            "show_avatar": false,
+            "verified": true,
+            "recommend": false,
+            "rating": 5,
+            "title": "",
+            "text": "Easy to apply. The instructions clearly indicate the amount to apply."
+          }
+        },
+        "review_hVMTpp": {
+          "type": "review",
+          "settings": {
+            "author_name": "Daniele R.",
+            "show_avatar": false,
+            "verified": true,
+            "recommend": false,
+            "rating": 5,
+            "title": "",
+            "text": "With consistent use, the product has shown amazing results."
+          }
+        },
+        "review_h8MtLC": {
+          "type": "review",
+          "settings": {
+            "author_name": "Eddie P.",
+            "show_avatar": false,
+            "verified": true,
+            "recommend": false,
+            "rating": 5,
+            "title": "",
+            "text": "I've never used a night cream before, but I don't think I need to try other companies' products. This one is..."
+          }
+        },
+        "review_T7NMff": {
+          "type": "review",
+          "settings": {
+            "author_name": "Phillip G.",
+            "show_avatar": false,
+            "verified": true,
+            "recommend": false,
+            "rating": 5,
+            "title": "",
+            "text": "I love this cream: it's not greasy and doesn't cause any burning. It's the perfect level of hydration."
+          }
+        },
+        "review_AXRDWf": {
+          "type": "review",
+          "settings": {
+            "author_name": "Michelle M.",
+            "show_avatar": true,
+            "verified": true,
+            "recommend": true,
+            "rating": 5,
+            "title": "HEART EYES!!!",
+            "text": "I am so glad I got this skirt with the crop top! It's so beautiful together. I wish the bottom was a little longer, but I love it."
+          }
+        }
+      },
+      "block_order": [
+        "review_GLkKeG",
+        "review_JDqi7d",
+        "review_hVMTpp",
+        "review_h8MtLC",
+        "review_T7NMff",
+        "review_AXRDWf"
+      ],
+      "name": "LP Reviews Grid",
+      "settings": {
+        "heading": "What our customers say",
+        "summary_title": "Customer Reviews",
+        "average_rating": "4.47 out of 5",
+        "review_count_text": "Based on 734 reviews",
+        "sort_default": "Pictures First",
+        "total_global_reviews": "2,341",
+        "trustpilot_link": ""
+      }
     }
   },
   "order": [
@@ -820,6 +915,7 @@
     "kv-lp-new-design-product-how-to-use-it",
     "kv-lp-new-design-product-day-money-back-guarantee",
     "kv-lp-new-design-product-do-you-still-have",
-    "1773343155009d25fe"
+    "1773343155009d25fe",
+    "kv_lp_new_design_product_what_our_customers_say_tNAnyb"
   ]
 }
