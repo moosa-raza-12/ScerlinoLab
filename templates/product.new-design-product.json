@@ -236,7 +236,7 @@
           "type": "quick_link",
           "settings": {
             "label": "Real Results",
-            "section_id": "lp-results-notice-container"
+            "section_id": "#lp-results-notice-container"
           }
         },
         "quick_link_UzhmMP": {
