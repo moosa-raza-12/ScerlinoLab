@@ -1,7 +1,7 @@
 {{ 'kv-lp-new-design-product-note-from-our-italian.css' | asset_url | stylesheet_tag }}
 
 <section class="lp-note-lab" id="lp-note-lab-{{ section.id }}">
-  <div class="lp-note-lab__container">
+  <div class="lp-note-lab__container" id="lp-note-lab-container">
     <div class="lp-note-lab__text-content">
       {% if section.settings.heading != blank %}
         <h2 class="lp-note-lab__heading">{{ section.settings.heading }}</h2>

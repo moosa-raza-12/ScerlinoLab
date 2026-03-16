@@ -1,7 +1,7 @@
 {{ 'kv-lp-new-design-product-recommended-pharmacists.css' | asset_url | stylesheet_tag }}
 
 <section class="lp-pharmacists-section" id="lp-section-{{ section.id }}">
-  <div class="lp-pharmacists-container" >
+  <div class="lp-pharmacists-container" id="lp-pharmacists-container">
     {% if section.settings.heading != blank %}
       <header class="lp-pharmacists-header">
         <h2 class="lp-pharmacists-title">{{ section.settings.heading }}</h2>

@@ -1,7 +1,7 @@
 {{ 'kv-lp-new-design-product-how-to-use-it.css' | asset_url | stylesheet_tag }}
 
 <section class="lp-how-to-use" id="lp-how-to-use-{{ section.id }}" data-section-id="{{ section.id }}">
-  <div class="lp-how-to-use__container">
+  <div class="lp-how-to-use__container" id="lp-how-to-use-container" >
     <div class="lp-how-to-use__header">
       {% if section.settings.heading != blank %}
         <h2 class="lp-how-to-use__title">{{ section.settings.heading }}</h2>

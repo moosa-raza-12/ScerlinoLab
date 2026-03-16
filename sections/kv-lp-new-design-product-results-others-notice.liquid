@@ -1,7 +1,7 @@
 {{ 'kv-lp-new-design-product-results-others-notice.css' | asset_url | stylesheet_tag }}
 
 <section class="lp-results-notice" id="lp-section-{{ section.id }}">
-  <div class="lp-results-notice__container">
+  <div class="lp-results-notice__container" id="lp-results-notice-container">
     {% if section.settings.title != blank %}
       <header class="lp-results-notice__header">
         <h2 class="lp-results-notice__title">{{ section.settings.title }}</h2>

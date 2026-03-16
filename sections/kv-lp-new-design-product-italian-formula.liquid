@@ -4,7 +4,7 @@
   {% if section.settings.bg_image != blank %}
     <img src="{{ section.settings.bg_image | image_url: width: 2000 }}" class="lp-comparison-table__bg" alt="" loading="lazy">
   {% endif %}
-  <div class="lp-comparison-table__overlay" style="background-color: {{ section.settings.overlay_color }}; opacity: {{ section.settings.overlay_opacity }};"></div>
+  <div class="lp-comparison-table__overlay" id="lp-comparison-table-overlay" style="background-color: {{ section.settings.overlay_color }}; opacity: {{ section.settings.overlay_opacity }};"></div>
 
   <div class="lp-comparison-table__container">
     <div class="lp-comparison-table__header">

@@ -10,7 +10,6 @@
   box-sizing: border-box;
   --overlay-color: #0a1124;
   --overlay-opacity: 0.62;
-  --badge-bg: #FFFFFF;
   --text-color: #FFFFFF;
   --title-size: 38px;
   --subtitle-size: 14px;
@@ -56,21 +55,11 @@
   text-align: center;
 }
 
-.lp-guarantee__badge {
-  width: 150px;
-  height: 150px;
-  background: var(--badge-bg);
-  border-radius: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 11px solid rgb(14, 21, 38);
+.lp-guarantee__icon {
   flex-shrink: 0;
- 
-    background: #FFF;
 }
 
-.lp-guarantee__badge-icon {
+.lp-guarantee__icon img {
   width: 80px;
   height: 80px;
   object-fit: contain;
@@ -115,7 +104,4 @@
   .lp-guarantee__subtitle {
     max-width: 390px;
   }
-}
-.lp-guarantee__badge{
-  border: 11px solid #3d414f;
 }

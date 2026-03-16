@@ -1,8 +1,8 @@
 {{ 'kv-lp-new-design-product-clinically-validated.css' | asset_url | stylesheet_tag }}
 
 <section class="lp-efficacy" id="lp-efficacy-{{ section.id }}" style="--bg-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}'); --bg-image-mobile: url('{% if section.settings.bg_image_mobile %}{{ section.settings.bg_image_mobile | image_url: width: 800 }}{% else %}{{ section.settings.bg_image | image_url: width: 800 }}{% endif %}'); ">
-  <div class="lp-efficacy__overlay"></div>
-  <div class="lp-efficacy__container">
+  <div class="lp-efficacy__overlay" id="lp-efficacy-overlay"></div>
+  <div class="lp-efficacy__container" id="lp-efficacy-container">
     <div class="lp-efficacy__content">
       <header class="lp-efficacy__header">
         {% if section.settings.title != blank %}
