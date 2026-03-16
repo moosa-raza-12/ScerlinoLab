@@ -3,7 +3,7 @@
   width: 100%;
   min-height: 700px;
   display: flex;
-  align-items: center;
+  align-items: start !important;
   justify-content: center;
   background-image: var(--bg-image-mobile);
   background-size: cover;
@@ -107,16 +107,17 @@
   letter-spacing: 0px !important;
 }
 
+@media (max-width: 768px) {
+  .lp-efficacy {
+    align-items: start !important;
+  }
+}
+
 @media (min-width: 768px) {
   .lp-efficacy {
     min-height: 600px;
     background-image: var(--bg-image);
   }
-
-  .lp-efficacy__overlay {
-    background: rgba(10, 17, 36, 0.2);
-  }
-
   .lp-efficacy__container {
     padding: 64px 80px;
     align-items: flex-start;
