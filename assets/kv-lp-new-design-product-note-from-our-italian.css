@@ -33,6 +33,13 @@
     width: 90%;
   }
 }
+
+@media screen and ( min-width: 725px) and (max-width: 1100px) {
+  .lp-note-lab__description{
+    width:70%;
+    margin: 0 auto;
+  }
+}
 .lp-note-lab__description {
   color: #17162E;
 font-family: "ABC Repro";
@@ -64,7 +71,7 @@ letter-spacing: 0px !important;
   border-radius: 30px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1340px) {
   .lp-note-lab {
     padding: 64px 200px;
   }

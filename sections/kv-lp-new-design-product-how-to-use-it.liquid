@@ -81,11 +81,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const nextBtn = section.querySelector('[data-nav="next"]');
   const cards = section.querySelectorAll('.lp-how-to-use__card');
 
+  grid.scrollLeft = 0;
+
+  function getGap() {
+    return parseFloat(getComputedStyle(grid).gap) || 20;
+  }
+
   function updateDots() {
-    const scrollPosition = grid.scrollLeft;
-    const cardWidth = cards[0].offsetWidth + 20;
-    const activeIndex = Math.round(scrollPosition / cardWidth);
-    
+    const gap = getGap();
+    const cardWidth = cards[0].offsetWidth + gap;
+    const activeIndex = Math.round(grid.scrollLeft / cardWidth);
+
     dots.forEach((dot, index) => {
       dot.classList.toggle('is-active', index === activeIndex);
     });
@@ -94,11 +100,13 @@ document.addEventListener('DOMContentLoaded', function() {
   grid.addEventListener('scroll', updateDots);
 
   prevBtn.addEventListener('click', () => {
-    grid.scrollBy({ left: -(cards[0].offsetWidth + 20), behavior: 'smooth' });
+    const gap = getGap();
+    grid.scrollBy({ left: -(cards[0].offsetWidth + gap), behavior: 'smooth' });
   });
 
   nextBtn.addEventListener('click', () => {
-    grid.scrollBy({ left: (cards[0].offsetWidth + 20), behavior: 'smooth' });
+    const gap = getGap();
+    grid.scrollBy({ left: (cards[0].offsetWidth + gap), behavior: 'smooth' });
   });
 });
 </script>

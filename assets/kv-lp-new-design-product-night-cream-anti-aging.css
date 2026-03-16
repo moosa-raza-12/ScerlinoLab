@@ -97,10 +97,10 @@
 }
 .lp-product-gallery__dot.active { background: var(--white); }
 
-/* Product Info */
+/* Product Info
   .lp-product-info {
     max-width: 488px;
-  }
+  } */
 
 
 .lp-trustpilot-badge {

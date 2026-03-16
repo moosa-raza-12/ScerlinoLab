@@ -60,12 +60,13 @@
 
 .lp-what-serlinolab__heading {
   font-family: inherit;
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 500 !important;
   line-height: 1.1;
   letter-spacing: -1.52px;
   margin: 0 0 32px 0;
   color: #fff;
+
 }
 
 .lp-what-serlinolab__benefits-grid {
@@ -113,7 +114,7 @@
 }
 
 .lp-benefit-item__title {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 1.3;
   margin: 0;
@@ -169,10 +170,15 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1031px) {
   .lp-what-serlinolab {
     align-items: flex-start;
   }
+  .lp-what-serlinolab__heading {
+    font-size: 38px;
+    text-align: left;
+  }
+  
 
   .lp-what-serlinolab__container {
     padding: 64px 200px;
@@ -185,10 +191,7 @@
     max-width: 400px;
   }
 
-  .lp-what-serlinolab__heading {
-    text-align: left;
-  }
-
+  
   .lp-what-serlinolab__benefits-grid {
     grid-template-columns: 1fr;
     gap: 8px;

@@ -83,9 +83,14 @@
   display: none;
 }
 
+@media screen and  (max-width:500px) {
+  .lp-how-to-use__card {
+    flex: 0 0 256px !important;
+}
+}
 .lp-how-to-use__card {
-  flex: 0 0 256px;
-  scroll-snap-align: center;
+  flex: 0 0 33%;
+  scroll-snap-align: start;
   background-color: var(--card-bg);
   border-radius: 12px;
   overflow: hidden;
@@ -186,7 +191,7 @@
   background-color: var(--text-dark);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1340px) {
   .lp-how-to-use {
     padding: 64px 200px;
   }

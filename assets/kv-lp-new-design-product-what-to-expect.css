@@ -8,8 +8,9 @@
 }
 
 .lp-wte__container {
-  max-width: 1040px;
+  max-width: 1440px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .lp-wte__header {
@@ -129,6 +130,7 @@
   margin-bottom: 14px;
   display: inline-block;
   letter-spacing: 0px !important;
+  line-height: 11px;
 }
 
 .lp-wte__card-title {
@@ -170,6 +172,15 @@
   height: 14px;
   object-fit: contain;
 }
+@media (min-width: 700px) and (max-width: 1100px) {
+  .lp-wte {
+    padding: 20px;
+  }
+  .lp-pharmacists-section{
+    padding: 20px;
+  }
+}
+
 
 @media (min-width: 1024px) {
   .lp-wte__heading {

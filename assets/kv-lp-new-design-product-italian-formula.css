@@ -89,9 +89,7 @@
 
 .lp-comparison-table__col--others {
   align-self: end;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-left: none;
-  border-radius: 0 12px 12px 0;
+  border: none;
 }
 
 .lp-comparison-table__col--others .lp-comparison-table__cell:not(.lp-comparison-table__cell--header) {
