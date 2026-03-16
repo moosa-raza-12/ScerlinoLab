@@ -222,7 +222,7 @@
           "type": "quick_link",
           "settings": {
             "label": "The Science",
-            "section_id": "lp-efficacy-template--25689031999735__kv-lp-new-design-product-clinically-validated"
+            "section_id": "d"
           }
         },
         "quick_link_znBERe": {
@@ -236,7 +236,7 @@
           "type": "quick_link",
           "settings": {
             "label": "Real Results",
-            "section_id": "lp-section-template--25689031999735__kv-lp-new-design-product-results-others-notice"
+            "section_id": "lp-results-notice-container"
           }
         },
         "quick_link_UzhmMP": {
