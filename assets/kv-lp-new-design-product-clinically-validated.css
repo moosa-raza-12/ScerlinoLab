@@ -1,7 +1,7 @@
 .lp-efficacy {
   position: relative;
   width: 100%;
-  min-height: 700px;
+  min-height: var(--mobile-height, 700px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,7 +107,7 @@
   letter-spacing: 0px !important;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 781px) {
   .lp-efficacy {
     min-height: 600px;
     background-image: var(--bg-image);
