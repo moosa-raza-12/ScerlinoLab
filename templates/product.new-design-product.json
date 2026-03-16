@@ -257,28 +257,28 @@
           "type": "quick_link",
           "settings": {
             "label": "Tests",
-            "section_id": "lp-section-template--25689031999735__kv-lp-new-design-product-recommended-pharmacists"
+            "section_id": ""
           }
         },
         "quick_link_RAEJcF": {
           "type": "quick_link",
           "settings": {
             "label": "Guarantee",
-            "section_id": "lp-guarantee-template--25689031999735__kv-lp-new-design-product-day-money-back-guarantee"
+            "section_id": "lp-guarantee-bg-image"
           }
         },
         "quick_link_UnVtce": {
           "type": "quick_link",
           "settings": {
             "label": "FAQs",
-            "section_id": "lp-faq-template--25689031999735__kv-lp-new-design-product-do-you-still-have"
+            "section_id": "lp-faq-wrapper"
           }
         },
         "quick_link_BgKdhq": {
           "type": "quick_link",
           "settings": {
             "label": "Reviews",
-            "section_id": "lp-reviews-template--25689031999735__kv_lp_new_design_product_what_our_customers_say_tNAnyb"
+            "section_id": "lp-reviews-widget-title"
           }
         }
       },
