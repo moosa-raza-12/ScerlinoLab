@@ -76,6 +76,14 @@
   width: 100%;
 }
 
+@media screen and (min-width: 769px) and (max-width: 1100px) {
+  .lp-what-serlinolab__benefits-grid{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+}
+
 .lp-benefit-item {
   background: var(--lp-pill-bg);
   backdrop-filter: blur(10px);

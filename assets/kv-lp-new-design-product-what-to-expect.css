@@ -13,6 +13,12 @@
   padding: 0 20px;
 }
 
+@media screen and (min-width: 1340px) {
+  .lp-wte__container {
+    padding: 64px 200px;
+  }
+}
+
 .lp-wte__header {
   text-align: center;
   margin-bottom: 36px;
