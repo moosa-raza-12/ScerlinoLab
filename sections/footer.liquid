@@ -50,6 +50,39 @@
   -%}
     {%- unless only_empty_brand -%}
       <div class="footer__content-top page-width">
+        {%- if section.settings.footer_logo_enable -%}
+          <div class="footer__logo-wrapper{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {%- assign footer_logo_link = section.settings.footer_logo_link | default: routes.root_url -%}
+            <a href="{{ footer_logo_link }}" class="footer__logo-link">
+              {%- if section.settings.footer_logo_type == 'svg' and section.settings.footer_logo_svg != blank -%}
+                <img
+                  src="{{ section.settings.footer_logo_svg | image_url: width: 900 }}"
+                  alt="{{ shop.name | escape }}"
+                  loading="lazy"
+                  width="{{ section.settings.footer_logo_width }}"
+                  height="{{ section.settings.footer_logo_width | divided_by: section.settings.footer_logo_svg.aspect_ratio }}"
+                  style="max-width: {{ section.settings.footer_logo_width }}px;"
+                  class="footer__logo-img footer__logo-img--svg"
+                >
+              {%- elsif section.settings.footer_logo_type == 'png' and section.settings.footer_logo_png != blank -%}
+                {%- assign footer_logo_width_2x = section.settings.footer_logo_width | times: 2 | at_most: 5760 -%}
+                <img
+                  srcset="{{ section.settings.footer_logo_png | image_url: width: section.settings.footer_logo_width }}, {{ section.settings.footer_logo_png | image_url: width: footer_logo_width_2x }} 2x"
+                  src="{{ section.settings.footer_logo_png | image_url: width: section.settings.footer_logo_width }}"
+                  alt="{{ shop.name | escape }}"
+                  loading="lazy"
+                  width="{{ section.settings.footer_logo_width }}"
+                  height="{{ section.settings.footer_logo_width | divided_by: section.settings.footer_logo_png.aspect_ratio }}"
+                  style="max-width: {{ section.settings.footer_logo_width }}px;"
+                  class="footer__logo-img footer__logo-img--png"
+                >
+              {%- else -%}
+                <span class="footer__logo-text h2">{{ shop.name }}</span>
+              {%- endif -%}
+            </a>
+          </div>
+        {%- endif -%}
+
         {%- if section.blocks.size > 0 -%}
           {%- liquid
             if section.blocks.size == 9
@@ -429,6 +462,60 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Footer Logo"
+    },
+    {
+      "type": "checkbox",
+      "id": "footer_logo_enable",
+      "default": false,
+      "label": "Show footer logo"
+    },
+    {
+      "type": "select",
+      "id": "footer_logo_type",
+      "label": "Logo type",
+      "options": [
+        {
+          "value": "png",
+          "label": "PNG / JPG Image"
+        },
+        {
+          "value": "svg",
+          "label": "SVG Image"
+        }
+      ],
+      "default": "png",
+      "info": "Choose which logo format to display"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_logo_png",
+      "label": "Logo image (PNG / JPG)"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_logo_svg",
+      "label": "Logo image (SVG)",
+      "info": "Upload an SVG file for crisp rendering at any size"
+    },
+    {
+      "type": "range",
+      "id": "footer_logo_width",
+      "min": 50,
+      "max": 450,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo width",
+      "default": 150
+    },
+    {
+      "type": "url",
+      "id": "footer_logo_link",
+      "label": "Logo link",
+      "info": "Leave blank to link to home page"
     },
     {
       "type": "header",
