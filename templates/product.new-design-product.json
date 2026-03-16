@@ -222,7 +222,7 @@
           "type": "quick_link",
           "settings": {
             "label": "The Science",
-            "section_id": "d"
+            "section_id": "lp-pharmacists-container"
           }
         },
         "quick_link_znBERe": {
@@ -257,7 +257,7 @@
           "type": "quick_link",
           "settings": {
             "label": "Tests",
-            "section_id": ""
+            "section_id": "lp-efficacy-overlay"
           }
         },
         "quick_link_RAEJcF": {
