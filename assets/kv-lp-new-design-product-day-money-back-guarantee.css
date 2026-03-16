@@ -42,7 +42,11 @@
   opacity: var(--overlay-opacity);
   z-index: 2;
 }
-
+@media (max-width: 767px) {
+  .lp-guarantee__container {
+    gap: 32px;
+  }
+}
 .lp-guarantee__container {
   position: relative;
   z-index: 1;
@@ -60,8 +64,8 @@
 }
 
 .lp-guarantee__icon img {
-  width: 80px;
-  height: 80px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
 }
 
@@ -96,7 +100,7 @@
 
 @media (min-width: 1024px) {
   .lp-guarantee {
-    min-height: 413px;
+    /* min-height: 413px; */
     padding: 64px 20px;
     --content-gap: 40px;
   }
