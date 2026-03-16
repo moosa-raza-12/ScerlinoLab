@@ -127,7 +127,15 @@
 
 .lp-pharmacist-card.is-playing .lp-pharmacist-play-btn {
   opacity: 0;
-  pointer-events: none;
+}
+
+.lp-pharmacist-card.is-playing:hover .lp-pharmacist-play-btn {
+  opacity: 0.7;
+  pointer-events: auto;
+}
+
+.lp-pharmacist-card.is-playing:hover .lp-pharmacist-play-btn:hover {
+  opacity: 1;
 }
 
 .lp-pharmacist-image-placeholder {

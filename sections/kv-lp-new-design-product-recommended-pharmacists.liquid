@@ -64,9 +64,9 @@
     if (!video) return;
 
     var isPlaying = false;
+    var userPaused = false;
 
     function play() {
-      video.currentTime = 0;
       video.muted = true;
       video.play().catch(function(){});
       isPlaying = true;
@@ -79,15 +79,40 @@
       card.classList.remove('is-playing');
     }
 
-    card.addEventListener('mouseenter', play);
-    card.addEventListener('mouseleave', pause);
+    card.addEventListener('mouseenter', function() {
+      if (!userPaused) play();
+    });
+
+    card.addEventListener('mouseleave', function() {
+      pause();
+      userPaused = false;
+      video.currentTime = 0;
+    });
 
     if (playBtn) {
       playBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        if (isPlaying) { pause(); } else { play(); }
+        e.stopPropagation();
+        if (isPlaying) {
+          pause();
+          userPaused = true;
+        } else {
+          userPaused = false;
+          play();
+        }
       });
     }
+
+    video.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (isPlaying) {
+        pause();
+        userPaused = true;
+      } else {
+        userPaused = false;
+        play();
+      }
+    });
 
     video.addEventListener('ended', function() {
       pause();
