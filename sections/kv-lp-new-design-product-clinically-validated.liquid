@@ -1,6 +1,6 @@
 {{ 'kv-lp-new-design-product-clinically-validated.css' | asset_url | stylesheet_tag }}
 
-<section class="lp-efficacy" id="lp-efficacy-{{ section.id }}" style="--bg-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}'); --bg-image-mobile: url('{% if section.settings.bg_image_mobile %}{{ section.settings.bg_image_mobile | image_url: width: 800 }}{% else %}{{ section.settings.bg_image | image_url: width: 800 }}{% endif %}'); --mobile-height: {{ section.settings.mobile_height }}px;">
+<section class="lp-efficacy" id="lp-efficacy-{{ section.id }}" style="--bg-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}'); --bg-image-mobile: url('{% if section.settings.bg_image_mobile %}{{ section.settings.bg_image_mobile | image_url: width: 800 }}{% else %}{{ section.settings.bg_image | image_url: width: 800 }}{% endif %}'); ">
   <div class="lp-efficacy__overlay"></div>
   <div class="lp-efficacy__container">
     <div class="lp-efficacy__content">
@@ -64,17 +64,6 @@
       "id": "disclaimer",
       "label": "Disclaimer",
       "default": "*Tests conducted on 124 men for 60 day"
-    },
-    {
-      "type": "range",
-      "id": "mobile_height",
-      "label": "Section Height (Mobile)",
-      "info": "Height in pixels for screens up to 780px",
-      "min": 300,
-      "max": 1000,
-      "step": 10,
-      "default": 700,
-      "unit": "px"
     }
   ],
   "blocks": [

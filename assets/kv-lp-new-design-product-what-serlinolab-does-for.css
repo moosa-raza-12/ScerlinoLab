@@ -5,7 +5,7 @@
   --lp-overlay: rgba(0, 3, 10, 0.4);
   position: relative;
   width: 100%;
-  min-height: 740px;
+  min-height: var(--mobile-height, 740px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,9 +158,14 @@
   font-weight: 350;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 781px) {
   .lp-what-serlinolab {
     min-height: 594px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lp-what-serlinolab {
     align-items: flex-start;
   }
 
