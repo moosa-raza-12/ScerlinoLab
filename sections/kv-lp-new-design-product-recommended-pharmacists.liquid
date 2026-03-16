@@ -20,6 +20,8 @@
                 <video
                   class="lp-pharmacist-video"
                   src="{{ block.settings.video.sources[1].url | default: block.settings.video.sources[0].url }}"
+                  muted
+                  loop
                   playsinline
                   preload="metadata"
                 ></video>
@@ -58,13 +60,14 @@
 
   section.querySelectorAll('.lp-pharmacist-card.has-video').forEach(function(card) {
     var video = card.querySelector('.lp-pharmacist-video');
-    var poster = card.querySelector('.lp-pharmacist-poster');
     var playBtn = card.querySelector('.lp-pharmacist-play-btn');
-    if (!video || !playBtn) return;
+    if (!video) return;
 
     var isPlaying = false;
 
     function play() {
+      video.currentTime = 0;
+      video.muted = true;
       video.play().catch(function(){});
       isPlaying = true;
       card.classList.add('is-playing');
@@ -76,10 +79,15 @@
       card.classList.remove('is-playing');
     }
 
-    playBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      if (isPlaying) { pause(); } else { play(); }
-    });
+    card.addEventListener('mouseenter', play);
+    card.addEventListener('mouseleave', pause);
+
+    if (playBtn) {
+      playBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (isPlaying) { pause(); } else { play(); }
+      });
+    }
 
     video.addEventListener('ended', function() {
       pause();
