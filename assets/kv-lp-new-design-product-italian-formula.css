@@ -89,12 +89,15 @@
 
 .lp-comparison-table__col--others {
   align-self: end;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-left: none;
   border-radius: 0 12px 12px 0;
+}
+
+.lp-comparison-table__col--others .lp-comparison-table__cell:not(.lp-comparison-table__cell--header) {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .lp-comparison-table__cell {
@@ -105,7 +108,7 @@
   color: rgba(255, 255, 255, 0.85);
   font-size: 13px;
   font-weight: 400;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.00);
   letter-spacing: 0px;
 }
 
@@ -113,10 +116,25 @@
   border-bottom: none;
 }
 
+.lp-comparison-table__col--features .lp-comparison-table__cell:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.lp-comparison-table__col--brand .lp-comparison-table__cell:nth-child(even) {
+  background: #F3F3F3;
+}
+
+.lp-comparison-table__col--others .lp-comparison-table__cell:nth-child(even):not(.lp-comparison-table__cell--header) {
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
 .lp-comparison-table__cell--header {
   height: 80px;
   justify-content: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: none !important;
 }
 
 .lp-comparison-table__col--brand .lp-comparison-table__cell--header {
