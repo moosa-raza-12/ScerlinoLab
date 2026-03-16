@@ -55,15 +55,9 @@
             {%- assign footer_logo_link = section.settings.footer_logo_link | default: routes.root_url -%}
             <a href="{{ footer_logo_link }}" class="footer__logo-link">
               {%- if section.settings.footer_logo_type == 'svg' and section.settings.footer_logo_svg != blank -%}
-                <img
-                  src="{{ section.settings.footer_logo_svg | image_url: width: 900 }}"
-                  alt="{{ shop.name | escape }}"
-                  loading="lazy"
-                  width="{{ section.settings.footer_logo_width }}"
-                  height="{{ section.settings.footer_logo_width | divided_by: section.settings.footer_logo_svg.aspect_ratio }}"
-                  style="max-width: {{ section.settings.footer_logo_width }}px;"
-                  class="footer__logo-img footer__logo-img--svg"
-                >
+                <div class="footer__logo-svg" style="max-width: {{ section.settings.footer_logo_width }}px;">
+                  {{ section.settings.footer_logo_svg }}
+                </div>
               {%- elsif section.settings.footer_logo_type == 'png' and section.settings.footer_logo_png != blank -%}
                 {%- assign footer_logo_width_2x = section.settings.footer_logo_width | times: 2 | at_most: 5760 -%}
                 <img
@@ -484,7 +478,7 @@
         },
         {
           "value": "svg",
-          "label": "SVG Image"
+          "label": "SVG Code"
         }
       ],
       "default": "png",
@@ -496,10 +490,10 @@
       "label": "Logo image (PNG / JPG)"
     },
     {
-      "type": "image_picker",
+      "type": "html",
       "id": "footer_logo_svg",
-      "label": "Logo image (SVG)",
-      "info": "Upload an SVG file for crisp rendering at any size"
+      "label": "Logo SVG code",
+      "info": "Paste your raw SVG code here (e.g. <svg>...</svg>)"
     },
     {
       "type": "range",

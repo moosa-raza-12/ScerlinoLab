@@ -530,6 +530,17 @@
   width: 100%;
 }
 
+.footer__logo-svg {
+  display: block;
+  width: 100%;
+}
+
+.footer__logo-svg svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .footer__logo-text {
   margin: 0;
 }
