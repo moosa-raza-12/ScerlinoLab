@@ -222,63 +222,63 @@
           "type": "quick_link",
           "settings": {
             "label": "The Science",
-            "section_id": "lp-efficacy-template--25689012109559__kv-lp-new-design-product-clinically-validated"
+            "section_id": "lp-efficacy-template--25689031999735__kv-lp-new-design-product-clinically-validated"
           }
         },
         "quick_link_znBERe": {
           "type": "quick_link",
           "settings": {
             "label": "Ingredients",
-            "section_id": "lp-ingredients-template--25689012109559__kv-lp-new-design-product-only-what-your-skin"
+            "section_id": "lp-ingredients-template--25689031999735__kv-lp-new-design-product-only-what-your-skin"
           }
         },
         "quick_link_K3biVT": {
           "type": "quick_link",
           "settings": {
             "label": "Real Results",
-            "section_id": "lp-section-template--25689012109559__kv-lp-new-design-product-results-others-notice"
+            "section_id": "lp-section-template--25689031999735__kv-lp-new-design-product-results-others-notice"
           }
         },
         "quick_link_UzhmMP": {
           "type": "quick_link",
           "settings": {
             "label": "How to Use",
-            "section_id": "lp-how-to-use-template--25689012109559__kv-lp-new-design-product-how-to-use-it"
+            "section_id": "lp-how-to-use-template--25689031999735__kv-lp-new-design-product-how-to-use-it"
           }
         },
         "quick_link_pHbkGi": {
           "type": "quick_link",
           "settings": {
             "label": "Comparison",
-            "section_id": "lp-section-template--25689012109559__kv-lp-new-design-product-italian-formula"
+            "section_id": "lp-section-template--25689031999735__kv-lp-new-design-product-italian-formula"
           }
         },
         "quick_link_3RgagG": {
           "type": "quick_link",
           "settings": {
             "label": "Tests",
-            "section_id": "lp-efficacy-template--25689012109559__kv-lp-new-design-product-clinically-validated"
+            "section_id": "lp-section-template--25689031999735__kv-lp-new-design-product-recommended-pharmacists"
           }
         },
         "quick_link_RAEJcF": {
           "type": "quick_link",
           "settings": {
             "label": "Guarantee",
-            "section_id": "lp-guarantee-template--25689012109559__kv-lp-new-design-product-day-money-back-guarantee"
+            "section_id": "lp-guarantee-template--25689031999735__kv-lp-new-design-product-day-money-back-guarantee"
           }
         },
         "quick_link_UnVtce": {
           "type": "quick_link",
           "settings": {
             "label": "FAQs",
-            "section_id": "lp-faq-template--25689012109559__kv-lp-new-design-product-do-you-still-have"
+            "section_id": "lp-faq-template--25689031999735__kv-lp-new-design-product-do-you-still-have"
           }
         },
         "quick_link_BgKdhq": {
           "type": "quick_link",
           "settings": {
             "label": "Reviews",
-            "section_id": "lp-reviews-template--25689012109559__kv_lp_new_design_product_what_our_customers_say_tNAnyb"
+            "section_id": "lp-reviews-template--25689031999735__kv_lp_new_design_product_what_our_customers_say_tNAnyb"
           }
         }
       },
