@@ -108,8 +108,8 @@
           {% if block.type == 'benefit' %}
             <div class="lp-benefit-card">
               <div class="lp-benefit-icon">
-                {% if block.settings.icon != blank %}
-                  <img src="{{ block.settings.icon | image_url: width: 56 }}" alt="{{ block.settings.text | escape }}" width="28" height="28" loading="lazy" class="lp-benefit-icon-img">
+                {% if block.settings.icon_svg != blank %}
+                  {{ block.settings.icon_svg }}
                 {% endif %}
               </div>
               <p class="lp-benefit-text">{{ block.settings.text }}</p>
@@ -778,9 +778,10 @@ document.addEventListener('DOMContentLoaded', function() {
       "name": "Benefit",
       "settings": [
         {
-          "type": "image_picker",
-          "id": "icon",
-          "label": "Icon Image"
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG Code",
+          "info": "Paste inline SVG code for the benefit icon (e.g. <svg>...</svg>)"
         },
         {
           "type": "text",

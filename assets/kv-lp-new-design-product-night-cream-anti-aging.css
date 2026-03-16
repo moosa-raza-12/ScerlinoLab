@@ -177,11 +177,10 @@ margin: 0;
   align-items: center;
   gap: 10px;
 }
-.lp-benefit-icon-img {
+.lp-benefit-icon svg {
   display: block;
   width: 28px;
   height: 28px;
-  object-fit: contain;
 }
 .lp-benefit-text {
   font-size: 10px;
