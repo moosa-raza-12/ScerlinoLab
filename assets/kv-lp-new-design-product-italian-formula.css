@@ -196,7 +196,7 @@
 
 .lp-comparison-table__icon--check {
   color: #0A1124;
-  border: 1.5px solid rgba(10, 17, 36, 0.2);
+  /* border: 1.5px solid rgba(10, 17, 36, 0.2); */
 }
 
 .lp-comparison-table__icon--cross {
