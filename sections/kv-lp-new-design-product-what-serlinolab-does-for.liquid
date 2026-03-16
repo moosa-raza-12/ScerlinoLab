@@ -20,8 +20,8 @@
         {%- for block in section.blocks -%}
           <div class="lp-benefit-item" {{ block.shopify_attributes }}>
             <div class="lp-benefit-item__icon">
-              {%- if block.settings.icon != blank -%}
-                <img src="{{ block.settings.icon | image_url: width: 64 }}" alt="" loading="lazy" width="32" height="32">
+              {%- if block.settings.icon_svg != blank -%}
+                {{ block.settings.icon_svg }}
               {%- else -%}
                 <div class="lp-benefit-item__icon-placeholder"></div>
               {%- endif -%}
@@ -102,9 +102,9 @@
       "name": "Benefit",
       "settings": [
         {
-          "type": "image_picker",
-          "id": "icon",
-          "label": "Icon"
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon (SVG Code)"
         },
         {
           "type": "text",
