@@ -285,9 +285,9 @@
       </div>
 
       <div class="lp-guarantee-banner">
-        {% if section.settings.guarantee_icon != blank %}
+        {% if section.settings.guarantee_icon_svg != blank %}
           <div class="lp-guarantee-icon">
-            {{ section.settings.guarantee_icon | image_url: width: 80 | image_tag: loading: 'lazy', alt: 'Guarantee', class: 'lp-guarantee-icon-img' }}
+            {{ section.settings.guarantee_icon_svg }}
           </div>
         {% endif %}
         <div class="lp-guarantee-text">{{ section.settings.guarantee_text }}</div>
@@ -749,10 +749,10 @@ document.addEventListener('DOMContentLoaded', function() {
       "info": "Rich text for the bottom Trustpilot badge area. Supports bold, italic, etc."
     },
     {
-      "type": "image_picker",
-      "id": "guarantee_icon",
-      "label": "Guarantee Icon Image",
-      "info": "Upload a PNG or SVG image for the guarantee badge icon"
+      "type": "html",
+      "id": "guarantee_icon_svg",
+      "label": "Guarantee Icon SVG Code",
+      "info": "Paste inline SVG code for the guarantee badge icon (e.g. <svg>...</svg>)"
     },
     {
       "type": "richtext",
