@@ -270,13 +270,34 @@ margin: 0;
 .lp-bundle-shipping-tag { 
 letter-spacing: 0px;  font-size: 14px;  background:  #F3F3F3; padding: 4px 8px; border-radius: 4px; 
 }
+@media (max-width: 768px) {
+  .lp-bundle-shipping-tag{
+    font-size: 10px !important;
+    white-space: nowrap;
+  }
+  .lp-bundle-title{
+    font-size: 12px !important;
+    white-space: nowrap;
+  }
+  .lp-bundle-price-old{
+    font-size: 12px !important;
+  }
+  .lp-bundle-price-new{
+    font-size: 14px !important;
+    letter-spacing: 0px;
+  }
+  .lp-bundle-title-group{
+    gap:4px !important;
+  }
+}
+
 .lp-bundle-pricing { text-align: right; display: flex; align-items: center; gap: 6px; }
 .lp-bundle-discount {
   background: #E8F5E9; color: #2E7D32; font-size: 12px; font-weight: 600;
   padding: 2px 8px; border-radius: 4px; white-space: nowrap;
 }
 .lp-bundle-price-old { text-decoration: line-through; opacity: 0.5; font-size: 14px; }
-.lp-bundle-price-new { font-weight: 600; font-size: 16px; }
+.lp-bundle-price-new { font-weight: 600; font-size: 16px; letter-spacing: 0px; }
 
 .lp-bundle-gifts {
   margin-top: 12px;
@@ -375,6 +396,7 @@ letter-spacing: 0px;  background: var(--primary-text); color: white; font-size: 
   padding: 12px 0;
   font-size: 14px;
   opacity: 0.8;
+  letter-spacing: 0px;
 }
 .lp-dot { width: 6px; height: 6px; background: #00B67A; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 4px; }
 

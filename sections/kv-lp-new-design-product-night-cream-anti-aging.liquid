@@ -179,7 +179,7 @@
                     </div>
                     <div class="lp-bundle-pricing">
                       {% if disc_pct > 0 %}
-                        <span class="lp-bundle-price-old">{{ base_price | money }}</span>
+                        <span class="lp-bundle-price-old">{{ base_price | divided_by: 100 | prepend: '$' }}</span>
                       {% endif %}
                       <span class="lp-bundle-price-new">{{ discounted_price | money }}<small>/ea</small></span>
                     </div>
@@ -466,7 +466,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var atcPrice = section.querySelector('.lp-atc-price');
   var moneySymbol = '{{ cart.currency.symbol | default: "$" }}';
 
-  function formatMoney(cents) {
+  function formatMoney(cents, round) {
+    if (round) return moneySymbol + Math.floor(cents / 100);
     return moneySymbol + (cents / 100).toFixed(2);
   }
 
@@ -484,9 +485,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (atcPrice) {
       var html = '';
       if (totalDiscounted < totalOriginal) {
-        html += '<del>' + formatMoney(totalOriginal) + '</del> ';
+        html += '<del>' + formatMoney(totalOriginal, true) + '</del> ';
       }
-      html += '<strong>' + formatMoney(totalDiscounted) + '</strong>';
+      html += '<strong>' + formatMoney(totalDiscounted, false) + '</strong>';
       atcPrice.innerHTML = html;
     }
 
