@@ -11,8 +11,23 @@
     <div class="lp-pharmacists-grid-wrapper">
       <div class="lp-pharmacists-grid">
         {% for block in section.blocks %}
-          <div class="lp-pharmacist-card" {{ block.shopify_attributes }}>
-            {% if block.settings.image != blank %}
+          <div class="lp-pharmacist-card{% if block.settings.video != blank %} has-video{% endif %}" {{ block.shopify_attributes }}>
+            {% if block.settings.video != blank %}
+              <div class="lp-pharmacist-video-wrapper">
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'lp-pharmacist-poster', alt: block.settings.name }}
+                {% endif %}
+                <video
+                  class="lp-pharmacist-video"
+                  src="{{ block.settings.video.sources[1].url | default: block.settings.video.sources[0].url }}"
+                  playsinline
+                  preload="metadata"
+                ></video>
+                <button class="lp-pharmacist-play-btn" aria-label="Play Video">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="rgba(0,0,0,0.45)"/><path d="M19 15L33 24L19 33V15Z" fill="white"/></svg>
+                </button>
+              </div>
+            {% elsif block.settings.image != blank %}
               {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'lp-pharmacist-image', alt: block.settings.name }}
             {% else %}
               <div class="lp-pharmacist-image-placeholder"></div>
@@ -36,6 +51,44 @@
   </div>
 </section>
 
+<script>
+(function() {
+  var section = document.querySelector('#lp-section-{{ section.id }}');
+  if (!section) return;
+
+  section.querySelectorAll('.lp-pharmacist-card.has-video').forEach(function(card) {
+    var video = card.querySelector('.lp-pharmacist-video');
+    var poster = card.querySelector('.lp-pharmacist-poster');
+    var playBtn = card.querySelector('.lp-pharmacist-play-btn');
+    if (!video || !playBtn) return;
+
+    var isPlaying = false;
+
+    function play() {
+      video.play().catch(function(){});
+      isPlaying = true;
+      card.classList.add('is-playing');
+    }
+
+    function pause() {
+      video.pause();
+      isPlaying = false;
+      card.classList.remove('is-playing');
+    }
+
+    playBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (isPlaying) { pause(); } else { play(); }
+    });
+
+    video.addEventListener('ended', function() {
+      pause();
+      video.currentTime = 0;
+    });
+  });
+})();
+</script>
+
 {% schema %}
 {
   "name": "Pharmacist Recommends",
@@ -55,7 +108,14 @@
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Pharmacist Image"
+          "label": "Poster Image",
+          "info": "This image is shown as the thumbnail. When a video is also provided, clicking it will play the video."
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Upload a video. The poster image above will be used as the thumbnail. Leave empty for a static image card."
         },
         {
           "type": "textarea",

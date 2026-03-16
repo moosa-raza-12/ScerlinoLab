@@ -72,6 +72,64 @@
   z-index: 1;
 }
 
+.lp-pharmacist-video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.lp-pharmacist-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.lp-pharmacist-card.is-playing .lp-pharmacist-poster {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lp-pharmacist-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.lp-pharmacist-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.lp-pharmacist-play-btn:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.lp-pharmacist-card.is-playing .lp-pharmacist-play-btn {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .lp-pharmacist-image-placeholder {
   position: absolute;
   top: 0;
