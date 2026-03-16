@@ -55,7 +55,7 @@
 .lp-comparison-table__wrapper {
   width: 100%;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 24px;
+  padding-bottom: 14px;
 }
 
 .lp-comparison-table__grid {
@@ -92,13 +92,12 @@
   content: '';
   display: block;
   position: absolute;
-  bottom: -24px;
+  bottom: -14px;
   left: 0;
   right: 0;
-  height: 24px;
+  height: 14px;
   background: rgba(240, 242, 248, 0.95);
   border-radius: 0 0 14px 14px;
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.08);
 }
 
 .lp-comparison-table__col--others {
@@ -184,7 +183,7 @@
 }
 
 .lp-comparison-table__col--brand .lp-comparison-table__cell:last-child {
-  border-bottom: none;
+  border-bottom: none !important;
 }
 
 .lp-comparison-table__col--others .lp-comparison-table__cell {
