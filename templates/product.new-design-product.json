@@ -643,18 +643,6 @@
             "benefits": "<ul><li>Stimulates new collagen production</li><li>Zero redness, peeling, or irritation</li><li>Safe for thin, delicate neck skin<br/></li></ul>"
           }
         },
-        "block_1": {
-          "type": "ingredient",
-          "settings": {
-            "open_by_default": false,
-            "title": "Italian olive oil",
-            "tag": "The Overnight Lock",
-            "icon_image": "shopify://shop_images/Ingredient_Icon_48389f50-4a42-479f-9607-b66f7484bb07.png",
-            "main_image": "shopify://shop_images/image_1218.png",
-            "description": "Rich in vitamins and antioxidants, Italian olive oil helps protect the skin from environmental stressors while providing deep nourishment.",
-            "benefits": "<p>Benefit 1 • Benefit 2 • Benefit 3</p>"
-          }
-        },
         "block_2": {
           "type": "ingredient",
           "settings": {
@@ -666,12 +654,24 @@
             "description": "A salt form of hyaluronic acid that penetrates deep into the skin to lock in moisture and visibly smooth out fine lines and wrinkles.",
             "benefits": "<p>Benefit 1 • Benefit 2 • Benefit 3</p>"
           }
+        },
+        "block_1": {
+          "type": "ingredient",
+          "settings": {
+            "open_by_default": false,
+            "title": "Italian olive oil",
+            "tag": "The Overnight Lock",
+            "icon_image": "shopify://shop_images/Ingredient_Icon_48389f50-4a42-479f-9607-b66f7484bb07.png",
+            "main_image": "shopify://shop_images/image_1218.png",
+            "description": "Rich in vitamins and antioxidants, Italian olive oil helps protect the skin from environmental stressors while providing deep nourishment.",
+            "benefits": "<p>Benefit 1 • Benefit 2 • Benefit 3</p>"
+          }
         }
       },
       "block_order": [
         "block_0",
-        "block_1",
-        "block_2"
+        "block_2",
+        "block_1"
       ],
       "settings": {
         "heading": "Only what your skin needs",
