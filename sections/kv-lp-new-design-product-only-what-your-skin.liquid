@@ -55,10 +55,10 @@
               </div>
               {%- if block.settings.benefits != blank -%}
                 <div class="lp-ingredient-card__benefits">
-              
-                    {{ block.settings.benefits }}
+
+                  {{ block.settings.benefits }}
                 </div>
-                
+
               {%- endif -%}
             </div>
           </details>
@@ -104,10 +104,10 @@
         "label": "Heading",
         "default": "Only what your skin needs"
       }, {
-        "type": "inline_richtext",
+        "type": "richtext",
         "id": "subheading",
         "label": "Subheading",
-        "default": "Not just hydration — ingredients selected to actively fight signs of time."
+        "default": "<p>Not just hydration — ingredients selected to actively fight signs of time.</p>"
       }, {
         "type": "text",
         "id": "full_list_text",
@@ -169,7 +169,7 @@
         "name": "Anti-aging Ingredients",
         "settings": {
           "heading": "Only what your skin needs",
-          "subheading": "Not just hydration — ingredients selected to actively fight signs of time.",
+          "subheading": "<p>Not just hydration — ingredients selected to actively fight signs of time.</p>",
           "full_list_text": "Full Ingredient List"
         },
         "blocks": [
