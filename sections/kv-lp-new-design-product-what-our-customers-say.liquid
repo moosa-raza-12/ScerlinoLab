@@ -1,6 +1,6 @@
 <style>
   .lp-reviews-widget-container {
-    padding: 30px 20px 40px 20px;
+    padding: 30px 20px 40px;
     background-color: #f4f5f4;
   }
 
@@ -15,10 +15,11 @@
     font-family: "ABC Repro";
     font-size: 42px;
     font-style: normal;
-    font-weight: 500;
-    line-height: 39px;
-    /* 92.857% */
+    font-weight: 500 !important;
+    line-height: 110%;
     letter-spacing: -1px;
+    width: 50%;
+    margin: auto auto 62px;
   }
 
   @media (max-width: 768px) {
@@ -28,89 +29,113 @@
       font-family: "ABC Repro";
       font-size: 38px;
       font-style: normal;
-      font-weight: 500;
+      font-weight: 500 !important;
       line-height: 39px;
       /* 102.632% */
       letter-spacing: -1px;
-      width: 283px;
+      width: 330px;
       margin: auto;
       padding-bottom: 30px;
     }
   }
-  .jdgm-row-actions{
+  .jdgm-row-actions {
     justify-content: center;
     align-items: center;
   }
 </style>
 <div class='lp-reviews-widget-container' id="lp-reviews-{{ section.id }}">
-  <h3 class='lp-reviews-widget-title' id="lp-reviews-widget-title">What our customers say</h3>
+  <h3 class='lp-reviews-widget-title' id="lp-reviews-widget-title">
+    {{ section.settings.widget_title | newline_to_br }}
+  </h3>
+  {% assign jm_style = '' %}
   {% assign widget = 'review_widget' %}
   {% case widget %}
-  {% when "single_product_preview_badge" %}
-  <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-product-title='{{ product.title | escape }}'
-    data-id='{{ product.id }}'>
-    {{ product.metafields.judgeme.badge }}
-  </div>
-  {% when "review_widget" %}
-  <div class='lp-reviews-widget'>
-    <div style='clear:both'></div>
-    <div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget'
-      data-product-title='{{ product.title | escape }}' data-id='{{ product.id }}'>
-      {{ product.metafields.judgeme.widget }}
-    </div>
-  </div>
-  {% when "reviews_carousel" %}
-  <div class='jdgm-carousel-wrapper'>
-    {% assign jm_metafields = shop.metafields.judgeme %}
-    <div class='jdgm-carousel-title-and-link'>
-      <h2 class='jdgm-carousel-title'>Let customers speak for us</h2>
-      <span class='jdgm-all-reviews-rating-wrapper' href='javascript:void(0)'>
-        <span style='display:block' data-score='{{ jm_metafields.all_reviews_rating }}' class='jdgm-all-reviews-rating'
-          aria-label='{{ jm_metafields.all_reviews_rating }} stars' tabindex='0' role='img'></span>
-        <span style='display: block' class='jdgm-carousel-number-of-reviews'
-          data-number-of-reviews='{{ jm_metafields.all_reviews_count }}'>
-          from {{ shop.metafields.judgeme.all_reviews_count }} reviews
-        </span>
-      </span>
-    </div>
-    {{ jm_metafields.featured_carousel }}
-  </div>
-  {% when "reviews_text" %}
-  <div style='text-align: center'>
-    <div class='jdgm-widget jdgm-all-reviews-text'>
-      <a href='javascript:void(0)'>
-        <span data-score='{{ shop.metafields.judgeme.all_reviews_rating }}' class='jdgm-all-reviews-rating'></span>
-        <span class='jdgm-all-reviews-text__text' data-score='{{ shop.metafields.judgeme.all_reviews_rating }}'
-          data-number-of-reviews='{{ shop.metafields.judgeme.all_reviews_count }}'>
-          Customers rate us {{ shop.metafields.judgeme.all_reviews_rating | round: 1 }}/5 based on {{
-          shop.metafields.judgeme.all_reviews_count }} reviews.
-        </span>
-      </a>
-    </div>
-  </div>
-  {% when "section_for_medals" %}
-  {{ shop.metafields.judgeme.medals }}
-  {% when "ugc_media_grid" %}
-  <div class='jdgm-widget jdgm-ugc-media-wrapper'>
-    {{ shop.metafields.judgeme.ugc_media_grid }}
-  </div>
-  {% when "verified_reviews_count_badge" %}
-  <div style='clear:both'></div>
-  <div style='text-align: center'>
-    <a class='jdgm-verified-count-badget' href='javascript:void(0)'>
-      {{ shop.metafields.judgeme.verified_badge }}
-    </a>
-  </div>
+    {% when "single_product_preview_badge" %}
+      <div
+        style='{{ jm_style }}'
+        class='jdgm-widget jdgm-preview-badge'
+        data-product-title='{{ product.title | escape }}'
+        data-id='{{ product.id }}'>
+        {{ product.metafields.judgeme.badge }}
+      </div>
+    {% when "review_widget" %}
+      <div class='lp-reviews-widget'>
+        <div style='clear:both'></div>
+        <div
+          id='judgeme_product_reviews'
+          class='jdgm-widget jdgm-review-widget'
+          data-product-title='{{ product.title | escape }}'
+          data-id='{{ product.id }}'>
+          {{ product.metafields.judgeme.widget }}
+        </div>
+      </div>
+    {% when "reviews_carousel" %}
+      <div class='jdgm-carousel-wrapper'>
+        {% assign jm_metafields = shop.metafields.judgeme %}
+        <div class='jdgm-carousel-title-and-link'>
+          <h2 class='jdgm-carousel-title'>Let customers speak for us</h2>
+          <span class='jdgm-all-reviews-rating-wrapper' href='javascript:void(0)'>
+            <span
+              style='display:block'
+              data-score='{{ jm_metafields.all_reviews_rating }}'
+              class='jdgm-all-reviews-rating'
+              aria-label='{{ jm_metafields.all_reviews_rating }} stars'
+              tabindex='0'
+              role='img'></span>
+            <span
+              style='display: block'
+              class='jdgm-carousel-number-of-reviews'
+              data-number-of-reviews='{{ jm_metafields.all_reviews_count }}'>
+              from {{ shop.metafields.judgeme.all_reviews_count }} reviews
+            </span>
+          </span>
+        </div>
+        {{ jm_metafields.featured_carousel }}
+      </div>
+    {% when "reviews_text" %}
+      <div style='text-align: center'>
+        <div class='jdgm-widget jdgm-all-reviews-text'>
+          <a href='javascript:void(0)'>
+            <span data-score='{{ shop.metafields.judgeme.all_reviews_rating }}' class='jdgm-all-reviews-rating'></span>
+            <span
+              class='jdgm-all-reviews-text__text'
+              data-score='{{ shop.metafields.judgeme.all_reviews_rating }}'
+              data-number-of-reviews='{{ shop.metafields.judgeme.all_reviews_count }}'>
+              Customers rate us {{ shop.metafields.judgeme.all_reviews_rating | round: 1 }}/5 based on {{ shop.metafields.judgeme.all_reviews_count }} reviews.
+            </span>
+          </a>
+        </div>
+      </div>
+    {% when "section_for_medals" %}
+      {{ shop.metafields.judgeme.medals }}
+    {% when "ugc_media_grid" %}
+      <div class='jdgm-widget jdgm-ugc-media-wrapper'>
+        {{ shop.metafields.judgeme.ugc_media_grid }}
+      </div>
+    {% when "verified_reviews_count_badge" %}
+      <div style='clear:both'></div>
+      <div style='text-align: center'>
+        <a class='jdgm-verified-count-badget' href='javascript:void(0)'>
+          {{ shop.metafields.judgeme.verified_badge }}
+        </a>
+      </div>
   {% endcase %}
 </div>
 {% schema %}
-{
-"name": "LP Reviews Widget",
-"settings": [],
-"presets": [
-{
-"name": "LP Reviews Widget"
-}
-]
-}
+  {
+    "name": "LP Reviews Widget",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "widget_title",
+        "label": "LP Reviews widget title",
+        "default": "73,000 Men Made the Switch.\n\nHere's Why They Stayed."
+      }
+    ],
+    "presets": [
+      {
+        "name": "LP Reviews Widget"
+      }
+    ]
+  }
 {% endschema %}
