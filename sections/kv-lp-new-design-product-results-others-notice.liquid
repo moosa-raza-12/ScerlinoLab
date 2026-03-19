@@ -53,6 +53,40 @@
         {% endfor %}
       </div>
     </div>
+    <div class="lp-how-to-use__nav">
+      <button class="lp-how-to-use__arrow lp-how-to-use__arrow--prev" data-nav="prev" aria-label="Previous step">
+        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 1L1 8L8 15M1 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="lp-how-to-use__dots">
+        {% for block in section.blocks %}
+          <span class="lp-how-to-use__dot{% if forloop.first %} is-active{% endif %}" data-dot="{{ forloop.index0 }}"></span>
+        {% endfor %}
+      </div>
+      <button class="lp-how-to-use__arrow lp-how-to-use__arrow--next" data-nav="next" aria-label="Next step">
+        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 1L19 8L12 15M19 8H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="lp-how-to-use__nav">
+      <button class="lp-how-to-use__arrow lp-how-to-use__arrow--prev" data-nav="prev" aria-label="Previous step">
+        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 1L1 8L8 15M1 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="lp-how-to-use__dots">
+        {% for block in section.blocks %}
+          <span class="lp-how-to-use__dot{% if forloop.first %} is-active{% endif %}" data-dot="{{ forloop.index0 }}"></span>
+        {% endfor %}
+      </div>
+      <button class="lp-how-to-use__arrow lp-how-to-use__arrow--next" data-nav="next" aria-label="Next step">
+        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 1L19 8L12 15M19 8H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </section>
 

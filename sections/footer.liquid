@@ -25,6 +25,31 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Keep footer logo and link blocks on the same line (desktop) */
+  @media screen and (min-width: 750px) {
+    .footer__content-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      column-gap: 39px;
+    }
+
+    .footer__logo-wrapper {
+      margin-bottom: 0;
+      flex: 0 0 auto;
+    /* display: none;   */
+    }
+
+    .footer__content-top .footer__blocks-wrapper {
+      flex: 1 1 0;
+    }
+
+    /* Newsletter remains below the logo+links row */
+    .footer__content-top .footer-block--newsletter {
+      flex: 1 1 100%;
+    }
+  }
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">

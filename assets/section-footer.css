@@ -527,7 +527,7 @@
 .footer__logo-img {
   display: block;
   height: auto;
-  width: 100%;
+  width: 140px;
 }
 
 .footer__logo-svg {
@@ -553,5 +553,6 @@
 
   .footer__logo-link {
     margin: 0 auto;
+    display: none;
   }
 }
