@@ -8,6 +8,8 @@
       <img
         src="{{ section.settings.background_image | image_url: width: 2000 }}"
         alt="{{ section.settings.background_image.alt | escape }}"
+        width="{{ section.settings.background_image.width }}"
+        height="{{ section.settings.background_image.width | divided_by: section.settings.background_image.aspect_ratio | round }}"
         loading="lazy">
     </picture>
   {%- endif -%}
@@ -50,7 +52,7 @@
         "type": "richtext",
         "id": "title",
         "label": "Title",
-        "default": "60-day money-back guarantee"
+        "default": "<p>60-day money-back guarantee</p>"
       }, {
         "type": "richtext",
         "id": "subtitle",
