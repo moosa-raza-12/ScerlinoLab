@@ -687,24 +687,24 @@
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/Serlino_Lab_30_3.png",
-            "step_title": "01 - Apply at night",
-            "description": "Use on clean, dry skin before bed."
+            "step_title": "01 - Apply a Small Amount",
+            "description": "A coin-sized amount for your face. Another for your neck. That's all you need."
           }
         },
         "block_1": {
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/Serlino_Lab_30_3_d5721e35-fbd5-44d6-87d8-b0063c5a0256.png",
-            "step_title": "02 - Face + neck",
-            "description": "Focus on areas with visible texture and wrinkles."
+            "step_title": "02 - Spread on Clean, Dry Skin",
+            "description": "Wash your face and neck. Pat dry. Spread gently across your forehead, cheeks, and jawline."
           }
         },
         "block_2": {
           "type": "step",
           "settings": {
             "image": "shopify://shop_images/Serlino_Lab_30_5.png",
-            "step_title": "03 - Be consistent",
-            "description": "Most visible changes come from daily use across multiple weeks."
+            "step_title": "03 - Stay Consistent",
+            "description": "Real results show up between week 2 and week 8. The men who see the biggest changes are the ones who never skip a night."
           }
         }
       },
