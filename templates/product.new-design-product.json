@@ -336,12 +336,12 @@
             "image_after": "shopify://shop_images/Rectangle_4395.png",
             "label_before": "Before",
             "label_after": "Month 5",
-            "reviewer_name": "Jason",
-            "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
-            "testimonial": "“After a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed — without any greasy feel.”",
-            "tag_1": "✨ Smoother texture",
-            "tag_2": "💪 Firmer feel",
-            "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
+            "reviewer_name": "Richard, 63",
+            "reviewer_subtitle": "",
+            "testimonial": "\"My neck was the thing I hated most. That loose skin folding over my collar - I'd pull at it every morning. After about 6 weeks, my wife grabbed my face and said 'your neck looks different.' By month 4, I stopped wearing turtlenecks to hide it.\"",
+            "tag_1": "Smoother texture",
+            "tag_2": "Firmer feel",
+            "product_info": ""
           }
         },
         "block_1": {
@@ -391,14 +391,14 @@
           "type": "usp",
           "settings": {
             "percentage": "98%",
-            "text": "<p>Visible<strong> wrinkle <br/>reduction* in 4 weeks</strong></p>"
+            "text": "<p>Said they looked visibly younger after <br/>60 days of use</p>"
           }
         },
         "block_1": {
           "type": "usp",
           "settings": {
-            "percentage": "94%",
-            "text": "<p>Confirms rapid absorption without <strong>greasy effect</strong></p>"
+            "percentage": "93%",
+            "text": "<p>Showed visible wrinkle reduction within the first 28 days</p>"
           }
         }
       },
@@ -410,7 +410,7 @@
         "bg_image": "shopify://shop_images/Serlino_Lab_30_2.png",
         "bg_image_mobile": "shopify://shop_images/Clinically_Validated_Efficacy.png",
         "title": "Clinically\nvalidated efficacy",
-        "subtitle": "Independent dermatological testing on 124 volunteers, ages 50-70, over 28 days",
+        "subtitle": "Independent dermatological study. 124 men aged 50-70. 60 days.",
         "disclaimer": "*Tests conducted on 124 men for 60 day"
       }
     },
@@ -422,9 +422,9 @@
           "settings": {
             "image": "shopify://shop_images/image_1223_ea7cb2ca-2c5d-4319-9bd5-9360dbad16f0.png",
             "video": "shopify://files/videos/moast-Filomeno Usa_eyecrea,.mp4",
-            "quote": "As a pharmacist, SerlinoLab creams are the only ones I've seen that work on men.",
-            "name": "Dr. Silvia Lanza",
-            "role": "Expert in Skin Health and Medicine"
+            "quote": "Advanced formulas and quality actives, Made in Italy excellence.",
+            "name": "Dr Marco Filomeno",
+            "role": "Owner of 3 pharmacies in Italy"
           }
         },
         "block_1": {
@@ -442,9 +442,9 @@
           "settings": {
             "image": "shopify://shop_images/image_1223.png",
             "video": "shopify://files/videos/moast-Lanzax  Face Cream.mp4",
-            "quote": "Advanced formulas and quality actives, Made in Italy excellence.",
-            "name": "Marco Filomeni",
-            "role": "Pharmacist, Venice"
+            "quote": "As a pharmacist, SerlinoLab creams are the only ones I've seen that work on men.",
+            "name": "Dr. Silvia Lanza",
+            "role": "Expert in Skin Health and Medicine"
           }
         }
       },
@@ -518,25 +518,25 @@
         "block_0": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/before_after_4_step_1.png",
+            "image": "shopify://shop_images/before_after_4_step_1_c7119238-3605-4336-8eeb-6ef4b50c9efc.png",
             "icon": "shopify://shop_images/Icon.png",
             "badge": "WEEK 1–2",
-            "title": "Hydration & Comfort",
-            "feature_1": "Skin feels more hydrated and comfortable",
-            "feature_2": "Less dryness / tight feeling after cleansing",
-            "feature_3": "Texture starts to feel softer and smoother"
+            "title": "The Foundation",
+            "feature_1": "Neck and face feel hydrated overnight without greasy residue",
+            "feature_2": "Dry, tight feeling after washing disappears",
+            "feature_3": "Skin texture starts softening - you'll feel it before you see it"
           }
         },
         "block_1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/before_after_4_step_1_51f7ae0e-fdf9-4af8-a78c-d601ca50a0e8.png",
+            "image": "shopify://shop_images/before_after_4_step_1_1.png",
             "icon": "shopify://shop_images/Icon.png",
             "badge": "WEEK 3–6",
-            "title": "Visible Improvement",
-            "feature_1": "Skin texture looks more even",
-            "feature_2": "Fine lines begin to look less noticeable",
-            "feature_3": "Complexion appears more rested and fresh"
+            "title": "Others Start Noticing",
+            "feature_1": "Fine lines around eyes and forehead visibly soften",
+            "feature_2": "Skin tone evens out - the \"tired, exhausted\" look fades",
+            "feature_3": "Your wife, your barber, your coworker - someone will say something"
           }
         },
         "block_2": {
@@ -545,10 +545,10 @@
             "image": "shopify://shop_images/before_after_4_step_1_6cfb0828-efce-4956-884a-5737477113cc.png",
             "icon": "shopify://shop_images/Icon.png",
             "badge": "WEEK 8–12",
-            "title": "Transformation",
-            "feature_1": "Skin looks firmer and more toned",
-            "feature_2": "Overall skin looks healthier",
-            "feature_3": "Lines appear visibly reduced"
+            "title": "The Real Transformation",
+            "feature_1": "Jawline looks noticeably firmer and more defined",
+            "feature_2": "Neck skin tightens - less sagging over the collar",
+            "feature_3": "Deep lines continue reducing - you look like YOU, just younger"
           }
         }
       },
@@ -558,8 +558,8 @@
         "block_2"
       ],
       "settings": {
-        "heading": "What to expect",
-        "subheading": "Your results timeline (first 12 weeks)"
+        "heading": "Your First 90 Days With SerlinoLab",
+        "subheading": "Here's exactly what to expect - week by week."
       }
     },
     "kv-lp-new-design-product-italian-formula": {
@@ -568,37 +568,37 @@
         "block_0": {
           "type": "row",
           "settings": {
-            "feature_name": "Hydrates skin"
+            "feature_name": "Rebuilds collagen at the structural level"
           }
         },
         "block_1": {
           "type": "row",
           "settings": {
-            "feature_name": "Stimulates new collagen production"
+            "feature_name": "Rebuilds collagen at the structural level"
           }
         },
         "block_2": {
           "type": "row",
           "settings": {
-            "feature_name": "Won't cause redness, peeling, or irritation"
+            "feature_name": "Rebuilds collagen at the structural level"
           }
         },
         "block_3": {
           "type": "row",
           "settings": {
-            "feature_name": "Recommended by Pharmacists in Italy"
+            "feature_name": "No alcohol, silicones, or synthetic fillers"
           }
         },
         "block_4": {
           "type": "row",
           "settings": {
-            "feature_name": "No alcohol, silicones, or parabens"
+            "feature_name": "Pharmaceutical-grade, artisanalItalian formula"
           }
         },
         "block_5": {
           "type": "row",
           "settings": {
-            "feature_name": "Made in a 38-year-old family lab in Italy"
+            "feature_name": "60-day money-back guarantee"
           }
         }
       },
@@ -611,7 +611,7 @@
         "block_5"
       ],
       "settings": {
-        "heading": "Italian formula. Not generic.",
+        "heading": "Why Men Are Switching to SerlinoLab",
         "brand_logo": "shopify://shop_images/7.png",
         "others_label": "Others",
         "badge_text": "96% notices visible results in ~4 weeks. *",
@@ -623,8 +623,8 @@
     "kv-lp-new-design-product-note-from-our-italian": {
       "type": "kv-lp-new-design-product-note-from-our-italian",
       "settings": {
-        "heading": "Note from our Italian lab",
-        "content": "<p>SerlinoLab is produced in a family-owned Italian lab, based in the Italian countryside, where every batch is made with hands-on care and strict quality control.</p><p>This isn’t mass production. It’s an authentic, controlled process designed for one thing: consistent results you can trust, batch after batch. That’s our core US selling point—Italian-made quality, done properly.</p><p><strong>— SerlinoLab</strong><br/>Family-made in Italy</p>",
+        "heading": "Three Generations. One Lab. Since 1987",
+        "content": "<p>In 1987, the Serlino family opened a small laboratory in the Italian countryside. No investors. No corporate backing. Just a pharmacist, his family, and a commitment to making things properly.<br/><br/>Three generations later, that same lab produces every batch of SerlinoLab by hand, in small quantities. This is not mass production. We make less in a year than most American brands make in a week.<br/><br/>Because when a formula takes 38 years to perfect, you don't rush it off a factory line.<br/><br/><strong>— The Serlino Family, Italy. Since 1987.</strong></p>",
         "image": "shopify://shop_images/4a8f6802150b59f89646381a7195a5386b3966b1.jpg",
         "image_border_radius": 30
       }
