@@ -180,9 +180,9 @@
   .lp-results-notice {
     padding: 64px 0;
   }
-  /* .lp-results-notice__container {
-    padding: 0 200px;
-  } */
+   .lp-results-notice__container {
+    padding: 0 20px;
+  } 
   .lp-results-notice__header {
     padding: 0;
     margin-bottom: 40px;
