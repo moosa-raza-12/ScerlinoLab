@@ -68,6 +68,8 @@
   gap: 12px;
   width: 100%;
   justify-content: center;
+   display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .lp-efficacy__usp {
