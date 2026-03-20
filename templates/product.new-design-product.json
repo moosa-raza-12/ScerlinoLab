@@ -390,7 +390,7 @@
         "block_0": {
           "type": "usp",
           "settings": {
-            "text2": "<p>Visible wrinkle reduction* in 4 weeks</p>",
+            "text2": "<p>Younger Appearance</p>",
             "percentage": "98%",
             "text": "<p>Said they looked visibly younger after <br/>60 days of use</p>"
           }
@@ -398,7 +398,7 @@
         "block_1": {
           "type": "usp",
           "settings": {
-            "text2": "<p>Visible wrinkle reduction* in 4 weeks</p>",
+            "text2": "<p>Fewer Wrinkles</p>",
             "percentage": "93%",
             "text": "<p>Showed visible wrinkle reduction within the first 28 days</p>"
           }
@@ -406,17 +406,17 @@
         "usp_XmB8ew": {
           "type": "usp",
           "settings": {
-            "text2": "<p>Visible wrinkle reduction* in 4 weeks</p>",
-            "percentage": "98%",
-            "text": "<p>Visible wrinkle reduction* in 4 weeks</p>"
+            "text2": "<p>Firmer Skin</p>",
+            "percentage": "89%",
+            "text": "<p>Reported noticeably firmer skin on face and neck</p>"
           }
         },
         "usp_wjLWNx": {
           "type": "usp",
           "settings": {
-            "text2": "<p>Visible wrinkle reduction* in 4 weeks</p>",
-            "percentage": "98%",
-            "text": "<p>Visible wrinkle reduction* in 4 weeks</p>"
+            "text2": "<p>Tighter Neck</p>",
+            "percentage": "84%",
+            "text": "<p>Saw visible improvement in neck sagging and jowls</p>"
           }
         }
       },
