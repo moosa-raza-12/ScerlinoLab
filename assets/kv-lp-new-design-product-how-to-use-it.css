@@ -150,7 +150,7 @@
   margin-top: 20px;
   width: 100%;
 }
-@media screen and (max-width: 749px){
+@media screen and (max-width: 1300px){
 .lp-results__nav{
   display: flex;
   align-items: center;
