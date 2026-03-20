@@ -126,6 +126,9 @@ font-weight: 700 !important;
     flex-direction: column;
     gap: 12px;
   }
+  .lp-efficacy__title {
+   width:101%;
+  }
 }
 
 @media (min-width: 768px) {
@@ -149,9 +152,6 @@ font-weight: 700 !important;
     max-width: 550px;
   }
 
-  .lp-efficacy__title {
-   width:101%;
-  }
 
   .lp-efficacy__stats {
             display: grid;
