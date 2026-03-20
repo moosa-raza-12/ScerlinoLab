@@ -104,7 +104,7 @@
   transform: translateX(-50%);
   background: #fff;
   padding: 8px 16px;
-  border-radius: 200px;
+  border-radius: 20px 20px 0 0;
   font-size: 14px;
   font-weight: 500;
   color: var(--text-color);
@@ -219,7 +219,7 @@
     height: 222px;
   }
   .lp-results-notice__label {
-    padding: 9px 31px;
+    padding: 7px 40px;
     bottom: 16px;
   }
   .lp-results-notice__routine {
