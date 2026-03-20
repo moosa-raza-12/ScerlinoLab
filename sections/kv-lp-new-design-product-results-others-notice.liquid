@@ -71,6 +71,113 @@
       </button>
     </div>
   </div>
+  <script>
+(function() {
+  const section = document.querySelector('#lp-section-{{ section.id }}');
+  if (!section) return;
+
+  const list = section.querySelector('.lp-results-notice__list');
+  const prevBtn = section.querySelector('[data-nav="prev"]');
+  const nextBtn = section.querySelector('[data-nav="next"]');
+  const dots = section.querySelectorAll('.lp-how-to-use__dot');
+  
+  if (!list || !prevBtn || !nextBtn || !dots.length) return;
+
+  let currentIndex = 0;
+  const totalCards = dots.length;
+
+  // Function to update the carousel position
+  function updateCarousel(index) {
+    // Update active dot
+    dots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.add('is-active');
+      } else {
+        dot.classList.remove('is-active');
+      }
+    });
+    
+    // Scroll the list to show the active card
+    const cards = list.querySelectorAll('.lp-results-notice__card');
+    if (cards[index]) {
+      cards[index].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+    }
+    
+    currentIndex = index;
+  }
+
+  // Next button click handler
+  nextBtn.addEventListener('click', () => {
+    let newIndex = currentIndex + 1;
+    if (newIndex >= totalCards) {
+      newIndex = 0; // Loop back to first
+    }
+    updateCarousel(newIndex);
+  });
+
+  // Previous button click handler
+  prevBtn.addEventListener('click', () => {
+    let newIndex = currentIndex - 1;
+    if (newIndex < 0) {
+      newIndex = totalCards - 1; // Loop to last
+    }
+    updateCarousel(newIndex);
+  });
+
+  // Dot click handlers
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      updateCarousel(index);
+    });
+  });
+
+  // Optional: Touch/swipe support for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  const container = section.querySelector('.lp-results-notice__list-wrapper');
+  
+  if (container) {
+    container.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    container.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeThreshold = 50;
+      
+      if (touchEndX < touchStartX - swipeThreshold) {
+        // Swipe left - next
+        nextBtn.click();
+      } else if (touchEndX > touchStartX + swipeThreshold) {
+        // Swipe right - previous
+        prevBtn.click();
+      }
+    });
+  }
+
+  // Optional: Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    // Only trigger if section is visible in viewport
+    const rect = section.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (!isVisible) return;
+    
+    if (e.key === 'ArrowLeft') {
+      prevBtn.click();
+      e.preventDefault();
+    } else if (e.key === 'ArrowRight') {
+      nextBtn.click();
+      e.preventDefault();
+    }
+  });
+})();
+</script>
 </section>
 
 {% schema %}
