@@ -203,9 +203,9 @@
     gap: 20px;
   }
   .lp-results-notice__card {
-    flex: none;
-    width: auto;
-  }
+  scroll-snap-align: center;
+  flex: 0 0 100%;
+}
   .lp-results-notice__media {
     height: 222px;
   }
