@@ -373,12 +373,54 @@
             "tag_2": "💪 Firmer feel",
             "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
           }
+        },
+        "review_WijYa3": {
+          "type": "review",
+          "settings": {
+            "label_before": "Before",
+            "label_after": "Month 5",
+            "reviewer_name": "Jason",
+            "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
+            "testimonial": "“After a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed — without any greasy feel.”",
+            "tag_1": "✨ Smoother texture",
+            "tag_2": "💪 Firmer feel",
+            "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
+          }
+        },
+        "review_W8Ptka": {
+          "type": "review",
+          "settings": {
+            "label_before": "Before",
+            "label_after": "Month 5",
+            "reviewer_name": "Jason",
+            "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
+            "testimonial": "“After a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed — without any greasy feel.”",
+            "tag_1": "✨ Smoother texture",
+            "tag_2": "💪 Firmer feel",
+            "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
+          }
+        },
+        "review_YbTRBQ": {
+          "type": "review",
+          "settings": {
+            "label_before": "Before",
+            "label_after": "Month 5",
+            "reviewer_name": "Jason",
+            "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
+            "testimonial": "“After a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed — without any greasy feel.”",
+            "tag_1": "✨ Smoother texture",
+            "tag_2": "💪 Firmer feel",
+            "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
+          }
         }
       },
       "block_order": [
         "block_0",
         "block_1",
-        "block_2"
+        "block_2",
+        "review_WijYa3",
+        "review_W8Ptka",
+        "review_YbTRBQ"
       ],
       "settings": {
         "title": "Results other will\nnotice."
