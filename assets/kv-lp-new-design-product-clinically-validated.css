@@ -155,7 +155,7 @@
   .lp-efficacy__usp {
           flex-direction: column;
         align-items: start;
-        padding: 20px 24px;
+        padding: 20px 12px;
         gap: 20px;
         min-width:300px;
   }
