@@ -152,7 +152,12 @@
 }
 @media screen and (max-width: 749px){
 .lp-results__nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+    margin-top: 20px;
  width: 100%;
+ 
 }
 }
 .lp-how-to-use__arrow {
