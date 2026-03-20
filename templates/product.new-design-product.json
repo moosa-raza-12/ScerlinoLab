@@ -332,8 +332,8 @@
         "block_0": {
           "type": "review",
           "settings": {
-            "image_before": "shopify://shop_images/Rectangle_4395_99d3268b-8b7d-42c2-9b17-5db0e270c8e6.png",
-            "image_after": "shopify://shop_images/Rectangle_4395.png",
+            "image_before": "shopify://shop_images/Rectangle_4399.png",
+            "image_after": "shopify://shop_images/Rectangle_4400.png",
             "label_before": "Before",
             "label_after": "Month 5",
             "reviewer_name": "Richard, 63",
@@ -347,8 +347,8 @@
         "block_1": {
           "type": "review",
           "settings": {
-            "image_before": "shopify://shop_images/Rectangle_4395_99d3268b-8b7d-42c2-9b17-5db0e270c8e6.png",
-            "image_after": "shopify://shop_images/Rectangle_4395.png",
+            "image_before": "shopify://shop_images/Rectangle_4399_1.png",
+            "image_after": "shopify://shop_images/Rectangle_4400_1.png",
             "label_before": "Before",
             "label_after": "Month 5",
             "reviewer_name": "James, 67",
@@ -362,8 +362,8 @@
         "block_2": {
           "type": "review",
           "settings": {
-            "image_before": "shopify://shop_images/Rectangle_4395_99d3268b-8b7d-42c2-9b17-5db0e270c8e6.png",
-            "image_after": "shopify://shop_images/Rectangle_4395.png",
+            "image_before": "shopify://shop_images/Rectangle_4399_2.png",
+            "image_after": "shopify://shop_images/Rectangle_4400_2.png",
             "label_before": "Before",
             "label_after": "Month 5",
             "reviewer_name": "Thomas, 59",
@@ -377,6 +377,8 @@
         "review_WijYa3": {
           "type": "review",
           "settings": {
+            "image_before": "shopify://shop_images/Rectangle_4399_3.png",
+            "image_after": "shopify://shop_images/Rectangle_4400_3.png",
             "label_before": "Before",
             "label_after": "Month 5",
             "reviewer_name": "Michael, 61",
@@ -390,6 +392,8 @@
         "review_W8Ptka": {
           "type": "review",
           "settings": {
+            "image_before": "shopify://shop_images/Rectangle_4399_4.png",
+            "image_after": "shopify://shop_images/Rectangle_4400_4.png",
             "label_before": "Before",
             "label_after": "Month 5",
             "reviewer_name": "Robert, 66",
@@ -403,6 +407,8 @@
         "review_XkAdiT": {
           "type": "review",
           "settings": {
+            "image_before": "shopify://shop_images/Rectangle_4399_5.png",
+            "image_after": "shopify://shop_images/Rectangle_4400_5.png",
             "label_before": "Before",
             "label_after": "Month 5",
             "reviewer_name": "David, 58",
