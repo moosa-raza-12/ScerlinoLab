@@ -178,6 +178,6 @@
 
 @media (min-width: 1024px) {
   .lp-efficacy__container {
-    padding-left: 200px;
+    /* padding-left: 200px; */
   }
 }
