@@ -208,6 +208,13 @@
     width: auto;
     max-width:300px;
   }
+  .lp-how-to-use__dot.is-active {
+  background-color: #000; /* Active dot styling */
+}
+
+.lp-how-to-use__arrow {
+  cursor: pointer;
+}
   .lp-results-notice__media {
     height: 222px;
   }
