@@ -152,10 +152,10 @@
   }
 
   .lp-efficacy__usp {
-    flex-direction: row;
-    align-items: center;
-    padding: 20px 24px;
-    gap: 20px;
+          flex-direction: column;
+        align-items: start;
+        padding: 20px 24px;
+        gap: 20px;
   }
 
   .lp-efficacy__percentage {
