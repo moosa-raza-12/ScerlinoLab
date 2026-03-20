@@ -46,6 +46,9 @@
                 {% if block.settings.tag_2 != blank %}
                   <span class="lp-results-notice__tag">{{ block.settings.tag_2 }}</span>
                 {% endif %}
+                 {% if block.settings.tag_3 != blank %}
+                  <span class="lp-results-notice__tag">{{ block.settings.tag_3 }}</span>
+                {% endif %}
               </div>
               {% comment %} <p class="lp-results-notice__routine">{{ block.settings.product_info | newline_to_br }}</p> {% endcomment %}
             </div>
@@ -292,6 +295,12 @@
           "type": "text",
           "id": "tag_2",
           "label": "Tag 2",
+          "default": "💪 Firmer feel"
+        },
+        {
+          "type": "text",
+          "id": "tag_3",
+          "label": "Tag 3",
           "default": "💪 Firmer feel"
         },
         {
