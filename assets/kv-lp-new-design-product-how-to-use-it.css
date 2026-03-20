@@ -151,12 +151,7 @@
   width: 100%;
 }
 .lp-results__nav{
-   display: flex;
-  align-items: center;
-  justify-content: space-between;
-    margin-top: 20px;
-    width: 40%;
-    margin: 20px auto;
+ width: 100%;
 }
 .lp-how-to-use__arrow {
   width: 48px;
@@ -199,6 +194,14 @@
 }
 
 @media (min-width: 1340px) {
+  .lp-results__nav{
+   display: flex;
+  align-items: center;
+  justify-content: space-between;
+    margin-top: 20px;
+    width: 40%;
+    margin: 20px auto;
+}
   .lp-how-to-use {
     padding: 64px 200px;
   }
