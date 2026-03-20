@@ -47,7 +47,7 @@
                   <span class="lp-results-notice__tag">{{ block.settings.tag_2 }}</span>
                 {% endif %}
               </div>
-              <p class="lp-results-notice__routine">{{ block.settings.product_info | newline_to_br }}</p>
+              {% comment %} <p class="lp-results-notice__routine">{{ block.settings.product_info | newline_to_br }}</p> {% endcomment %}
             </div>
           </div>
         {% endfor %}
