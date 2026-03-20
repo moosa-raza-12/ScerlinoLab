@@ -208,7 +208,7 @@ align-items: center;
   .lp-results-notice__card {
     flex: none;
     width: auto;
-    max-width:300px;
+    max-width:328px;
   }
   .lp-how-to-use__dot.is-active {
   background-color: #17162E;
