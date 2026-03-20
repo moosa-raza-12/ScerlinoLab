@@ -90,6 +90,9 @@
   line-height: 1.32;
   display: block;
 }
+.lp-efficacy__stats p{
+  margin:0 !important;
+}
 
 .lp-efficacy__usp-text {
   font-size: 14px;
