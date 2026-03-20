@@ -145,7 +145,8 @@
   }
 
   .lp-efficacy__stats {
-    flex-direction: column;
+            display: grid;
+        grid-template-columns: repeat(2, 1fr);
     width: auto;
     max-width: 407px;
     justify-content: flex-start;
