@@ -98,6 +98,12 @@
   opacity: 1;
   letter-spacing: 0px !important;
 }
+.lp-efficacy__usp-text2 {
+font-size: 20px;
+font-style: normal;
+font-weight: 700 !important;
+  letter-spacing: 0px !important;
+}
 
 .lp-efficacy__disclaimer {
   font-size: 14px;
