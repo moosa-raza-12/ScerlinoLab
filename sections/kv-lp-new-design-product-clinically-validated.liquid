@@ -15,6 +15,9 @@
 
       <div class="lp-efficacy__stats">
         {% for block in section.blocks %}
+           {% if block.settings.text != blank %}
+              <span class="lp-efficacy__usp-text">{{ block.settings.text }}</span>
+            {% endif %}
           <div class="lp-efficacy__usp" {{ block.shopify_attributes }}>
             {% if block.settings.percentage != blank %}
               <span class="lp-efficacy__percentage">{{ block.settings.percentage }}</span>
