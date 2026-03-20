@@ -399,6 +399,19 @@
             "tag_2": "Reduced crow's feet",
             "tag_3": "Smoother overall texture"
           }
+        },
+        "review_XkAdiT": {
+          "type": "review",
+          "settings": {
+            "label_before": "Before",
+            "label_after": "Month 5",
+            "reviewer_name": "David, 58",
+            "reviewer_subtitle": "",
+            "testimonial": "\"I was getting 8 hours of sleep but looked like I was getting 4. The bags, the dull color, the uneven patches. My son saw me on FaceTime and said 'Dad, you look... good. What happened?' That's a first.\"",
+            "tag_1": "Even skin tone",
+            "tag_2": "Reduced tired appearance",
+            "tag_3": "Healthier color"
+          }
         }
       },
       "block_order": [
@@ -406,7 +419,8 @@
         "block_1",
         "block_2",
         "review_WijYa3",
-        "review_W8Ptka"
+        "review_W8Ptka",
+        "review_XkAdiT"
       ],
       "settings": {
         "title": "Results other will\nnotice."
