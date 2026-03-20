@@ -390,6 +390,7 @@
         "block_0": {
           "type": "usp",
           "settings": {
+            "text2": "<p>Visible wrinkle reduction* in 4 weeks</p>",
             "percentage": "98%",
             "text": "<p>Said they looked visibly younger after <br/>60 days of use</p>"
           }
@@ -397,14 +398,33 @@
         "block_1": {
           "type": "usp",
           "settings": {
+            "text2": "<p>Visible wrinkle reduction* in 4 weeks</p>",
             "percentage": "93%",
             "text": "<p>Showed visible wrinkle reduction within the first 28 days</p>"
+          }
+        },
+        "usp_XmB8ew": {
+          "type": "usp",
+          "settings": {
+            "text2": "<p>Visible wrinkle reduction* in 4 weeks</p>",
+            "percentage": "98%",
+            "text": "<p>Visible wrinkle reduction* in 4 weeks</p>"
+          }
+        },
+        "usp_wjLWNx": {
+          "type": "usp",
+          "settings": {
+            "text2": "<p>Visible wrinkle reduction* in 4 weeks</p>",
+            "percentage": "98%",
+            "text": "<p>Visible wrinkle reduction* in 4 weeks</p>"
           }
         }
       },
       "block_order": [
         "block_0",
-        "block_1"
+        "block_1",
+        "usp_XmB8ew",
+        "usp_wjLWNx"
       ],
       "settings": {
         "bg_image": "shopify://shop_images/Serlino_Lab_30_2.png",
