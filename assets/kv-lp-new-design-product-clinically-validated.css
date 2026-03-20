@@ -159,6 +159,7 @@ font-weight: 700 !important;
     width: auto;
     max-width: 407px;
     justify-content: flex-start;
+    gap:20px;
   }
 
   .lp-efficacy__usp {
