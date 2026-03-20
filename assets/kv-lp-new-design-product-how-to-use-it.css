@@ -188,7 +188,7 @@
 }
 
 .lp-how-to-use__dot.is-active {
-  background-color: var(--text-dark);
+  background-color: #17162E;
 }
 
 @media (min-width: 1340px) {
