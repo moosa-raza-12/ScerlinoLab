@@ -124,7 +124,7 @@ font-weight: 700 !important;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 32px;
   }
   .lp-efficacy__title {
    width:101%;
