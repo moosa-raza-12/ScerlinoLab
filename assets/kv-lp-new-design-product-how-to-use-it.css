@@ -150,8 +150,10 @@
   margin-top: 20px;
   width: 100%;
 }
+@media screen and (max-width: 749px){
 .lp-results__nav{
  width: 100%;
+}
 }
 .lp-how-to-use__arrow {
   width: 48px;
