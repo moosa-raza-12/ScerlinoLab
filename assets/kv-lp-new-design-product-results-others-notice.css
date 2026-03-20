@@ -196,16 +196,15 @@
     padding: 0;
   }
   .lp-results-notice__list {
-     display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    overflow-x: visible;
   }
   .lp-results-notice__card {
-  scroll-snap-align: center;
-  flex: 0 0 100%;
-}
+    flex: none;
+    width: auto;
+  }
   .lp-results-notice__media {
     height: 222px;
   }
