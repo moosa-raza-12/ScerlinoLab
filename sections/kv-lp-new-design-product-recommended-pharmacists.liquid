@@ -65,12 +65,13 @@
     var isPlaying = false;
     var userPaused = false;
 
-    function play() {
-      video.muted = true;
-      video.play().catch(function(){});
-      isPlaying = true;
-      card.classList.add('is-playing');
-    }
+   function play() {
+  video.play().catch(function(error) {
+    console.log('Play failed:', error);
+  });
+  isPlaying = true;
+  card.classList.add('is-playing');
+}
 
     function pause() {
       video.pause();
