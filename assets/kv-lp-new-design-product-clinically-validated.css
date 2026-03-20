@@ -157,6 +157,7 @@
         align-items: start;
         padding: 20px 24px;
         gap: 20px;
+        min-width:300px;
   }
 
   .lp-efficacy__percentage {
