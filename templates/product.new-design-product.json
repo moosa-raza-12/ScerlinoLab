@@ -339,9 +339,9 @@
             "reviewer_name": "Richard, 63",
             "reviewer_subtitle": "",
             "testimonial": "\"My neck was the thing I hated most. That loose skin folding over my collar - I'd pull at it every morning. After about 6 weeks, my wife grabbed my face and said 'your neck looks different.' By month 4, I stopped wearing turtlenecks to hide it.\"",
-            "tag_1": "Smoother texture",
-            "tag_2": "Firmer feel",
-            "product_info": ""
+            "tag_1": "Tighter neck skin",
+            "tag_2": "Less visible sagging",
+            "tag_3": "Smoother neck texture"
           }
         },
         "block_1": {
@@ -351,12 +351,12 @@
             "image_after": "shopify://shop_images/Rectangle_4395.png",
             "label_before": "Before",
             "label_after": "Month 5",
-            "reviewer_name": "Jason",
-            "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
-            "testimonial": "“After a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed — without any greasy feel.”",
-            "tag_1": "✨ Smoother texture",
-            "tag_2": "💪 Firmer feel",
-            "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
+            "reviewer_name": "James, 67",
+            "reviewer_subtitle": "",
+            "testimonial": "\"My daughter showed me a photo from her wedding and I barely recognized myself. I looked exhausted - way older than I felt. Five months in, my coworkers genuinely asked if I'd gotten work done. I haven't. I just stopped looking like I aged overnight.\"",
+            "tag_1": "Younger-looking skin",
+            "tag_2": "Reduced deep lines",
+            "tag_3": "Refreshed appearance"
           }
         },
         "block_2": {
@@ -366,12 +366,12 @@
             "image_after": "shopify://shop_images/Rectangle_4395.png",
             "label_before": "Before",
             "label_after": "Month 5",
-            "reviewer_name": "Jason",
-            "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
-            "testimonial": "“After a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed — without any greasy feel.”",
-            "tag_1": "✨ Smoother texture",
-            "tag_2": "💪 Firmer feel",
-            "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
+            "reviewer_name": "Thomas, 59",
+            "reviewer_subtitle": "",
+            "testimonial": "\"I'd lost my jawline completely. Everything had kind of melted south - the jowls, the sagging along my chin. By week 8, I could actually see the edge of my jaw again. My barber noticed before I even said anything. That told me everything.\"",
+            "tag_1": "Firmer jawline",
+            "tag_2": "Reduced jowl sagging",
+            "tag_3": "Restored facial structure"
           }
         },
         "review_WijYa3": {
@@ -379,12 +379,12 @@
           "settings": {
             "label_before": "Before",
             "label_after": "Month 5",
-            "reviewer_name": "Jason",
-            "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
-            "testimonial": "“After a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed — without any greasy feel.”",
-            "tag_1": "✨ Smoother texture",
-            "tag_2": "💪 Firmer feel",
-            "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
+            "reviewer_name": "Michael, 61",
+            "reviewer_subtitle": "",
+            "testimonial": "\"I got back into dating after my divorce and honestly, I didn't feel great about how I looked. Three months in, a woman on our second date told me I had great skin. I'm 61. Nobody has ever said that to me in my entire life.\"",
+            "tag_1": "Smoother skin texture",
+            "tag_2": "Healthier complexion",
+            "tag_3": "More confident appearance"
           }
         },
         "review_W8Ptka": {
@@ -392,25 +392,12 @@
           "settings": {
             "label_before": "Before",
             "label_after": "Month 5",
-            "reviewer_name": "Jason",
-            "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
-            "testimonial": "“After a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed — without any greasy feel.”",
-            "tag_1": "✨ Smoother texture",
-            "tag_2": "💪 Firmer feel",
-            "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
-          }
-        },
-        "review_YbTRBQ": {
-          "type": "review",
-          "settings": {
-            "label_before": "Before",
-            "label_after": "Month 5",
-            "reviewer_name": "Jason",
-            "reviewer_subtitle": "Before vs. 5 months using SerlinoLab",
-            "testimonial": "“After a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed — without any greasy feel.”",
-            "tag_1": "✨ Smoother texture",
-            "tag_2": "💪 Firmer feel",
-            "product_info": "Routine: SerlinoLab Anti-Age Night Cream\n(50ml) nightly"
+            "reviewer_name": "Robert, 66",
+            "reviewer_subtitle": "",
+            "testimonial": "\"The deep lines across my forehead and around my eyes made me look angry even when I wasn't. I'd tried drugstore creams for years - nothing. After a few weeks, the lines started softening. By month 4, people stopped asking me if something was wrong.\"",
+            "tag_1": "Softer forehead lines",
+            "tag_2": "Reduced crow's feet",
+            "tag_3": "Smoother overall texture"
           }
         }
       },
@@ -419,8 +406,7 @@
         "block_1",
         "block_2",
         "review_WijYa3",
-        "review_W8Ptka",
-        "review_YbTRBQ"
+        "review_W8Ptka"
       ],
       "settings": {
         "title": "Results other will\nnotice."
