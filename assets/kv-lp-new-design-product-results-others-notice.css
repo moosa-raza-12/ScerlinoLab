@@ -98,7 +98,7 @@
 
 .lp-results-notice__label {
   position: absolute;
-  bottom: 0px;
+  bottom: -1px;
   left: 50%;
   transform: translateX(-50%);
   background: #fff;
@@ -223,7 +223,7 @@ align-items: center;
   }
   .lp-results-notice__label {
     padding: 7px 40px;
-    bottom:0;
+
   }
   .lp-results-notice__routine {
     font-size: 14px;
