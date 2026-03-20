@@ -1,0 +1,98 @@
+<div class="as-seen-on-section">
+  <p class="heading">{{ section.settings.heading }}</p>
+
+  <div class="logos">
+    {% for block in section.blocks %}
+      <div class="logo-item">
+        
+        <div class="logo-desktop">
+          {{ block.settings.svg_desktop }}
+        </div>
+
+        <div class="logo-mobile">
+          {{ block.settings.svg_mobile }}
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.as-seen-on-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 17px;
+}
+
+/* Logos layout */
+.logos {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Default: Desktop visible */
+.logo-mobile {
+  display: none;
+}
+
+.logo-desktop svg,
+.logo-mobile svg {
+  max-height: 30px;
+  width: auto;
+}
+
+/* Mobile view */
+@media screen and (max-width: 749px) {
+  .logo-desktop {
+    display: none;
+  }
+
+  .logo-mobile {
+    display: block;
+  }
+
+  .logos {
+    gap: 20px;
+  }
+}
+</style>
+{% schema %}
+{
+  "name": "As Seen On",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "As seen on"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "svg_desktop",
+          "label": "Desktop SVG"
+        },
+        {
+          "type": "textarea",
+          "id": "svg_mobile",
+          "label": "Mobile SVG"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "As Seen On"
+    }
+  ]
+}
+{% endschema %}
