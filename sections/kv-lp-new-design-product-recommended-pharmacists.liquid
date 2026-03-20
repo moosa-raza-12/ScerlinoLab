@@ -78,15 +78,12 @@
       card.classList.remove('is-playing');
     }
 
-    card.addEventListener('mouseenter', function() {
-      if (!userPaused) play();
-    });
-
-    card.addEventListener('mouseleave', function() {
-      pause();
-      userPaused = false;
-      video.currentTime = 0;
-    });
+   card.addEventListener('mouseleave', function() {
+  if (isPlaying) {
+    pause();
+    video.currentTime = 0;
+  }
+});
 
     if (playBtn) {
       playBtn.addEventListener('click', function(e) {
