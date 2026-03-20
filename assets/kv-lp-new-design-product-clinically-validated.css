@@ -65,8 +65,6 @@
 }
 
 .lp-efficacy__stats {
-  display: flex;
-  flex-direction: row;
   gap: 12px;
   width: 100%;
   justify-content: center;
