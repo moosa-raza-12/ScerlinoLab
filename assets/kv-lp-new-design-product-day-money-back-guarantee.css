@@ -81,7 +81,7 @@
   color: var(--text-color);
   font-size: var(--title-size);
   font-weight: 500 !important;
-  line-height: 8px;
+  /* line-height: 8px; */
   letter-spacing: -1px;
 }
 
@@ -104,8 +104,12 @@
     padding: 64px 20px;
     --content-gap: 40px;
   }
-/* 
-  .lp-guarantee__subtitle {
-    max-width: 390px;
-  } */
+.lp-guarantee__title {
+  margin: 0;
+  color: var(--text-color);
+  font-size: var(--title-size);
+  font-weight: 500 !important;
+  line-height: 8px;
+  letter-spacing: -1px;
+}
 }
