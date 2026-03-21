@@ -30,7 +30,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-      height: 1110px;
+
 }
 
 .lp-efficacy__content {
@@ -192,8 +192,10 @@ font-weight: 700 !important;
 }
 }
 
-@media (min-width: 1024px) {
+@media (max-width-width: 1024px) {
   .lp-efficacy__container {
-    /* padding-left: 200px; */
+  height: 1110px;
   }
 }
+
+     
