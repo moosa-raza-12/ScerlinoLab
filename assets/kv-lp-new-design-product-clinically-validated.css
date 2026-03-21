@@ -192,7 +192,7 @@ font-weight: 700 !important;
 }
 }
 
-@media (max-width-width: 1024px) {
+@media (max-width: 1024px) {
   .lp-efficacy__container {
   height: 1110px;
   }
