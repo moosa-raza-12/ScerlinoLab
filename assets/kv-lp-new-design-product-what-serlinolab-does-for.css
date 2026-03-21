@@ -216,5 +216,6 @@
   .lp-trustpilot-bar {
     bottom: 24px;
     max-width: 420px;
+    display: none;
   }
 }
