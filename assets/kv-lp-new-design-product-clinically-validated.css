@@ -52,6 +52,7 @@
   letter-spacing: -1.52px;
   margin: 0;
   color: #FFFFFF;
+  min-width:101%;
 }
 
 .lp-efficacy__subtitle {
