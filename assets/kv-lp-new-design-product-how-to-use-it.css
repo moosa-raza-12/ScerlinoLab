@@ -127,7 +127,7 @@
   color: var(--card-bg);
      padding: 4px 8px;
   border-radius: 26px;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
   width: fit-content;
   letter-spacing: 0px;
@@ -213,6 +213,17 @@
     padding: 64px 200px;
   }
 
+  .lp-how-to-use__card-step {
+  background-color: var(--text-dark);
+  color: var(--card-bg);
+     padding: 4px 8px;
+  border-radius: 26px;
+  font-size: 16px;
+  font-weight: 500;
+  width: fit-content;
+  letter-spacing: 0px;
+  align-self: flex-start;
+}
   .lp-how-to-use__header {
     margin-bottom: 40px;
   }
