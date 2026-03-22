@@ -117,6 +117,12 @@ font-weight: 700 !important;
 }
 
 @media (max-width: 768px) {
+  .lp-efficacy__usp-text2 {
+font-size: 15px;
+font-style: normal;
+font-weight: 700 !important;
+  letter-spacing: 0px !important;
+}
   .lp-efficacy {
     align-items: start !important;
   }
