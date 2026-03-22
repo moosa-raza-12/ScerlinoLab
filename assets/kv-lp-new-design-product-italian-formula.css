@@ -50,7 +50,7 @@
   line-height: 1.5 !important;
   letter-spacing: -1.68px !important;
   margin: 0 auto;
-  width: 60%;
+  width: 100%;
 }
 
 .lp-comparison-table__wrapper {
@@ -262,7 +262,15 @@
   .lp-comparison-table {
     padding: 64px 0;
   }
-
+.lp-comparison-table__heading {
+  color: #FFF;
+  font-size: clamp(32px, 5vw, 42px);
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  letter-spacing: -1.68px !important;
+  margin: 0 auto;
+  width: 60%;
+}
   .lp-comparison-table__grid {
     grid-template-columns: 1fr 180px 140px;
     max-width: 780px;
