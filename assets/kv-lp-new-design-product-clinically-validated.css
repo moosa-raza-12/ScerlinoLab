@@ -101,7 +101,7 @@
   font-weight: 400;
   line-height:18px;
   opacity: 1;
-  letter-spacing: 0px !important;
+  /* letter-spacing: 0px !important; */
 }
 .lp-efficacy__usp-text2 {
 font-size: 20px;
