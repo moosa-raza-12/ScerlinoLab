@@ -1,252 +1,201 @@
-.lp-pharmacists-section {
-  --bg-color: #ffffff;
-  --text-color: #17162e;
-  --overlay-bg: rgba(0, 0, 0, 0.47);
-  --white: #ffffff;
-  background-color: var(--bg-color);
-  padding: 40px 0;
-  overflow: hidden;
+{{ 'kv-lp-new-design-product-recommended-pharmacists.css' | asset_url | stylesheet_tag }}
+
+<section class="lp-pharmacists-section" id="lp-section-{{ section.id }}">
+  <div class="lp-pharmacists-container" id="lp-pharmacists-container">
+    {% if section.settings.heading != blank %}
+      <header class="lp-pharmacists-header">
+        <h2 class="lp-pharmacists-title">{{ section.settings.heading }}</h2>
+      </header>
+    {% endif %}
+
+    <div class="lp-pharmacists-grid-wrapper">
+      <div class="lp-pharmacists-grid">
+        {% for block in section.blocks %}
+          <div class="lp-pharmacist-card{% if block.settings.video != blank %} has-video{% endif %}" {{ block.shopify_attributes }}>
+            {% if block.settings.video != blank %}
+              <div class="lp-pharmacist-video-wrapper">
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'lp-pharmacist-poster', alt: block.settings.name }}
+                {% endif %}
+                <video
+                  class="lp-pharmacist-video"
+                  src="{{ block.settings.video.sources[1].url | default: block.settings.video.sources[0].url }}"
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+                <button class="lp-pharmacist-play-btn" aria-label="Play Video">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="rgba(0,0,0,0.45)"/><path d="M19 15L33 24L19 33V15Z" fill="white"/></svg>
+                </button>
+              </div>
+            {% elsif block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'lp-pharmacist-image', alt: block.settings.name }}
+            {% else %}
+              <div class="lp-pharmacist-image-placeholder"></div>
+            {% endif %}
+
+            <div class="lp-pharmacist-info">
+              <div class="lp-pharmacist-content-box">
+                <p class="lp-pharmacist-quote">
+                  “{{ block.settings.quote }}”
+                </p>
+                <div class="lp-pharmacist-profile">
+                  <p class="lp-pharmacist-name">{{ block.settings.name }}</p>
+                  <p class="lp-pharmacist-role">{{ block.settings.role }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var section = document.querySelector('#lp-section-{{ section.id }}');
+  if (!section) return;
+
+  section.querySelectorAll('.lp-pharmacist-card.has-video').forEach(function(card) {
+    var video = card.querySelector('.lp-pharmacist-video');
+    var playBtn = card.querySelector('.lp-pharmacist-play-btn');
+    if (!video) return;
+
+    var isPlaying = false;
+    var userPaused = false;
+
+   function play() {
+  video.play().catch(function(error) {
+    console.log('Play failed:', error);
+  });
+  isPlaying = true;
+  card.classList.add('is-playing');
 }
 
-.lp-pharmacists-container {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-@media screen and (min-width: 1340px) {
-  .lp-pharmacists-container {
-    padding: 0 200px;
+    function pause() {
+      video.pause();
+      isPlaying = false;
+      card.classList.remove('is-playing');
+    }
+
+   card.addEventListener('mouseleave', function() {
+  if (isPlaying) {
+    pause();
+    video.currentTime = 0;
   }
+});
+
+    if (playBtn) {
+      playBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlaying) {
+          pause();
+          userPaused = true;
+        } else {
+          play();
+        }
+      });
+    }
+
+    video.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (isPlaying) {
+        pause();
+        userPaused = true;
+      } else {
+        play();
+      }
+    });
+
+    video.addEventListener('ended', function() {
+      pause();
+      video.currentTime = 0;
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Pharmacist Recommends",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Recommended by pharmacists in Italy"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Poster Image",
+          "info": "This image is shown as the thumbnail. When a video is also provided, clicking it will play the video."
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Upload a video. The poster image above will be used as the thumbnail. Leave empty for a static image card."
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role/Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pharmacist Recommends",
+      "settings": {
+        "heading": "Recommended by\npharmacists in Italy"
+      },
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Advanced formulas and quality actives, Made in Italy excellence.",
+            "name": "Marco Filomeni",
+            "role": "Pharmacist, Venice"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "After 18 years as SerlinoLab is the only men's brand that has truly convinced me.",
+            "name": "Dr. Rossella Romano",
+            "role": "Hospital Pharmacy Specialist"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "As a pharmacist, SerlinoLab creams are the only ones I've seen that work on men.",
+            "name": "Dr. Silvia Lanza",
+            "role": "Expert in Skin Health and Medicine"
+          }
+        }
+      ]
+    }
+  ]
 }
-.lp-pharmacists-header {
-  margin-bottom: 32px;
-  text-align: center;
-}
-
-.lp-pharmacists-title {
-  color: var(--text-color);
-  font-size: clamp(32px, 5vw, 42px);
-  font-weight: 500 !important;
-  line-height: 1.1;
-  letter-spacing: -1.68px;
-  margin: 0 auto;
-  white-space: pre-line;
-  max-width: 1040px;
-}
-
-.lp-pharmacists-grid-wrapper {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  margin: 0 -20px;
-  padding: 0 20px;
-}
-
-.lp-pharmacists-grid-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-.lp-pharmacists-grid {
-  display: flex;
-  gap: 24px;
-  width: max-content;
-}
-
-.lp-pharmacist-card {
-  position: relative;
-  width: 309px;
-  height: 392px;
-  border-radius: 12px;
-  overflow: hidden;
-  scroll-snap-align: start;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.lp-pharmacist-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-.lp-pharmacist-video-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  cursor: pointer;
-}
-
-.lp-pharmacist-poster {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 2;
-  transition: opacity 0.3s ease;
-}
-
-.lp-pharmacist-card.is-playing .lp-pharmacist-poster {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.lp-pharmacist-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-.lp-pharmacist-play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: opacity 0.3s ease, transform 0.2s ease;
-}
-
-.lp-pharmacist-play-btn:hover {
-  transform: translate(-50%, -50%) scale(1.1);
-}
-
-.lp-pharmacist-card.is-playing .lp-pharmacist-play-btn {
-  opacity: 0;
-}
-
-.lp-pharmacist-card.is-playing:hover .lp-pharmacist-play-btn {
-  opacity: 0.7;
-  pointer-events: auto;
-}
-
-.lp-pharmacist-card.is-playing:hover .lp-pharmacist-play-btn:hover {
-  opacity: 1;
-}
-
-.lp-pharmacist-image-placeholder {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #f0f0f0;
-  z-index: 1;
-}
-
-.lp-pharmacist-info {
-  position: relative;
-  z-index: 2;
-  background: var(--overlay-bg);
-  padding: 16px 20px;
-  backdrop-filter: blur(4px);
-  width: 100%;
-  min-height: 142px;
-  display: flex;
-  align-items: center;
-}
-
-.lp-pharmacist-content-box {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-}
-
-.lp-pharmacist-quote {
-  margin: 0;
-  color: var(--white);
-  font-size: 14px;
-  font-weight: 350;
-  line-height: 1.4;
-  letter-spacing: 0px !important;
-  line-height: 22px;
-}
-
-.lp-pharmacist-profile {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.lp-pharmacist-name {
-  margin: 0;
-  color: var(--white);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-.lp-pharmacist-role {
-  margin: 0;
-  color: var(--white);
-  font-size: 12px;
-  opacity: 0.9;
-  line-height: 1.2;
-}
-
-@media (min-width: 1024px) {
-  .lp-pharmacists-section {
-    padding: 64px 0;
-  }
-
-  .lp-pharmacists-container {
-    /* padding: 0 200px; */
-  }
-
-  .lp-pharmacists-header {
-    margin-bottom: 40px;
-  }
-
-  .lp-pharmacists-grid-wrapper {
-    margin: 0;
-    padding: 0;
-    overflow: visible;
-  }
-
-  .lp-pharmacists-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    gap: 24px;
-  }
-
-  .lp-pharmacist-card {
-    width: 100%;
-  }
-
-  .lp-pharmacist-info {
-    min-height: 172px;
-    padding: 16px 20px;
-  }
-
-  .lp-pharmacist-quote {
-    font-size: 16px;
-  }
-}
-.lp-pharmacist-play-btn {
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.lp-pharmacist-card.is-playing .lp-pharmacist-play-btn {
-  opacity: 0;
-  visibility: hidden;
-}
+{% endschema %} 
