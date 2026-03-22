@@ -754,8 +754,8 @@
             "tag": "Deep Collagen Hydration",
             "icon_image": "shopify://shop_images/icon_1_2.png",
             "main_image": "shopify://shop_images/image_1218.png",
-            "description": "A salt form of hyaluronic acid that penetrates deep into the skin to lock in moisture and visibly smooth out fine lines and wrinkles.",
-            "benefits": "<p>Benefit 1 • Benefit 2 • Benefit 3</p>"
+            "description": "Regular hyaluronic acid molecules are too large to penetrate past the surface. Sodium hyaluronate uses smaller molecules that reach the deep collagen layer where the real damage lives - restoring volume from within and filling in the loose areas that cause sagging.",
+            "benefits": "<ul><li>Penetrates deeper than regular hyaluronic acid</li><li>Restores volume in sagging areas</li><li>Reaches the deep collagen layer, not just the surface</li></ul>"
           }
         },
         "block_1": {
@@ -766,8 +766,8 @@
             "tag": "The Overnight Lock",
             "icon_image": "shopify://shop_images/Ingredient_Icon_48389f50-4a42-479f-9607-b66f7484bb07.png",
             "main_image": "shopify://shop_images/image_1218.png",
-            "description": "Rich in vitamins and antioxidants, Italian olive oil helps protect the skin from environmental stressors while providing deep nourishment.",
-            "benefits": "<p>Benefit 1 • Benefit 2 • Benefit 3</p>"
+            "description": "This isn't cooking oil. It's pharmaceutical-grade oil from the Italian countryside that mimics your skin's natural lipids. It locks in the active ingredients during the 6-8 hours you sleep - when your skin does its heaviest repair work. This is what makes everything else work harder.",
+            "benefits": "<ul><li>Locks in active ingredients overnight</li><li>Mimics your skin's natural oils</li><li>Enhances penetration of every other ingredient</li></ul>"
           }
         }
       },
