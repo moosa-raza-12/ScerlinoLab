@@ -106,7 +106,7 @@
   margin: 0;
 }
 
-@media (min-width: 749px) {
+@media (min-width: 1024px) {
   .lp-guarantee {
     /* min-height: 413px; */
     padding: 64px 20px;
