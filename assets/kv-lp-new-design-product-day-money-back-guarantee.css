@@ -112,7 +112,7 @@
   color: var(--text-color);
   font-size: var(--title-size);
   font-weight: 500 !important;
- 
+ line-height: 50px;
   letter-spacing: -1px;
 }
 }
