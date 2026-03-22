@@ -65,29 +65,24 @@
     var isPlaying = false;
     var userPaused = false;
 
-function play() {
+   function play() {
   video.play().catch(function(error) {
     console.log('Play failed:', error);
   });
   isPlaying = true;
   card.classList.add('is-playing');
-  // Hide play button
-  if (playBtn) {
-    playBtn.style.opacity = '0';
-    playBtn.style.visibility = 'hidden';
-    playBtn.style.pointerEvents = 'none';
-  }
 }
 
-function pause() {
-  video.pause();
-  isPlaying = false;
-  card.classList.remove('is-playing');
-  // Show play button again
-  if (playBtn) {
-    playBtn.style.opacity = '';
-    playBtn.style.visibility = '';
-    playBtn.style.pointerEvents = '';
+    function pause() {
+      video.pause();
+      isPlaying = false;
+      card.classList.remove('is-playing');
+    }
+
+   card.addEventListener('mouseleave', function() {
+  if (isPlaying) {
+    pause();
+    video.currentTime = 0;
   }
 });
 
@@ -203,4 +198,4 @@ function pause() {
     }
   ]
 }
-{% endschema %}
+{% endschema %} 
