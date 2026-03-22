@@ -88,6 +88,11 @@
   margin:0;
 }
 
+{% comment %} Tablet view {% endcomment %}
+
+
+}
+
 .lp-guarantee__subtitle {
   color: var(--text-color);
   font-size: var(--subtitle-size);
@@ -101,7 +106,7 @@
   margin: 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 749px) {
   .lp-guarantee {
     /* min-height: 413px; */
     padding: 64px 20px;
