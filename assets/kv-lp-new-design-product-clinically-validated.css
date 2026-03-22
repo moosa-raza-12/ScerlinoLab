@@ -63,6 +63,7 @@
   opacity: 1;
   max-width: 390px;
   margin: 0 auto;
+  margin-bottom:32px;
 }
 
 .lp-efficacy__stats {
