@@ -30,7 +30,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-
 }
 
 .lp-efficacy__content {
@@ -66,7 +65,7 @@
 }
 
 .lp-efficacy__stats {
-  gap: 11px;
+  gap: 12px;
   width: 100%;
   justify-content: center;
    display: grid;
@@ -77,11 +76,12 @@
   flex: 1;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 20px 12px;
+  padding: 12px 12px 16px 12px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: left;
-  gap: 10;
+  gap: 0;
 }
 
 .lp-efficacy__percentage {
@@ -97,12 +97,12 @@
 .lp-efficacy__usp-text {
   font-size: 14px;
   font-weight: 400;
-  line-height: 14px;
+  line-height: 20px;
   opacity: 1;
   letter-spacing: 0px !important;
 }
 .lp-efficacy__usp-text2 {
-font-size: 15px;
+font-size: 20px;
 font-style: normal;
 font-weight: 700 !important;
   letter-spacing: 0px !important;
@@ -124,10 +124,7 @@ font-weight: 700 !important;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 32px;
-  }
-  .lp-efficacy__title {
-   width:101%;
+    gap: 12px;
   }
 }
 
@@ -184,18 +181,10 @@ font-weight: 700 !important;
     font-size: 16px;
     text-align: left;
   }
-  .lp-efficacy__usp-text2 {
-font-size: 20px;
-font-style: normal;
-font-weight: 700 !important;
-  letter-spacing: 0px !important;
-}
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 1024px) {
   .lp-efficacy__container {
-  height: 1110px;
+    /* padding-left: 200px; */
   }
 }
-
-     
