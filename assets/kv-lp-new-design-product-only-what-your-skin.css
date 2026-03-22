@@ -31,7 +31,9 @@
   /* max-width: 600px; */
 }
 .lp-ingredients__header p{
-  letter-spacing: 0px;
+    line-height: 150%;
+    margin: 0;
+    letter-spacing: 0px;
 }
 
 @media (min-width: 1024px) {
