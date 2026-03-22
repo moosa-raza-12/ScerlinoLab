@@ -4,7 +4,7 @@
   --accent-gold: #FFD700;
   --white: #FFFFFF;
   --gray-light: #F3F3F3;
-  background: var(--bg-color);
+  /* background: var(--bg-color); */
   color: var(--primary-text);
   font-family: inherit;
   padding: 24px 20px 40px;
