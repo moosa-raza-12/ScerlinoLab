@@ -125,7 +125,7 @@
 .lp-how-to-use__card-step {
   background-color: var(--text-dark);
   color: var(--card-bg);
-  padding:0px 12px;
+     padding: 4px 8px;
   border-radius: 26px;
   font-size: 16px;
   font-weight: 500;
