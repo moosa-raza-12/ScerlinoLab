@@ -36,7 +36,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
 }
 
 .lp-comparison-table__header {
@@ -262,6 +262,16 @@
   .lp-comparison-table {
     padding: 64px 0;
   }
+  .lp-comparison-table__container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 830px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 .lp-comparison-table__heading {
   color: #FFF;
   font-size: clamp(32px, 5vw, 42px);
