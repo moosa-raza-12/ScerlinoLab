@@ -71,7 +71,16 @@
   margin: 0;
   letter-spacing: 0px;
 }
-
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .lp-ingredients__subheading--desktop {
+    display: none;
+  }
+  
+  .lp-ingredients__subheading--mobile {
+    display: block;
+  }
+}
 .lp-ingredients__list {
   display: flex;
   flex-direction: column;
