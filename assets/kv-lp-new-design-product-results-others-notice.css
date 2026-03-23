@@ -15,10 +15,14 @@
   padding: 0 20px;
 }
 
-@media screen and (min-width: 1340px) {
+@media screen and (min-width: 1100px) {
   .lp-results-notice__container {
     padding: 0 20px;
   }
+  .lp-results-notice__list {
+  display: flex;
+  gap: 30px;
+}
 }
 
 .lp-results-notice__header {
