@@ -208,7 +208,7 @@ max-width: 116px;
 /* Variant Picker */
 .lp-variant-picker__title {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 500 !important;
   margin-bottom: 17px;
   letter-spacing: 0px;
 }
