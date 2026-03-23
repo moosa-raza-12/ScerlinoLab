@@ -251,6 +251,9 @@ letter-spacing: 0px;
   /* line-height: 1.4; */
   margin: 0;
 }
+.lp-ingredient-card__benefits ul{
+  margin:0;
+}
 
 @media (min-width: 1024px) {
   .lp-ingredient-card__description {
