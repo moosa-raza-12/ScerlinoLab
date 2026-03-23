@@ -293,7 +293,7 @@
   transition: all 0.3s ease;
 } */
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .lp-pharmacists-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -303,7 +303,7 @@
   .lp-pharmacists-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-}
+} */
 
 /* Video playing state */
 .lp-pharmacist-card.is-playing .lp-pharmacist-play-btn {
