@@ -129,7 +129,8 @@
      /* padding: 4px 8px; */
      padding: 9px 14px;
   border-radius: 26px;
-  font-size: 12px;
+  /* font-size: 12px; */
+  font-size:16px;
   font-weight: 500;
   width: fit-content;
   letter-spacing: 0px;
