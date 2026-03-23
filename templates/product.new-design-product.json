@@ -786,6 +786,7 @@
       "settings": {
         "heading": "What's Inside and Why It Works",
         "subheading": "<p>No silicones. No parabens. No synthetic fillers.</p><p> Just what your skin actually needs to rebuild collagen after 40.</p>",
+        "subheading_mobile": "No silicones. No parabens. No synthetic fillers. Just what your skin actually needs to rebuild collagen after 40.",
         "full_list_text": "Full Ingredient List",
         "full_list_content": "<ol><li>dgdfg</li></ol>"
       }
