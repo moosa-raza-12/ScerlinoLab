@@ -49,6 +49,9 @@
   margin: 0 0 15px 0;
   width:101%
 }
+.lp-ingredients__list {
+    gap: 28px;
+  }
 }
 
 .lp-ingredients__container {
@@ -90,9 +93,7 @@
 }
 
 @media (min-width: 1024px) {
-  .lp-ingredients__list {
-    gap: 28px;
-  }
+  
 }
 
 
