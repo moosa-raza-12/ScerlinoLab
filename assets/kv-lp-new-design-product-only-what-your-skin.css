@@ -314,9 +314,10 @@ letter-spacing: 0px;
   
   .lp-ingredient-card__tags--mobile {
     display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 4px;
+padding: 7px 8px;
+justify-content: center;
+align-items: center;
+gap: 6px;
   }
   
   .lp-ingredient-card__tag--mobile {
