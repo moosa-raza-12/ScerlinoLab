@@ -242,6 +242,7 @@
     font-size: 16px;
   }
 }
+///
 /* Grid navigation styles */
 .lp-pharmacist-card {
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -286,11 +287,11 @@
 }
 
 /* Responsive grid layout */
-.lp-pharmacists-grid {
+/* .lp-pharmacists-grid {
   display: grid;
   gap: 24px;
   transition: all 0.3s ease;
-}
+} */
 
 @media (min-width: 768px) {
   .lp-pharmacists-grid {
