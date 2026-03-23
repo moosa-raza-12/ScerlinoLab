@@ -330,7 +330,7 @@ letter-spacing: 0px;
   
   .lp-ingredient-card__tags--mobile {
     display: flex;
-padding: 0px 8px;
+/* padding: 0px 8px; */
 justify-content: center;
 align-items: center;
 gap: 6px;
