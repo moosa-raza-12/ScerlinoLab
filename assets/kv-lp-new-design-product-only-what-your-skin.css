@@ -164,6 +164,7 @@ letter-spacing: 0px;
 }
 
 .lp-ingredient-card__tag {
+  font-size: 10px;
   display: flex;
   align-items: center;
   font-weight: 350;
