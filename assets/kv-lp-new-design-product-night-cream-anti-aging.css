@@ -336,6 +336,7 @@ letter-spacing: 0px;  background: var(--primary-text); color: white; font-size: 
   height: 1px;
 align-self: stretch;
 background: rgba(26, 42, 73, 0.20);
+margin-bottom:12px:
 }
 .lp-gift-items { 
   background: var(--gray-light); padding: 10px 12px; border-radius: 0 0 4px 4px; font-size: 13px;
