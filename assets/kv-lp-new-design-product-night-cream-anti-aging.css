@@ -215,7 +215,7 @@ max-width: 116px;
 .lp-variant-picker__options {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 17px;
 }
 .lp-bundle-item { position: relative; }
 .lp-bundle-radio {
