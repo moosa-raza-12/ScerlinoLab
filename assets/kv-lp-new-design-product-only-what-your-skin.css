@@ -10,7 +10,16 @@
   font-family: inherit;
   color: var(--lp-text-color);
 }
+@media (min-width: 1024px) {
 
+.heading-desktop{
+  display:none;
+}
+
+.heading-mobile{
+  display:block;
+}
+}
 
 @media (min-width: 1024px) {
   .lp-ingredients {
@@ -61,13 +70,7 @@
     font-size:14px;
     font-weight:350;
 } 
-.heading-desktop{
-  display:none;
-}
 
-.heading-mobile{
-  display:block;
-}
 .lp-ingredients__title {
    font-size: clamp(38px, 4vw, 42px);
   font-weight: 500 !important;
