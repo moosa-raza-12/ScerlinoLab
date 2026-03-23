@@ -18,12 +18,12 @@
    .lp-ingredients__header {
     margin-bottom: 40px;
   }
-  /* .lp-ingredients__header p{
+   .lp-ingredients__header p{
     line-height: 150%;
     margin: 0;
     letter-spacing: 0px;
     font-size:16px;
-} */
+} 
 
 .lp-ingredients__title {
   font-size: clamp(38px, 4vw, 42px);
@@ -45,15 +45,15 @@
 .lp-ingredients__header {
   text-align: center;
   margin-bottom: 24px;
-  /* max-width: 600px; */
+  max-width: 600px; 
 }
-/* .lp-ingredients__header p{
+.lp-ingredients__header p{
     line-height: 150%;
     margin: 0;
     letter-spacing: 0px;
     font-size:14px;
     font-weight:350;
-} */
+} 
 
 
 .lp-ingredients__title {
