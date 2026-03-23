@@ -237,6 +237,13 @@ letter-spacing: 0px;
   .lp-ingredient-card__content {
     padding: 0 20px 16px 20px;
   }
+  .lp-ingredient-card__details {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+     margin-bottom: 12px;
+    margin-top: 14px;
+}
 }
 
 .lp-ingredient-card__divider {
@@ -249,8 +256,8 @@ letter-spacing: 0px;
   display: flex;
   gap: 9px;
   align-items: center;
-     margin-bottom: 12px;
-    margin-top: 14px;
+     margin-bottom: 13px;
+    margin-top: 16px;
 }
 
 .lp-ingredient-card__image {
