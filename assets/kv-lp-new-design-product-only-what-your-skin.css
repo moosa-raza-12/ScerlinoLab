@@ -18,6 +18,9 @@
    .lp-ingredients__header {
     margin-bottom: 40px;
   }
+  .heading-mobile{
+    display:none;
+  }
    .lp-ingredients__header p{
     line-height: 150%;
     margin: 0;
