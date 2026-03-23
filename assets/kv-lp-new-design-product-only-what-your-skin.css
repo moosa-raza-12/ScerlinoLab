@@ -57,6 +57,9 @@
 
 
 .lp-ingredients__title {
+   font-size: clamp(38px, 4vw, 42px);
+  font-weight: 500 !important;
+  line-height: 1.1;
   letter-spacing: -1.58px;
   margin: 0 0 15px 0;
 }
