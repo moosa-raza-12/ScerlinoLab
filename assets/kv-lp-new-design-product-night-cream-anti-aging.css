@@ -322,7 +322,7 @@ letter-spacing: 0px;  font-size: 14px;  background:  #F3F3F3; padding: 4px 8px; 
 .lp-bundle-gifts {
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(26, 42, 73, 0.20);
   display: none;
 }
 .lp-bundle-radio:checked + .lp-bundle-card .lp-bundle-gifts {
@@ -331,13 +331,7 @@ letter-spacing: 0px;  font-size: 14px;  background:  #F3F3F3; padding: 4px 8px; 
 .lp-gifts-header { 
 letter-spacing: 0px;  background: var(--primary-text); color: white; font-size: 12px; padding: 6px 12px; border-radius: 4px 4px 0 0;
 }
-.gifts-span{
-  display:block;
-  height: 1px;
-align-self: stretch;
-background: rgba(26, 42, 73, 0.20);
-margin-bottom:12px;
-}
+
 .lp-gift-items { 
   background: var(--gray-light); padding: 10px 12px; border-radius: 0 0 4px 4px; font-size: 13px;
   display: flex; flex-direction: column; gap: 8px;
