@@ -45,7 +45,7 @@
 
 .lp-comparison-table__heading {
   color: #FFF;
-  font-size: clamp(32px, 5vw, 42px);
+  font-size: clamp(38px, 5vw, 42px);
   font-weight: 500 !important;
   line-height: 1.1 !important;
   letter-spacing: -1.68px !important;
