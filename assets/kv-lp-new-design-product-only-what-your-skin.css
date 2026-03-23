@@ -293,3 +293,33 @@ letter-spacing: 0px;
   font-size: 14px;
   line-height: 1.6;
 }
+/* Desktop styles - hide mobile tags, show desktop tag */
+.lp-ingredient-card__tags--mobile {
+  display: none;
+}
+
+.lp-ingredient-card__tag--desktop {
+  display: inline-block;
+}
+
+.lp-ingredient-card__tag--mobile {
+  display: none;
+}
+
+/* Mobile styles - hide desktop tag, show mobile tags */
+@media (max-width: 768px) {
+  .lp-ingredient-card__tag--desktop {
+    display: none;
+  }
+  
+  .lp-ingredient-card__tags--mobile {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  
+  .lp-ingredient-card__tag--mobile {
+    display: inline-block;
+  }
+}
