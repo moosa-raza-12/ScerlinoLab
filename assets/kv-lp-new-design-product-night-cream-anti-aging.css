@@ -162,7 +162,7 @@ padding: 0;
 margin: 0;
 }
 @media (min-width: 1024px) {
-  .lp-product-description { font-size: 16px; }
+  .lp-product-description { font-size: 16px;  font-weight: 500; }
 }
 
 /* Benefits Grid */
