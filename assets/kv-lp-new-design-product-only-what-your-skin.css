@@ -76,7 +76,7 @@
   }
 /* Mobile responsive */
 @media (max-width: 768px) {
-  .lp-ingredients__subheading--desktop {
+  .lp-ingredients__subheading {
     display: none;
   }
   
