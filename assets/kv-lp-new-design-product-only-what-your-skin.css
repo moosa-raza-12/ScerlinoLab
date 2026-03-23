@@ -6,7 +6,7 @@
   --lp-toggle-bg: #17162E;
   --lp-toggle-color: #F3F3F3;
   background-color: var(--lp-bg-color);
-  padding: 32px 20px 30px 20px;
+ padding: 32px 20px 30px 20px;
   font-family: inherit;
   color: var(--lp-text-color);
 }
