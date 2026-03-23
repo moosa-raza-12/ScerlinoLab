@@ -249,6 +249,8 @@ box-shadow: 0 4px 29px 0 rgba(176, 176, 189, 0.30);
   font-weight: 350;
   z-index: 1;
   letter-spacing: 0px;
+  border-radius: 99px;
+    border: 2px solid white;
 }
 .lp-bundle-badge--gold { background: var(--accent-gold); color: var(--primary-text); }
 .lp-bundle-badge--navy { background: var(--primary-text); color: var(--white); }
