@@ -22,6 +22,9 @@
   .heading-mobile{
     display:none;
   }
+  .heading-desktop{
+  display:block;
+}
    .lp-ingredients__header p{
     line-height: 150%;
     margin: 0;
