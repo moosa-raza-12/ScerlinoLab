@@ -22,11 +22,16 @@
     max-width: 1440px;
     margin: 0 auto;
   }
+  .lp-product-gallery {
+  margin-bottom: 24px;
+  max-width: 100%;
+  overflow: hidden;
+}
 }
 
 /* Gallery */
 .lp-product-gallery {
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   max-width: 100%;
   overflow: hidden;
 }
