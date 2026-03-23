@@ -148,7 +148,7 @@
   padding: 0;
 }
 @media (min-width: 1024px) {
-  .lp-product-title { font-size: 36px; font-weight: 500 !important; line: height 30px;}
+  .lp-product-title { font-size: 36px; font-weight: 500 !important;}
 }
 .lp-product-description {
   font-size: 14px;
