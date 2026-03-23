@@ -84,6 +84,7 @@
   flex-direction: column;
   text-align: left;
   min-width: 185px;
+  gap: 18px;
 }
 
 .lp-efficacy__percentage {
