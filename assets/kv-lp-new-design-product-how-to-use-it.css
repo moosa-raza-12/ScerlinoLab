@@ -181,7 +181,7 @@
 .lp-how-to-use__arrow--prev {
   background-color: #ffffff;
   color: var(--text-dark);
-  border: 1px solid #eee;
+  /* border: 1px solid #eee; */
 }
 
 .lp-how-to-use__arrow--next {
