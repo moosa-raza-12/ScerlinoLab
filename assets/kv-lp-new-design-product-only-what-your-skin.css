@@ -81,7 +81,11 @@
   }
   
   .lp-ingredients__subheading--mobile {
-    display: block;
+   color: #17162E;
+text-align: center;
+font-size: 14px;
+font-weight: 350;
+line-height: 150%; /* 21px */
   }
 }
 .lp-ingredients__list {
