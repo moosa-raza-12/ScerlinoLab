@@ -63,8 +63,8 @@
   letter-spacing: -1.58px;
   margin: 0 0 15px 0;
 }
-
-.lp-ingredients__subheading {
+.lp-ingredients__subheading--mobile{
+  display:block;
   font-size: clamp(14px, 1.5vw, 16px);
   font-weight: 350;
   line-height: 1.5;
