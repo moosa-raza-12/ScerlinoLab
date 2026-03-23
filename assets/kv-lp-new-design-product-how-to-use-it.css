@@ -4,7 +4,7 @@
   --text-dark: #17162e;
   --nav-bg-dark: #1a2a49;
   background-color: var(--bg-color);
-  padding: 64px 40px;
+ padding: 36px 20px;
   overflow: hidden;
 }
 
