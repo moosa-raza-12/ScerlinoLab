@@ -134,7 +134,7 @@ gap:18px;
   font-weight: 500;
   padding: 9px 14px;
   border-radius: 26px;
-  margin-bottom: 14px;
+  /* margin-bottom: 14px; */
   display: inline-block;
   letter-spacing: 0px !important;
   line-height: 11px;
