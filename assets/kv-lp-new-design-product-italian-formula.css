@@ -50,6 +50,7 @@
   line-height: 1.1 !important;
   letter-spacing: -1.58px !important;
  min-width: 414px;
+ margin:0 auto;
 }
 
 .lp-comparison-table__wrapper {
