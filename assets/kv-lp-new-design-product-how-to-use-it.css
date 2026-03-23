@@ -133,6 +133,9 @@
   letter-spacing: 0px;
   align-self: flex-start;
 }
+.lp-how-to-use__card-step {
+  margin:0;
+}
 
 .lp-how-to-use__card-desc {
   font-size: 14px;
