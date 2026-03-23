@@ -11,7 +11,7 @@
     <div class="lp-pharmacists-grid-wrapper">
       <div class="lp-pharmacists-grid">
         {% for block in section.blocks %}
-          <div class="lp-pharmacist-card{% if block.settings.video != blank %} has-video{% endif %}" {{ block.shopify_attributes }}>
+          <div class="lp-pharmacist-card{% if block.settings.video != blank %} has-video{% endif %}" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
             {% if block.settings.video != blank %}
               <div class="lp-pharmacist-video-wrapper">
                 {% if block.settings.image != blank %}
@@ -50,7 +50,7 @@
       </div>
     </div>
     
- <div class="lp-results__nav">
+    <div class="lp-results__nav">
       <button class="lp-how-to-use__arrow lp-how-to-use__arrow--prev" data-nav="prev" aria-label="Previous step">
         <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M8 1L1 8L8 15M1 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -75,6 +75,185 @@
   var section = document.querySelector('#lp-section-{{ section.id }}');
   if (!section) return;
 
+  var grid = section.querySelector('.lp-pharmacists-grid');
+  var cards = section.querySelectorAll('.lp-pharmacist-card');
+  var prevBtn = section.querySelector('[data-nav="prev"]');
+  var nextBtn = section.querySelector('[data-nav="next"]');
+  var dots = section.querySelectorAll('.lp-how-to-use__dot');
+  var currentIndex = 0;
+  var totalCards = cards.length;
+  var cardsPerView = getCardsPerView();
+  var autoPlayInterval = null;
+  var isHovering = false;
+
+  // Function to determine how many cards to show based on screen width
+  function getCardsPerView() {
+    if (window.innerWidth >= 1024) return 3;
+    if (window.innerWidth >= 768) return 2;
+    return 1;
+  }
+
+  // Function to update visible cards
+  function updateVisibleCards() {
+    var cardsPerView = getCardsPerView();
+    var maxIndex = Math.max(0, totalCards - cardsPerView);
+    currentIndex = Math.min(currentIndex, maxIndex);
+    
+    cards.forEach(function(card, index) {
+      if (index >= currentIndex && index < currentIndex + cardsPerView) {
+        card.classList.add('is-visible');
+        card.classList.remove('is-hidden');
+      } else {
+        card.classList.add('is-hidden');
+        card.classList.remove('is-visible');
+      }
+    });
+    
+    // Update dots
+    dots.forEach(function(dot, index) {
+      if (index === currentIndex) {
+        dot.classList.add('is-active');
+      } else {
+        dot.classList.remove('is-active');
+      }
+    });
+    
+    // Update button states
+    if (prevBtn) {
+      if (currentIndex === 0) {
+        prevBtn.classList.add('is-disabled');
+        prevBtn.disabled = true;
+      } else {
+        prevBtn.classList.remove('is-disabled');
+        prevBtn.disabled = false;
+      }
+    }
+    
+    if (nextBtn) {
+      if (currentIndex >= totalCards - cardsPerView) {
+        nextBtn.classList.add('is-disabled');
+        nextBtn.disabled = true;
+      } else {
+        nextBtn.classList.remove('is-disabled');
+        nextBtn.disabled = false;
+      }
+    }
+  }
+
+  // Navigate to previous set
+  function prevSlide() {
+    var cardsPerView = getCardsPerView();
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateVisibleCards();
+      resetAutoPlay();
+    }
+  }
+
+  // Navigate to next set
+  function nextSlide() {
+    var cardsPerView = getCardsPerView();
+    if (currentIndex < totalCards - cardsPerView) {
+      currentIndex++;
+      updateVisibleCards();
+      resetAutoPlay();
+    }
+  }
+
+  // Go to specific dot index
+  function goToSlide(index) {
+    var cardsPerView = getCardsPerView();
+    var maxIndex = Math.max(0, totalCards - cardsPerView);
+    if (index >= 0 && index <= maxIndex) {
+      currentIndex = index;
+      updateVisibleCards();
+      resetAutoPlay();
+    }
+  }
+
+  // Auto-play functionality
+  function startAutoPlay() {
+    if (autoPlayInterval) clearInterval(autoPlayInterval);
+    if (!isHovering) {
+      autoPlayInterval = setInterval(function() {
+        var cardsPerView = getCardsPerView();
+        if (currentIndex < totalCards - cardsPerView) {
+          nextSlide();
+        } else {
+          // Loop back to start
+          currentIndex = 0;
+          updateVisibleCards();
+        }
+      }, 5000);
+    }
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = null;
+    }
+  }
+
+  function resetAutoPlay() {
+    stopAutoPlay();
+    startAutoPlay();
+  }
+
+  // Event listeners for navigation
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      prevSlide();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      nextSlide();
+    });
+  }
+
+  // Dot click handlers
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var index = parseInt(this.getAttribute('data-dot'));
+      if (!isNaN(index)) {
+        goToSlide(index);
+      }
+    });
+  });
+
+  // Pause auto-play on hover
+  var container = section.querySelector('.lp-pharmacists-grid-wrapper');
+  if (container) {
+    container.addEventListener('mouseenter', function() {
+      isHovering = true;
+      stopAutoPlay();
+    });
+    
+    container.addEventListener('mouseleave', function() {
+      isHovering = false;
+      startAutoPlay();
+    });
+  }
+
+  // Handle window resize
+  var resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+      var newCardsPerView = getCardsPerView();
+      var maxIndex = Math.max(0, totalCards - newCardsPerView);
+      if (currentIndex > maxIndex) {
+        currentIndex = maxIndex;
+      }
+      updateVisibleCards();
+    }, 250);
+  });
+
+  // Video handling (preserved from original)
   section.querySelectorAll('.lp-pharmacist-card.has-video').forEach(function(card) {
     var video = card.querySelector('.lp-pharmacist-video');
     var playBtn = card.querySelector('.lp-pharmacist-play-btn');
@@ -83,26 +262,32 @@
     var isPlaying = false;
     var userPaused = false;
 
-   function play() {
-  video.play().catch(function(error) {
-    console.log('Play failed:', error);
-  });
-  isPlaying = true;
-  card.classList.add('is-playing');
-}
+    function play() {
+      video.play().catch(function(error) {
+        console.log('Play failed:', error);
+      });
+      isPlaying = true;
+      card.classList.add('is-playing');
+      // Pause auto-play while video is playing
+      stopAutoPlay();
+    }
 
     function pause() {
       video.pause();
       isPlaying = false;
       card.classList.remove('is-playing');
+      // Resume auto-play if not hovering
+      if (!isHovering) {
+        startAutoPlay();
+      }
     }
 
-   card.addEventListener('mouseleave', function() {
-  if (isPlaying) {
-    pause();
-    video.currentTime = 0;
-  }
-});
+    card.addEventListener('mouseleave', function() {
+      if (isPlaying) {
+        pause();
+        video.currentTime = 0;
+      }
+    });
 
     if (playBtn) {
       playBtn.addEventListener('click', function(e) {
@@ -132,6 +317,10 @@
       video.currentTime = 0;
     });
   });
+
+  // Initialize
+  updateVisibleCards();
+  startAutoPlay();
 })();
 </script>
 
@@ -216,4 +405,4 @@
     }
   ]
 }
-{% endschema %} 
+{% endschema %}
