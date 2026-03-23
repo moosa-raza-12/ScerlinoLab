@@ -133,7 +133,7 @@
   letter-spacing: 0px;
   align-self: flex-start;
 }
-.lp-how-to-use__card-step {
+.lp-how-to-use__card-step p{
   margin:0;
 }
 
