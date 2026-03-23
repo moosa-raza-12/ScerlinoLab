@@ -79,89 +79,152 @@
   const section = document.querySelector('#lp-section-{{ section.id }}');
   if (!section) return;
 
-  const cards = section.querySelectorAll('.lp-results-notice__card');
+  const list = section.querySelector('.lp-results-notice__list');
   const prevBtn = section.querySelector('[data-nav="prev"]');
   const nextBtn = section.querySelector('[data-nav="next"]');
   const dots = section.querySelectorAll('.lp-how-to-use__dot');
-  const list = section.querySelector('.lp-results-notice__list');
+  const wrapper = section.querySelector('.lp-results-notice__list-wrapper');
   
-  if (!cards.length || !prevBtn || !nextBtn || !dots.length) return;
+  if (!list || !prevBtn || !nextBtn || !dots.length) return;
 
-  let currentPage = 0;
-  const cardsPerPage = 3;
-  const totalPages = Math.ceil(cards.length / cardsPerPage);
+  let currentIndex = 0;
+  const totalCards = dots.length;
 
-  function updateDisplay() {
-    const startIndex = currentPage * cardsPerPage;
-    const endIndex = startIndex + cardsPerPage;
-    
-    // Hide all cards first
-    cards.forEach(card => {
-      card.style.display = 'none';
-    });
-    
-    // Show only cards for current page
-    for (let i = startIndex; i < endIndex && i < cards.length; i++) {
-      cards[i].style.display = '';
-    }
-    
-    // Update dots
-    dots.forEach((dot, index) => {
-      if (index === currentPage) {
+  // Get the container width for proper scrolling
+  function getCardWidth() {
+    const cards = list.querySelectorAll('.lp-results-notice__card');
+    if (cards.length === 0) return 0;
+    return cards[0].offsetWidth;
+  }
+
+  // Function to update the carousel position
+  function updateCarousel(index) {
+    // Update active dot
+    dots.forEach((dot, i) => {
+      if (i === index) {
         dot.classList.add('is-active');
       } else {
         dot.classList.remove('is-active');
       }
     });
     
-    // Update button states
-    if (prevBtn) {
-      if (currentPage === 0) {
-        prevBtn.style.opacity = '0.3';
-        prevBtn.style.pointerEvents = 'none';
-      } else {
-        prevBtn.style.opacity = '1';
-        prevBtn.style.pointerEvents = 'auto';
-      }
+    // Scroll the list to show the active card
+    const cards = list.querySelectorAll('.lp-results-notice__card');
+    if (cards[index]) {
+      const cardWidth = getCardWidth();
+      const scrollPosition = cards[index].offsetLeft;
+      
+      list.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
     }
     
-    if (nextBtn) {
-      if (currentPage >= totalPages - 1) {
-        nextBtn.style.opacity = '0.3';
-        nextBtn.style.pointerEvents = 'none';
-      } else {
-        nextBtn.style.opacity = '1';
-        nextBtn.style.pointerEvents = 'auto';
-      }
-    }
+    currentIndex = index;
   }
 
-  // Next button
+  // Recalculate on window resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      updateCarousel(currentIndex);
+    }, 250);
+  });
+
+  // Next button click handler
   nextBtn.addEventListener('click', () => {
-    if (currentPage < totalPages - 1) {
-      currentPage++;
-      updateDisplay();
+    let newIndex = currentIndex + 1;
+    if (newIndex >= totalCards) {
+      newIndex = 0;
     }
+    updateCarousel(newIndex);
   });
 
-  // Previous button
+  // Previous button click handler
   prevBtn.addEventListener('click', () => {
-    if (currentPage > 0) {
-      currentPage--;
-      updateDisplay();
+    let newIndex = currentIndex - 1;
+    if (newIndex < 0) {
+      newIndex = totalCards - 1;
     }
+    updateCarousel(newIndex);
   });
 
-  // Dot clicks
+  // Dot click handlers
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
-      currentPage = index;
-      updateDisplay();
+      updateCarousel(index);
     });
   });
 
-  // Initialize
-  updateDisplay();
+  // Handle scroll end to update active dot
+  let scrollTimeout;
+  list.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      const scrollPosition = list.scrollLeft;
+      const cards = list.querySelectorAll('.lp-results-notice__card');
+      
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+      
+      cards.forEach((card, idx) => {
+        const distance = Math.abs(card.offsetLeft - scrollPosition);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = idx;
+        }
+      });
+      
+      if (closestIndex !== currentIndex) {
+        currentIndex = closestIndex;
+        dots.forEach((dot, i) => {
+          if (i === currentIndex) {
+            dot.classList.add('is-active');
+          } else {
+            dot.classList.remove('is-active');
+          }
+        });
+      }
+    }, 100);
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  if (wrapper) {
+    wrapper.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    wrapper.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeThreshold = 50;
+      
+      if (touchEndX < touchStartX - swipeThreshold) {
+        nextBtn.click();
+      } else if (touchEndX > touchStartX + swipeThreshold) {
+        prevBtn.click();
+      }
+    });
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    const rect = section.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (!isVisible) return;
+    
+    if (e.key === 'ArrowLeft') {
+      prevBtn.click();
+      e.preventDefault();
+    } else if (e.key === 'ArrowRight') {
+      nextBtn.click();
+      e.preventDefault();
+    }
+  });
 })();
 </script>
 </section>
