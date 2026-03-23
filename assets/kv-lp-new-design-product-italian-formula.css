@@ -204,7 +204,7 @@
 
 .lp-comparison-table__others-label {
   color: #FFFFFF;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   opacity: 1;
 }
@@ -320,8 +320,8 @@
     height: 40px;
   }
 
-  .lp-comparison-table__others-label {
+  /* .lp-comparison-table__others-label {
     font-size: 18px;
-  }
+  } */
 
 }
