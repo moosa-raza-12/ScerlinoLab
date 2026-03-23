@@ -15,6 +15,9 @@
   .lp-ingredients {
     padding: 64px 20px;
   }
+   .lp-ingredients__header {
+    margin-bottom: 40px;
+  }
 }
 
 .lp-ingredients__container {
@@ -36,12 +39,6 @@
     letter-spacing: 0px;
 }
 
-@media (min-width: 1024px) {
-  .lp-ingredients__header {
-    margin-bottom: 40px;
-  }
-  
-}
 
 .lp-ingredients__title {
   font-size: clamp(38px, 4vw, 42px);
