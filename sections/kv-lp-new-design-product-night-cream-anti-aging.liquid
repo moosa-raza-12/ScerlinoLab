@@ -262,7 +262,7 @@
         </div>
       </div>
 
-      <p class="lp-results-note">Visible results in ~4 weeks. Maximum effectiveness commonly reported after 2 bottles. Results may vary person to person</p>
+      <p class="lp-results-note">{{section.settings.results_note }}</p>
 
       <div class="lp-atc-section">
         {%- assign selected_variant = product.selected_or_first_available_variant -%}
@@ -728,6 +728,12 @@ document.addEventListener('DOMContentLoaded', function() {
       "default": "<p>4.6 Excellent | 3,439+ reviews</p>",
       "info": "Rich text for the Trustpilot badge area. Supports bold, italic, etc."
     },
+    {
+  "type": "textarea",
+  "id": "results_note",
+  "label": "Results Note",
+  "default": "Visible results in ~4 weeks. Maximum effectiveness commonly reported after 2 bottles. Results may vary person to person"
+},
     {
       "type": "richtext",
       "id": "title_override",
