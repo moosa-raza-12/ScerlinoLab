@@ -199,7 +199,7 @@ align-items: center;
     font-weight: 500 !important;
   }
   .lp-results-notice__list-wrapper {
-    padding: 0;
+            padding-bottom: 40px;
   }
  .lp-results-notice__list {
   display: flex;
