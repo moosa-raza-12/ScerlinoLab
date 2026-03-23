@@ -10,7 +10,7 @@
   font-family: inherit;
   color: var(--lp-text-color);
 }
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
 
 .heading-desktop{
   display:none;
