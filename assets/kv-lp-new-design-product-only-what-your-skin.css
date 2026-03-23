@@ -102,12 +102,17 @@
   .lp-ingredient-card__summary {
     padding: 10px 20px;
   }
+.lp-ingredient-card__summary-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 }
 
 .lp-ingredient-card__summary-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .lp-ingredient-card__icon-wrap {
