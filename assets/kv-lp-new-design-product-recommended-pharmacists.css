@@ -242,3 +242,70 @@
     font-size: 16px;
   }
 }
+/* Grid navigation styles */
+.lp-pharmacist-card {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lp-pharmacist-card.is-visible {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+.lp-pharmacist-card.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+/* Navigation button states */
+.lp-how-to-use__arrow.is-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.lp-how-to-use__arrow {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.lp-how-to-use__arrow:not(.is-disabled):hover {
+  opacity: 0.7;
+}
+
+.lp-how-to-use__dot {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lp-how-to-use__dot.is-active {
+  opacity: 1;
+  background-color: currentColor;
+}
+
+/* Responsive grid layout */
+.lp-pharmacists-grid {
+  display: grid;
+  gap: 24px;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .lp-pharmacists-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lp-pharmacists-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Video playing state */
+.lp-pharmacist-card.is-playing .lp-pharmacist-play-btn {
+  opacity: 0;
+  visibility: hidden;
+}
