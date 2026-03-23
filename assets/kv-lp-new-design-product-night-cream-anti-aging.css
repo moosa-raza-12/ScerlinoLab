@@ -232,14 +232,18 @@ margin: 0;
   transition: all 0.2s ease;
 }
 .lp-bundle-radio:checked + .lp-bundle-card {
-  border-color: var(--primary-text);
+  border-radius: 6px;
+border: 2px solid #17162E;
+background: #FFF;
+box-shadow: 0 4px 29px 0 rgba(176, 176, 189, 0.30);
+
 }
 .lp-bundle-badge {
   position: absolute;
   top: -10px;
   right: 16px;
   padding: 0px 12px;
-  border-radius: 99px;
+  /* border-radius: 99px; */
   font-size: 14px;
   font-weight: 350;
   z-index: 1;
