@@ -48,9 +48,8 @@
   font-size: clamp(38px, 5vw, 42px);
   font-weight: 500 !important;
   line-height: 1.1 !important;
-  letter-spacing: -1.68px !important;
-  margin: 0 auto;
-  width: 100%;
+  letter-spacing: -1.58px !important;
+ min-width: 414px;
 }
 
 .lp-comparison-table__wrapper {
