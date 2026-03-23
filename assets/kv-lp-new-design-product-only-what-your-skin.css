@@ -18,12 +18,12 @@
    .lp-ingredients__header {
     margin-bottom: 40px;
   }
-  .lp-ingredients__header p{
+  /* .lp-ingredients__header p{
     line-height: 150%;
     margin: 0;
     letter-spacing: 0px;
     font-size:16px;
-}
+} */
 
 .lp-ingredients__title {
   font-size: clamp(38px, 4vw, 42px);
@@ -47,13 +47,13 @@
   margin-bottom: 24px;
   /* max-width: 600px; */
 }
-.lp-ingredients__header p{
+/* .lp-ingredients__header p{
     line-height: 150%;
     margin: 0;
     letter-spacing: 0px;
     font-size:14px;
     font-weight:350;
-}
+} */
 
 
 .lp-ingredients__title {
@@ -63,7 +63,7 @@
   letter-spacing: -1.58px;
   margin: 0 0 15px 0;
 }
-.lp-ingredients__subheading--mobile{
+.lp-ingredients__subheading--mobile p{
   display:block;
   font-size: clamp(14px, 1.5vw, 16px);
   font-weight: 350;
@@ -71,7 +71,7 @@
   margin: 0;
   letter-spacing: 0px;
 }
-.lp-ingredients__subheading{
+.lp-ingredients__subheading p{
   display:none;
 }
 
@@ -88,10 +88,10 @@
     gap: 28px;
   }
 }
-.lp-ingredients__subheading--mobile{
+.lp-ingredients__subheading--mobile p{
   display:none;
 }
-.lp-ingredients__subheading {
+.lp-ingredients__subheading p{
   font-size: clamp(14px, 1.5vw, 16px);
   font-weight: 350;
   line-height: 1.5;
