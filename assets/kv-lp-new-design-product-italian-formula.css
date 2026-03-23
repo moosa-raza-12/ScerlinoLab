@@ -131,7 +131,7 @@
   padding: 0 16px;
   color: #fff;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   letter-spacing: 0px;
 }
@@ -289,7 +289,7 @@
 
   .lp-comparison-table__cell {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
     padding: 0 24px;
     height: 66px;
   }
