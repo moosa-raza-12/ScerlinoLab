@@ -81,7 +81,6 @@
   color: var(--text-color);
   font-size: var(--title-size);
   font-weight: 500 !important;
-   line-height: ;
   letter-spacing: -1px;
 }
 .lp-guarantee__title p{
@@ -113,7 +112,6 @@
   color: var(--text-color);
   font-size: var(--title-size);
   font-weight: 500 !important;
- 
   letter-spacing: -1px;
 }
 }
