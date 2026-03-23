@@ -26,7 +26,17 @@
                 <div class="lp-ingredient-card__info">
                   <h3 class="lp-ingredient-card__name">{{ block.settings.title }}</h3>
                   {%- if block.settings.tag != blank -%}
-                    <span class="lp-ingredient-card__tag">{{ block.settings.tag }}</span>
+                    <span class="lp-ingredient-card__tag lp-ingredient-card__tag--desktop">{{ block.settings.tag }}</span>
+                  {%- endif -%}
+                  {%- if block.settings.mobile_tag_1 != blank or block.settings.mobile_tag_2 != blank -%}
+                    <div class="lp-ingredient-card__tags--mobile">
+                      {%- if block.settings.mobile_tag_1 != blank -%}
+                        <span class="lp-ingredient-card__tag lp-ingredient-card__tag--mobile">{{ block.settings.mobile_tag_1 }}</span>
+                      {%- endif -%}
+                      {%- if block.settings.mobile_tag_2 != blank -%}
+                        <span class="lp-ingredient-card__tag lp-ingredient-card__tag--mobile">{{ block.settings.mobile_tag_2 }}</span>
+                      {%- endif -%}
+                    </div>
                   {%- endif -%}
                 </div>
               </div>
@@ -55,10 +65,8 @@
               </div>
               {%- if block.settings.benefits != blank -%}
                 <div class="lp-ingredient-card__benefits">
-
                   {{ block.settings.benefits }}
                 </div>
-
               {%- endif -%}
             </div>
           </details>
@@ -139,8 +147,20 @@
           {
             "type": "text",
             "id": "tag",
-            "label": "Tag",
+            "label": "Tag (Desktop)",
             "default": "Benefit tag"
+          },
+          {
+            "type": "text",
+            "id": "mobile_tag_1",
+            "label": "Mobile Tag 1",
+            "default": "Mobile tag 1"
+          },
+          {
+            "type": "text",
+            "id": "mobile_tag_2",
+            "label": "Mobile Tag 2",
+            "default": "Mobile tag 2"
           },
           {
             "type": "image_picker",
@@ -178,6 +198,8 @@
             "settings": {
               "title": "Retinyl palmitate",
               "tag": "Vitamin A form",
+              "mobile_tag_1": "Vitamin A",
+              "mobile_tag_2": "Gentle formula",
               "description": "A bio‑identical form of Vitamin A your skin recognizes as its own. Gentler than harsh retinol; supports collagen production without typical redness or peeling (edit if needed).",
               "benefits": "<p>Supports barrier • nourishes without clogging pores • helps maintain moisture balance</p>",
               "open_by_default": true
@@ -187,6 +209,8 @@
             "settings": {
               "title": "Italian olive oil",
               "tag": "Antioxidant + nourishment",
+              "mobile_tag_1": "Antioxidant",
+              "mobile_tag_2": "Deep nourishment",
               "description": "Rich in vitamins and antioxidants, Italian olive oil helps protect the skin from environmental stressors while providing deep nourishment.",
               "open_by_default": false
             }
@@ -195,6 +219,8 @@
             "settings": {
               "title": "Sodium hyaluronate",
               "tag": "Smooths deep wrinkles",
+              "mobile_tag_1": "Deep hydration",
+              "mobile_tag_2": "Anti-wrinkle",
               "description": "A salt form of hyaluronic acid that penetrates deep into the skin to lock in moisture and visibly smooth out fine lines and wrinkles.",
               "open_by_default": false
             }
