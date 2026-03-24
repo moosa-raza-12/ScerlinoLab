@@ -284,50 +284,6 @@
           <span class="lp-meta-item"><img src="https://cdn.shopify.com/s/files/1/0656/3453/3633/files/truck.png?v=1715587421" alt="" width="16"> FREE Shipping to USA</span>
         </div>
       </div> 
-<div class="lp-atc-section">
-  {%- assign selected_variant = product.selected_or_first_available_variant -%}
-  <button
-    type="button"
-    class="lp-atc-button"
-    id="lpAtcButton-{{ section.id }}"
-    data-variant-id="{{ selected_variant.id }}"
-    {% unless selected_variant.available %}disabled{% endunless %}
-  >
-    <span>{% if selected_variant.available %}Add to cart{% else %}Sold out{% endif %}</span>
-    <span class="lp-atc-price">
-      <strong>{{ selected_variant.price | money }}</strong>
-    </span>
-  </button>
-  
-  <!-- Single shipping section with ParcelPanel integration -->
-  <div class="lp-shipping-meta" id="shipping-meta-container">
-    <span class="lp-meta-item">
-      <span class="lp-dot"></span> 
-      <span id="dynamic-delivery-date">Loading delivery date...</span>
-    </span>
-    <span class="lp-meta-item">
-      <img src="https://cdn.shopify.com/s/files/1/0656/3453/3633/files/truck.png?v=1715587421" alt="" width="16"> 
-      FREE Shipping to <span id="dynamic-location">USA</span>
-    </span>
-  </div>
-
-  <!-- Hidden ParcelPanel widget -->
-  <div style="display: none;">
-    <parcelpanel-edd 
-      id="pp-edd-widget"
-      settingsStr='{
-        "corner_radius": 8,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "padding_x": 0,
-        "padding_y": 0,
-        "border_color": "transparent",
-        "icon": "🚚",
-        "show_icon": false
-      }'>
-    </parcelpanel-edd>
-  </div>
-</div>
       <div class="lp-guarantee-banner">
         {% if section.settings.guarantee_icon_svg != blank %}
           <div class="lp-guarantee-icon">
@@ -433,26 +389,6 @@
       </div>
     </div>
   </div>
-  <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Copy ParcelPanel data to your custom section
-  function copyParcelPanelData() {
-    var widget = document.getElementById('pp-edd-widget');
-    var deliverySpan = document.getElementById('dynamic-delivery-date');
-    
-    if (widget && deliverySpan) {
-      var widgetText = widget.innerText || widget.textContent;
-      if (widgetText && widgetText.length > 3 && !widgetText.includes('Loading')) {
-        deliverySpan.innerHTML = 'Delivers by ' + widgetText.replace('Estimated delivery: ', '');
-        console.log('✅ Updated: ' + deliverySpan.innerHTML);
-      }
-    }
-  }
-  
-  // Check every 2 seconds
-  setInterval(copyParcelPanelData, 2000);
-});
-</script>
 </section>
 
 <script src="https://shopify-edd.parcelpanel.com/loader.js" defer></script>
