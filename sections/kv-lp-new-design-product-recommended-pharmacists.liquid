@@ -49,6 +49,24 @@
         {% endfor %}
       </div>
     </div>
+
+    <div class="lp-pharmacists-nav">
+      <button class="lp-pharmacists-arrow lp-pharmacists-arrow--prev" data-nav="prev" aria-label="Previous">
+        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 1L1 8L8 15M1 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="lp-pharmacists-dots">
+        {% for block in section.blocks %}
+          <span class="lp-pharmacists-dot{% if forloop.first %} is-active{% endif %}" data-dot="{{ forloop.index0 }}"></span>
+        {% endfor %}
+      </div>
+      <button class="lp-pharmacists-arrow lp-pharmacists-arrow--next" data-nav="next" aria-label="Next">
+        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 1L19 8L12 15M19 8H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </section>
 
@@ -56,6 +74,40 @@
 (function() {
   var section = document.querySelector('#lp-section-{{ section.id }}');
   if (!section) return;
+
+  var gridWrapper = section.querySelector('.lp-pharmacists-grid-wrapper');
+  var cards = section.querySelectorAll('.lp-pharmacist-card');
+  var dots = section.querySelectorAll('[data-dot]');
+  var prevBtn = section.querySelector('[data-nav="prev"]');
+  var nextBtn = section.querySelector('[data-nav="next"]');
+
+  if (gridWrapper && cards.length) {
+    function getCardWidth() {
+      return cards[0].offsetWidth + (parseFloat(getComputedStyle(section.querySelector('.lp-pharmacists-grid')).gap) || 24);
+    }
+
+    function updateDots() {
+      var cardWidth = getCardWidth();
+      var activeIndex = Math.round(gridWrapper.scrollLeft / cardWidth);
+      dots.forEach(function(dot, i) {
+        dot.classList.toggle('is-active', i === activeIndex);
+      });
+    }
+
+    gridWrapper.addEventListener('scroll', updateDots);
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function() {
+        gridWrapper.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function() {
+        gridWrapper.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+      });
+    }
+  }
 
   section.querySelectorAll('.lp-pharmacist-card.has-video').forEach(function(card) {
     var video = card.querySelector('.lp-pharmacist-video');

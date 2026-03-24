@@ -143,7 +143,10 @@
 }
 
 .lp-comparison-table__col--features .lp-comparison-table__cell {
-  background: rgba(255, 255, 255, 0.10);
+  background: #ffffff1a;
+  /* background: #ffffff1a; */
+  -webkit-backdrop-filter: blur(32px);
+  backdrop-filter: blur(32px);
 }
 
 .lp-comparison-table__col--brand .lp-comparison-table__cell:nth-child(even) {

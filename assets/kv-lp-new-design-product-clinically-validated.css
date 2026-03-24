@@ -24,7 +24,7 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1440px;
+  /* height: 856px; */
   padding: 32px 20px;
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
 .lp-efficacy__header {
@@ -48,7 +48,7 @@
 .lp-efficacy__title {
   font-size: clamp(38px, 5vw, 42px);
   font-weight: 500 !important;
-  line-height: 1.1;
+  line-height: 46.2px;
   letter-spacing: -1.68px;
   margin: 0;
   color: #FFFFFF;
@@ -62,9 +62,9 @@
   letter-spacing:0px;
   margin: 0;
   opacity: 1;
-  max-width: 390px;
+  width: 80%;
   margin: 0 auto;
-  margin-bottom:32px;
+  /* margin-bottom:32px; */
 }
 
 .lp-efficacy__stats {
@@ -90,7 +90,7 @@
 .lp-efficacy__percentage {
   font-size: 49px;
   font-weight: 500;
-  line-height: 1.32;
+  line-height: 0.8;
   display: block;
 }
 .lp-efficacy__stats p{
@@ -100,16 +100,16 @@
 .lp-efficacy__usp-text {
   font-size: 14px;
   font-weight: 350;
-  line-height:18px;
+  line-height:14px;
   opacity: 1;
-  /* letter-spacing: 0px !important; */
+   letter-spacing: 0px !important;
 }
 .lp-efficacy__usp-text2 {
 font-size: 20px;
 font-style: normal;
 font-weight: 700 !important;
   letter-spacing: 0px !important;
-  line-height:normal;
+  line-height:0.5;
 }
 
 .lp-efficacy__disclaimer {
@@ -139,19 +139,24 @@ line-height:normal;
   }
 }
 
+@media (min-width:1200px){
+  .lp-efficacy__container {
+    /* height: 600px; */
+    padding: 64px 140px;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
 @media (min-width: 768px) {
   .lp-efficacy {
     min-height: 600px;
     background-image: var(--bg-image);
   }
-  .lp-efficacy__container {
-    padding: 32px 80px;
-    align-items: flex-start;
-    text-align: left;
-  }
+  
 
   .lp-efficacy__header {
-    gap: 20px;
+    gap: 12px;
   }
 
   .lp-efficacy__subtitle {
@@ -179,7 +184,7 @@ line-height:normal;
   }
 
   .lp-efficacy__percentage {
-    line-height: 1;
+    line-height: 0.8;
     min-width: 100px;
     text-align: center;
   }
@@ -191,6 +196,7 @@ line-height:normal;
   .lp-efficacy__disclaimer {
     font-size: 16px;
     text-align: left;
+    margin-top: -20px;
   }
 }
 

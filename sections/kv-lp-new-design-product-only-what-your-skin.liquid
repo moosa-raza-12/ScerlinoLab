@@ -17,7 +17,7 @@
         {%- if block.type == 'ingredient' -%}
           <details
             class="lp-ingredient-card"
-            {{ block.settings.open_by_default | aria_checked: 'true' | replace: 'aria-checked="true"', 'open' }}
+            {% if forloop.first %}open{% endif %}
             {{ block.shopify_attributes }}>
             <summary class="lp-ingredient-card__summary">
               <div class="lp-ingredient-card__summary-left">
@@ -106,6 +106,69 @@
     </div>
   </div>
 </section>
+
+<script>
+(function() {
+  const section = document.getElementById('lp-ingredients-{{ section.id }}');
+  if (!section) return;
+
+  section.querySelectorAll('.lp-ingredient-card').forEach(function(details) {
+    const summary = details.querySelector('summary');
+    const content = details.querySelector('.lp-ingredient-card__content');
+    if (!summary || !content) return;
+
+    let animation = null;
+
+    summary.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      if (animation) animation.cancel();
+
+      if (details.open) {
+        const startHeight = details.offsetHeight + 'px';
+        const endHeight = summary.offsetHeight + 'px';
+
+        animation = details.animate(
+          { height: [startHeight, endHeight] },
+          { duration: 300, easing: 'ease-in-out' }
+        );
+
+        animation.onfinish = function() {
+          details.removeAttribute('open');
+          details.style.height = '';
+          details.style.overflow = '';
+          animation = null;
+        };
+        animation.oncancel = function() {
+          animation = null;
+        };
+
+        details.style.overflow = 'hidden';
+      } else {
+        details.setAttribute('open', '');
+        const startHeight = summary.offsetHeight + 'px';
+        const endHeight = details.offsetHeight + 'px';
+
+        animation = details.animate(
+          { height: [startHeight, endHeight] },
+          { duration: 300, easing: 'ease-in-out' }
+        );
+
+        animation.onfinish = function() {
+          details.style.height = '';
+          details.style.overflow = '';
+          animation = null;
+        };
+        animation.oncancel = function() {
+          animation = null;
+        };
+
+        details.style.overflow = 'hidden';
+      }
+    });
+  });
+})();
+</script>
 
 {% schema %}
   {

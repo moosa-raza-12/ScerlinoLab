@@ -53,6 +53,7 @@
   font-weight: 350;
   color: var(--text-dark);
   letter-spacing: 0px;
+  cursor: pointer;
 }
 
 .lp-how-to-use__advice-toggle {
@@ -68,6 +69,23 @@
 .lp-how-to-use__grid-wrapper {
   margin: 0 -20px;
   padding: 0 20px;
+  display: none;
+}
+
+.lp-how-to-use__nav {
+  display: none;
+}
+
+.lp-how-to-use.is-steps-open .lp-how-to-use__grid-wrapper {
+  display: block;
+}
+
+.lp-how-to-use.is-steps-open .lp-how-to-use__icon-plus {
+  display: none !important;
+}
+
+.lp-how-to-use.is-steps-open .lp-how-to-use__icon-minus {
+  display: block !important;
 }
 
 .lp-how-to-use__grid {
@@ -77,7 +95,7 @@
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
 }
 
 .lp-how-to-use__grid::-webkit-scrollbar {
@@ -127,10 +145,10 @@
   background-color: var(--text-dark);
   color: var(--card-bg);
      /* padding: 4px 8px; */
-     padding: 9px 14px;
+     padding: 5px 14px;
   border-radius: 26px;
   /* font-size: 12px; */
-  font-size:16px;
+  font-size:14px;
   font-weight: 500;
   width: fit-content;
   letter-spacing: 0px;
@@ -138,23 +156,29 @@
 }
 .lp-how-to-use__card-step p{
   margin:0;
+  line-height: normal;
 }
 
 .lp-how-to-use__card-desc {
   font-size: 14px;
   font-weight: 350;
   line-height: 1.5;
-  color: var(--text-dark);
+  color: #17162E;
   /* min-height: 42px; */
   letter-spacing: 0px;
+  line-height: 21px;
 }
 
 .lp-how-to-use__nav {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   margin-top: 20px;
   width: 100%;
+}
+
+.lp-how-to-use.is-steps-open .lp-how-to-use__nav {
+  display: flex;
 }
 @media screen and (max-width: 1300px){
 .lp-results__nav{
@@ -222,7 +246,7 @@
   .lp-how-to-use__card-step {
   background-color: var(--text-dark);
   color: var(--card-bg);
-   padding: 9px 14px;
+  padding: 5px 14px;
   border-radius: 26px;
   font-size: 16px;
   font-weight: 500;
@@ -239,7 +263,7 @@
     font-size: 16px;
   }
 
-  .lp-how-to-use__grid-wrapper {
+  .lp-how-to-use.is-steps-open .lp-how-to-use__grid-wrapper {
     margin: 0;
     padding: 0;
   }
@@ -255,7 +279,8 @@
     flex: none;
   }
 
-  .lp-how-to-use__nav {
+  .lp-how-to-use__nav,
+  .lp-how-to-use.is-steps-open .lp-how-to-use__nav {
     display: none;
   }
 }
