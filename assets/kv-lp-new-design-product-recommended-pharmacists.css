@@ -105,7 +105,7 @@
 .lp-pharmacist-video {
   position: absolute;
   top: 0;
-  left: -3;
+  left: -3px;
   width: 102%;
   height: 100%;
   object-fit: cover;
