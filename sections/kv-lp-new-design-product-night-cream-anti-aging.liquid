@@ -279,51 +279,11 @@
             <strong>{{ selected_variant.price | money }}</strong>
           </span>
         </button>
-     <div class="lp-shipping-meta" id="lp-shipping-meta-container">
-  <span class="lp-meta-item">
-    <span class="lp-dot"></span> 
-    <span id="delivery-date">Loading delivery date...</span>
-  </span>
-  <span class="lp-meta-item">
-    <img src="https://cdn.shopify.com/s/files/1/0656/3453/3633/files/truck.png?v=1715587421" alt="" width="16"> 
-    FREE Shipping to <span id="delivery-location">USA</span>
-  </span>
-</div>
-
-<script src="https://shopify-edd.parcelpanel.com/loader.js" defer></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  function waitForParcelPanel() {
-    if (typeof ParcelPanel !== 'undefined') {
-      getDeliveryInfo();
-    } else {
-      setTimeout(waitForParcelPanel, 500);
-    }
-  }
-  
-  function getDeliveryInfo() {
-    ParcelPanel.getEstimatedDelivery({
-      productId: {{ product.id }},
-      variantId: {{ product.selected_or_first_available_variant.id }},
-      success: function(data) {
-        if (data && data.delivery_date_range) {
-          document.getElementById('delivery-date').innerHTML = 
-            'Delivers by ' + data.delivery_date_range;
-        }
-        if (data && data.location) {
-          document.getElementById('delivery-location').innerHTML = data.location;
-        }
-      },
-      error: function(err) {
-        document.getElementById('delivery-date').innerHTML = 'Delivers in 3-5 days';
-        document.getElementById('delivery-location').innerHTML = 'USA';
-      }
-    });
-  }
-  
-  waitForParcelPanel();
-});
-</script>
+        <div class="lp-shipping-meta">
+          <span class="lp-meta-item"><span class="lp-dot"></span> Fast delivery</span>
+          <span class="lp-meta-item"><img src="https://cdn.shopify.com/s/files/1/0656/3453/3633/files/truck.png?v=1715587421" alt="" width="16"> FREE Shipping to USA</span>
+        </div>
+      </div>
     <div
       
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_PRODUCT;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:10px;--mt-mobile:10px;--ml-mobile:20px;--mb-mobile:10px;--mr-mobile:20px;--ta:left;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
