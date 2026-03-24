@@ -367,8 +367,7 @@
       ],
       "name": "As Seen On",
       "settings": {
-        "heading": "As seen on",
-        "image_width": 150
+        "heading": "As seen on"
       }
     },
     "kv-lp-new-design-product-results-others-notice": {
@@ -738,7 +737,7 @@
       "settings": {
         "heading": "Three Generations. One Lab. Since 1987",
         "content": "<p>In 1987, the Serlino family opened a small laboratory in the Italian countryside. No investors. No corporate backing. Just a pharmacist, his family, and a commitment to making things properly.<br/><br/>Three generations later, that same lab produces every batch of SerlinoLab by hand, in small quantities. This is not mass production. We make less in a year than most American brands make in a week.<br/><br/>Because when a formula takes 38 years to perfect, you don't rush it off a factory line.<br/><br/><strong>— The Serlino Family, Italy. Since 1987.</strong></p>",
-        "image": "shopify://shop_images/4a8f6802150b59f89646381a7195a5386b3966b1.jpg",
+        "image": "shopify://shop_images/image_1224.png",
         "image_border_radius": 30
       }
     },
