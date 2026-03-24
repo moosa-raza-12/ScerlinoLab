@@ -11,11 +11,11 @@
             {%- assign extra_image_count = extra_image_count | plus: 1 -%}
           {%- endif -%}
         {%- endfor -%}
-        {%- assign total_slides = product.images.size | plus: extra_image_count -%}
+   {%- assign total_slides = extra_image_count -%}
         {%- assign slide_index = 0 -%}
 
         <div class="lp-product-gallery__track" id="GalleryTrack-{{ section.id }}">
-          {% if product.images.size > 0 %}
+          {% comment %} {% if product.images.size > 0 %}
             {% for image in product.images %}
               {%- assign img_alt = image.alt | default: product.title -%}
               <div class="lp-product-gallery__item{% if slide_index == 0 %} active{% endif %}">
@@ -30,12 +30,12 @@
               </div>
               {%- assign slide_index = slide_index | plus: 1 -%}
             {% endfor %}
-          {% endif %}
+          {% endif %} {% endcomment %}
 
           {% for block in section.blocks %}
             {% if block.type == 'gallery_image' and block.settings.image != blank %}
               {%- assign extra_alt = block.settings.image.alt | default: product.title -%}
-              <div class="lp-product-gallery__item" {{ block.shopify_attributes }}>
+            <div class="lp-product-gallery__item{% if forloop.first and product.images.size == 0 %} active{% endif %}" {{ block.shopify_attributes }}>
                 <img
                   src="{{ block.settings.image | image_url: width: 800 }}"
                   alt="{{ extra_alt | escape }}"
