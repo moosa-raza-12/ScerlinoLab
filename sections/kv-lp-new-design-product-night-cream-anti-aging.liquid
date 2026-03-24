@@ -433,9 +433,29 @@
       </div>
     </div>
   </div>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Copy ParcelPanel data to your custom section
+  function copyParcelPanelData() {
+    var widget = document.getElementById('pp-edd-widget');
+    var deliverySpan = document.getElementById('dynamic-delivery-date');
+    
+    if (widget && deliverySpan) {
+      var widgetText = widget.innerText || widget.textContent;
+      if (widgetText && widgetText.length > 3 && !widgetText.includes('Loading')) {
+        deliverySpan.innerHTML = 'Delivers by ' + widgetText.replace('Estimated delivery: ', '');
+        console.log('✅ Updated: ' + deliverySpan.innerHTML);
+      }
+    }
+  }
+  
+  // Check every 2 seconds
+  setInterval(copyParcelPanelData, 2000);
+});
+</script>
 </section>
-
-<script src="https://shopify-edd.parcelpanel.com/loader.js" defer></script>
+{% comment %} 
+<script src="https://shopify-edd.parcelpanel.com/loader.js" defer></script> {% endcomment %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const section = document.querySelector('[data-section-id="{{ section.id }}"]');
