@@ -333,28 +333,42 @@
         "logo_GDm89D": {
           "type": "logo",
           "settings": {
-            "svg_desktop": "shopify://shop_images/Vector.png"
+            "svg_desktop": "shopify://shop_images/Vector.png",
+            "image_alt": "Logo"
           }
         },
         "logo_CWCQtw": {
           "type": "logo",
           "settings": {
-            "svg_desktop": "shopify://shop_images/stylosophy_black_1.png"
+            "svg_desktop": "shopify://shop_images/stylosophy_black_1.png",
+            "image_alt": "Logo"
           }
         },
         "logo_hex7W3": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "svg_desktop": "shopify://shop_images/stylosophy_black_2.png",
+            "image_alt": "Logo"
+          }
+        },
+        "logo_9BfeLP": {
+          "type": "logo",
+          "settings": {
+            "svg_desktop": "shopify://shop_images/Uomo_Moderno_1.png",
+            "image_alt": "Logo"
+          }
         }
       },
       "block_order": [
         "logo_GDm89D",
         "logo_CWCQtw",
-        "logo_hex7W3"
+        "logo_hex7W3",
+        "logo_9BfeLP"
       ],
       "name": "As Seen On",
       "settings": {
-        "heading": "As seen on"
+        "heading": "As seen on",
+        "image_width": 150
       }
     },
     "kv-lp-new-design-product-results-others-notice": {
