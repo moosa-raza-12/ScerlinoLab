@@ -427,39 +427,46 @@
       </div>
     </div>
   </div>
-  <script src="https://shopify-edd.parcelpanel.com/loader.js" defer></script>
+ <script src="https://shopify-edd.parcelpanel.com/loader.js" defer></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // ParcelPanel se data copy karo
   function getParcelPanelData() {
     var widget = document.getElementById('pp-edd-widget');
     var deliverySpan = document.getElementById('delivery-info');
+    var locationSpan = document.getElementById('user-location');
     
-    if (widget && deliverySpan) {
+    if (widget && deliverySpan && locationSpan) {
       var widgetText = widget.innerText || widget.textContent;
+      console.log('Widget text:', widgetText);
       
-      // Agar widget mein data hai
       if (widgetText && widgetText.includes('Deliver to')) {
-        // Sirf date wala hissa nikal lo
-        var match = widgetText.match(/Get your order by (.*?)(?:\s|$)/);
-        if (match && match[1]) {
-          deliverySpan.innerHTML = 'Delivers by ' + match[1];
-        } else {
-          deliverySpan.innerHTML = widgetText.split('🎁')[0] || widgetText;
+        // 1. DATE nikal lo
+        var dateMatch = widgetText.match(/Get your order by (.*?)(?:\s|$|🎁)/);
+        if (dateMatch && dateMatch[1]) {
+          deliverySpan.innerHTML = 'Delivers by ' + dateMatch[1];
         }
-        console.log('✅ Updated: ' + deliverySpan.innerHTML);
+        
+        // 2. LOCATION nikal lo
+        var locationMatch = widgetText.match(/Deliver to (.*?)\s/);
+        if (locationMatch && locationMatch[1]) {
+          locationSpan.innerHTML = locationMatch[1];
+        } else {
+          // Agar location nahi mili to default
+          locationSpan.innerHTML = 'your location';
+        }
+        
+        console.log('✅ Date:', deliverySpan.innerHTML);
+        console.log('✅ Location:', locationSpan.innerHTML);
       }
     }
   }
   
   // Har 2 second mein check karo
   setInterval(getParcelPanelData, 2000);
-  
-  // Pehle bhi ek bar check karo
   setTimeout(getParcelPanelData, 3000);
 });
-</script> ye kaha py add krna hai
+</script>
 </section>
 
 <script>
