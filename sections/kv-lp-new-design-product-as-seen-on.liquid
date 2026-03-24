@@ -6,11 +6,25 @@
       <div class="logo-item">
         
         <div class="logo-desktop">
-          {{ block.settings.svg_desktop }}
+          {{
+      block.settings.svg_desktop 
+      | image_url: width: section.settings.image_width 
+      | image_tag: 
+        loading: 'lazy', 
+        alt: block.settings.image_alt,
+        class: 'step-image'
+    }}
         </div>
 
         <div class="logo-mobile">
-          {{ block.settings.svg_mobile }}
+           {{
+      block.settings.svg_mobile 
+      | image_url: width: section.settings.image_width 
+      | image_tag: 
+        loading: 'lazy', 
+        alt: block.settings.image_alt,
+        class: 'step-image'
+    }}
         </div>
 
       </div>
