@@ -72,10 +72,10 @@
   padding: 0 20px;
   display: block;
 }
-
+/* 
 .lp-how-to-use__nav {
   display: none;
-}
+} */
 
 /* .lp-how-to-use.is-steps-open .lp-how-to-use__grid-wrapper {
   display: block;
@@ -171,7 +171,7 @@
 }
 
 .lp-how-to-use__nav {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 20px;
