@@ -279,11 +279,31 @@
             <strong>{{ selected_variant.price | money }}</strong>
           </span>
         </button>
-        <div class="lp-shipping-meta">
-          <span class="lp-meta-item"><span class="lp-dot"></span> Fast delivery</span>
-          <span class="lp-meta-item"><img src="https://cdn.shopify.com/s/files/1/0656/3453/3633/files/truck.png?v=1715587421" alt="" width="16"> FREE Shipping to USA</span>
-        </div>
-      </div> 
+      <div class="lp-shipping-meta">
+    <span class="lp-meta-item">
+      <span class="lp-dot"></span> 
+      <span id="delivery-info">Loading delivery info...</span>
+    </span>
+    <span class="lp-meta-item">
+      <img src="https://cdn.shopify.com/s/files/1/0656/3453/3633/files/truck.png?v=1715587421" alt="" width="16"> 
+      FREE Shipping to USA
+    </span>
+  </div></div>
+  <div style="display: none;">
+  <parcelpanel-edd 
+    id="pp-edd-widget"
+    settingsStr='{
+      "corner_radius": 8,
+      "margin_top": 0,
+      "margin_bottom": 0,
+      "padding_x": 0,
+      "padding_y": 0,
+      "border_color": "transparent",
+      "icon": "🚚",
+      "show_icon": false
+    }'>
+  </parcelpanel-edd>
+</div>
       <div class="lp-guarantee-banner">
         {% if section.settings.guarantee_icon_svg != blank %}
           <div class="lp-guarantee-icon">
