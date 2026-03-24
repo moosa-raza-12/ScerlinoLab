@@ -76,7 +76,7 @@
   display: none;
 }
 
-.lp-how-to-use.is-steps-open .lp-how-to-use__grid-wrapper {
+/* .lp-how-to-use.is-steps-open .lp-how-to-use__grid-wrapper {
   display: block;
 }
 
@@ -86,7 +86,7 @@
 
 .lp-how-to-use.is-steps-open .lp-how-to-use__icon-minus {
   display: block !important;
-}
+} */
 
 .lp-how-to-use__grid {
   display: flex;
