@@ -437,59 +437,61 @@ document.addEventListener('DOMContentLoaded', function() {
     var locationSpan = document.getElementById('user-location');
     
     if (widget && deliverySpan && locationSpan) {
+      // CSS hatao, sirf text lo
       var widgetText = widget.innerText || widget.textContent;
-      console.log('Full widget text:', widgetText);
       
-      if (widgetText && widgetText.length > 10) {
-        
-        // ---------- DATE NIKALO (simple tarike se) ----------
-        // "Get your order by Mar 30, 2026 - Apr 04, 2026" se date nikalna
-        var dateMatch = widgetText.match(/Get your order by (.*?)(?:\s|$)/);
-        if (dateMatch && dateMatch[1]) {
-          // Agar "Mar 30, 2026 - Apr 04, 2026" mil gaya
-          var fullDate = dateMatch[1];
-          // Agar extra text hai to hata do
-          if (fullDate.includes('🎁')) {
-            fullDate = fullDate.split('🎁')[0];
-          }
-          deliverySpan.innerHTML = 'Delivers by ' + fullDate.trim();
-        } else {
-          // Alternative: "and Get your order by" ke baad ka text
-          var altMatch = widgetText.match(/and Get your order by (.*?)(?:\s|🎁|$)/);
-          if (altMatch && altMatch[1]) {
-            deliverySpan.innerHTML = 'Delivers by ' + altMatch[1].trim();
-          } else {
-            // Agar kuch nahi mila to poora text
-            deliverySpan.innerHTML = widgetText.substring(0, 50);
-          }
-        }
+      // CSS style hatao (jo .parcelpanel se start ho)
+      widgetText = widgetText.replace(/\.parcelpanel[^}]*}/g, '');
+      widgetText = widgetText.replace(/[\n\r]+/g, ' '); // New lines ko space mein badlo
+      widgetText = widgetText.replace(/\s+/g, ' '); // Extra spaces hatao
+      
+      console.log('Clean text:', widgetText);
+      
+      if (widgetText && widgetText.includes('Deliver to')) {
         
         // ---------- LOCATION NIKALO ----------
-        var locationMatch = widgetText.match(/Deliver to (.*?)\s/);
+        var locationMatch = widgetText.match(/Deliver to (\w+)/);
         if (locationMatch && locationMatch[1]) {
           locationSpan.innerHTML = locationMatch[1];
-        } else {
-          locationSpan.innerHTML = 'your location';
         }
         
-        console.log('Date:', deliverySpan.innerHTML);
-        console.log('Location:', locationSpan.innerHTML);
+        // ---------- DATE NIKALO ----------
+        // "Get your order by Mar 30, 2026 - Apr 04, 2026"
+        var dateMatch = widgetText.match(/Get your order by (.*?)(?:\s|$)/);
+        if (dateMatch && dateMatch[1]) {
+          var dateText = dateMatch[1];
+          // Agar "🎁" ya kuch aur ho to hata do
+          dateText = dateText.replace('🎁', '').trim();
+          deliverySpan.innerHTML = 'Delivers by ' + dateText;
+        } else {
+          // Fallback
+          deliverySpan.innerHTML = 'Delivers in 3-5 days';
+        }
+        
+        console.log('✅ Date:', deliverySpan.innerHTML);
+        console.log('✅ Location:', locationSpan.innerHTML);
+      } else {
+        // Fallback agar widget abhi load nahi hua
+        deliverySpan.innerHTML = 'Calculating delivery...';
+        locationSpan.innerHTML = 'your location';
       }
     }
   }
   
-  // Har 2 second mein check karo
-  var checkInterval = setInterval(getParcelPanelData, 2000);
-  
-  // 10 second baad stop karo agar kaam ho gaya
-  setTimeout(function() {
-    clearInterval(checkInterval);
-  }, 10000);
-  
-  // Pehle bhi check karo
+  // Multiple checks
   setTimeout(getParcelPanelData, 1000);
   setTimeout(getParcelPanelData, 3000);
   setTimeout(getParcelPanelData, 5000);
+  setTimeout(getParcelPanelData, 8000);
+  
+  // Har 2 second mein bhi check karo pehle 10 second tak
+  var interval = setInterval(function() {
+    getParcelPanelData();
+  }, 2000);
+  
+  setTimeout(function() {
+    clearInterval(interval);
+  }, 10000);
 });
 </script>
 </section>
