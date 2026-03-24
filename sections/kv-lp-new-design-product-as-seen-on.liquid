@@ -4,27 +4,37 @@
   <div class="logos">
     {% for block in section.blocks %}
       <div class="logo-item">
-          {{
-      block.settings.svg_desktop 
-      | image_url: width: section.settings.image_width 
-      | image_tag: 
-        loading: 'lazy', 
-        alt: block.settings.image_alt,
-        class: 'step-image'
-    }}
+        <div class="logo-desktop">
+          {% if block.settings.svg_desktop != blank %}
+            {{
+              block.settings.svg_desktop 
+              | image_url: width: section.settings.image_width
+              | image_tag: 
+                alt: block.settings.image_alt | default: section.settings.heading,
+                loading: 'lazy'
+            }}
+          {% endif %}
         </div>
 
         <div class="logo-mobile">
-           {{
-      block.settings.svg_mobile 
-      | image_url: width: section.settings.image_width 
-      | image_tag: 
-        loading: 'lazy', 
-        alt: block.settings.image_alt,
-        class: 'step-image'
-    }}
+          {% if block.settings.svg_mobile != blank %}
+            {{
+              block.settings.svg_mobile 
+              | image_url: width: section.settings.image_width
+              | image_tag: 
+                alt: block.settings.image_alt | default: section.settings.heading,
+                loading: 'lazy'
+            }}
+          {% else %}
+            {{
+              block.settings.svg_desktop 
+              | image_url: width: section.settings.image_width
+              | image_tag: 
+                alt: block.settings.image_alt | default: section.settings.heading,
+                loading: 'lazy'
+            }}
+          {% endif %}
         </div>
-
       </div>
     {% endfor %}
   </div>
@@ -37,48 +47,60 @@
   justify-content: center;
   align-items: center;
   gap: 17px;
-      background: #F4F5F4;
-padding: 64px 200px;
+  background: #F4F5F4;
+  padding: 64px 200px;
 }
-.as-seen-on-section p{
-margin:0;
-font-size: 22px;
-font-style: normal;
-font-weight: 500;
-line-height: 39px; /* 177.273% */
-letter-spacing: -1px;
-color: #17162E;
+
+.as-seen-on-section p {
+  margin: 0;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 39px;
+  letter-spacing: -1px;
+  color: #17162E;
 }
+
 /* Logos layout */
 .logos {
   display: flex;
   gap: 91px;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Default: Desktop visible */
+.logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Default: Desktop visible, mobile hidden */
 .logo-mobile {
   display: none;
 }
 
-.logo-desktop svg,
-.logo-mobile svg {
+.logo-desktop img,
+.logo-mobile img {
   max-height: 30px;
   width: auto;
+  display: block;
 }
 
-{% comment %} Tablet view {% endcomment %}
-@media screen and (min-width: 749px)  and (max-width: 1300px) {
- 
- .logos {
+/* Tablet view */
+@media screen and (min-width: 749px) and (max-width: 1300px) {
+  .logos {
     gap: 20px;
   }
-    .as-seen-on-section {
-           padding: 48px 100px;
-}
-    .as-seen-on-section p{
-   font-size: 16px;
-}
+  
+  .as-seen-on-section {
+    padding: 48px 100px;
+  }
+  
+  .as-seen-on-section p {
+    font-size: 16px;
+  }
 }
 
 /* Mobile view */
@@ -93,16 +115,20 @@ color: #17162E;
 
   .logos {
     gap: 20px;
+    justify-content: flex-start;
   }
-    .as-seen-on-section {
-    align-items:flex-start;
-            padding: 0px 20px 36px;
-}
-    .as-seen-on-section p{
-   font-size: 16px;
-}
+  
+  .as-seen-on-section {
+    align-items: flex-start;
+    padding: 0px 20px 36px;
+  }
+  
+  .as-seen-on-section p {
+    font-size: 16px;
+  }
 }
 </style>
+
 {% schema %}
 {
   "name": "As Seen On",
@@ -112,6 +138,17 @@ color: #17162E;
       "id": "heading",
       "label": "Heading",
       "default": "As seen on"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Logo Width",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "default": 150,
+      "unit": "px",
+      "info": "Maximum width for logos"
     }
   ],
   "blocks": [
@@ -128,6 +165,13 @@ color: #17162E;
           "type": "image_picker",
           "id": "svg_mobile",
           "label": "Logo for Mobile"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Alt Text",
+          "default": "Logo",
+          "info": "Accessibility text for the logo"
         }
       ]
     }
