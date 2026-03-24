@@ -409,9 +409,41 @@
       </div>
     </div>
   </div>
+  <script src="https://shopify-edd.parcelpanel.com/loader.js" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // ParcelPanel se data copy karo
+  function getParcelPanelData() {
+    var widget = document.getElementById('pp-edd-widget');
+    var deliverySpan = document.getElementById('delivery-info');
+    
+    if (widget && deliverySpan) {
+      var widgetText = widget.innerText || widget.textContent;
+      
+      // Agar widget mein data hai
+      if (widgetText && widgetText.includes('Deliver to')) {
+        // Sirf date wala hissa nikal lo
+        var match = widgetText.match(/Get your order by (.*?)(?:\s|$)/);
+        if (match && match[1]) {
+          deliverySpan.innerHTML = 'Delivers by ' + match[1];
+        } else {
+          deliverySpan.innerHTML = widgetText.split('🎁')[0] || widgetText;
+        }
+        console.log('✅ Updated: ' + deliverySpan.innerHTML);
+      }
+    }
+  }
+  
+  // Har 2 second mein check karo
+  setInterval(getParcelPanelData, 2000);
+  
+  // Pehle bhi ek bar check karo
+  setTimeout(getParcelPanelData, 3000);
+});
+</script> ye kaha py add krna hai
 </section>
 
-<script src="https://shopify-edd.parcelpanel.com/loader.js" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const section = document.querySelector('[data-section-id="{{ section.id }}"]');
