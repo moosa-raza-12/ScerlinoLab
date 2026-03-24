@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <!-- Mobile view: Carousel with 3 logos visible -->
+  <!-- Mobile view: Hidden navigation carousel -->
   <div class="logos-mobile-carousel">
     <div class="carousel-container">
       <div class="carousel-track">
@@ -51,29 +51,6 @@
         {% endfor %}
       </div>
     </div>
-    
-    <!-- Navigation arrows (only if more than 3 logos) -->
-    {% if section.blocks.size > 3 %}
-      <button class="carousel-arrow prev" aria-label="Previous">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-      <button class="carousel-arrow next" aria-label="Next">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-    {% endif %}
-    
-    <!-- Dots indicator -->
-    {% if section.blocks.size > 3 %}
-      <div class="carousel-dots">
-        {% for block in section.blocks %}
-          <span class="dot" data-index="{{ forloop.index0 }}"></span>
-        {% endfor %}
-      </div>
-    {% endif %}
   </div>
 </div>
 
@@ -126,7 +103,7 @@
   object-fit: contain;
 }
 
-/* Mobile Carousel - Hidden by default */
+/* Mobile Carousel - No visible navigation */
 .logos-mobile-carousel {
   display: none;
   position: relative;
@@ -138,11 +115,16 @@
 .carousel-container {
   overflow: hidden;
   width: 100%;
+  cursor: grab;
+}
+
+.carousel-container:active {
+  cursor: grabbing;
 }
 
 .carousel-track {
   display: flex;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-out;
 }
 
 .carousel-slide {
@@ -152,6 +134,7 @@
   align-items: center;
   padding: 10px;
   box-sizing: border-box;
+  pointer-events: none; /* Prevents individual logo clicks during drag */
 }
 
 .logo-mobile img {
@@ -161,57 +144,7 @@
   display: block;
   object-fit: contain;
   margin: 0 auto;
-}
-
-/* Carousel Navigation */
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  height: 32px;
-  background: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  transition: all 0.2s;
-}
-
-.carousel-arrow:hover {
-  background: #f0f0f0;
-}
-
-.carousel-arrow.prev {
-  left: -10px;
-}
-
-.carousel-arrow.next {
-  right: -10px;
-}
-
-/* Dots Indicator */
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 20px;
-}
-
-.carousel-dots .dot {
-  width: 8px;
-  height: 8px;
-  background-color: #e0e0e0;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.carousel-dots .dot.active {
-  background-color: #17162E;
+  pointer-events: auto; /* Re-enable clicks on logos */
 }
 
 /* Tablet View */
@@ -253,19 +186,6 @@
   .as-seen-on-section p {
     font-size: 16px;
   }
-  
-  .carousel-arrow {
-    width: 28px;
-    height: 28px;
-  }
-  
-  .carousel-arrow.prev {
-    left: -5px;
-  }
-  
-  .carousel-arrow.next {
-    right: -5px;
-  }
 }
 </style>
 
@@ -277,81 +197,139 @@ document.addEventListener('DOMContentLoaded', function() {
   const carousel = section.querySelector('.logos-mobile-carousel');
   if (!carousel) return;
   
+  const container = carousel.querySelector('.carousel-container');
   const track = carousel.querySelector('.carousel-track');
   const slides = carousel.querySelectorAll('.carousel-slide');
-  const prevBtn = carousel.querySelector('.prev');
-  const nextBtn = carousel.querySelector('.next');
-  const dots = carousel.querySelectorAll('.dot');
   
-  if (!track || slides.length === 0) return;
+  if (!container || !track || slides.length === 0) return;
   
+  let startX = 0;
+  let currentTranslate = 0;
+  let prevTranslate = 0;
+  let animationID = 0;
+  let isDragging = false;
   let currentIndex = 0;
+  
   const slidesToShow = 3; // Show 3 logos at a time
   const totalSlides = slides.length;
   const maxIndex = Math.ceil(totalSlides / slidesToShow) - 1;
   
-  function updateCarousel() {
-    const slideWidth = slides[0].offsetWidth;
+  // Get the width of one slide
+  function getSlideWidth() {
+    return slides[0].offsetWidth;
+  }
+  
+  // Update carousel position based on current index
+  function setPositionByIndex() {
+    const slideWidth = getSlideWidth();
     const offset = currentIndex * (slideWidth * slidesToShow);
-    track.style.transform = `translateX(-${offset}px)`;
+    currentTranslate = -offset;
+    prevTranslate = currentTranslate;
+    track.style.transform = `translateX(${currentTranslate}px)`;
+  }
+  
+  // Touch start event
+  function touchStart(event) {
+    if (totalSlides <= slidesToShow) return;
     
-    // Update dots
-    if (dots.length > 0) {
-      dots.forEach((dot, index) => {
-        const dotIndex = Math.floor(index / slidesToShow);
-        dot.classList.toggle('active', dotIndex === currentIndex);
-      });
-    }
+    startX = event.touches[0].clientX;
+    isDragging = true;
+    container.style.cursor = 'grabbing';
+    
+    cancelAnimationFrame(animationID);
   }
   
-  function nextSlide() {
-    if (currentIndex < maxIndex) {
-      currentIndex++;
-      updateCarousel();
-    } else if (currentIndex === maxIndex) {
-      // Loop back to start
-      currentIndex = 0;
-      updateCarousel();
+  // Touch move event
+  function touchMove(event) {
+    if (!isDragging || totalSlides <= slidesToShow) return;
+    
+    const currentX = event.touches[0].clientX;
+    const diff = currentX - startX;
+    const slideWidth = getSlideWidth();
+    const maxTranslate = 0;
+    const minTranslate = -(maxIndex * slideWidth * slidesToShow);
+    
+    let newTranslate = prevTranslate + diff;
+    
+    // Add resistance at edges
+    if (newTranslate > maxTranslate) {
+      newTranslate = maxTranslate + (newTranslate - maxTranslate) * 0.3;
     }
+    if (newTranslate < minTranslate) {
+      newTranslate = minTranslate + (newTranslate - minTranslate) * 0.3;
+    }
+    
+    currentTranslate = newTranslate;
+    track.style.transform = `translateX(${currentTranslate}px)`;
   }
   
-  function prevSlide() {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel();
-    } else if (currentIndex === 0) {
-      // Loop to end
-      currentIndex = maxIndex;
-      updateCarousel();
-    }
-  }
-  
-  // Event listeners
-  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-  
-  // Dot click handlers
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      const dotIndex = Math.floor(index / slidesToShow);
-      if (dotIndex <= maxIndex) {
-        currentIndex = dotIndex;
-        updateCarousel();
+  // Touch end event
+  function touchEnd(event) {
+    if (!isDragging || totalSlides <= slidesToShow) return;
+    
+    isDragging = false;
+    container.style.cursor = 'grab';
+    
+    const slideWidth = getSlideWidth();
+    const movedBy = currentTranslate - prevTranslate;
+    const slideWidthWithGap = slideWidth * slidesToShow;
+    const threshold = slideWidthWithGap * 0.3;
+    
+    // Determine if we should change slide
+    if (Math.abs(movedBy) > threshold) {
+      if (movedBy < 0 && currentIndex < maxIndex) {
+        currentIndex++;
+      } else if (movedBy > 0 && currentIndex > 0) {
+        currentIndex--;
       }
+    }
+    
+    // Smooth transition to final position
+    setPositionByIndex();
+    
+    // Reset animation
+    animationID = requestAnimationFrame(() => {
+      track.style.transition = 'transform 0.3s ease-out';
+      setTimeout(() => {
+        track.style.transition = '';
+      }, 300);
     });
-  });
+  }
   
-  // Auto-resize on window resize
+  // Handle window resize
   let resizeTimer;
   window.addEventListener('resize', function() {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      updateCarousel();
+      if (window.innerWidth <= 749) {
+        setPositionByIndex();
+      }
     }, 250);
   });
   
-  // Initial update
-  setTimeout(updateCarousel, 100);
+  // Initialize carousel on mobile only
+  function initCarousel() {
+    if (window.innerWidth <= 749 && totalSlides > slidesToShow) {
+      setPositionByIndex();
+      container.addEventListener('touchstart', touchStart);
+      container.addEventListener('touchmove', touchMove);
+      container.addEventListener('touchend', touchEnd);
+      container.style.cursor = 'grab';
+    } else {
+      container.removeEventListener('touchstart', touchStart);
+      container.removeEventListener('touchmove', touchMove);
+      container.removeEventListener('touchend', touchEnd);
+      container.style.cursor = 'default';
+      currentIndex = 0;
+      setPositionByIndex();
+    }
+  }
+  
+  // Initial setup
+  initCarousel();
+  
+  // Re-initialize on window resize
+  window.addEventListener('resize', initCarousel);
 });
 </script>
 
