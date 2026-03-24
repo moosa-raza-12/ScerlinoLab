@@ -40,11 +40,7 @@
   letter-spacing: 0px;
   display: none;
 }
-.lp-how-to-use__grid-wrapper {
-  display: block;
-  margin: 0 -20px;
-  padding: 0 20px;
-}
+
 
 .lp-how-to-use__advice {
   display: flex;
@@ -74,7 +70,7 @@
 .lp-how-to-use__grid-wrapper {
   margin: 0 -20px;
   padding: 0 20px;
-  display: none;
+  display: block;
 }
 
 .lp-how-to-use__nav {
