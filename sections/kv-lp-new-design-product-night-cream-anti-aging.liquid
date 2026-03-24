@@ -284,6 +284,51 @@
           <span class="lp-meta-item"><img src="https://cdn.shopify.com/s/files/1/0656/3453/3633/files/truck.png?v=1715587421" alt="" width="16"> FREE Shipping to USA</span>
         </div>
       </div>
+      <div class="lp-shipping-meta" id="lp-shipping-meta-container">
+  <span class="lp-meta-item">
+    <span class="lp-dot"></span> 
+    <span id="delivery-date">Loading delivery date...</span>
+  </span>
+  <span class="lp-meta-item">
+    <img src="https://cdn.shopify.com/s/files/1/0656/3453/3633/files/truck.png?v=1715587421" alt="" width="16"> 
+    FREE Shipping to <span id="delivery-location">USA</span>
+  </span>
+</div>
+
+<script src="https://shopify-edd.parcelpanel.com/loader.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function waitForParcelPanel() {
+    if (typeof ParcelPanel !== 'undefined') {
+      getDeliveryInfo();
+    } else {
+      setTimeout(waitForParcelPanel, 500);
+    }
+  }
+  
+  function getDeliveryInfo() {
+    ParcelPanel.getEstimatedDelivery({
+      productId: {{ product.id }},
+      variantId: {{ product.selected_or_first_available_variant.id }},
+      success: function(data) {
+        if (data && data.delivery_date_range) {
+          document.getElementById('delivery-date').innerHTML = 
+            'Delivers by ' + data.delivery_date_range;
+        }
+        if (data && data.location) {
+          document.getElementById('delivery-location').innerHTML = data.location;
+        }
+      },
+      error: function(err) {
+        document.getElementById('delivery-date').innerHTML = 'Delivers in 3-5 days';
+        document.getElementById('delivery-location').innerHTML = 'USA';
+      }
+    });
+  }
+  
+  waitForParcelPanel();
+});
+</script>
    
       <div class="lp-guarantee-banner">
         {% if section.settings.guarantee_icon_svg != blank %}
