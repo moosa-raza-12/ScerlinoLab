@@ -284,86 +284,50 @@
           <span class="lp-meta-item"><img src="https://cdn.shopify.com/s/files/1/0656/3453/3633/files/truck.png?v=1715587421" alt="" width="16"> FREE Shipping to USA</span>
         </div>
       </div> 
-<div class="lp-shipping-meta">
-  <span class="lp-meta-item">
-    <span class="lp-dot"></span> 
-    <span class="parcelpanel-edd-date">Loading...</span>
-  </span>
-  <span class="lp-meta-item">
-    <img src="https://cdn.shopify.com/s/files/1/0656/3453/3633/files/truck.png?v=1715587421" alt="" width="16"> 
-    FREE Shipping to <span class="parcelpanel-edd-location">USA</span>
-  </span>
+<div class="lp-atc-section">
+  {%- assign selected_variant = product.selected_or_first_available_variant -%}
+  <button
+    type="button"
+    class="lp-atc-button"
+    id="lpAtcButton-{{ section.id }}"
+    data-variant-id="{{ selected_variant.id }}"
+    {% unless selected_variant.available %}disabled{% endunless %}
+  >
+    <span>{% if selected_variant.available %}Add to cart{% else %}Sold out{% endif %}</span>
+    <span class="lp-atc-price">
+      <strong>{{ selected_variant.price | money }}</strong>
+    </span>
+  </button>
+  
+  <!-- Single shipping section with ParcelPanel integration -->
+  <div class="lp-shipping-meta" id="shipping-meta-container">
+    <span class="lp-meta-item">
+      <span class="lp-dot"></span> 
+      <span id="dynamic-delivery-date">Loading delivery date...</span>
+    </span>
+    <span class="lp-meta-item">
+      <img src="https://cdn.shopify.com/s/files/1/0656/3453/3633/files/truck.png?v=1715587421" alt="" width="16"> 
+      FREE Shipping to <span id="dynamic-location">USA</span>
+    </span>
+  </div>
+
+  <!-- Hidden ParcelPanel widget -->
+  <div style="display: none;">
+    <parcelpanel-edd 
+      id="pp-edd-widget"
+      settingsStr='{
+        "corner_radius": 8,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_x": 0,
+        "padding_y": 0,
+        "border_color": "transparent",
+        "icon": "🚚",
+        "show_icon": false
+      }'>
+    </parcelpanel-edd>
+  </div>
 </div>
-
-<!-- ParcelPanel Widget -->
-<parcelpanel-edd 
-  id="pp-edd-widget"
-  settingsStr='{
-    "corner_radius": 8,
-    "margin_top": 0,
-    "margin_bottom": 0,
-    "padding_x": 0,
-    "padding_y": 0,
-    "border_color": "transparent",
-    "icon": "🚚",
-    "show_icon": false
-  }'>
-</parcelpanel-edd>
-
-<script src="https://shopify-edd.parcelpanel.com/loader.js" defer></script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // ParcelPanel کے تیار ہونے کا انتظار
-  function waitForParcelPanel() {
-    if (typeof ParcelPanel !== 'undefined') {
-      console.log('ParcelPanel is ready');
-      initParcelPanel();
-    } else {
-      console.log('Waiting for ParcelPanel...');
-      setTimeout(waitForParcelPanel, 1000);
-    }
-  }
-  
-  function initParcelPanel() {
-    // ParcelPanel کو انیشیالائز کرو
-    ParcelPanel.init({
-      selector: '#pp-edd-widget',
-      productId: {{ product.id }},
-      variantId: {{ product.selected_or_first_available_variant.id }}
-    });
-    
-    // 2 سیکنڈ بعد ڈیلیوری ڈیٹا لے لو
-    setTimeout(function() {
-      getDeliveryData();
-    }, 2000);
-  }
-  
-  function getDeliveryData() {
-    // ParcelPanel سے ڈیٹا لینے کا دوسرا طریقہ
-    var widget = document.getElementById('pp-edd-widget');
-    if (widget && widget.getDeliveryInfo) {
-      widget.getDeliveryInfo(function(info) {
-        console.log('Delivery info:', info);
-        if (info && info.date_range) {
-          document.querySelector('.parcelpanel-edd-date').innerHTML = 
-            'Delivers by ' + info.date_range;
-        }
-      });
-    } else {
-      // Agar direct method kaam nahi karta to widget ke text se le lo
-      setTimeout(function() {
-        var widgetText = document.querySelector('#pp-edd-widget')?.innerText;
-        if (widgetText && widgetText.includes('Estimated')) {
-          document.querySelector('.parcelpanel-edd-date').innerHTML = widgetText;
-        }
-      }, 3000);
-    }
-  }
-  
-  waitForParcelPanel();
-});
-</script>
       <div class="lp-guarantee-banner">
         {% if section.settings.guarantee_icon_svg != blank %}
           <div class="lp-guarantee-icon">
