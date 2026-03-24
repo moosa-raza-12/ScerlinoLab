@@ -438,33 +438,58 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (widget && deliverySpan && locationSpan) {
       var widgetText = widget.innerText || widget.textContent;
-      console.log('Widget text:', widgetText);
+      console.log('Full widget text:', widgetText);
       
-      if (widgetText && widgetText.includes('Deliver to')) {
-        // 1. DATE nikal lo
-        var dateMatch = widgetText.match(/Get your order by (.*?)(?:\s|$|🎁)/);
+      if (widgetText && widgetText.length > 10) {
+        
+        // ---------- DATE NIKALO (simple tarike se) ----------
+        // "Get your order by Mar 30, 2026 - Apr 04, 2026" se date nikalna
+        var dateMatch = widgetText.match(/Get your order by (.*?)(?:\s|$)/);
         if (dateMatch && dateMatch[1]) {
-          deliverySpan.innerHTML = 'Delivers by ' + dateMatch[1];
+          // Agar "Mar 30, 2026 - Apr 04, 2026" mil gaya
+          var fullDate = dateMatch[1];
+          // Agar extra text hai to hata do
+          if (fullDate.includes('🎁')) {
+            fullDate = fullDate.split('🎁')[0];
+          }
+          deliverySpan.innerHTML = 'Delivers by ' + fullDate.trim();
+        } else {
+          // Alternative: "and Get your order by" ke baad ka text
+          var altMatch = widgetText.match(/and Get your order by (.*?)(?:\s|🎁|$)/);
+          if (altMatch && altMatch[1]) {
+            deliverySpan.innerHTML = 'Delivers by ' + altMatch[1].trim();
+          } else {
+            // Agar kuch nahi mila to poora text
+            deliverySpan.innerHTML = widgetText.substring(0, 50);
+          }
         }
         
-        // 2. LOCATION nikal lo
+        // ---------- LOCATION NIKALO ----------
         var locationMatch = widgetText.match(/Deliver to (.*?)\s/);
         if (locationMatch && locationMatch[1]) {
           locationSpan.innerHTML = locationMatch[1];
         } else {
-          // Agar location nahi mili to default
           locationSpan.innerHTML = 'your location';
         }
         
-        console.log('✅ Date:', deliverySpan.innerHTML);
-        console.log('✅ Location:', locationSpan.innerHTML);
+        console.log('Date:', deliverySpan.innerHTML);
+        console.log('Location:', locationSpan.innerHTML);
       }
     }
   }
   
   // Har 2 second mein check karo
-  setInterval(getParcelPanelData, 2000);
+  var checkInterval = setInterval(getParcelPanelData, 2000);
+  
+  // 10 second baad stop karo agar kaam ho gaya
+  setTimeout(function() {
+    clearInterval(checkInterval);
+  }, 10000);
+  
+  // Pehle bhi check karo
+  setTimeout(getParcelPanelData, 1000);
   setTimeout(getParcelPanelData, 3000);
+  setTimeout(getParcelPanelData, 5000);
 });
 </script>
 </section>
