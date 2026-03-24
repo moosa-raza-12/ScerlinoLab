@@ -1,42 +1,79 @@
 <div class="as-seen-on-section">
   <p class="heading">{{ section.settings.heading }}</p>
 
-  <div class="logos">
-    {% for block in section.blocks %}
-      <div class="logo-item">
-        <div class="logo-desktop">
-          {% if block.settings.svg_desktop != blank %}
-            {{
-              block.settings.svg_desktop 
-              | image_url: width: section.settings.image_width
-              | image_tag: 
-                alt: block.settings.image_alt | default: section.settings.heading,
-                loading: 'lazy'
-            }}
-          {% endif %}
+  <!-- Desktop view: All logos in grid -->
+  <div class="logos-desktop">
+    <div class="logos-grid">
+      {% for block in section.blocks %}
+        <div class="logo-item">
+          <div class="logo-desktop">
+            {% if block.settings.svg_desktop != blank %}
+              {{
+                block.settings.svg_desktop 
+                | image_url: width: 300
+                | image_tag: 
+                  alt: block.settings.image_alt | default: section.settings.heading,
+                  loading: 'lazy'
+              }}
+            {% endif %}
+          </div>
         </div>
+      {% endfor %}
+    </div>
+  </div>
 
-        <div class="logo-mobile">
-          {% if block.settings.svg_mobile != blank %}
-            {{
-              block.settings.svg_mobile 
-              | image_url: width: section.settings.image_width
-              | image_tag: 
-                alt: block.settings.image_alt | default: section.settings.heading,
-                loading: 'lazy'
-            }}
-          {% else %}
-            {{
-              block.settings.svg_desktop 
-              | image_url: width: section.settings.image_width
-              | image_tag: 
-                alt: block.settings.image_alt | default: section.settings.heading,
-                loading: 'lazy'
-            }}
-          {% endif %}
-        </div>
+  <!-- Mobile view: Carousel with 3 logos visible -->
+  <div class="logos-mobile-carousel">
+    <div class="carousel-container">
+      <div class="carousel-track">
+        {% for block in section.blocks %}
+          <div class="carousel-slide">
+            <div class="logo-mobile">
+              {% if block.settings.svg_mobile != blank %}
+                {{
+                  block.settings.svg_mobile 
+                  | image_url: width: 300
+                  | image_tag: 
+                    alt: block.settings.image_alt | default: section.settings.heading,
+                    loading: 'lazy'
+                }}
+              {% else %}
+                {{
+                  block.settings.svg_desktop 
+                  | image_url: width: 300
+                  | image_tag: 
+                    alt: block.settings.image_alt | default: section.settings.heading,
+                    loading: 'lazy'
+                }}
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
       </div>
-    {% endfor %}
+    </div>
+    
+    <!-- Navigation arrows (only if more than 3 logos) -->
+    {% if section.blocks.size > 3 %}
+      <button class="carousel-arrow prev" aria-label="Previous">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button class="carousel-arrow next" aria-label="Next">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    {% endif %}
+    
+    <!-- Dots indicator -->
+    {% if section.blocks.size > 3 %}
+      <div class="carousel-dots">
+        {% for block in section.blocks %}
+          <span class="dot" data-index="{{ forloop.index0 }}"></span>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </div>
 
@@ -49,6 +86,7 @@
   gap: 17px;
   background: #F4F5F4;
   padding: 64px 200px;
+  position: relative;
 }
 
 .as-seen-on-section p {
@@ -61,8 +99,12 @@
   color: #17162E;
 }
 
-/* Logos layout */
-.logos {
+/* Desktop View */
+.logos-desktop {
+  display: block;
+}
+
+.logos-grid {
   display: flex;
   gap: 91px;
   flex-wrap: wrap;
@@ -76,24 +118,104 @@
   justify-content: center;
 }
 
-/* Default: Desktop visible, mobile hidden */
-.logo-mobile {
-  display: none;
-}
-
-.logo-desktop img,
-.logo-mobile img {
-  max-height: 30px;
+.logo-desktop img {
   width: auto;
+  max-width: 150px;
+  max-height: 30px;
   display: block;
+  object-fit: contain;
 }
 
-/* Tablet view */
+/* Mobile Carousel - Hidden by default */
+.logos-mobile-carousel {
+  display: none;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel-slide {
+  flex: 0 0 33.333%; /* Show 3 logos at a time */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.logo-mobile img {
+  width: auto;
+  max-width: 100px;
+  max-height: 25px;
+  display: block;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* Carousel Navigation */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s;
+}
+
+.carousel-arrow:hover {
+  background: #f0f0f0;
+}
+
+.carousel-arrow.prev {
+  left: -10px;
+}
+
+.carousel-arrow.next {
+  right: -10px;
+}
+
+/* Dots Indicator */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.carousel-dots .dot {
+  width: 8px;
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.carousel-dots .dot.active {
+  background-color: #17162E;
+}
+
+/* Tablet View */
 @media screen and (min-width: 749px) and (max-width: 1300px) {
-  .logos {
-    gap: 20px;
-  }
-  
   .as-seen-on-section {
     padding: 48px 100px;
   }
@@ -101,33 +223,137 @@
   .as-seen-on-section p {
     font-size: 16px;
   }
+  
+  .logos-grid {
+    gap: 20px;
+  }
+  
+  .logo-desktop img {
+    max-width: 120px;
+    max-height: 28px;
+  }
 }
 
-/* Mobile view */
+/* Mobile View */
 @media screen and (max-width: 749px) {
-  .logo-desktop {
+  .logos-desktop {
     display: none;
   }
-
-  .logo-mobile {
+  
+  .logos-mobile-carousel {
     display: block;
-  }
-
-  .logos {
-    gap: 20px;
-    justify-content: flex-start;
   }
   
   .as-seen-on-section {
     align-items: flex-start;
     padding: 0px 20px 36px;
+    width: 100%;
   }
   
   .as-seen-on-section p {
     font-size: 16px;
   }
+  
+  .carousel-arrow {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .carousel-arrow.prev {
+    left: -5px;
+  }
+  
+  .carousel-arrow.next {
+    right: -5px;
+  }
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const section = document.querySelector('.as-seen-on-section');
+  if (!section) return;
+  
+  const carousel = section.querySelector('.logos-mobile-carousel');
+  if (!carousel) return;
+  
+  const track = carousel.querySelector('.carousel-track');
+  const slides = carousel.querySelectorAll('.carousel-slide');
+  const prevBtn = carousel.querySelector('.prev');
+  const nextBtn = carousel.querySelector('.next');
+  const dots = carousel.querySelectorAll('.dot');
+  
+  if (!track || slides.length === 0) return;
+  
+  let currentIndex = 0;
+  const slidesToShow = 3; // Show 3 logos at a time
+  const totalSlides = slides.length;
+  const maxIndex = Math.ceil(totalSlides / slidesToShow) - 1;
+  
+  function updateCarousel() {
+    const slideWidth = slides[0].offsetWidth;
+    const offset = currentIndex * (slideWidth * slidesToShow);
+    track.style.transform = `translateX(-${offset}px)`;
+    
+    // Update dots
+    if (dots.length > 0) {
+      dots.forEach((dot, index) => {
+        const dotIndex = Math.floor(index / slidesToShow);
+        dot.classList.toggle('active', dotIndex === currentIndex);
+      });
+    }
+  }
+  
+  function nextSlide() {
+    if (currentIndex < maxIndex) {
+      currentIndex++;
+      updateCarousel();
+    } else if (currentIndex === maxIndex) {
+      // Loop back to start
+      currentIndex = 0;
+      updateCarousel();
+    }
+  }
+  
+  function prevSlide() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    } else if (currentIndex === 0) {
+      // Loop to end
+      currentIndex = maxIndex;
+      updateCarousel();
+    }
+  }
+  
+  // Event listeners
+  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+  
+  // Dot click handlers
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      const dotIndex = Math.floor(index / slidesToShow);
+      if (dotIndex <= maxIndex) {
+        currentIndex = dotIndex;
+        updateCarousel();
+      }
+    });
+  });
+  
+  // Auto-resize on window resize
+  let resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      updateCarousel();
+    }, 250);
+  });
+  
+  // Initial update
+  setTimeout(updateCarousel, 100);
+});
+</script>
 
 {% schema %}
 {
@@ -138,17 +364,6 @@
       "id": "heading",
       "label": "Heading",
       "default": "As seen on"
-    },
-    {
-      "type": "range",
-      "id": "image_width",
-      "label": "Logo Width",
-      "min": 50,
-      "max": 300,
-      "step": 10,
-      "default": 150,
-      "unit": "px",
-      "info": "Maximum width for logos"
     }
   ],
   "blocks": [
