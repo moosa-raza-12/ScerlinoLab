@@ -12,22 +12,82 @@
     "kv-lp-new-design-product-night-cream-anti-aging": {
       "type": "kv-lp-new-design-product-night-cream-anti-aging",
       "blocks": {
-        "gallery_image_tUBcKN": {
+        "gallery_image_r3AzyN": {
           "type": "gallery_image",
           "settings": {
-            "image": "shopify://shop_images/11_d_c49ace18-db01-43ba-9ac5-b6eed8a49907.webp"
+            "image": "shopify://shop_images/01.png"
           }
         },
-        "gallery_image_CzBrYU": {
+        "gallery_image_BkBrna": {
           "type": "gallery_image",
           "settings": {
-            "image": "shopify://shop_images/11_a_5150ea2f-ce56-4f3d-a1f4-b64a0e7f2dd0.webp"
+            "image": "shopify://shop_images/02.png"
           }
         },
-        "gallery_image_iW8gjL": {
+        "gallery_image_zi3yxt": {
           "type": "gallery_image",
           "settings": {
-            "image": "shopify://shop_images/Face_Cream_US_Image_10_8c06c39c-b651-4a3a-8cb3-094ad8593c5a.webp"
+            "image": "shopify://shop_images/03.png"
+          }
+        },
+        "gallery_image_tkGJCe": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/04.png"
+          }
+        },
+        "gallery_image_rcFHP4": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/05.png"
+          }
+        },
+        "gallery_image_HXUjnz": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/06.png"
+          }
+        },
+        "gallery_image_hqBF7p": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/07.png"
+          }
+        },
+        "gallery_image_ReicDy": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/08.png"
+          }
+        },
+        "gallery_image_jdDtLA": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/09.png"
+          }
+        },
+        "gallery_image_LFVbUq": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/10.png"
+          }
+        },
+        "gallery_image_gRjEcN": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/11.png"
+          }
+        },
+        "gallery_image_QrgB4k": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/12.png"
+          }
+        },
+        "gallery_image_A7VbFU": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/13.png"
           }
         },
         "block_0": {
@@ -283,9 +343,19 @@
         }
       },
       "block_order": [
-        "gallery_image_tUBcKN",
-        "gallery_image_CzBrYU",
-        "gallery_image_iW8gjL",
+        "gallery_image_r3AzyN",
+        "gallery_image_BkBrna",
+        "gallery_image_zi3yxt",
+        "gallery_image_tkGJCe",
+        "gallery_image_rcFHP4",
+        "gallery_image_HXUjnz",
+        "gallery_image_hqBF7p",
+        "gallery_image_ReicDy",
+        "gallery_image_jdDtLA",
+        "gallery_image_LFVbUq",
+        "gallery_image_gRjEcN",
+        "gallery_image_QrgB4k",
+        "gallery_image_A7VbFU",
         "block_0",
         "block_1",
         "block_2",
