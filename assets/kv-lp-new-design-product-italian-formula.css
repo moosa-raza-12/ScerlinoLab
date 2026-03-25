@@ -149,6 +149,14 @@
   backdrop-filter: blur(32px);
 }
 
+.lp-comparison-table__col--features .lp-comparison-table__cell:first-child {
+  border-radius: 10px 0px 0px 0px;
+}
+
+.lp-comparison-table__col--features .lp-comparison-table__cell:last-child {
+  border-radius: 0px 0px 0px 10px;
+}
+
 .lp-comparison-table__col--brand .lp-comparison-table__cell:nth-child(even) {
   background: #F3F3F3;
 }
