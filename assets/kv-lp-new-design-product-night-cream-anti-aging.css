@@ -421,12 +421,16 @@ letter-spacing: 0px;  background: var(--primary-text); color: white; font-size: 
 .lp-shipping-meta {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 12px 0;
   font-size: 14px;
-  opacity: 0.8;
+  color: #555;
   letter-spacing: 0px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
-.lp-dot { width: 6px; height: 6px; background: #00B67A; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 4px; }
+.lp-shipping-meta strong { color: #222; }
+.lp-dot { width: 12px; height: 12px; display: inline-block; vertical-align: middle; margin-right: 6px; flex-shrink: 0; }
 
 .lp-guarantee-banner {
   background: var(--white);
@@ -436,7 +440,7 @@ letter-spacing: 0px;  background: var(--primary-text); color: white; font-size: 
   align-items: center;
   gap: 12px;
   font-size: 16px;
-  margin: 16px 0 32px;
+  margin: 4px 0 32px;
   letter-spacing: 0px;
   line-height: 24px;
 }
@@ -659,3 +663,7 @@ letter-spacing: 0px;  background: var(--primary-text); color: white; font-size: 
 }
 /* .lp-pill::before { content: ''; width: 9px; height: 5px; border-left: 2px solid; border-bottom: 2px solid; transform: rotate(-45deg); display: inline-block; margin-bottom: 4px; } */
 
+.lp-meta-item{
+  display: flex;
+  align-items: center;
+}

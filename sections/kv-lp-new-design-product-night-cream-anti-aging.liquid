@@ -281,19 +281,17 @@
         </button>
       <div class="lp-shipping-meta">
   <span class="lp-meta-item">
-    <span class="lp-dot"></span> 
-    <span id="delivery-info">Loading delivery info...</span>
+    <svg class="lp-dot" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="3" fill="#3AC835"/><circle cx="6" cy="6" r="4.5" stroke="#3AC835" stroke-opacity="0.35" stroke-width="3"/></svg> 
+    <span id="delivery-info-{{ section.id }}">Loading delivery info...</span>
   </span>
   <span class="lp-meta-item">
-    <img src="https://cdn.shopify.com/s/files/1/0656/3453/3633/files/truck.png?v=1715587421" alt="" width="16"> 
-    FREE Shipping to <span id="user-location">loading...</span>
+    <strong>FREE</strong>&nbsp; Shipping to&nbsp; <span id="user-location-{{ section.id }}">loading...</span>
   </span>
 </div>
 
-<!-- Hidden ParcelPanel Widget -->
-<div style="display: none;">
+<div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">
   <parcelpanel-edd 
-    id="pp-edd-widget"
+    id="pp-edd-widget-{{ section.id }}"
     settingsStr='{
       "corner_radius": 8,
       "margin_top": 0,
@@ -306,21 +304,6 @@
     }'>
   </parcelpanel-edd>
 </div>
-</div>
-  <div style="display: none;">
-  <parcelpanel-edd 
-    id="pp-edd-widget"
-    settingsStr='{
-      "corner_radius": 8,
-      "margin_top": 0,
-      "margin_bottom": 0,
-      "padding_x": 0,
-      "padding_y": 0,
-      "border_color": "transparent",
-      "icon": "🚚",
-      "show_icon": false
-    }'>
-  </parcelpanel-edd>
 </div>
       <div class="lp-guarantee-banner">
         {% if section.settings.guarantee_icon_svg != blank %}
@@ -431,67 +414,81 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  var sectionId = '{{ section.id }}';
+  var deliverySpan = document.getElementById('delivery-info-' + sectionId);
+  var locationSpan = document.getElementById('user-location-' + sectionId);
+  var resolved = false;
+
+  function getWidgetText(widget) {
+    var text = '';
+    if (widget.shadowRoot) {
+      text = widget.shadowRoot.textContent || '';
+    }
+    if (!text.trim()) {
+      text = widget.innerText || widget.textContent || '';
+    }
+    text = text.replace(/\.parcelpanel[^}]*\}/g, '');
+    text = text.replace(/[\n\r]+/g, ' ').replace(/\s+/g, ' ').trim();
+    return text;
+  }
+
+  function getEndDate(raw) {
+    var cleaned = raw.replace(/🎁/g, '').trim();
+    var parts = cleaned.split(/\s*-\s*/);
+    var endPart = parts.length > 1 ? parts[parts.length - 1] : parts[0];
+    endPart = endPart.replace(/,?\s*\d{4}/g, '').replace(/\s+/g, ' ').trim();
+    var m = endPart.match(/([A-Za-z]+)\s+(\d{1,2})/);
+    if (m) return m[1] + ' ' + m[2];
+    return endPart;
+  }
+
   function getParcelPanelData() {
-    var widget = document.getElementById('pp-edd-widget');
-    var deliverySpan = document.getElementById('delivery-info');
-    var locationSpan = document.getElementById('user-location');
-    
-    if (widget && deliverySpan && locationSpan) {
-      // CSS hatao, sirf text lo
-      var widgetText = widget.innerText || widget.textContent;
-      
-      // CSS style hatao (jo .parcelpanel se start ho)
-      widgetText = widgetText.replace(/\.parcelpanel[^}]*}/g, '');
-      widgetText = widgetText.replace(/[\n\r]+/g, ' '); // New lines ko space mein badlo
-      widgetText = widgetText.replace(/\s+/g, ' '); // Extra spaces hatao
-      
-      console.log('Clean text:', widgetText);
-      
-      if (widgetText && widgetText.includes('Deliver to')) {
-        
-        // ---------- LOCATION NIKALO ----------
-        var locationMatch = widgetText.match(/Deliver to (\w+)/);
-        if (locationMatch && locationMatch[1]) {
-          locationSpan.innerHTML = locationMatch[1];
-        }
-        
-        // ---------- DATE NIKALO ----------
-        // "Get your order by Mar 30, 2026 - Apr 04, 2026"
-        var dateMatch = widgetText.match(/Get your order by (.*?)(?:\s|$)/);
-        if (dateMatch && dateMatch[1]) {
-          var dateText = dateMatch[1];
-          // Agar "🎁" ya kuch aur ho to hata do
-          dateText = dateText.replace('🎁', '').trim();
-          deliverySpan.innerHTML = 'Delivers by ' + dateText;
-        } else {
-          // Fallback
-          deliverySpan.innerHTML = 'Delivers in 3-5 days';
-        }
-        
-        console.log('✅ Date:', deliverySpan.innerHTML);
-        console.log('✅ Location:', locationSpan.innerHTML);
-      } else {
-        // Fallback agar widget abhi load nahi hua
-        deliverySpan.innerHTML = 'Calculating delivery...';
-        locationSpan.innerHTML = 'your location';
-      }
+    if (resolved) return;
+    var widget = document.getElementById('pp-edd-widget-' + sectionId);
+    if (!widget || !deliverySpan || !locationSpan) return;
+
+    var widgetText = getWidgetText(widget);
+    if (!widgetText || !widgetText.includes('Deliver to')) return;
+
+    var locationMatch = widgetText.match(/Deliver to\s+(?:[^,]+,\s*)?([A-Za-z\s]+?)\s+Order/i);
+    if (!locationMatch) {
+      locationMatch = widgetText.match(/Deliver to\s+([A-Za-z\s]+?)(?:\s+Order|\s+Get|\s*$)/i);
+    }
+    if (locationMatch && locationMatch[1]) {
+      locationSpan.textContent = locationMatch[1].trim();
+    }
+
+    var dateMatch = widgetText.match(/Get your order by\s+(.+?)(?:\s*🎁|\s*Deliver|\s*$)/i);
+    if (dateMatch && dateMatch[1]) {
+      var endDate = getEndDate(dateMatch[1]);
+      deliverySpan.innerHTML = 'Delivers by <strong>' + endDate + '</strong>';
+      resolved = true;
+    } else {
+      deliverySpan.textContent = 'Delivers in 3-5 business days';
     }
   }
-  
-  // Multiple checks
-  setTimeout(getParcelPanelData, 1000);
+
+  function observeWidget() {
+    var widget = document.getElementById('pp-edd-widget-' + sectionId);
+    if (!widget) return;
+
+    var target = widget.shadowRoot || widget;
+    var observer = new MutationObserver(function() {
+      getParcelPanelData();
+      if (resolved) observer.disconnect();
+    });
+    observer.observe(target, { childList: true, subtree: true, characterData: true });
+
+    setTimeout(function() { observer.disconnect(); }, 15000);
+  }
+
+  setTimeout(getParcelPanelData, 1500);
   setTimeout(getParcelPanelData, 3000);
   setTimeout(getParcelPanelData, 5000);
   setTimeout(getParcelPanelData, 8000);
-  
-  // Har 2 second mein bhi check karo pehle 10 second tak
-  var interval = setInterval(function() {
-    getParcelPanelData();
-  }, 2000);
-  
-  setTimeout(function() {
-    clearInterval(interval);
-  }, 10000);
+
+  setTimeout(observeWidget, 500);
+  setTimeout(observeWidget, 2000);
 });
 </script>
 </section>
