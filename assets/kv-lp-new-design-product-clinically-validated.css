@@ -78,6 +78,7 @@
 .lp-efficacy__usp {
   flex: 1;
   background: rgba(245, 245, 247, 0.20);
+  box-shadow: 0 0 0 1px rgb(245 245 247 / 40%);
   /* backdrop-filter: blur(10px); */
   backdrop-filter: blur(32px);
   border-radius: 12px;
