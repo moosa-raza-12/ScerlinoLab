@@ -143,9 +143,8 @@
 }
 
 .lp-comparison-table__col--features .lp-comparison-table__cell {
-  background: #ffffff1a;
-  /* background: #ffffff1a; */
-  -webkit-backdrop-filter: blur(32px);
+  background: rgba(245, 245, 247, 0.20);
+  /* backdrop-filter: blur(10px); */
   backdrop-filter: blur(32px);
 }
 

@@ -224,7 +224,10 @@ letter-spacing: 0px;
 
 .lp-ingredient-card[open] .lp-ingredient-card__toggle-minus {
   display: block;
-  margin-bottom: 3px;
+  line-height: 0;
+  margin-top: -5px;
+  margin-left: 2px;
+
 }
 
 .lp-ingredient-card[open] .lp-ingredient-card__icon-wrap {

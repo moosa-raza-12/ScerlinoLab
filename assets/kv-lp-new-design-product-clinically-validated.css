@@ -77,7 +77,9 @@
 
 .lp-efficacy__usp {
   flex: 1;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(245, 245, 247, 0.20);
+  /* backdrop-filter: blur(10px); */
+  backdrop-filter: blur(32px);
   border-radius: 12px;
   padding: 20px 12px;
   display: flex;

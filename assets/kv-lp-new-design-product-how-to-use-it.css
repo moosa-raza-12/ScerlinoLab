@@ -236,9 +236,8 @@
    display: flex;
   align-items: center;
   justify-content: space-between;
-    margin-top: 20px;
     width: 40%;
-    margin: 20px auto;
+    margin: 0 auto;
 }
   .lp-how-to-use {
     padding: 64px 200px;

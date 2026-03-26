@@ -521,45 +521,65 @@ document.addEventListener('DOMContentLoaded', function() {
     dot.addEventListener('click', function() { goToSlide(i); });
   });
 
-  /* Touch / swipe support for mobile gallery */
-  var touchStartX = 0;
-  var touchEndX = 0;
-  var touchStartY = 0;
-  var touchEndY = 0;
+  /* Swipe / drag support for gallery (touch + mouse) */
+  var pointerStartX = 0;
+  var pointerStartY = 0;
   var isSwiping = false;
   var swipeThreshold = 40;
 
+  function onPointerStart(x, y) {
+    pointerStartX = x;
+    pointerStartY = y;
+    isSwiping = true;
+  }
+
+  function onPointerEnd(x, y) {
+    if (!isSwiping) return;
+    isSwiping = false;
+    var diffX = pointerStartX - x;
+    var diffY = Math.abs(pointerStartY - y);
+    if (Math.abs(diffX) > swipeThreshold && Math.abs(diffX) > diffY) {
+      goToSlide(diffX > 0 ? currentSlide + 1 : currentSlide - 1);
+    }
+  }
+
   if (track) {
     track.addEventListener('touchstart', function(e) {
-      touchStartX = e.changedTouches[0].screenX;
-      touchStartY = e.changedTouches[0].screenY;
-      isSwiping = true;
+      onPointerStart(e.changedTouches[0].screenX, e.changedTouches[0].screenY);
     }, { passive: true });
 
     track.addEventListener('touchmove', function(e) {
       if (!isSwiping) return;
-      var diffX = Math.abs(e.changedTouches[0].screenX - touchStartX);
-      var diffY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+      var diffX = Math.abs(e.changedTouches[0].screenX - pointerStartX);
+      var diffY = Math.abs(e.changedTouches[0].screenY - pointerStartY);
       if (diffX > diffY && diffX > 10) {
         e.preventDefault();
       }
     }, { passive: false });
 
     track.addEventListener('touchend', function(e) {
-      if (!isSwiping) return;
-      isSwiping = false;
-      touchEndX = e.changedTouches[0].screenX;
-      touchEndY = e.changedTouches[0].screenY;
-      var diffX = touchStartX - touchEndX;
-      var diffY = Math.abs(touchStartY - touchEndY);
-      if (Math.abs(diffX) > swipeThreshold && Math.abs(diffX) > diffY) {
-        if (diffX > 0) {
-          goToSlide(currentSlide + 1);
-        } else {
-          goToSlide(currentSlide - 1);
-        }
-      }
+      onPointerEnd(e.changedTouches[0].screenX, e.changedTouches[0].screenY);
     }, { passive: true });
+
+    track.addEventListener('mousedown', function(e) {
+      onPointerStart(e.screenX, e.screenY);
+      track.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (!isSwiping) return;
+      e.preventDefault();
+    });
+
+    document.addEventListener('mouseup', function(e) {
+      if (!isSwiping) return;
+      track.style.cursor = '';
+      onPointerEnd(e.screenX, e.screenY);
+    });
+
+    track.style.cursor = 'grab';
+    track.addEventListener('dragstart', function(e) { e.preventDefault(); });
   }
 
   /* --- Bundle selection → update ATC button price --- */
@@ -809,6 +829,41 @@ document.addEventListener('DOMContentLoaded', function() {
       var pct = maxLeft > 0 ? newLeft / maxLeft : 0;
       slider.scrollLeft = pct * getMaxScroll();
     });
+  }
+
+  /* --- Desktop mouse drag-to-scroll for testimonials slider --- */
+  if (slider) {
+    var sliderDragging = false;
+    var sliderStartX = 0;
+    var sliderScrollStart = 0;
+
+    slider.style.cursor = 'grab';
+
+    slider.addEventListener('mousedown', function(e) {
+      sliderDragging = true;
+      sliderStartX = e.pageX;
+      sliderScrollStart = slider.scrollLeft;
+      slider.style.cursor = 'grabbing';
+      slider.style.scrollSnapType = 'none';
+      slider.style.scrollBehavior = 'auto';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (!sliderDragging) return;
+      var dx = e.pageX - sliderStartX;
+      slider.scrollLeft = sliderScrollStart - dx;
+    });
+
+    document.addEventListener('mouseup', function() {
+      if (!sliderDragging) return;
+      sliderDragging = false;
+      slider.style.cursor = 'grab';
+      slider.style.scrollSnapType = '';
+      slider.style.scrollBehavior = '';
+    });
+
+    slider.addEventListener('dragstart', function(e) { e.preventDefault(); });
   }
 });
 </script>
