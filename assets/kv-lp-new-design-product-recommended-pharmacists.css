@@ -254,6 +254,10 @@
   opacity: 1;
   cursor: pointer;
 }
+.lp-pharmacists-arrow--prev.is-active {
+  background-color: #1A2A49;
+  color: #ffffff;
+}
 .lp-pharmacists-arrow {
   transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   cursor: pointer;
