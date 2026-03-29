@@ -80,35 +80,168 @@
   var dots = section.querySelectorAll('[data-dot]');
   var prevBtn = section.querySelector('[data-nav="prev"]');
   var nextBtn = section.querySelector('[data-nav="next"]');
+  var totalCards = cards.length;
 
-  if (gridWrapper && cards.length) {
-    function getCardWidth() {
-      return cards[0].offsetWidth + (parseFloat(getComputedStyle(section.querySelector('.lp-pharmacists-grid')).gap) || 24);
+  if (!gridWrapper || totalCards === 0) return;
+
+  function getGap() {
+    var grid = section.querySelector('.lp-pharmacists-grid');
+    if (!grid) return 24;
+    return parseFloat(getComputedStyle(grid).gap) || 24;
+  }
+
+  function getCardWidth() {
+    if (cards.length === 0) return 0;
+    return cards[0].offsetWidth + getGap();
+  }
+
+  function getCurrentCardIndex() {
+    var cardWidth = getCardWidth();
+    if (cardWidth === 0) return 0;
+    var scrollPosition = gridWrapper.scrollLeft;
+    var index = Math.round(scrollPosition / cardWidth);
+    return Math.min(Math.max(0, index), totalCards - 1);
+  }
+
+  function updateButtonStates() {
+    var currentIndex = getCurrentCardIndex();
+    
+    // Update prev button state
+    if (currentIndex === 0) {
+      prevBtn.classList.remove('is-active');
+    } else {
+      prevBtn.classList.add('is-active');
     }
-
-    function updateDots() {
-      var cardWidth = getCardWidth();
-      var activeIndex = Math.round(gridWrapper.scrollLeft / cardWidth);
-      dots.forEach(function(dot, i) {
-        dot.classList.toggle('is-active', i === activeIndex);
-      });
-    }
-
-    gridWrapper.addEventListener('scroll', updateDots);
-
-    if (prevBtn) {
-      prevBtn.addEventListener('click', function() {
-        gridWrapper.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', function() {
-        gridWrapper.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
-      });
+    
+    // Update next button state
+    if (currentIndex === totalCards - 1) {
+      nextBtn.classList.remove('is-active');
+    } else {
+      nextBtn.classList.add('is-active');
     }
   }
 
+  function updateDots() {
+    var currentIndex = getCurrentCardIndex();
+    dots.forEach(function(dot, i) {
+      dot.classList.toggle('is-active', i === currentIndex);
+    });
+  }
+
+  function scrollToCard(index, smooth) {
+    if (index < 0) index = 0;
+    if (index >= totalCards) index = totalCards - 1;
+    
+    var cardWidth = getCardWidth();
+    if (cardWidth === 0) return;
+    
+    var scrollPosition = index * cardWidth;
+    
+    gridWrapper.scrollTo({
+      left: scrollPosition,
+      behavior: smooth ? 'smooth' : 'auto'
+    });
+  }
+
+  // Update states on scroll with debounce
+  var scrollTimeout;
+  gridWrapper.addEventListener('scroll', function() {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(function() {
+      updateDots();
+      updateButtonStates();
+    }, 50);
+  });
+
+  // Previous button click
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() {
+      var currentIndex = getCurrentCardIndex();
+      if (currentIndex > 0) {
+        scrollToCard(currentIndex - 1, true);
+      }
+    });
+  }
+
+  // Next button click
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      var currentIndex = getCurrentCardIndex();
+      if (currentIndex < totalCards - 1) {
+        scrollToCard(currentIndex + 1, true);
+      }
+    });
+  }
+
+  // Dot click handlers
+  dots.forEach(function(dot, index) {
+    dot.addEventListener('click', function() {
+      scrollToCard(index, true);
+    });
+  });
+
+  // Touch swipe support
+  var touchStartX = 0;
+  var touchEndX = 0;
+  
+  if (gridWrapper) {
+    gridWrapper.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    gridWrapper.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      var swipeThreshold = 50;
+      var currentIndex = getCurrentCardIndex();
+      
+      if (touchEndX < touchStartX - swipeThreshold && currentIndex < totalCards - 1) {
+        scrollToCard(currentIndex + 1, true);
+      } else if (touchEndX > touchStartX + swipeThreshold && currentIndex > 0) {
+        scrollToCard(currentIndex - 1, true);
+      }
+    });
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    var rect = section.getBoundingClientRect();
+    var isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (!isVisible) return;
+    
+    var currentIndex = getCurrentCardIndex();
+    
+    if (e.key === 'ArrowLeft' && currentIndex > 0) {
+      scrollToCard(currentIndex - 1, true);
+      e.preventDefault();
+    } else if (e.key === 'ArrowRight' && currentIndex < totalCards - 1) {
+      scrollToCard(currentIndex + 1, true);
+      e.preventDefault();
+    }
+  });
+
+  // Handle window resize
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      var currentIndex = getCurrentCardIndex();
+      scrollToCard(currentIndex, false);
+      updateButtonStates();
+      updateDots();
+    }, 250);
+  });
+
+  // Initialize
+  function initialize() {
+    scrollToCard(0, false);
+    updateButtonStates();
+    updateDots();
+  }
+
+  initialize();
+
+  // Video handling (preserved from original)
   section.querySelectorAll('.lp-pharmacist-card.has-video').forEach(function(card) {
     var video = card.querySelector('.lp-pharmacist-video');
     var playBtn = card.querySelector('.lp-pharmacist-play-btn');
@@ -117,13 +250,13 @@
     var isPlaying = false;
     var userPaused = false;
 
-   function play() {
-  video.play().catch(function(error) {
-    console.log('Play failed:', error);
-  });
-  isPlaying = true;
-  card.classList.add('is-playing');
-}
+    function play() {
+      video.play().catch(function(error) {
+        console.log('Play failed:', error);
+      });
+      isPlaying = true;
+      card.classList.add('is-playing');
+    }
 
     function pause() {
       video.pause();
@@ -131,12 +264,12 @@
       card.classList.remove('is-playing');
     }
 
-   card.addEventListener('mouseleave', function() {
-  if (isPlaying) {
-    pause();
-    video.currentTime = 0;
-  }
-});
+    card.addEventListener('mouseleave', function() {
+      if (isPlaying) {
+        pause();
+        video.currentTime = 0;
+      }
+    });
 
     if (playBtn) {
       playBtn.addEventListener('click', function(e) {
@@ -250,4 +383,4 @@
     }
   ]
 }
-{% endschema %} 
+{% endschema %}
