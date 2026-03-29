@@ -94,8 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (totalCards === 0) return;
 
-  let currentScrollPosition = 0;
-  
   function getGap() {
     return parseFloat(getComputedStyle(grid).gap) || 20;
   }
@@ -104,28 +102,32 @@ document.addEventListener('DOMContentLoaded', function() {
     return cards[0].offsetWidth;
   }
 
-  function getTotalScrollWidth() {
-    return (getCardWidth() + getGap()) * totalCards - getGap();
+  function getScrollPositionForCard(index) {
+    const gap = getGap();
+    const cardWidth = getCardWidth();
+    return index * (cardWidth + gap);
   }
 
-  function getMaxScrollLeft() {
-    return grid.scrollWidth - grid.clientWidth;
+  function getCurrentCardIndex() {
+    const gap = getGap();
+    const cardWidth = getCardWidth();
+    const scrollPosition = grid.scrollLeft;
+    const index = Math.round(scrollPosition / (cardWidth + gap));
+    return Math.min(Math.max(0, index), totalCards - 1);
   }
 
   function updateButtonStates() {
-    const scrollLeft = grid.scrollLeft;
-    const maxScroll = getMaxScrollLeft();
-    const threshold = 5; // Small threshold for rounding errors
+    const currentIndex = getCurrentCardIndex();
     
     // Update prev button state
-    if (scrollLeft <= threshold) {
+    if (currentIndex === 0) {
       prevBtn.classList.remove('is-active');
     } else {
       prevBtn.classList.add('is-active');
     }
     
     // Update next button state
-    if (scrollLeft >= maxScroll - threshold) {
+    if (currentIndex === totalCards - 1) {
       nextBtn.classList.remove('is-active');
     } else {
       nextBtn.classList.add('is-active');
@@ -133,55 +135,48 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function updateDots() {
-    const gap = getGap();
-    const cardWidth = getCardWidth();
-    const scrollPosition = grid.scrollLeft;
-    const activeIndex = Math.round(scrollPosition / (cardWidth + gap));
+    const currentIndex = getCurrentCardIndex();
     
     dots.forEach((dot, index) => {
-      dot.classList.toggle('is-active', index === activeIndex);
+      dot.classList.toggle('is-active', index === currentIndex);
     });
   }
 
-  function scrollToCard(index) {
-    const gap = getGap();
-    const cardWidth = getCardWidth();
-    const scrollPosition = index * (cardWidth + gap);
+  function scrollToCard(index, smooth = true) {
+    if (index < 0) index = 0;
+    if (index >= totalCards) index = totalCards - 1;
+    
+    const scrollPosition = getScrollPositionForCard(index);
     
     grid.scrollTo({
       left: scrollPosition,
-      behavior: 'smooth'
+      behavior: smooth ? 'smooth' : 'auto'
     });
   }
 
   // Update states on scroll
+  let scrollTimeout;
   grid.addEventListener('scroll', function() {
-    updateDots();
-    updateButtonStates();
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      updateDots();
+      updateButtonStates();
+    }, 50);
   });
 
   // Previous button click
   prevBtn.addEventListener('click', () => {
-    const gap = getGap();
-    const cardWidth = getCardWidth();
-    const currentScroll = grid.scrollLeft;
-    const newScroll = currentScroll - (cardWidth + gap);
-    
-    if (newScroll >= 0) {
-      grid.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+    const currentIndex = getCurrentCardIndex();
+    if (currentIndex > 0) {
+      scrollToCard(currentIndex - 1);
     }
   });
 
   // Next button click
   nextBtn.addEventListener('click', () => {
-    const gap = getGap();
-    const cardWidth = getCardWidth();
-    const currentScroll = grid.scrollLeft;
-    const maxScroll = getMaxScrollLeft();
-    const newScroll = currentScroll + (cardWidth + gap);
-    
-    if (newScroll <= maxScroll) {
-      grid.scrollBy({ left: (cardWidth + gap), behavior: 'smooth' });
+    const currentIndex = getCurrentCardIndex();
+    if (currentIndex < totalCards - 1) {
+      scrollToCard(currentIndex + 1);
     }
   });
 
@@ -205,30 +200,60 @@ document.addEventListener('DOMContentLoaded', function() {
     wrapper.addEventListener('touchend', (e) => {
       touchEndX = e.changedTouches[0].screenX;
       const swipeThreshold = 50;
+      const currentIndex = getCurrentCardIndex();
       
-      if (touchEndX < touchStartX - swipeThreshold) {
-        nextBtn.click();
-      } else if (touchEndX > touchStartX + swipeThreshold) {
-        prevBtn.click();
+      if (touchEndX < touchStartX - swipeThreshold && currentIndex < totalCards - 1) {
+        scrollToCard(currentIndex + 1);
+      } else if (touchEndX > touchStartX + swipeThreshold && currentIndex > 0) {
+        scrollToCard(currentIndex - 1);
       }
     });
   }
 
-  // Initialize button states
-  setTimeout(() => {
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    const rect = section.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (!isVisible) return;
+    
+    const currentIndex = getCurrentCardIndex();
+    
+    if (e.key === 'ArrowLeft' && currentIndex > 0) {
+      scrollToCard(currentIndex - 1);
+      e.preventDefault();
+    } else if (e.key === 'ArrowRight' && currentIndex < totalCards - 1) {
+      scrollToCard(currentIndex + 1);
+      e.preventDefault();
+    }
+  });
+
+  // Initialize
+  function initialize() {
+    // Ensure we start at the first card
+    scrollToCard(0, false);
     updateButtonStates();
     updateDots();
-  }, 100);
+  }
 
-  // Update on window resize
+  // Handle window resize
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
+      const currentIndex = getCurrentCardIndex();
+      scrollToCard(currentIndex, false);
       updateButtonStates();
       updateDots();
     }, 250);
   });
+
+  // Initialize after images load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    initialize();
+  }
 });
 </script>
 
