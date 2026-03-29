@@ -94,43 +94,7 @@
   
   if (totalCards === 0) return;
   
-  // Function to update button states based on current logical index
-  function updateButtonStates() {
-    // Calculate the logical index (which real card we're on)
-    let logicalIndex = currentIndex - clonesBeforeCount;
-    
-    // Handle wrapping for infinite carousel
-    if (logicalIndex < 0) {
-      logicalIndex = totalCards + logicalIndex;
-    } else if (logicalIndex >= totalCards) {
-      logicalIndex = logicalIndex - totalCards;
-    }
-    
-    // Update Previous button state
-    if (logicalIndex === 0) {
-      // First card: prev disabled, next active
-      prevBtn.classList.add('lp-how-to-use__arrow--disabled');
-      prevBtn.classList.remove('lp-how-to-use__arrow--active');
-      nextBtn.classList.remove('lp-how-to-use__arrow--disabled');
-      nextBtn.classList.add('lp-how-to-use__arrow--active');
-    } else if (logicalIndex === totalCards - 1) {
-      // Last card: prev active, next disabled
-      prevBtn.classList.remove('lp-how-to-use__arrow--disabled');
-      prevBtn.classList.add('lp-how-to-use__arrow--active');
-      nextBtn.classList.add('lp-how-to-use__arrow--disabled');
-      nextBtn.classList.remove('lp-how-to-use__arrow--active');
-    } else {
-      // Middle cards: both active
-      prevBtn.classList.remove('lp-how-to-use__arrow--disabled');
-      prevBtn.classList.add('lp-how-to-use__arrow--active');
-      nextBtn.classList.remove('lp-how-to-use__arrow--disabled');
-      nextBtn.classList.add('lp-how-to-use__arrow--active');
-    }
-  }
-  
   // Clone cards for infinite effect
-  let clonesBeforeCount, clonesAfterCount, allCards;
-  
   function setupInfiniteCarousel() {
     // Clear the list
     list.innerHTML = '';
@@ -150,21 +114,17 @@
     originalCards.forEach(card => list.appendChild(card));
     clonesAfter.forEach(clone => list.appendChild(clone));
     
-    clonesBeforeCount = clonesBefore.length;
-    clonesAfterCount = clonesAfter.length;
-    allCards = Array.from(list.querySelectorAll('.lp-results-notice__card'));
-    
     return {
-      clonesBeforeCount,
-      clonesAfterCount,
-      allCards
+      clonesBeforeCount: clonesBefore.length,
+      clonesAfterCount: clonesAfter.length,
+      allCards: Array.from(list.querySelectorAll('.lp-results-notice__card'))
     };
   }
   
-  const { clonesBeforeCount: beforeCount, clonesAfterCount: afterCount, allCards: all } = setupInfiniteCarousel();
-  const totalAllCards = all.length;
-  const originalStartIndex = beforeCount;
-  const originalEndIndex = beforeCount + totalCards - 1;
+  const { clonesBeforeCount, clonesAfterCount, allCards } = setupInfiniteCarousel();
+  const totalAllCards = allCards.length;
+  const originalStartIndex = clonesBeforeCount;
+  const originalEndIndex = clonesBeforeCount + totalCards - 1;
   
   // Get the container width and card width
   let cardWidth = 0;
@@ -178,6 +138,26 @@
     gap = parseFloat(style.gap) || 0;
     cardWidth = card.offsetWidth;
     containerWidth = wrapper.offsetWidth;
+  }
+  
+  // Function to update button states
+  function updateButtonStates() {
+    // Remove active class from both buttons
+    prevBtn.classList.remove('is-active');
+    nextBtn.classList.remove('is-active');
+    
+    // Check if there are cards to scroll left
+    const canScrollLeft = currentIndex > originalStartIndex;
+    // Check if there are cards to scroll right
+    const canScrollRight = currentIndex < originalEndIndex;
+    
+    // Add active class if button is clickable
+    if (canScrollLeft) {
+      prevBtn.classList.add('is-active');
+    }
+    if (canScrollRight) {
+      nextBtn.classList.add('is-active');
+    }
   }
   
   // Function to update carousel position
@@ -238,36 +218,28 @@
     list.scrollLeft = scrollPosition;
     currentIndex = index;
     
-    // Update button states after jump
-    updateButtonStates();
-    
     setTimeout(() => {
       isTransitioning = false;
+      updateButtonStates();
     }, 50);
   }
   
-  // Next button click handler with boundary check
+  // Next button click handler
   nextBtn.addEventListener('click', () => {
     if (isTransitioning) return;
-    
-    // Check if next button is disabled
-    if (nextBtn.classList.contains('lp-how-to-use__arrow--disabled')) {
-      return;
+    // Check if we can scroll right before moving
+    if (currentIndex < originalEndIndex) {
+      updateCarousel(currentIndex + 1);
     }
-    
-    updateCarousel(currentIndex + 1);
   });
   
-  // Previous button click handler with boundary check
+  // Previous button click handler
   prevBtn.addEventListener('click', () => {
     if (isTransitioning) return;
-    
-    // Check if prev button is disabled
-    if (prevBtn.classList.contains('lp-how-to-use__arrow--disabled')) {
-      return;
+    // Check if we can scroll left before moving
+    if (currentIndex > originalStartIndex) {
+      updateCarousel(currentIndex - 1);
     }
-    
-    updateCarousel(currentIndex - 1);
   });
   
   // Dot click handlers
@@ -275,7 +247,9 @@
     dot.addEventListener('click', () => {
       if (isTransitioning) return;
       const targetCardIndex = originalStartIndex + index;
-      updateCarousel(targetCardIndex);
+      if (targetCardIndex >= originalStartIndex && targetCardIndex <= originalEndIndex) {
+        updateCarousel(targetCardIndex);
+      }
     });
   });
   
@@ -306,7 +280,7 @@
     }, 100);
   });
   
-  // Touch swipe support with boundary checks
+  // Touch swipe support
   let touchStartX = 0;
   let touchEndX = 0;
   
@@ -320,20 +294,14 @@
       const swipeThreshold = 50;
       
       if (touchEndX < touchStartX - swipeThreshold) {
-        // Swipe left - next
-        if (!nextBtn.classList.contains('lp-how-to-use__arrow--disabled')) {
-          nextBtn.click();
-        }
+        nextBtn.click();
       } else if (touchEndX > touchStartX + swipeThreshold) {
-        // Swipe right - prev
-        if (!prevBtn.classList.contains('lp-how-to-use__arrow--disabled')) {
-          prevBtn.click();
-        }
+        prevBtn.click();
       }
     });
   }
   
-  // Keyboard navigation with boundary checks
+  // Keyboard navigation
   document.addEventListener('keydown', (e) => {
     const rect = section.getBoundingClientRect();
     const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
@@ -341,14 +309,10 @@
     if (!isVisible) return;
     
     if (e.key === 'ArrowLeft') {
-      if (!prevBtn.classList.contains('lp-how-to-use__arrow--disabled')) {
-        prevBtn.click();
-      }
+      prevBtn.click();
       e.preventDefault();
     } else if (e.key === 'ArrowRight') {
-      if (!nextBtn.classList.contains('lp-how-to-use__arrow--disabled')) {
-        nextBtn.click();
-      }
+      nextBtn.click();
       e.preventDefault();
     }
   });
@@ -360,9 +324,7 @@
     list.scrollLeft = originalStartIndex * (cardWidth + gap);
     currentIndex = originalStartIndex;
     list.style.scrollBehavior = '';
-    
-    // Initialize button states
-    updateButtonStates();
+    updateButtonStates(); // Initialize button states
   }
   
   // Recalculate on window resize
