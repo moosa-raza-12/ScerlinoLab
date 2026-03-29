@@ -90,34 +90,234 @@ document.addEventListener('DOMContentLoaded', function() {
   const prevBtn = section.querySelector('[data-nav="prev"]');
   const nextBtn = section.querySelector('[data-nav="next"]');
   const cards = section.querySelectorAll('.lp-how-to-use__card');
+  const wrapper = section.querySelector('.lp-how-to-use__grid-wrapper');
 
-  grid.scrollLeft = 0;
-
-  function getGap() {
-    return parseFloat(getComputedStyle(grid).gap) || 20;
+  let currentIndex = 0;
+  let isTransitioning = false;
+  const totalCards = cards.length;
+  
+  if (totalCards === 0) return;
+  
+  // Clone cards for infinite effect
+  function setupInfiniteCarousel() {
+    const originalCards = Array.from(cards);
+    const gridElement = grid;
+    
+    // Clear the grid but keep the original cards reference
+    gridElement.innerHTML = '';
+    
+    const clonesBefore = [];
+    const clonesAfter = [];
+    
+    originalCards.forEach(card => {
+      clonesBefore.push(card.cloneNode(true));
+      clonesAfter.push(card.cloneNode(true));
+    });
+    
+    clonesBefore.forEach(clone => gridElement.appendChild(clone));
+    originalCards.forEach(card => gridElement.appendChild(card));
+    clonesAfter.forEach(clone => gridElement.appendChild(clone));
+    
+    return {
+      clonesBeforeCount: clonesBefore.length,
+      clonesAfterCount: clonesAfter.length,
+      allCards: Array.from(gridElement.querySelectorAll('.lp-how-to-use__card'))
+    };
   }
-
+  
+  const { clonesBeforeCount, clonesAfterCount, allCards } = setupInfiniteCarousel();
+  const totalAllCards = allCards.length;
+  const originalStartIndex = clonesBeforeCount;
+  const originalEndIndex = clonesBeforeCount + totalCards - 1;
+  
+  let cardWidth = 0;
+  let gap = 0;
+  
+  function getDimensions() {
+    if (allCards.length === 0) return;
+    const card = allCards[0];
+    const style = window.getComputedStyle(grid);
+    gap = parseFloat(style.gap) || 20;
+    cardWidth = card.offsetWidth;
+  }
+  
+  function updateButtonStates() {
+    prevBtn.classList.remove('is-active');
+    nextBtn.classList.remove('is-active');
+    
+    const canScrollLeft = currentIndex > originalStartIndex;
+    const canScrollRight = currentIndex < originalEndIndex;
+    
+    if (canScrollLeft) {
+      prevBtn.classList.add('is-active');
+    }
+    if (canScrollRight) {
+      nextBtn.classList.add('is-active');
+    }
+  }
+  
   function updateDots() {
-    const gap = getGap();
-    const cardWidth = cards[0].offsetWidth + gap;
-    const activeIndex = Math.round(grid.scrollLeft / cardWidth);
-
+    let activeDotIndex = currentIndex - originalStartIndex;
+    if (activeDotIndex < 0) activeDotIndex = totalCards + activeDotIndex;
+    if (activeDotIndex >= totalCards) activeDotIndex = activeDotIndex - totalCards;
+    
     dots.forEach((dot, index) => {
-      dot.classList.toggle('is-active', index === activeIndex);
+      dot.classList.toggle('is-active', index === activeDotIndex);
     });
   }
-
-  grid.addEventListener('scroll', updateDots);
-
+  
+  function updateCarousel(index, smooth = true) {
+    if (isTransitioning) return;
+    
+    let targetIndex = index;
+    
+    if (targetIndex < 0) {
+      targetIndex = originalEndIndex;
+      setTimeout(() => {
+        jumpToIndex(targetIndex);
+      }, 300);
+    } else if (targetIndex >= totalAllCards) {
+      targetIndex = originalStartIndex;
+      setTimeout(() => {
+        jumpToIndex(targetIndex);
+      }, 300);
+    }
+    
+    const scrollPosition = targetIndex * (cardWidth + gap);
+    
+    if (smooth) {
+      grid.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+    } else {
+      grid.scrollLeft = scrollPosition;
+    }
+    
+    currentIndex = targetIndex;
+    updateDots();
+    updateButtonStates();
+  }
+  
+  function jumpToIndex(index) {
+    isTransitioning = true;
+    const scrollPosition = index * (cardWidth + gap);
+    grid.scrollLeft = scrollPosition;
+    currentIndex = index;
+    
+    setTimeout(() => {
+      isTransitioning = false;
+      updateButtonStates();
+    }, 50);
+  }
+  
   prevBtn.addEventListener('click', () => {
-    const gap = getGap();
-    grid.scrollBy({ left: -(cards[0].offsetWidth + gap), behavior: 'smooth' });
+    if (isTransitioning) return;
+    if (currentIndex > originalStartIndex) {
+      updateCarousel(currentIndex - 1);
+    }
   });
-
+  
   nextBtn.addEventListener('click', () => {
-    const gap = getGap();
-    grid.scrollBy({ left: (cards[0].offsetWidth + gap), behavior: 'smooth' });
+    if (isTransitioning) return;
+    if (currentIndex < originalEndIndex) {
+      updateCarousel(currentIndex + 1);
+    }
   });
+  
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      if (isTransitioning) return;
+      const targetCardIndex = originalStartIndex + index;
+      if (targetCardIndex >= originalStartIndex && targetCardIndex <= originalEndIndex) {
+        updateCarousel(targetCardIndex);
+      }
+    });
+  });
+  
+  let scrollTimeout;
+  grid.addEventListener('scroll', () => {
+    if (isTransitioning) return;
+    
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      const scrollPosition = grid.scrollLeft;
+      const cardTotalWidth = cardWidth + gap;
+      let nearestIndex = Math.round(scrollPosition / cardTotalWidth);
+      
+      nearestIndex = Math.max(0, Math.min(nearestIndex, totalAllCards - 1));
+      
+      if (nearestIndex < originalStartIndex) {
+        const wrappedIndex = originalEndIndex - (originalStartIndex - nearestIndex - 1);
+        updateCarousel(wrappedIndex, false);
+      } else if (nearestIndex > originalEndIndex) {
+        const wrappedIndex = originalStartIndex + (nearestIndex - originalEndIndex - 1);
+        updateCarousel(wrappedIndex, false);
+      } else if (nearestIndex !== currentIndex) {
+        updateCarousel(nearestIndex, false);
+      }
+    }, 100);
+  });
+  
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  if (wrapper) {
+    wrapper.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    wrapper.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeThreshold = 50;
+      
+      if (touchEndX < touchStartX - swipeThreshold) {
+        nextBtn.click();
+      } else if (touchEndX > touchStartX + swipeThreshold) {
+        prevBtn.click();
+      }
+    });
+  }
+  
+  document.addEventListener('keydown', (e) => {
+    const rect = section.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (!isVisible) return;
+    
+    if (e.key === 'ArrowLeft') {
+      prevBtn.click();
+      e.preventDefault();
+    } else if (e.key === 'ArrowRight') {
+      nextBtn.click();
+      e.preventDefault();
+    }
+  });
+  
+  function initialize() {
+    getDimensions();
+    grid.style.scrollBehavior = 'auto';
+    grid.scrollLeft = originalStartIndex * (cardWidth + gap);
+    currentIndex = originalStartIndex;
+    grid.style.scrollBehavior = '';
+    updateDots();
+    updateButtonStates();
+  }
+  
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      getDimensions();
+      jumpToIndex(currentIndex);
+    }, 250);
+  });
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    initialize();
+  }
 });
 </script>
 
