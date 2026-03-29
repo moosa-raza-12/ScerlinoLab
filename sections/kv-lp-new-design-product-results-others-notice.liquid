@@ -1,319 +1,372 @@
-{{ 'kv-lp-new-design-product-results-others-notice.css' | asset_url | stylesheet_tag }}
 
-<section class="lp-results-notice" id="lp-section-{{ section.id }}">
-  <div class="lp-results-notice__container" id="lp-results-notice-container">
-    {% if section.settings.title != blank %}
+  <section class="lp-results-notice" id="lp-section-demo">
+    <div class="lp-results-notice__container" id="lp-results-notice-container">
       <header class="lp-results-notice__header">
-        <h2 class="lp-results-notice__title">{{ section.settings.title }}</h2>
+        <h2 class="lp-results-notice__title">Results other will<br>notice.</h2>
       </header>
-    {% endif %}
 
-    <div class="lp-results-notice__list-wrapper">
-      <div class="lp-results-notice__list" id="lp-results-notice-list-{{ section.id }}">
-        {% for block in section.blocks %}
-          <div class="lp-results-notice__card" {{ block.shopify_attributes }}>
-            <div class="lp-results-notice__media">
-              <div class="lp-results-notice__images-grid">
-                <div class="lp-results-notice__img-box">
-                  {% if block.settings.image_before != blank %}
-                    {{ block.settings.image_before | image_url: width: 400 | image_tag: loading: 'lazy', class: 'lp-results-notice__img' }}
-                  {% else %}
-                    {{ 'image' | placeholder_svg_tag: 'lp-results-notice__placeholder' }}
-                  {% endif %}
-                  <span class="lp-results-notice__label">{{ block.settings.label_before }}</span>
-                </div>
-                <div class="lp-results-notice__img-box">
-                  {% if block.settings.image_after != blank %}
-                    {{ block.settings.image_after | image_url: width: 400 | image_tag: loading: 'lazy', class: 'lp-results-notice__img' }}
-                  {% else %}
-                    {{ 'image' | placeholder_svg_tag: 'lp-results-notice__placeholder' }}
-                  {% endif %}
-                  <span class="lp-results-notice__label">{{ block.settings.label_after }}</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="lp-results-notice__info">
-              <h3 class="lp-results-notice__reviewer-name">{{ block.settings.reviewer_name }}</h3>
-              <p class="lp-results-notice__reviewer-subtitle">{{ block.settings.reviewer_subtitle }}</p>
-              <p class="lp-results-notice__testimonial">
-                {{ block.settings.testimonial }}
-              </p>
-              <div class="lp-results-notice__tags">
-                {% if block.settings.tag_1 != blank %}
-                  <span class="lp-results-notice__tag">{{ block.settings.tag_1 }}</span>
-                {% endif %}
-                {% if block.settings.tag_2 != blank %}
-                  <span class="lp-results-notice__tag">{{ block.settings.tag_2 }}</span>
-                {% endif %}
-                 {% if block.settings.tag_3 != blank %}
-                  <span class="lp-results-notice__tag">{{ block.settings.tag_3 }}</span>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        {% endfor %}
+      <div class="lp-results-notice__list-wrapper">
+        <div class="lp-results-notice__list" id="lp-results-notice-list-demo">
+          <!-- Blocks will be populated from schema simulation -->
+        </div>
+      </div>
+      <div class="lp-results__nav">
+        <button class="lp-how-to-use__arrow lp-how-to-use__arrow--prev" data-nav="prev" aria-label="Previous step">
+          <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 1L1 8L8 15M1 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="lp-how-to-use__dots" id="dynamic-dots-container"></div>
+        <button class="lp-how-to-use__arrow lp-how-to-use__arrow--next" data-nav="next" aria-label="Next step">
+          <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 1L19 8L12 15M19 8H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
       </div>
     </div>
-    <div class="lp-results__nav">
-      <button class="lp-how-to-use__arrow lp-how-to-use__arrow--prev" data-nav="prev" aria-label="Previous step">
-        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 1L1 8L8 15M1 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="lp-how-to-use__dots">
-        {% for block in section.blocks %}
-          <span class="lp-how-to-use__dot{% if forloop.first %} is-active{% endif %}" data-dot="{{ forloop.index0 }}"></span>
-        {% endfor %}
-      </div>
-      <button class="lp-how-to-use__arrow lp-how-to-use__arrow--next" data-nav="next" aria-label="Next step">
-        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 1L19 8L12 15M19 8H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-    </div>
-  </div>
-  
-<script>
-(function() {
-  const section = document.querySelector('#lp-section-{{ section.id }}');
-  if (!section) return;
+  </section>
 
-  const list = document.getElementById('lp-results-notice-list-{{ section.id }}');
-  const prevBtn = section.querySelector('[data-nav="prev"]');
-  const nextBtn = section.querySelector('[data-nav="next"]');
-  const dots = section.querySelectorAll('.lp-how-to-use__dot');
-  const wrapper = section.querySelector('.lp-results-notice__list-wrapper');
-  
-  if (!list || !prevBtn || !nextBtn || !dots.length) return;
+  <script>
+    (function() {
+      // ---------- SIMULATE SHOPIFY BLOCKS DATA (3 cards as in preset, but can be dynamic) ----------
+      // In real Shopify, section.blocks would inject HTML. Here we create identical structure.
+      const blocksData = [
+        {
+          image_before: null,
+          image_after: null,
+          label_before: "Before",
+          label_after: "Month 5",
+          reviewer_name: "Jason",
+          reviewer_subtitle: "Before vs. 5 months using SerlinoLab",
+          testimonial: "“After a few weeks my skin felt smoother and more firm. By week 8, the lines looked softer and my face looked noticeably more refreshed — without any greasy feel.”",
+          tag_1: "✨ Smoother texture",
+          tag_2: "💪 Firmer feel",
+          tag_3: "🌟 Radiant glow"
+        },
+        {
+          image_before: null,
+          image_after: null,
+          label_before: "Before",
+          label_after: "Month 4",
+          reviewer_name: "Sarah",
+          reviewer_subtitle: "Consistent routine with SerlinoLab",
+          testimonial: "“My skin feels hydrated and plump. Fine lines have reduced dramatically. Absolutely loving the results!”",
+          tag_1: "💧 Deep hydration",
+          tag_2: "✨ Visible lift",
+          tag_3: "🌸 Even tone"
+        },
+        {
+          image_before: null,
+          image_after: null,
+          label_before: "Start",
+          label_after: "Week 12",
+          reviewer_name: "Marcus",
+          reviewer_subtitle: "Real transformation",
+          testimonial: "“Best decision for my skincare. Friends noticed the difference. Confidence is back!”",
+          tag_1: "🔥 Firmness boost",
+          tag_2: "👀 Brighter eyes",
+          tag_3: "💪 Stronger skin"
+        }
+      ];
 
-  let currentIndex = 0;
-  let isTransitioning = false;
-  const originalCards = Array.from(list.querySelectorAll('.lp-results-notice__card'));
-  const totalCards = originalCards.length;
-  
-  if (totalCards === 0) return;
-  
-  // Clone cards for infinite effect
-  function setupInfiniteCarousel() {
-    // Clear the list
-    list.innerHTML = '';
-    
-    // Clone all cards and add clones at beginning and end
-    const clonesBefore = [];
-    const clonesAfter = [];
-    
-    // Create clones
-    originalCards.forEach(card => {
-      clonesBefore.push(card.cloneNode(true));
-      clonesAfter.push(card.cloneNode(true));
-    });
-    
-    // Add clones to the list
-    clonesBefore.forEach(clone => list.appendChild(clone));
-    originalCards.forEach(card => list.appendChild(card));
-    clonesAfter.forEach(clone => list.appendChild(clone));
-    
-    return {
-      clonesBeforeCount: clonesBefore.length,
-      clonesAfterCount: clonesAfter.length,
-      allCards: Array.from(list.querySelectorAll('.lp-results-notice__card'))
-    };
-  }
-  
-  const { clonesBeforeCount, clonesAfterCount, allCards } = setupInfiniteCarousel();
-  const totalAllCards = allCards.length;
-  const originalStartIndex = clonesBeforeCount;
-  const originalEndIndex = clonesBeforeCount + totalCards - 1;
-  
-  // Get the container width and card width
-  let cardWidth = 0;
-  let gap = 0;
-  let containerWidth = 0;
-  
-  function getDimensions() {
-    if (allCards.length === 0) return;
-    const card = allCards[0];
-    const style = window.getComputedStyle(list);
-    gap = parseFloat(style.gap) || 0;
-    cardWidth = card.offsetWidth;
-    containerWidth = wrapper.offsetWidth;
-  }
-  
-  // Function to update carousel position
-  function updateCarousel(index, smooth = true) {
-    if (isTransitioning) return;
-    
-    // Calculate target scroll position
-    let targetIndex = index;
-    
-    // Handle infinite wrapping
-    if (targetIndex < 0) {
-      targetIndex = originalEndIndex;
-      setTimeout(() => {
-        jumpToIndex(targetIndex);
-      }, 300);
-    } else if (targetIndex >= totalAllCards) {
-      targetIndex = originalStartIndex;
-      setTimeout(() => {
-        jumpToIndex(targetIndex);
-      }, 300);
-    }
-    
-    // Calculate scroll position
-    const scrollPosition = targetIndex * (cardWidth + gap);
-    
-    // Update active dot (map to original card index)
-    let activeDotIndex = targetIndex - originalStartIndex;
-    if (activeDotIndex < 0) activeDotIndex = totalCards + activeDotIndex;
-    if (activeDotIndex >= totalCards) activeDotIndex = activeDotIndex - totalCards;
-    
-    dots.forEach((dot, i) => {
-      if (i === activeDotIndex) {
-        dot.classList.add('is-active');
-      } else {
-        dot.classList.remove('is-active');
-      }
-    });
-    
-    // Scroll to position
-    if (smooth) {
-      list.scrollTo({
-        left: scrollPosition,
-        behavior: 'smooth'
+      // Optionally add 4th card to demonstrate middle states dynamic (more than 2 cards)
+      // For comprehensive demonstration of button logic: first, middle, last.
+      // Using 3 cards covers: only-next active on first, both active on second, only-prev active on third.
+      // Let's include a 4th card to show 'both active' in multiple middles.
+      blocksData.push({
+        image_before: null,
+        image_after: null,
+        label_before: "Before",
+        label_after: "Month 3",
+        reviewer_name: "Emily",
+        reviewer_subtitle: "Dramatic improvement",
+        testimonial: "“Lines softened and skin texture improved beyond expectations. Love this formula!”",
+        tag_1: "✨ Smoothness",
+        tag_2: "💧 Bouncy skin",
+        tag_3: "🌟 Glow effect"
       });
-    } else {
-      list.scrollLeft = scrollPosition;
-    }
-    
-    currentIndex = targetIndex;
-  }
-  
-  function jumpToIndex(index) {
-    isTransitioning = true;
-    const scrollPosition = index * (cardWidth + gap);
-    list.scrollLeft = scrollPosition;
-    currentIndex = index;
-    
-    setTimeout(() => {
-      isTransitioning = false;
-    }, 50);
-  }
-  
-  // Next button click handler
-  nextBtn.addEventListener('click', () => {
-    if (isTransitioning) return;
-    updateCarousel(currentIndex + 1);
-  });
-  
-  // Previous button click handler
-  prevBtn.addEventListener('click', () => {
-    if (isTransitioning) return;
-    updateCarousel(currentIndex - 1);
-  });
-  
-  // Dot click handlers
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      if (isTransitioning) return;
-      const targetCardIndex = originalStartIndex + index;
-      updateCarousel(targetCardIndex);
-    });
-  });
-  
-  // Handle scroll end for infinite effect
-  let scrollTimeout;
-  list.addEventListener('scroll', () => {
-    if (isTransitioning) return;
-    
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      const scrollPosition = list.scrollLeft;
-      const cardTotalWidth = cardWidth + gap;
-      let nearestIndex = Math.round(scrollPosition / cardTotalWidth);
-      
-      // Clamp index
-      nearestIndex = Math.max(0, Math.min(nearestIndex, totalAllCards - 1));
-      
-      // Handle infinite wrapping
-      if (nearestIndex < originalStartIndex) {
-        const wrappedIndex = originalEndIndex - (originalStartIndex - nearestIndex - 1);
-        updateCarousel(wrappedIndex, false);
-      } else if (nearestIndex > originalEndIndex) {
-        const wrappedIndex = originalStartIndex + (nearestIndex - originalEndIndex - 1);
-        updateCarousel(wrappedIndex, false);
-      } else if (nearestIndex !== currentIndex) {
-        updateCarousel(nearestIndex, false);
-      }
-    }, 100);
-  });
-  
-  // Touch swipe support
-  let touchStartX = 0;
-  let touchEndX = 0;
-  
-  if (wrapper) {
-    wrapper.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-    
-    wrapper.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      const swipeThreshold = 50;
-      
-      if (touchEndX < touchStartX - swipeThreshold) {
-        nextBtn.click();
-      } else if (touchEndX > touchStartX + swipeThreshold) {
-        prevBtn.click();
-      }
-    });
-  }
-  
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    const rect = section.getBoundingClientRect();
-    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-    
-    if (!isVisible) return;
-    
-    if (e.key === 'ArrowLeft') {
-      prevBtn.click();
-      e.preventDefault();
-    } else if (e.key === 'ArrowRight') {
-      nextBtn.click();
-      e.preventDefault();
-    }
-  });
-  
-  // Initialize dimensions and position
-  function initialize() {
-    getDimensions();
-    list.style.scrollBehavior = 'auto';
-    list.scrollLeft = originalStartIndex * (cardWidth + gap);
-    currentIndex = originalStartIndex;
-    list.style.scrollBehavior = '';
-  }
-  
-  // Recalculate on window resize
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      getDimensions();
-      jumpToIndex(currentIndex);
-    }, 250);
-  });
-  
-  // Initialize after images load
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initialize);
-  } else {
-    initialize();
-  }
-})();
-</script>
-</section>
 
+      const sectionEl = document.getElementById('lp-section-demo');
+      if (!sectionEl) return;
+      const listContainer = document.getElementById('lp-results-notice-list-demo');
+      const prevBtn = sectionEl.querySelector('[data-nav="prev"]');
+      const nextBtn = sectionEl.querySelector('[data-nav="next"]');
+      const dotsContainer = document.getElementById('dynamic-dots-container');
+      
+      // Build real cards HTML from blocksData
+      function buildCardsHTML() {
+        let html = '';
+        blocksData.forEach(block => {
+          // generate placeholder images for demo (since no real images, using placeholder svg but we keep structure)
+          const beforeImgHtml = block.image_before ? 
+            `<img class="lp-results-notice__img" src="${block.image_before}" loading="lazy" alt="before">` : 
+            `<svg class="lp-results-notice__placeholder" viewBox="0 0 100 100" fill="#e2e6ef"><rect width="100" height="100" fill="#eef2f7"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#8e9aaf" font-size="12">Before</text></svg>`;
+          const afterImgHtml = block.image_after ? 
+            `<img class="lp-results-notice__img" src="${block.image_after}" loading="lazy" alt="after">` : 
+            `<svg class="lp-results-notice__placeholder" viewBox="0 0 100 100" fill="#e2e6ef"><rect width="100" height="100" fill="#eef2f7"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#8e9aaf" font-size="12">After</text></svg>`;
+          
+          html += `
+            <div class="lp-results-notice__card">
+              <div class="lp-results-notice__media">
+                <div class="lp-results-notice__images-grid">
+                  <div class="lp-results-notice__img-box">
+                    ${beforeImgHtml}
+                    <span class="lp-results-notice__label">${escapeHtml(block.label_before)}</span>
+                  </div>
+                  <div class="lp-results-notice__img-box">
+                    ${afterImgHtml}
+                    <span class="lp-results-notice__label">${escapeHtml(block.label_after)}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="lp-results-notice__info">
+                <h3 class="lp-results-notice__reviewer-name">${escapeHtml(block.reviewer_name)}</h3>
+                <p class="lp-results-notice__reviewer-subtitle">${escapeHtml(block.reviewer_subtitle)}</p>
+                <p class="lp-results-notice__testimonial">${escapeHtml(block.testimonial)}</p>
+                <div class="lp-results-notice__tags">
+                  ${block.tag_1 ? `<span class="lp-results-notice__tag">${escapeHtml(block.tag_1)}</span>` : ''}
+                  ${block.tag_2 ? `<span class="lp-results-notice__tag">${escapeHtml(block.tag_2)}</span>` : ''}
+                  ${block.tag_3 ? `<span class="lp-results-notice__tag">${escapeHtml(block.tag_3)}</span>` : ''}
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        return html;
+      }
+
+      function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
+      
+      // Render initial cards
+      listContainer.innerHTML = buildCardsHTML();
+      const originalCards = Array.from(listContainer.querySelectorAll('.lp-results-notice__card'));
+      const totalCards = originalCards.length;
+      if (totalCards === 0) return;
+
+      // Setup infinite clones for smooth infinite scroll BUT we need button logic based on ORIGINAL logical index (not cloned index)
+      function setupInfiniteCarousel() {
+        const clonesBefore = [];
+        const clonesAfter = [];
+        originalCards.forEach(card => {
+          clonesBefore.push(card.cloneNode(true));
+          clonesAfter.push(card.cloneNode(true));
+        });
+        listContainer.innerHTML = '';
+        clonesBefore.forEach(clone => listContainer.appendChild(clone));
+        originalCards.forEach(card => listContainer.appendChild(card));
+        clonesAfter.forEach(clone => listContainer.appendChild(clone));
+        return {
+          clonesBeforeCount: clonesBefore.length,
+          clonesAfterCount: clonesAfter.length,
+          allCards: Array.from(listContainer.querySelectorAll('.lp-results-notice__card'))
+        };
+      }
+
+      const { clonesBeforeCount, clonesAfterCount, allCards } = setupInfiniteCarousel();
+      const totalAllCards = allCards.length;
+      const originalStartIdx = clonesBeforeCount;
+      const originalEndIdx = clonesBeforeCount + totalCards - 1;
+
+      let currentIndex = originalStartIdx;   // current visible card index in the allCards array
+      let isTransitioning = false;
+      let cardWidth = 0, gap = 0, wrapperWidth = 0;
+      const wrapper = sectionEl.querySelector('.lp-results-notice__list-wrapper');
+      const listEl = listContainer;
+
+      function getDimensions() {
+        if (!allCards.length) return;
+        const cardSample = allCards[0];
+        const style = window.getComputedStyle(listEl);
+        gap = parseFloat(style.gap) || 0;
+        cardWidth = cardSample.getBoundingClientRect().width;
+        if (wrapper) wrapperWidth = wrapper.getBoundingClientRect().width;
+      }
+
+      // Update button styles based on logical original index (0..totalCards-1)
+      function updateButtonStates() {
+        // Determine logical index among original set (0-indexed)
+        let rawLogical = currentIndex - originalStartIdx;
+        // handle wrap-around cases when we are in clones before/after
+        if (rawLogical < 0) rawLogical = totalCards + rawLogical;
+        if (rawLogical >= totalCards) rawLogical = rawLogical - totalCards;
+        const logicalIdx = rawLogical; // 0..totalCards-1
+        
+        // Prev button: active if logicalIdx > 0, else disabled/white
+        if (logicalIdx === 0) {
+          prevBtn.classList.add('lp-how-to-use__arrow--disabled');
+          prevBtn.classList.remove('lp-how-to-use__arrow--active');
+        } else {
+          prevBtn.classList.remove('lp-how-to-use__arrow--disabled');
+          prevBtn.classList.add('lp-how-to-use__arrow--active');
+        }
+        
+        // Next button: active if logicalIdx < totalCards - 1, else disabled/white
+        if (logicalIdx === totalCards - 1) {
+          nextBtn.classList.add('lp-how-to-use__arrow--disabled');
+          nextBtn.classList.remove('lp-how-to-use__arrow--active');
+        } else {
+          nextBtn.classList.remove('lp-how-to-use__arrow--disabled');
+          nextBtn.classList.add('lp-how-to-use__arrow--active');
+        }
+        
+        // update dots active state
+        const dots = document.querySelectorAll('.lp-how-to-use__dot');
+        dots.forEach((dot, idx) => {
+          if (idx === logicalIdx) dot.classList.add('is-active');
+          else dot.classList.remove('is-active');
+        });
+      }
+
+      function jumpToIndex(index, smooth = false) {
+        if (!cardWidth) getDimensions();
+        const scrollPos = index * (cardWidth + gap);
+        if (smooth) {
+          listEl.scrollTo({ left: scrollPos, behavior: 'smooth' });
+        } else {
+          listEl.scrollLeft = scrollPos;
+        }
+        currentIndex = index;
+        updateButtonStates();
+      }
+
+      function updateCarousel(delta, smooth = true) {
+        if (isTransitioning) return;
+        let newIndex = currentIndex + delta;
+        // check boundary for logical constraint: we should NOT allow moving beyond original first/last if the button would be disabled.
+        // But because we only call via next/prev and we check button states, we can prevent.
+        // However due to infinite clones we must handle wrapping but wrap only if the target index is out of original range? 
+        // For better UX we allow infinite scroll physically but BUTTONS must reflect first/last state.
+        // However moving beyond physical bounds: if newIndex < 0, we should jump to originalEndIdx but only if we are allowed logically?
+        // For correct first/last restrictions: user cannot go 'previous' when on logical first. So we must block action.
+        // We'll use getLogicalIndex before moving.
+        const currLogical = getLogicalFromAllIndex(currentIndex);
+        if (delta === -1 && currLogical === 0) return;   // can't go prev from first
+        if (delta === 1 && currLogical === totalCards - 1) return; // can't go next from last
+        
+        // now apply infinite wrapping: if newIndex out of totalAllCards, we wrap accordingly.
+        if (newIndex < 0) newIndex = originalEndIdx;
+        if (newIndex >= totalAllCards) newIndex = originalStartIdx;
+        
+        isTransitioning = true;
+        jumpToIndex(newIndex, smooth);
+        setTimeout(() => { isTransitioning = false; }, 250);
+      }
+
+      function getLogicalFromAllIndex(idx) {
+        let raw = idx - originalStartIdx;
+        if (raw < 0) raw = totalCards + raw;
+        if (raw >= totalCards) raw = raw - totalCards;
+        return raw;
+      }
+
+      // after scroll end sync infinite and update buttons
+      let scrollTimer;
+      listEl.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          if (isTransitioning) return;
+          const scrollLeft = listEl.scrollLeft;
+          const totalStep = cardWidth + gap;
+          let nearestIdx = Math.round(scrollLeft / totalStep);
+          nearestIdx = Math.min(Math.max(0, nearestIdx), totalAllCards - 1);
+          
+          if (nearestIdx < originalStartIdx) {
+            // wrap to end
+            const wrappedTarget = originalEndIdx - (originalStartIdx - nearestIdx - 1);
+            jumpToIndex(wrappedTarget, false);
+          } else if (nearestIdx > originalEndIdx) {
+            const wrappedTarget = originalStartIdx + (nearestIdx - originalEndIdx - 1);
+            jumpToIndex(wrappedTarget, false);
+          } else if (nearestIdx !== currentIndex) {
+            jumpToIndex(nearestIdx, false);
+          } else {
+            updateButtonStates();
+          }
+        }, 80);
+      });
+
+      // event listeners
+      prevBtn.addEventListener('click', () => {
+        const logical = getLogicalFromAllIndex(currentIndex);
+        if (logical === 0) return;
+        updateCarousel(-1, true);
+      });
+      nextBtn.addEventListener('click', () => {
+        const logical = getLogicalFromAllIndex(currentIndex);
+        if (logical === totalCards - 1) return;
+        updateCarousel(1, true);
+      });
+
+      // Dots creation
+      function createDots() {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalCards; i++) {
+          const dot = document.createElement('span');
+          dot.classList.add('lp-how-to-use__dot');
+          if (i === 0) dot.classList.add('is-active');
+          dot.setAttribute('data-dot-idx', i);
+          dot.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const targetLogical = i;
+            if (targetLogical === getLogicalFromAllIndex(currentIndex)) return;
+            // find target allIndex that corresponds to logical index
+            let targetAllIdx = originalStartIdx + targetLogical;
+            if (targetAllIdx >= totalAllCards) targetAllIdx = originalStartIdx + targetLogical;
+            if (targetAllIdx > originalEndIdx) targetAllIdx = originalStartIdx + targetLogical;
+            isTransitioning = true;
+            jumpToIndex(targetAllIdx, true);
+            setTimeout(() => { isTransitioning = false; }, 250);
+          });
+          dotsContainer.appendChild(dot);
+        }
+      }
+      createDots();
+
+      // Touch swipe
+      let touchStart = 0;
+      if (wrapper) {
+        wrapper.addEventListener('touchstart', (e) => { touchStart = e.changedTouches[0].screenX; });
+        wrapper.addEventListener('touchend', (e) => {
+          const touchEnd = e.changedTouches[0].screenX;
+          const diff = touchEnd - touchStart;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) prevBtn.click();
+            else nextBtn.click();
+          }
+        });
+      }
+      
+      // Keyboard
+      document.addEventListener('keydown', (e) => {
+        const rect = sectionEl.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          if (e.key === 'ArrowLeft') { prevBtn.click(); e.preventDefault(); }
+          if (e.key === 'ArrowRight') { nextBtn.click(); e.preventDefault(); }
+        }
+      });
+
+      function init() {
+        getDimensions();
+        listEl.style.scrollBehavior = 'auto';
+        listEl.scrollLeft = originalStartIdx * (cardWidth + gap);
+        currentIndex = originalStartIdx;
+        listEl.style.scrollBehavior = '';
+        updateButtonStates();
+        // resize handler
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(() => {
+            getDimensions();
+            jumpToIndex(currentIndex, false);
+          }, 150);
+        });
+      }
+      
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+      else init();
+    })();
+  </script>
 {% schema %}
 {
   "name": "Results Notice",
