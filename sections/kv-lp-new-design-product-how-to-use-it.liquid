@@ -90,33 +90,144 @@ document.addEventListener('DOMContentLoaded', function() {
   const prevBtn = section.querySelector('[data-nav="prev"]');
   const nextBtn = section.querySelector('[data-nav="next"]');
   const cards = section.querySelectorAll('.lp-how-to-use__card');
+  const totalCards = cards.length;
+  
+  if (totalCards === 0) return;
 
-  grid.scrollLeft = 0;
-
+  let currentScrollPosition = 0;
+  
   function getGap() {
     return parseFloat(getComputedStyle(grid).gap) || 20;
   }
 
+  function getCardWidth() {
+    return cards[0].offsetWidth;
+  }
+
+  function getTotalScrollWidth() {
+    return (getCardWidth() + getGap()) * totalCards - getGap();
+  }
+
+  function getMaxScrollLeft() {
+    return grid.scrollWidth - grid.clientWidth;
+  }
+
+  function updateButtonStates() {
+    const scrollLeft = grid.scrollLeft;
+    const maxScroll = getMaxScrollLeft();
+    const threshold = 5; // Small threshold for rounding errors
+    
+    // Update prev button state
+    if (scrollLeft <= threshold) {
+      prevBtn.classList.remove('is-active');
+    } else {
+      prevBtn.classList.add('is-active');
+    }
+    
+    // Update next button state
+    if (scrollLeft >= maxScroll - threshold) {
+      nextBtn.classList.remove('is-active');
+    } else {
+      nextBtn.classList.add('is-active');
+    }
+  }
+
   function updateDots() {
     const gap = getGap();
-    const cardWidth = cards[0].offsetWidth + gap;
-    const activeIndex = Math.round(grid.scrollLeft / cardWidth);
-
+    const cardWidth = getCardWidth();
+    const scrollPosition = grid.scrollLeft;
+    const activeIndex = Math.round(scrollPosition / (cardWidth + gap));
+    
     dots.forEach((dot, index) => {
       dot.classList.toggle('is-active', index === activeIndex);
     });
   }
 
-  grid.addEventListener('scroll', updateDots);
-
-  prevBtn.addEventListener('click', () => {
+  function scrollToCard(index) {
     const gap = getGap();
-    grid.scrollBy({ left: -(cards[0].offsetWidth + gap), behavior: 'smooth' });
+    const cardWidth = getCardWidth();
+    const scrollPosition = index * (cardWidth + gap);
+    
+    grid.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth'
+    });
+  }
+
+  // Update states on scroll
+  grid.addEventListener('scroll', function() {
+    updateDots();
+    updateButtonStates();
   });
 
+  // Previous button click
+  prevBtn.addEventListener('click', () => {
+    const gap = getGap();
+    const cardWidth = getCardWidth();
+    const currentScroll = grid.scrollLeft;
+    const newScroll = currentScroll - (cardWidth + gap);
+    
+    if (newScroll >= 0) {
+      grid.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+    }
+  });
+
+  // Next button click
   nextBtn.addEventListener('click', () => {
     const gap = getGap();
-    grid.scrollBy({ left: (cards[0].offsetWidth + gap), behavior: 'smooth' });
+    const cardWidth = getCardWidth();
+    const currentScroll = grid.scrollLeft;
+    const maxScroll = getMaxScrollLeft();
+    const newScroll = currentScroll + (cardWidth + gap);
+    
+    if (newScroll <= maxScroll) {
+      grid.scrollBy({ left: (cardWidth + gap), behavior: 'smooth' });
+    }
+  });
+
+  // Dot click handlers
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      scrollToCard(index);
+    });
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const wrapper = section.querySelector('.lp-how-to-use__grid-wrapper');
+  
+  if (wrapper) {
+    wrapper.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    wrapper.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeThreshold = 50;
+      
+      if (touchEndX < touchStartX - swipeThreshold) {
+        nextBtn.click();
+      } else if (touchEndX > touchStartX + swipeThreshold) {
+        prevBtn.click();
+      }
+    });
+  }
+
+  // Initialize button states
+  setTimeout(() => {
+    updateButtonStates();
+    updateDots();
+  }, 100);
+
+  // Update on window resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      updateButtonStates();
+      updateDots();
+    }, 250);
   });
 });
 </script>
