@@ -258,6 +258,26 @@
   background-color: #1A2A49;
   color: #ffffff;
 }
+
+.lp-pharmacists-arrow--next.is-active {
+  background-color: #1A2A49;
+  color: #ffffff;
+}
+
+.lp-pharmacists-arrow:not(.is-active) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lp-pharmacists-arrow--prev:not(.is-active) {
+  background-color: #ffffff;
+  color: var(--text-dark, #17162e);
+}
+
+.lp-pharmacists-arrow--next:not(.is-active) {
+  background-color: #ffffff;
+  color: var(--text-dark, #17162e);
+}
 .lp-pharmacists-arrow {
   transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   cursor: pointer;
