@@ -250,7 +250,10 @@
   margin-top: 20px;
   width: 100%;
 }
-
+.lp-pharmacists-arrow {
+  transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
 .lp-pharmacists-arrow {
   width: 48px;
   height: 32px;
