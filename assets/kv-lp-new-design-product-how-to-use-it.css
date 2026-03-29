@@ -214,6 +214,49 @@
   color: #ffffff;
 }
 
+/* NEW CSS FOR BUTTON STATES - START */
+.lp-how-to-use__arrow {
+  transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.lp-how-to-use__arrow.is-active {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.lp-how-to-use__arrow--prev.is-active {
+  background-color: #1A2A49;
+  color: #ffffff;
+}
+
+.lp-how-to-use__arrow--next.is-active {
+  background-color: #1A2A49;
+  color: #ffffff;
+}
+
+.lp-how-to-use__arrow:not(.is-active) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lp-how-to-use__arrow--prev:not(.is-active) {
+  background-color: #ffffff;
+  color: var(--text-dark);
+}
+
+.lp-how-to-use__arrow--next:not(.is-active) {
+  background-color: #ffffff;
+  color: var(--text-dark);
+}
+
+/* Optional hover effect for active buttons */
+.lp-how-to-use__arrow.is-active:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+/* NEW CSS FOR BUTTON STATES - END */
+
 .lp-how-to-use__dots {
   display: flex;
   gap: 7px;
