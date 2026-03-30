@@ -184,9 +184,9 @@
   background: transparent !important;
 }
 
-.lp-comparison-table__cell--feature {
+/* .lp-comparison-table__cell--feature {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
+} */
 
 .lp-comparison-table__col--brand .lp-comparison-table__cell {
   color: #0A1124;
