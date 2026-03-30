@@ -59,7 +59,10 @@
         {% if total_slides > 1 %}
           <div class="lp-product-gallery__nav">
             <button class="lp-product-gallery__arrow lp-product-gallery__arrow--prev" aria-label="Previous">
-              <svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M8 1L1 8L8 15M1 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="lp-product-gallery__icon-active" width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M8 1L1 8L8 15M1 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="lp-product-gallery__icon-disabled" xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16" fill="none">
+                <path d="M8.18525 0C8.45091 0 8.67349 0.0879498 8.85299 0.263851C9.03249 0.432717 9.12224 0.647317 9.12224 0.907651C9.12224 1.0343 9.1007 1.15391 9.05762 1.26649C9.01454 1.3861 8.94992 1.48813 8.86376 1.57256L6.45127 3.97889L1.96015 8L6.45127 12.0211L8.86376 14.4274C8.94992 14.5119 9.01454 14.6104 9.05762 14.723C9.1007 14.8426 9.12224 14.9657 9.12224 15.0923C9.12224 15.3527 9.03249 15.5673 8.85299 15.7361C8.67349 15.912 8.45091 16 8.18525 16C8.056 16 7.93394 15.9754 7.81906 15.9261C7.697 15.8769 7.57853 15.796 7.46365 15.6834L0.323101 8.70712C0.1077 8.50308 0 8.26737 0 8C0 7.73263 0.1077 7.49692 0.323101 7.29288L7.48519 0.295514C7.69341 0.0985041 7.92676 0 8.18525 0ZM19.0522 7.06069C19.3323 7.06069 19.562 7.14864 19.7415 7.32454C19.9138 7.50044 20 7.72559 20 8C20 8.27441 19.9138 8.49956 19.7415 8.67546C19.562 8.85136 19.3323 8.93931 19.0522 8.93931L5.42811 8.93931L1.96015 8.72823C1.73757 8.71416 1.55807 8.6438 1.42165 8.51715C1.28523 8.3905 1.21702 8.21812 1.21702 8C1.21702 7.78892 1.28523 7.62005 1.42165 7.4934C1.55807 7.36675 1.73757 7.29288 1.96015 7.27177L5.42811 7.06069L19.0522 7.06069Z" fill="#1A2A49"/>
+              </svg>
             </button>
             <div class="lp-product-gallery__dots">
               {% for i in (1..total_slides) %}
@@ -67,7 +70,10 @@
               {% endfor %}
             </div>
             <button class="lp-product-gallery__arrow lp-product-gallery__arrow--next" aria-label="Next">
-              <svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M12 1L19 8L12 15M19 8H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="lp-product-gallery__icon-active" width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M12 1L19 8L12 15M19 8H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="lp-product-gallery__icon-disabled" xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16" fill="none" style="transform: scaleX(-1);">
+                <path d="M8.18525 0C8.45091 0 8.67349 0.0879498 8.85299 0.263851C9.03249 0.432717 9.12224 0.647317 9.12224 0.907651C9.12224 1.0343 9.1007 1.15391 9.05762 1.26649C9.01454 1.3861 8.94992 1.48813 8.86376 1.57256L6.45127 3.97889L1.96015 8L6.45127 12.0211L8.86376 14.4274C8.94992 14.5119 9.01454 14.6104 9.05762 14.723C9.1007 14.8426 9.12224 14.9657 9.12224 15.0923C9.12224 15.3527 9.03249 15.5673 8.85299 15.7361C8.67349 15.912 8.45091 16 8.18525 16C8.056 16 7.93394 15.9754 7.81906 15.9261C7.697 15.8769 7.57853 15.796 7.46365 15.6834L0.323101 8.70712C0.1077 8.50308 0 8.26737 0 8C0 7.73263 0.1077 7.49692 0.323101 7.29288L7.48519 0.295514C7.69341 0.0985041 7.92676 0 8.18525 0ZM19.0522 7.06069C19.3323 7.06069 19.562 7.14864 19.7415 7.32454C19.9138 7.50044 20 7.72559 20 8C20 8.27441 19.9138 8.49956 19.7415 8.67546C19.562 8.85136 19.3323 8.93931 19.0522 8.93931L5.42811 8.93931L1.96015 8.72823C1.73757 8.71416 1.55807 8.6438 1.42165 8.51715C1.28523 8.3905 1.21702 8.21812 1.21702 8C1.21702 7.78892 1.28523 7.62005 1.42165 7.4934C1.55807 7.36675 1.73757 7.29288 1.96015 7.27177L5.42811 7.06069L19.0522 7.06069Z" fill="#1A2A49"/>
+              </svg>
             </button>
           </div>
         {% endif %}
@@ -506,17 +512,56 @@ document.addEventListener('DOMContentLoaded', function() {
   const nextBtn = section.querySelector('.lp-product-gallery__arrow--next');
   let currentSlide = 0;
 
+  function updateGalleryButtonStates() {
+    if (!prevBtn || !nextBtn) return;
+
+    if (currentSlide === 0) {
+      prevBtn.classList.add('is-disabled');
+      prevBtn.classList.remove('is-active');
+      prevBtn.setAttribute('disabled', '');
+      prevBtn.setAttribute('aria-disabled', 'true');
+    } else {
+      prevBtn.classList.remove('is-disabled');
+      prevBtn.classList.add('is-active');
+      prevBtn.removeAttribute('disabled');
+      prevBtn.setAttribute('aria-disabled', 'false');
+    }
+
+    if (currentSlide === items.length - 1) {
+      nextBtn.classList.add('is-disabled');
+      nextBtn.classList.remove('is-active');
+      nextBtn.setAttribute('disabled', '');
+      nextBtn.setAttribute('aria-disabled', 'true');
+    } else {
+      nextBtn.classList.remove('is-disabled');
+      nextBtn.classList.add('is-active');
+      nextBtn.removeAttribute('disabled');
+      nextBtn.setAttribute('aria-disabled', 'false');
+    }
+  }
+
   function goToSlide(index) {
     if (items.length === 0) return;
-    currentSlide = (index + items.length) % items.length;
+    if (index < 0) index = 0;
+    if (index >= items.length) index = items.length - 1;
+    currentSlide = index;
     track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
     dots.forEach(function(dot, i) {
       dot.classList.toggle('active', i === currentSlide);
     });
+    updateGalleryButtonStates();
   }
 
-  if (prevBtn) prevBtn.addEventListener('click', function() { goToSlide(currentSlide - 1); });
-  if (nextBtn) nextBtn.addEventListener('click', function() { goToSlide(currentSlide + 1); });
+  if (prevBtn) prevBtn.addEventListener('click', function() {
+    if (prevBtn.hasAttribute('disabled')) return;
+    goToSlide(currentSlide - 1);
+  });
+  if (nextBtn) nextBtn.addEventListener('click', function() {
+    if (nextBtn.hasAttribute('disabled')) return;
+    goToSlide(currentSlide + 1);
+  });
+
+  updateGalleryButtonStates();
   dots.forEach(function(dot, i) {
     dot.addEventListener('click', function() { goToSlide(i); });
   });
