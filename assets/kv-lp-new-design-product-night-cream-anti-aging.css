@@ -230,7 +230,7 @@ margin: 0;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-/* max-width: 116px; */
+width: 33%;
 }
 .lp-benefit-icon svg {
   display: block;
