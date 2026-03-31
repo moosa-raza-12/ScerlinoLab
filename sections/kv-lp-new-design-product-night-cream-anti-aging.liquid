@@ -720,22 +720,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* --- Testimonial Video: Autoplay on Hover --- */
   /* --- Testimonial Video: Play/Pause with unmute option --- */
-/* --- Testimonial Video: Play on Click with Sound --- */
-/* --- Testimonial Video: Play/Pause Toggle --- */
 section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
   var video = card.querySelector('.lp-video-native');
   var playBtn = card.querySelector('.lp-video-play');
   if (!video) return;
 
   var isPlaying = false;
+  var isUnmuted = false;
 
   function playVideo() {
-    video.muted = false; // Ensure sound is on
-    video.play().catch(function(error) {
-      console.log('Autoplay with sound blocked:', error);
-    });
+    video.currentTime = 0;
+    video.play().catch(function(){});
     isPlaying = true;
     card.classList.add('is-playing');
+    
+    // Only unmute if user has previously unmuted or clicked play button
+    if (!isUnmuted) {
+      // Keep muted for autoplay
+      video.muted = true;
+    }
   }
 
   function pauseVideo() {
@@ -744,24 +747,55 @@ section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
     card.classList.remove('is-playing');
   }
 
+  function togglePlayWithSound() {
+    if (isPlaying) {
+      if (video.muted) {
+        // If playing but muted, unmute
+        video.muted = false;
+        isUnmuted = true;
+      } else {
+        // If playing with sound, pause
+        pauseVideo();
+      }
+    } else {
+      // Start playing with sound
+      video.muted = false;
+      isUnmuted = true;
+      playVideo();
+    }
+  }
+
+  /* Desktop: hover to play muted */
+  card.addEventListener('mouseenter', playVideo);
+  card.addEventListener('mouseleave', pauseVideo);
+
+  /* Play button click: toggle with sound */
   if (playBtn) {
     playBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      if (isPlaying) {
-        pauseVideo(); // Pause without resetting
-      } else {
-        playVideo();
-      }
+      e.stopPropagation(); // Prevent triggering hover events
+      togglePlayWithSound();
     });
   }
-  
-  // Optional: When video ends, reset button state
-  video.addEventListener('ended', function() {
-    isPlaying = false;
-    card.classList.remove('is-playing');
-    video.currentTime = 0; // Reset to beginning when ended
-  });
 });
+
+  /* --- Quick Link Pills: smooth scroll to target section --- */
+  section.querySelectorAll('.lp-pill--scroll').forEach(function(pill) {
+    pill.addEventListener('click', function(e) {
+      var targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      var targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        /* Account for sticky header height + a small gap */
+        var stickyHeader = document.querySelector('sticky-header') || document.querySelector('.shopify-section-header');
+        var headerOffset = stickyHeader ? stickyHeader.offsetHeight : 0;
+        var elementPosition = targetEl.getBoundingClientRect().top + window.pageYOffset;
+        var offsetPosition = elementPosition - headerOffset - 16;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      }
+    });
+  });
 
   /* --- Testimonials scroll bar (progress bar synced with scroll) --- */
   var slider = section.querySelector('.lp-testimonials__slider');
