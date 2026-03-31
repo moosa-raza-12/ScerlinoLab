@@ -249,11 +249,11 @@
 
     var isPlaying = false;
     var userPaused = false;
-
+var btnP=document.querySelectorAll(".lp-pharmacist-play-btn")
     function play() {
       video.play().catch(function(error) {
         console.log('Play failed:', error);
-        if (playBtn) playBtn.style.opacity = '0';
+        if (playBtn) btnP.style.opacity = '0';
       });
       isPlaying = true;
       card.classList.add('is-playing');
