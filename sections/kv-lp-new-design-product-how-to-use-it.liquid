@@ -36,7 +36,7 @@
     </div>
   </div>
   <!-- ADD THIS NEW DIV -->
-  <div class="lp-how-to-use__advice-content" data-advice-content style="display: none;">
+  <div class="lp-how-to-use__advice-content" data-advice-content">
     {% if section.settings.advice_content != blank %}
       {{ section.settings.advice_content }}
     {% else %}
@@ -105,22 +105,22 @@ document.addEventListener('DOMContentLoaded', function() {
   const section = document.querySelector('#lp-how-to-use-{{ section.id }}');
   if (!section) return;
 
- const adviceToggle = section.querySelector('[data-advice-toggle]');
+const adviceToggle = section.querySelector('[data-advice-toggle]');
 const adviceContent = section.querySelector('[data-advice-content]');
 const plusIcon = section.querySelector('.lp-how-to-use__icon-plus');
 const minusIcon = section.querySelector('.lp-how-to-use__icon-minus');
 
 if (adviceToggle && adviceContent) {
   adviceToggle.addEventListener('click', function() {
-    const isOpen = adviceContent.style.display === 'block';
+    const isOpen = adviceContent.classList.contains('is-open');
     
     if (isOpen) {
-      adviceContent.style.display = 'none';
+      adviceContent.classList.remove('is-open');
       if (plusIcon) plusIcon.style.display = 'block';
       if (minusIcon) minusIcon.style.display = 'none';
       section.classList.remove('is-steps-open');
     } else {
-      adviceContent.style.display = 'block';
+      adviceContent.classList.add('is-open');
       if (plusIcon) plusIcon.style.display = 'none';
       if (minusIcon) minusIcon.style.display = 'block';
       section.classList.add('is-steps-open');
