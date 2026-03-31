@@ -311,22 +311,52 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize carousel on mobile only
   function initCarousel() {
-    if (window.innerWidth <= 749 && totalSlides > slidesToShow) {
-      setPositionByIndex();
-      container.addEventListener('touchstart', touchStart);
-      container.addEventListener('touchmove', touchMove);
-      container.addEventListener('touchend', touchEnd);
-      container.style.cursor = 'grab';
-    } else {
-      container.removeEventListener('touchstart', touchStart);
-      container.removeEventListener('touchmove', touchMove);
-      container.removeEventListener('touchend', touchEnd);
-      container.style.cursor = 'default';
-      currentIndex = 0;
-      setPositionByIndex();
+  if (window.innerWidth <= 749 && totalSlides > slidesToShow) {
+
+    // Build dots once
+    if (!carousel.querySelector('.carousel-dots')) {
+      const dotsWrap = document.createElement('div');
+      dotsWrap.className = 'carousel-dots';
+      for (let i = 0; i <= maxIndex; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goToIndex(i));
+        dotsWrap.appendChild(dot);
+      }
+      carousel.appendChild(dotsWrap);
     }
+
+    setPositionByIndex();
+    container.addEventListener('touchstart', touchStart);
+    container.addEventListener('touchmove', touchMove);
+    container.addEventListener('touchend', touchEnd);
+    container.style.cursor = 'grab';
+
+    // Peek animation on load
+    setTimeout(() => {
+      const peekPx = slides[0].offsetWidth * 0.4;
+      track.style.transition = 'transform 0.5s ease-out';
+      track.style.transform = `translateX(${-peekPx}px)`;
+      setTimeout(() => { setPositionByIndex(); }, 600);
+    }, 800);
+
+  } else {
+    carousel.querySelector('.carousel-dots')?.remove();
+    container.removeEventListener('touchstart', touchStart);
+    container.removeEventListener('touchmove', touchMove);
+    container.removeEventListener('touchend', touchEnd);
+    container.style.cursor = 'default';
+    currentIndex = 0;
+    setPositionByIndex();
   }
-  
+}
+
+function goToIndex(idx) {
+  currentIndex = Math.max(0, Math.min(idx, maxIndex));
+  setPositionByIndex();
+  document.querySelectorAll('.carousel-dot')
+    .forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+}
   // Initial setup
   initCarousel();
   
