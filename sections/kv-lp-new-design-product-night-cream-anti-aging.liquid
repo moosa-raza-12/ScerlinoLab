@@ -723,6 +723,8 @@ document.addEventListener('DOMContentLoaded', function() {
 /* --- Testimonial Video: Autoplay on Hover (muted) + Click to unmute/play with sound --- */
 /* --- Testimonial Video: Click to play with sound (NO HOVER) --- */
 section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
+ /* --- Testimonial Video: Click to play with sound (NO HOVER) --- */
+section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
   var video = card.querySelector('.lp-video-native');
   var playBtn = card.querySelector('.lp-video-play');
   if (!video) return;
@@ -734,6 +736,24 @@ section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
   video.muted = true;
   video.preload = 'metadata';
 
+  // Function to hide play button
+  function hidePlayButton() {
+    if (playBtn) {
+      playBtn.style.opacity = '0';
+      playBtn.style.visibility = 'hidden';
+      playBtn.style.pointerEvents = 'none';
+    }
+  }
+
+  // Function to show play button
+  function showPlayButton() {
+    if (playBtn) {
+      playBtn.style.opacity = '';
+      playBtn.style.visibility = '';
+      playBtn.style.pointerEvents = '';
+    }
+  }
+
   function playVideoWithSound() {
     video.currentTime = 0;
     video.muted = false;
@@ -743,12 +763,14 @@ section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
     isPlaying = true;
     isUnmuted = true;
     card.classList.add('is-playing');
+    hidePlayButton(); // Hide play button when video starts playing
   }
 
   function pauseVideo() {
     video.pause();
     isPlaying = false;
     card.classList.remove('is-playing');
+    showPlayButton(); // Show play button when video is paused
   }
 
   function togglePlayWithSound() {
@@ -760,6 +782,20 @@ section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
       playVideoWithSound();
     }
   }
+
+  // Listen for video end event to show play button again
+  video.addEventListener('ended', function() {
+    isPlaying = false;
+    card.classList.remove('is-playing');
+    showPlayButton();
+  });
+
+  // Listen for video pause event (in case it's paused by other means)
+  video.addEventListener('pause', function() {
+    if (video.currentTime === 0 || video.ended) {
+      showPlayButton();
+    }
+  });
 
   /* Play button click: play with sound */
   if (playBtn) {
