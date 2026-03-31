@@ -60,6 +60,12 @@
             "image": "shopify://shop_images/08.png"
           }
         },
+        "gallery_image_iGBTNh": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/09_db3dfd78-eab9-46a3-8449-c966c3869b7a.png"
+          }
+        },
         "gallery_image_rCb3PW": {
           "type": "gallery_image",
           "settings": {
@@ -333,6 +339,7 @@
         "gallery_image_fbTNnU",
         "gallery_image_RExENV",
         "gallery_image_RcgQdf",
+        "gallery_image_iGBTNh",
         "gallery_image_rCb3PW",
         "gallery_image_MwEUB6",
         "block_0",
