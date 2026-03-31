@@ -10,7 +10,7 @@
         <p class="lp-how-to-use__subtitle">{{ section.settings.subheading }}</p>
       {% endif %}
       
-      {% if section.settings.advice_text != blank %}
+      {% comment %} {% if section.settings.advice_text != blank %}
         <div class="lp-how-to-use__advice" data-advice-toggle>
           <span>{{ section.settings.advice_text }}</span>
           <div class="lp-how-to-use__advice-toggle">
@@ -22,7 +22,7 @@
             </svg>
           </div>
         </div>
-      {% endif %}
+      {% endif %} {% endcomment %}
       {% if section.settings.advice_text != blank %}
   <div class="lp-how-to-use__advice" data-advice-toggle>
     <span>{{ section.settings.advice_text }}</span>
