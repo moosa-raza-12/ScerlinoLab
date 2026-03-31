@@ -204,8 +204,9 @@
 }
 
 .lp-comparison-table__logo {
-  max-width: 80px;
-  height: auto;
+max-width: 23px;
+max-height: 49px;
+aspect-ratio: 23/49;
 }
 
 .lp-comparison-table__brand-name {
