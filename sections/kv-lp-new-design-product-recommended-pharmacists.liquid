@@ -300,6 +300,64 @@
     });
   });
 })();
+// Video handling with info hide/show
+section.querySelectorAll('.lp-pharmacist-card.has-video').forEach(function(card) {
+  var video = card.querySelector('.lp-pharmacist-video');
+  var playBtn = card.querySelector('.lp-pharmacist-play-btn');
+  if (!video) return;
+
+  var isPlaying = false;
+  var userPaused = false;
+
+  function play() {
+    video.play().catch(function(error) {
+      console.log('Play failed:', error);
+    });
+    isPlaying = true;
+    card.classList.add('is-playing');
+  }
+
+  function pause() {
+    video.pause();
+    isPlaying = false;
+    card.classList.remove('is-playing');
+  }
+
+  card.addEventListener('mouseleave', function() {
+    if (isPlaying) {
+      pause();
+      video.currentTime = 0;
+    }
+  });
+
+  if (playBtn) {
+    playBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isPlaying) {
+        pause();
+        userPaused = true;
+      } else {
+        play();
+      }
+    });
+  }
+
+  video.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (isPlaying) {
+      pause();
+      userPaused = true;
+    } else {
+      play();
+    }
+  });
+
+  video.addEventListener('ended', function() {
+    pause();
+    video.currentTime = 0;
+  });
+});
 </script>
 
 {% schema %}
