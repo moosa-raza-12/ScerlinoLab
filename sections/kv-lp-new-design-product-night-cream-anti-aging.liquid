@@ -720,25 +720,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* --- Testimonial Video: Autoplay on Hover --- */
   /* --- Testimonial Video: Play/Pause with unmute option --- */
+/* --- Testimonial Video: Play on Click with Sound --- */
 section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
   var video = card.querySelector('.lp-video-native');
   var playBtn = card.querySelector('.lp-video-play');
   if (!video) return;
 
   var isPlaying = false;
-  var isUnmuted = false;
 
   function playVideo() {
     video.currentTime = 0;
-    video.play().catch(function(){});
+    video.muted = false; // Ensure sound is on
+    video.play().catch(function(error) {
+      // Some browsers might still block autoplay with sound
+      console.log('Autoplay with sound blocked:', error);
+    });
     isPlaying = true;
     card.classList.add('is-playing');
-    
-    // Only unmute if user has previously unmuted or clicked play button
-    if (!isUnmuted) {
-      // Keep muted for autoplay
-      video.muted = true;
-    }
   }
 
   function pauseVideo() {
@@ -747,36 +745,17 @@ section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
     card.classList.remove('is-playing');
   }
 
-  function togglePlayWithSound() {
-    if (isPlaying) {
-      if (video.muted) {
-        // If playing but muted, unmute
-        video.muted = false;
-        isUnmuted = true;
-      } else {
-        // If playing with sound, pause
-        pauseVideo();
-      }
-    } else {
-      // Start playing with sound
-      video.muted = false;
-      isUnmuted = true;
-      playVideo();
-    }
-  }
-
-  /* Desktop: hover to play muted */
-  card.addEventListener('mouseenter', playVideo);
-  card.addEventListener('mouseleave', pauseVideo);
-
-  /* Play button click: toggle with sound */
   if (playBtn) {
     playBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      e.stopPropagation(); // Prevent triggering hover events
-      togglePlayWithSound();
+      if (isPlaying) {
+        pauseVideo();
+      } else {
+        playVideo();
+      }
     });
   }
+});
 });
 
   /* --- Quick Link Pills: smooth scroll to target section --- */
@@ -795,7 +774,6 @@ section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       }
     });
-  });
 
   /* --- Testimonials scroll bar (progress bar synced with scroll) --- */
   var slider = section.querySelector('.lp-testimonials__slider');
