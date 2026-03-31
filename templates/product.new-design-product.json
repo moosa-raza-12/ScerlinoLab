@@ -12,82 +12,52 @@
     "kv-lp-new-design-product-night-cream-anti-aging": {
       "type": "kv-lp-new-design-product-night-cream-anti-aging",
       "blocks": {
-        "gallery_image_r3AzyN": {
+        "gallery_image_N9NYYU": {
           "type": "gallery_image",
           "settings": {
             "image": "shopify://shop_images/01.png"
           }
         },
-        "gallery_image_BkBrna": {
+        "gallery_image_GHeDzw": {
           "type": "gallery_image",
           "settings": {
             "image": "shopify://shop_images/02.png"
           }
         },
-        "gallery_image_zi3yxt": {
+        "gallery_image_g73WHD": {
           "type": "gallery_image",
           "settings": {
             "image": "shopify://shop_images/03.png"
           }
         },
-        "gallery_image_tkGJCe": {
+        "gallery_image_zWBzUn": {
           "type": "gallery_image",
           "settings": {
             "image": "shopify://shop_images/04.png"
           }
         },
-        "gallery_image_rcFHP4": {
+        "gallery_image_Aaqwpr": {
           "type": "gallery_image",
           "settings": {
             "image": "shopify://shop_images/05.png"
           }
         },
-        "gallery_image_HXUjnz": {
-          "type": "gallery_image",
-          "settings": {
-            "image": "shopify://shop_images/06.png"
-          }
-        },
-        "gallery_image_hqBF7p": {
-          "type": "gallery_image",
-          "settings": {
-            "image": "shopify://shop_images/07.png"
-          }
-        },
-        "gallery_image_ReicDy": {
-          "type": "gallery_image",
-          "settings": {
-            "image": "shopify://shop_images/08.png"
-          }
-        },
-        "gallery_image_jdDtLA": {
-          "type": "gallery_image",
-          "settings": {
-            "image": "shopify://shop_images/09.png"
-          }
-        },
-        "gallery_image_LFVbUq": {
-          "type": "gallery_image",
-          "settings": {
-            "image": "shopify://shop_images/10.png"
-          }
-        },
-        "gallery_image_gRjEcN": {
-          "type": "gallery_image",
-          "settings": {
-            "image": "shopify://shop_images/11.png"
-          }
-        },
-        "gallery_image_QrgB4k": {
+        "gallery_image_fbTNnU": {
           "type": "gallery_image",
           "settings": {
             "image": "shopify://shop_images/12.png"
           }
         },
-        "gallery_image_A7VbFU": {
+        "gallery_image_RExENV": {
           "type": "gallery_image",
           "settings": {
-            "image": "shopify://shop_images/13.png"
+            "image": "shopify://shop_images/07.png"
+          }
+        },
+        "gallery_image_RcgQdf": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/08.png"
           }
         },
         "block_0": {
@@ -343,19 +313,14 @@
         }
       },
       "block_order": [
-        "gallery_image_r3AzyN",
-        "gallery_image_BkBrna",
-        "gallery_image_zi3yxt",
-        "gallery_image_tkGJCe",
-        "gallery_image_rcFHP4",
-        "gallery_image_HXUjnz",
-        "gallery_image_hqBF7p",
-        "gallery_image_ReicDy",
-        "gallery_image_jdDtLA",
-        "gallery_image_LFVbUq",
-        "gallery_image_gRjEcN",
-        "gallery_image_QrgB4k",
-        "gallery_image_A7VbFU",
+        "gallery_image_N9NYYU",
+        "gallery_image_GHeDzw",
+        "gallery_image_g73WHD",
+        "gallery_image_zWBzUn",
+        "gallery_image_Aaqwpr",
+        "gallery_image_fbTNnU",
+        "gallery_image_RExENV",
+        "gallery_image_RcgQdf",
         "block_0",
         "block_1",
         "block_2",
@@ -906,7 +871,8 @@
       "settings": {
         "heading": "60 Seconds. Every Night. That's It.",
         "subheading": "Simple nightly routine. Keep it easy to start tonight.",
-        "advice_text": "Expert Advice"
+        "advice_text": "Expert Advice",
+        "advice_content": "<p>Apply product to clean, dry skin. Use gentle circular motions. For best results, use consistently as part of your nightly routine. Avoid contact with eyes. If irritation occurs, discontinue use.</p>"
       }
     },
     "kv-lp-new-design-product-day-money-back-guarantee": {
