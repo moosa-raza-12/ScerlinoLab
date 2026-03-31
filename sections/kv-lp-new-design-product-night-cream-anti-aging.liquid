@@ -721,6 +721,7 @@ document.addEventListener('DOMContentLoaded', function() {
   /* --- Testimonial Video: Autoplay on Hover --- */
   /* --- Testimonial Video: Play/Pause with unmute option --- */
 /* --- Testimonial Video: Play on Click with Sound --- */
+/* --- Testimonial Video: Play/Pause Toggle --- */
 section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
   var video = card.querySelector('.lp-video-native');
   var playBtn = card.querySelector('.lp-video-play');
@@ -729,10 +730,8 @@ section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
   var isPlaying = false;
 
   function playVideo() {
-    video.currentTime = 0;
     video.muted = false; // Ensure sound is on
     video.play().catch(function(error) {
-      // Some browsers might still block autoplay with sound
       console.log('Autoplay with sound blocked:', error);
     });
     isPlaying = true;
@@ -749,31 +748,20 @@ section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
     playBtn.addEventListener('click', function(e) {
       e.preventDefault();
       if (isPlaying) {
-        pauseVideo();
+        pauseVideo(); // Pause without resetting
       } else {
         playVideo();
       }
     });
   }
+  
+  // Optional: When video ends, reset button state
+  video.addEventListener('ended', function() {
+    isPlaying = false;
+    card.classList.remove('is-playing');
+    video.currentTime = 0; // Reset to beginning when ended
+  });
 });
-});
-
-  /* --- Quick Link Pills: smooth scroll to target section --- */
-  section.querySelectorAll('.lp-pill--scroll').forEach(function(pill) {
-    pill.addEventListener('click', function(e) {
-      var targetId = this.getAttribute('href');
-      if (!targetId || targetId === '#') return;
-      var targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        e.preventDefault();
-        /* Account for sticky header height + a small gap */
-        var stickyHeader = document.querySelector('sticky-header') || document.querySelector('.shopify-section-header');
-        var headerOffset = stickyHeader ? stickyHeader.offsetHeight : 0;
-        var elementPosition = targetEl.getBoundingClientRect().top + window.pageYOffset;
-        var offsetPosition = elementPosition - headerOffset - 16;
-        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-      }
-    });
 
   /* --- Testimonials scroll bar (progress bar synced with scroll) --- */
   var slider = section.querySelector('.lp-testimonials__slider');
