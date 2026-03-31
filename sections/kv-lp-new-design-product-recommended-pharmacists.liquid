@@ -253,17 +253,24 @@
     function play() {
       video.play().catch(function(error) {
         console.log('Play failed:', error);
+        if (playBtn) playBtn.style.opacity = '0';
       });
       isPlaying = true;
       card.classList.add('is-playing');
+
     }
 
     function pause() {
       video.pause();
       isPlaying = false;
       card.classList.remove('is-playing');
+      if (playBtn) playBtn.style.opacity = '1'; 
     }
-
+video.addEventListener('ended', function() {
+  pause();
+  video.currentTime = 0;
+  if (playBtn) playBtn.style.opacity = '1';
+});
     card.addEventListener('mouseleave', function() {
       if (isPlaying) {
         pause();
