@@ -526,84 +526,37 @@ document.addEventListener('DOMContentLoaded', function() {
   /* --- Image gallery carousel --- */
   const track = section.querySelector('#GalleryTrack-{{ section.id }}');
   const items = track ? Array.from(track.querySelectorAll('.lp-product-gallery__item')) : [];
-  
-  // Get both desktop and mobile navigation elements
-  const desktopPrevBtn = section.querySelector('.lp-product-gallery .lp-product-gallery__nav .lp-product-gallery__arrow--prev');
-  const desktopNextBtn = section.querySelector('.lp-product-gallery .lp-product-gallery__nav .lp-product-gallery__arrow--next');
-  const desktopDots = section.querySelectorAll('.lp-product-gallery .lp-product-gallery__nav .lp-product-gallery__dot');
-  
-  const mobilePrevBtn = section.querySelector('.lp-product-gallery__nav-mobile .lp-product-gallery__arrow--prev');
-  const mobileNextBtn = section.querySelector('.lp-product-gallery__nav-mobile .lp-product-gallery__arrow--next');
-  const mobileDots = section.querySelectorAll('.lp-product-gallery__nav-mobile .lp-product-gallery__dot');
-  
+  const dots = section.querySelectorAll('.lp-product-gallery__dot');
+  const prevBtn = section.querySelector('.lp-product-gallery__arrow--prev');
+  const nextBtn = section.querySelector('.lp-product-gallery__arrow--next');
   let currentSlide = 0;
 
   function updateGalleryButtonStates() {
-    // Update desktop buttons
-    if (desktopPrevBtn && desktopNextBtn) {
-      if (currentSlide === 0) {
-        desktopPrevBtn.classList.add('is-disabled');
-        desktopPrevBtn.classList.remove('is-active');
-        desktopPrevBtn.setAttribute('disabled', '');
-        desktopPrevBtn.setAttribute('aria-disabled', 'true');
-      } else {
-        desktopPrevBtn.classList.remove('is-disabled');
-        desktopPrevBtn.classList.add('is-active');
-        desktopPrevBtn.removeAttribute('disabled');
-        desktopPrevBtn.setAttribute('aria-disabled', 'false');
-      }
+    if (!prevBtn || !nextBtn) return;
 
-      if (currentSlide === items.length - 1) {
-        desktopNextBtn.classList.add('is-disabled');
-        desktopNextBtn.classList.remove('is-active');
-        desktopNextBtn.setAttribute('disabled', '');
-        desktopNextBtn.setAttribute('aria-disabled', 'true');
-      } else {
-        desktopNextBtn.classList.remove('is-disabled');
-        desktopNextBtn.classList.add('is-active');
-        desktopNextBtn.removeAttribute('disabled');
-        desktopNextBtn.setAttribute('aria-disabled', 'false');
-      }
+    if (currentSlide === 0) {
+      prevBtn.classList.add('is-disabled');
+      prevBtn.classList.remove('is-active');
+      prevBtn.setAttribute('disabled', '');
+      prevBtn.setAttribute('aria-disabled', 'true');
+    } else {
+      prevBtn.classList.remove('is-disabled');
+      prevBtn.classList.add('is-active');
+      prevBtn.removeAttribute('disabled');
+      prevBtn.setAttribute('aria-disabled', 'false');
     }
 
-    // Update mobile buttons
-    if (mobilePrevBtn && mobileNextBtn) {
-      if (currentSlide === 0) {
-        mobilePrevBtn.classList.add('is-disabled');
-        mobilePrevBtn.classList.remove('is-active');
-        mobilePrevBtn.setAttribute('disabled', '');
-        mobilePrevBtn.setAttribute('aria-disabled', 'true');
-      } else {
-        mobilePrevBtn.classList.remove('is-disabled');
-        mobilePrevBtn.classList.add('is-active');
-        mobilePrevBtn.removeAttribute('disabled');
-        mobilePrevBtn.setAttribute('aria-disabled', 'false');
-      }
-
-      if (currentSlide === items.length - 1) {
-        mobileNextBtn.classList.add('is-disabled');
-        mobileNextBtn.classList.remove('is-active');
-        mobileNextBtn.setAttribute('disabled', '');
-        mobileNextBtn.setAttribute('aria-disabled', 'true');
-      } else {
-        mobileNextBtn.classList.remove('is-disabled');
-        mobileNextBtn.classList.add('is-active');
-        mobileNextBtn.removeAttribute('disabled');
-        mobileNextBtn.setAttribute('aria-disabled', 'false');
-      }
+    if (currentSlide === items.length - 1) {
+      nextBtn.classList.add('is-disabled');
+      nextBtn.classList.remove('is-active');
+      nextBtn.setAttribute('disabled', '');
+      nextBtn.setAttribute('aria-disabled', 'true');
+    } else {
+      nextBtn.classList.remove('is-disabled');
+      nextBtn.classList.add('is-active');
+      nextBtn.removeAttribute('disabled');
+      nextBtn.setAttribute('aria-disabled', 'false');
     }
-  }
-
-  function updateDots() {
-    // Update desktop dots
-    desktopDots.forEach(function(dot, i) {
-      dot.classList.toggle('active', i === currentSlide);
-    });
-    
-    // Update mobile dots
-    mobileDots.forEach(function(dot, i) {
-      dot.classList.toggle('active', i === currentSlide);
-    });
   }
 
   function goToSlide(index) {
@@ -612,57 +565,25 @@ document.addEventListener('DOMContentLoaded', function() {
     if (index >= items.length) index = items.length - 1;
     currentSlide = index;
     track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
-    updateDots();
+    dots.forEach(function(dot, i) {
+      dot.classList.toggle('active', i === currentSlide);
+    });
     updateGalleryButtonStates();
   }
 
-  // Desktop navigation
-  if (desktopPrevBtn) {
-    desktopPrevBtn.addEventListener('click', function() {
-      if (desktopPrevBtn.hasAttribute('disabled')) return;
-      goToSlide(currentSlide - 1);
-    });
-  }
-  
-  if (desktopNextBtn) {
-    desktopNextBtn.addEventListener('click', function() {
-      if (desktopNextBtn.hasAttribute('disabled')) return;
-      goToSlide(currentSlide + 1);
-    });
-  }
-
-  // Mobile navigation
-  if (mobilePrevBtn) {
-    mobilePrevBtn.addEventListener('click', function() {
-      if (mobilePrevBtn.hasAttribute('disabled')) return;
-      goToSlide(currentSlide - 1);
-    });
-  }
-  
-  if (mobileNextBtn) {
-    mobileNextBtn.addEventListener('click', function() {
-      if (mobileNextBtn.hasAttribute('disabled')) return;
-      goToSlide(currentSlide + 1);
-    });
-  }
-
-  // Desktop dots
-  desktopDots.forEach(function(dot, i) {
-    dot.addEventListener('click', function() { 
-      goToSlide(i); 
-    });
+  if (prevBtn) prevBtn.addEventListener('click', function() {
+    if (prevBtn.hasAttribute('disabled')) return;
+    goToSlide(currentSlide - 1);
+  });
+  if (nextBtn) nextBtn.addEventListener('click', function() {
+    if (nextBtn.hasAttribute('disabled')) return;
+    goToSlide(currentSlide + 1);
   });
 
-  // Mobile dots
-  mobileDots.forEach(function(dot, i) {
-    dot.addEventListener('click', function() { 
-      goToSlide(i); 
-    });
-  });
-
-  // Initialize button states
   updateGalleryButtonStates();
-  updateDots();
+  dots.forEach(function(dot, i) {
+    dot.addEventListener('click', function() { goToSlide(i); });
+  });
 
   /* Swipe / drag support for gallery (touch + mouse) */
   var pointerStartX = 0;
@@ -725,342 +646,6 @@ document.addEventListener('DOMContentLoaded', function() {
     track.addEventListener('dragstart', function(e) { e.preventDefault(); });
   }
 
-  /* --- Bundle selection → update ATC button price --- */
-  var bundleRadios = section.querySelectorAll('.lp-bundle-radio');
-  var atcButton = section.querySelector('.lp-atc-button');
-  var atcPrice = section.querySelector('.lp-atc-price');
-  var moneySymbol = '{{ cart.currency.symbol | default: "$" }}';
-
-  function formatMoney(cents, round) {
-    if (round) return moneySymbol + Math.floor(cents / 100);
-    return moneySymbol + (cents / 100).toFixed(2);
-  }
-
-  function syncBundle(radio) {
-    var qty = parseInt(radio.dataset.quantity, 10) || 1;
-    var originalPrice = parseInt(radio.dataset.originalPrice, 10) || 0;
-    var discountedPrice = parseInt(radio.dataset.discountedPrice, 10) || originalPrice;
-    var totalOriginal = originalPrice * qty;
-    var totalDiscounted = discountedPrice * qty;
-
-    atcButton.dataset.variantId = radio.dataset.variantId;
-    atcButton.dataset.quantity = qty;
-    atcButton.dataset.giftVariantIds = radio.dataset.giftVariantIds || '';
-
-    if (atcPrice) {
-      var html = '';
-      if (totalDiscounted < totalOriginal) {
-        html += '<del>' + formatMoney(totalOriginal, true) + '</del> ';
-      }
-      html += '<strong>' + formatMoney(totalDiscounted, false) + '</strong>';
-      atcPrice.innerHTML = html;
-    }
-
-    if (atcButton) {
-      atcButton.disabled = false;
-      atcButton.querySelector('span:first-child').textContent = 'Add to cart';
-    }
-  }
-
-  bundleRadios.forEach(function(radio) {
-    radio.addEventListener('change', function() { syncBundle(this); });
-  });
-
-  var checkedBundle = section.querySelector('.lp-bundle-radio:checked');
-  if (checkedBundle) syncBundle(checkedBundle);
-
-  /* --- Custom Add to Cart via AJAX --- */
-  if (atcButton) {
-    atcButton.addEventListener('click', function(e) {
-      e.preventDefault();
-      var btn = this;
-      var variantId = btn.dataset.variantId;
-      var qty = parseInt(btn.dataset.quantity, 10) || 1;
-      var giftIds = btn.dataset.giftVariantIds || '';
-      if (!variantId || btn.disabled) return;
-
-      btn.disabled = true;
-      btn.querySelector('span:first-child').textContent = 'Adding...';
-
-      var items = [{ id: parseInt(variantId, 10), quantity: qty }];
-      if (giftIds) {
-        giftIds.split(',').forEach(function(gid) {
-          var id = parseInt(gid.trim(), 10);
-          if (id) items.push({ id: id, quantity: 1 });
-        });
-      }
-
-      fetch('/cart/add.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ items: items })
-      })
-      .then(function(res) { return res.json(); })
-      .then(function() {
-        btn.querySelector('span:first-child').textContent = 'Added!';
-        setTimeout(function() {
-          btn.disabled = false;
-          btn.querySelector('span:first-child').textContent = 'Add to cart';
-        }, 1500);
-        /* Update cart count if the theme has a cart count element */
-        fetch('/cart.js').then(function(r) { return r.json(); }).then(function(cart) {
-          document.querySelectorAll('[data-cart-count], .cart-count-bubble span').forEach(function(el) {
-            el.textContent = cart.item_count;
-          });
-        });
-      })
-      .catch(function() {
-        btn.querySelector('span:first-child').textContent = 'Error – retry';
-        btn.disabled = false;
-      });
-    });
-  }
-
-  /* --- Testimonial Video: Click to play with sound --- */
-  section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
-    var video = card.querySelector('.lp-video-native');
-    var playBtn = card.querySelector('.lp-video-play');
-    if (!video) return;
-
-    var isPlaying = false;
-    var isUnmuted = false;
-
-    // Ensure video is muted by default (won't autoplay)
-    video.muted = true;
-    video.preload = 'metadata';
-
-    // Function to hide play button
-    function hidePlayButton() {
-      if (playBtn) {
-        playBtn.style.opacity = '0';
-        playBtn.style.visibility = 'hidden';
-        playBtn.style.pointerEvents = 'none';
-      }
-    }
-
-    // Function to show play button
-    function showPlayButton() {
-      if (playBtn) {
-        playBtn.style.opacity = '';
-        playBtn.style.visibility = '';
-        playBtn.style.pointerEvents = '';
-      }
-    }
-
-    function playVideoWithSound() {
-      video.currentTime = 0;
-      video.muted = false;
-      video.play().catch(function(e) {
-        console.log('Play failed:', e);
-      });
-      isPlaying = true;
-      isUnmuted = true;
-      card.classList.add('is-playing');
-      hidePlayButton(); // Hide play button when video starts playing
-    }
-
-    function pauseVideo() {
-      video.pause();
-      isPlaying = false;
-      card.classList.remove('is-playing');
-      showPlayButton(); // Show play button when video is paused
-    }
-
-    function togglePlayWithSound() {
-      if (isPlaying && !video.paused) {
-        // Currently playing → pause
-        pauseVideo();
-      } else {
-        // Not playing → start with sound
-        playVideoWithSound();
-      }
-    }
-
-    // Listen for video end event to show play button again
-    video.addEventListener('ended', function() {
-      isPlaying = false;
-      card.classList.remove('is-playing');
-      showPlayButton();
-    });
-
-    // Listen for video pause event (in case it's paused by other means)
-    video.addEventListener('pause', function() {
-      if (video.currentTime === 0 || video.ended) {
-        showPlayButton();
-      }
-    });
-
-    /* Play button click: play with sound */
-    if (playBtn) {
-      playBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        togglePlayWithSound();
-      });
-    }
-
-    /* Click on video itself to toggle play/pause */
-    video.addEventListener('click', function(e) {
-      e.stopPropagation();
-      togglePlayWithSound();
-    });
-  });
-  
-  /* --- Quick Link Pills: smooth scroll to target section --- */
-  section.querySelectorAll('.lp-pill--scroll').forEach(function(pill) {
-    pill.addEventListener('click', function(e) {
-      var targetId = this.getAttribute('href');
-      if (!targetId || targetId === '#') return;
-      var targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        e.preventDefault();
-        /* Account for sticky header height + a small gap */
-        var stickyHeader = document.querySelector('sticky-header') || document.querySelector('.shopify-section-header');
-        var headerOffset = stickyHeader ? stickyHeader.offsetHeight : 0;
-        var elementPosition = targetEl.getBoundingClientRect().top + window.pageYOffset;
-        var offsetPosition = elementPosition - headerOffset - 16;
-        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-      }
-    });
-  });
-
-  /* --- Testimonials scroll bar (progress bar synced with scroll) --- */
-  var slider = section.querySelector('.lp-testimonials__slider');
-  var scrollBar = section.querySelector('.lp-testimonials__scroll-bar');
-  var thumb = section.querySelector('.lp-testimonials__scroll-thumb');
-  var videoCount = parseInt(scrollBar ? scrollBar.dataset.videoCount : 0, 10) || 0;
-
-  if (slider && scrollBar && thumb && videoCount > 0) {
-    /* Set the track width dynamically: 120px per video */
-    var trackWidth = videoCount * 120;
-    scrollBar.style.width = trackWidth + 'px';
-
-    function getMaxScroll() {
-      return slider.scrollWidth - slider.clientWidth;
-    }
-
-    function getThumbWidth() {
-      var barWidth = scrollBar.offsetWidth;
-      var max = getMaxScroll();
-      if (max <= 0) return barWidth;
-      /* Thumb width = proportion of visible area to total scrollable width */
-      var ratio = slider.clientWidth / slider.scrollWidth;
-      var tw = Math.max(ratio * barWidth, 30); /* min 30px so it stays grabbable */
-      return tw;
-    }
-
-    function updateThumbPosition() {
-      var max = getMaxScroll();
-      var barWidth = scrollBar.offsetWidth;
-      if (max <= 0) {
-        /* No overflow — thumb fills full track */
-        thumb.style.left = '0px';
-        thumb.style.width = barWidth + 'px';
-        return;
-      }
-      var thumbW = getThumbWidth();
-      thumb.style.width = thumbW + 'px';
-      var pct = slider.scrollLeft / max;
-      var maxLeft = barWidth - thumbW;
-      thumb.style.left = (pct * maxLeft) + 'px';
-    }
-
-    slider.addEventListener('scroll', updateThumbPosition);
-    window.addEventListener('resize', function() {
-      trackWidth = videoCount * 120;
-      scrollBar.style.width = trackWidth + 'px';
-      updateThumbPosition();
-    });
-    updateThumbPosition();
-
-    /* Make thumb draggable */
-    var isDragging = false;
-    var dragStartX = 0;
-    var dragStartLeft = 0;
-
-    function onThumbDragStart(e) {
-      isDragging = true;
-      scrollBar.classList.add('is-dragging');
-      var clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      dragStartX = clientX;
-      dragStartLeft = parseFloat(thumb.style.left) || 0;
-      e.preventDefault();
-    }
-
-    function handleThumbDrag(e) {
-      if (!isDragging) return;
-      var clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      var delta = clientX - dragStartX;
-      var barWidth = scrollBar.offsetWidth;
-      var thumbW = getThumbWidth();
-      var maxLeft = barWidth - thumbW;
-      var newLeft = Math.min(Math.max(dragStartLeft + delta, 0), maxLeft);
-      var pct = maxLeft > 0 ? newLeft / maxLeft : 0;
-      slider.scrollLeft = pct * getMaxScroll();
-    }
-
-    function onThumbDragEnd() {
-      if (!isDragging) return;
-      isDragging = false;
-      scrollBar.classList.remove('is-dragging');
-    }
-
-    thumb.addEventListener('mousedown', onThumbDragStart);
-    thumb.addEventListener('touchstart', onThumbDragStart, { passive: false });
-    document.addEventListener('mousemove', handleThumbDrag);
-    document.addEventListener('touchmove', handleThumbDrag, { passive: false });
-    document.addEventListener('mouseup', onThumbDragEnd);
-    document.addEventListener('touchend', onThumbDragEnd);
-
-    /* Click on scroll bar track to jump */
-    scrollBar.addEventListener('click', function(e) {
-      if (e.target === thumb) return;
-      var rect = scrollBar.getBoundingClientRect();
-      var clickX = e.clientX - rect.left;
-      var barWidth = scrollBar.offsetWidth;
-      var thumbW = getThumbWidth();
-      var maxLeft = barWidth - thumbW;
-      var newLeft = Math.min(Math.max(clickX - thumbW / 2, 0), maxLeft);
-      var pct = maxLeft > 0 ? newLeft / maxLeft : 0;
-      slider.scrollLeft = pct * getMaxScroll();
-    });
-  }
-
-  /* --- Desktop mouse drag-to-scroll for testimonials slider --- */
-  if (slider) {
-    var sliderDragging = false;
-    var sliderStartX = 0;
-    var sliderScrollStart = 0;
-
-    slider.style.cursor = 'grab';
-
-    slider.addEventListener('mousedown', function(e) {
-      sliderDragging = true;
-      sliderStartX = e.pageX;
-      sliderScrollStart = slider.scrollLeft;
-      slider.style.cursor = 'grabbing';
-      slider.style.scrollSnapType = 'none';
-      slider.style.scrollBehavior = 'auto';
-      e.preventDefault();
-    });
-
-    document.addEventListener('mousemove', function(e) {
-      if (!sliderDragging) return;
-      var dx = e.pageX - sliderStartX;
-      slider.scrollLeft = sliderScrollStart - dx;
-    });
-
-    document.addEventListener('mouseup', function() {
-      if (!sliderDragging) return;
-      sliderDragging = false;
-      slider.style.cursor = 'grab';
-      slider.style.scrollSnapType = '';
-      slider.style.scrollBehavior = '';
-    });
-
-    slider.addEventListener('dragstart', function(e) { e.preventDefault(); });
-  }
-});
   /* --- Bundle selection → update ATC button price --- */
   var bundleRadios = section.querySelectorAll('.lp-bundle-radio');
   var atcButton = section.querySelector('.lp-atc-button');
