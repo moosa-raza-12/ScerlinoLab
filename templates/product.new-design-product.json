@@ -875,7 +875,7 @@
         "block_0": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/Serlino_Lab_30_3.png",
+            "image": "shopify://shop_images/c40c4dd627d412c6cb722f0a1a2125b9797bda38.jpg",
             "step_title": "01 - Apply a Small Amount",
             "description": "A coin-sized amount for your face. Another for your neck. That's all you need."
           }
@@ -883,7 +883,7 @@
         "block_1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/Serlino_Lab_30_3_d5721e35-fbd5-44d6-87d8-b0063c5a0256.png",
+            "image": "shopify://shop_images/70e5ee0c073c92bc6837a9bbbd4ef35decc00301.jpg",
             "step_title": "02 - Spread on Clean, Dry Skin",
             "description": "Wash your face and neck. Pat dry. Spread gently across your forehead, cheeks, and jawline."
           }
