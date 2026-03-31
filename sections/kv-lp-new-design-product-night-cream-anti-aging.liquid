@@ -720,6 +720,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* --- Testimonial Video: Autoplay on Hover --- */
   /* --- Testimonial Video: Play/Pause with unmute option --- */
+/* --- Testimonial Video: Autoplay on Hover (muted) + Click to unmute/play with sound --- */
 section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
   var video = card.querySelector('.lp-video-native');
   var playBtn = card.querySelector('.lp-video-play');
@@ -727,18 +728,23 @@ section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
 
   var isPlaying = false;
   var isUnmuted = false;
+  var hoverTimeout = null;
 
-  function playVideo() {
+  // Ensure video is muted by default for autoplay policies
+  video.muted = true;
+  
+  // Preload metadata to enable proper playback
+  video.preload = 'metadata';
+
+  function playVideoMuted() {
     video.currentTime = 0;
-    video.play().catch(function(){});
+    video.muted = true;
+    video.play().catch(function(e) {
+      console.log('Autoplay prevented:', e);
+    });
     isPlaying = true;
+    isUnmuted = false;
     card.classList.add('is-playing');
-    
-    // Only unmute if user has previously unmuted or clicked play button
-    if (!isUnmuted) {
-      // Keep muted for autoplay
-      video.muted = true;
-    }
   }
 
   function pauseVideo() {
@@ -747,38 +753,83 @@ section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
     card.classList.remove('is-playing');
   }
 
+  function playVideoWithSound() {
+    video.currentTime = 0;
+    video.muted = false;
+    video.play().catch(function(e) {
+      console.log('Play with sound failed:', e);
+      // Fallback: try to unmute and play again
+      video.muted = false;
+      video.play().catch(function() {});
+    });
+    isPlaying = true;
+    isUnmuted = true;
+    card.classList.add('is-playing');
+  }
+
   function togglePlayWithSound() {
-    if (isPlaying) {
+    if (isPlaying && !video.paused) {
       if (video.muted) {
-        // If playing but muted, unmute
+        // Currently playing muted → unmute
         video.muted = false;
         isUnmuted = true;
       } else {
-        // If playing with sound, pause
+        // Playing with sound → pause
         pauseVideo();
       }
     } else {
-      // Start playing with sound
-      video.muted = false;
-      isUnmuted = true;
-      playVideo();
+      // Not playing or paused → start with sound
+      playVideoWithSound();
     }
   }
 
   /* Desktop: hover to play muted */
-  card.addEventListener('mouseenter', playVideo);
-  card.addEventListener('mouseleave', pauseVideo);
+  card.addEventListener('mouseenter', function() {
+    if (hoverTimeout) clearTimeout(hoverTimeout);
+    // Only play muted if not already playing with sound
+    if (!isPlaying || (isPlaying && video.muted === false)) {
+      // Don't interrupt if user is currently playing with sound
+      if (isPlaying && !video.muted) return;
+      playVideoMuted();
+    }
+  });
+  
+  card.addEventListener('mouseleave', function() {
+    // Delay pause to avoid flickering when moving between cards
+    hoverTimeout = setTimeout(function() {
+      // Don't pause if video was unmuted by user click
+      if (isUnmuted) return;
+      if (isPlaying && video.muted) {
+        pauseVideo();
+      }
+    }, 100);
+  });
 
-  /* Play button click: toggle with sound */
+  /* Play button click: toggle with sound (UNMUTE) */
   if (playBtn) {
     playBtn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation(); // Prevent triggering hover events
+      if (hoverTimeout) clearTimeout(hoverTimeout);
       togglePlayWithSound();
     });
   }
-});
 
+  /* Also allow clicking on video itself to toggle sound when playing */
+  video.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (isPlaying && !video.paused) {
+      if (video.muted) {
+        video.muted = false;
+        isUnmuted = true;
+      } else {
+        pauseVideo();
+      }
+    } else if (!isPlaying || video.paused) {
+      playVideoWithSound();
+    }
+  });
+});
   /* --- Quick Link Pills: smooth scroll to target section --- */
   section.querySelectorAll('.lp-pill--scroll').forEach(function(pill) {
     pill.addEventListener('click', function(e) {
