@@ -524,66 +524,83 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!section) return;
 
   /* --- Image gallery carousel --- */
-  const track = section.querySelector('#GalleryTrack-{{ section.id }}');
-  const items = track ? Array.from(track.querySelectorAll('.lp-product-gallery__item')) : [];
-  const dots = section.querySelectorAll('.lp-product-gallery__dot');
-  const prevBtn = section.querySelector('.lp-product-gallery__arrow--prev');
-  const nextBtn = section.querySelector('.lp-product-gallery__arrow--next');
-  let currentSlide = 0;
+const track = section.querySelector('#GalleryTrack-{{ section.id }}');
+const items = track ? Array.from(track.querySelectorAll('.lp-product-gallery__item')) : [];
 
-  function updateGalleryButtonStates() {
-    if (!prevBtn || !nextBtn) return;
+// Select dots from BOTH navs
+const dots = section.querySelectorAll('.lp-product-gallery__dot');
 
+// Select arrows from BOTH navs
+const prevBtns = section.querySelectorAll('.lp-product-gallery__arrow--prev');
+const nextBtns = section.querySelectorAll('.lp-product-gallery__arrow--next');
+
+let currentSlide = 0;
+
+function updateGalleryButtonStates() {
+  prevBtns.forEach(function(btn) {
     if (currentSlide === 0) {
-      prevBtn.classList.add('is-disabled');
-      prevBtn.classList.remove('is-active');
-      prevBtn.setAttribute('disabled', '');
-      prevBtn.setAttribute('aria-disabled', 'true');
+      btn.classList.add('is-disabled');
+      btn.classList.remove('is-active');
+      btn.setAttribute('disabled', '');
+      btn.setAttribute('aria-disabled', 'true');
     } else {
-      prevBtn.classList.remove('is-disabled');
-      prevBtn.classList.add('is-active');
-      prevBtn.removeAttribute('disabled');
-      prevBtn.setAttribute('aria-disabled', 'false');
+      btn.classList.remove('is-disabled');
+      btn.classList.add('is-active');
+      btn.removeAttribute('disabled');
+      btn.setAttribute('aria-disabled', 'false');
     }
+  });
 
+  nextBtns.forEach(function(btn) {
     if (currentSlide === items.length - 1) {
-      nextBtn.classList.add('is-disabled');
-      nextBtn.classList.remove('is-active');
-      nextBtn.setAttribute('disabled', '');
-      nextBtn.setAttribute('aria-disabled', 'true');
+      btn.classList.add('is-disabled');
+      btn.classList.remove('is-active');
+      btn.setAttribute('disabled', '');
+      btn.setAttribute('aria-disabled', 'true');
     } else {
-      nextBtn.classList.remove('is-disabled');
-      nextBtn.classList.add('is-active');
-      nextBtn.removeAttribute('disabled');
-      nextBtn.setAttribute('aria-disabled', 'false');
+      btn.classList.remove('is-disabled');
+      btn.classList.add('is-active');
+      btn.removeAttribute('disabled');
+      btn.setAttribute('aria-disabled', 'false');
     }
-  }
+  });
+}
 
-  function goToSlide(index) {
-    if (items.length === 0) return;
-    if (index < 0) index = 0;
-    if (index >= items.length) index = items.length - 1;
-    currentSlide = index;
-    track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
-    dots.forEach(function(dot, i) {
-      dot.classList.toggle('active', i === currentSlide);
-    });
-    updateGalleryButtonStates();
-  }
+function goToSlide(index) {
+  if (items.length === 0) return;
+  if (index < 0) index = 0;
+  if (index >= items.length) index = items.length - 1;
+  currentSlide = index;
+  track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+  dots.forEach(function(dot, i) {
+    // Each nav has its own set of dots; sync all of them
+    // dots from both navs are interleaved, so we mod by items.length
+    dot.classList.toggle('active', parseInt(dot.dataset.index) === currentSlide);
+  });
+  updateGalleryButtonStates();
+}
 
-  if (prevBtn) prevBtn.addEventListener('click', function() {
-    if (prevBtn.hasAttribute('disabled')) return;
+prevBtns.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    if (btn.hasAttribute('disabled')) return;
     goToSlide(currentSlide - 1);
   });
-  if (nextBtn) nextBtn.addEventListener('click', function() {
-    if (nextBtn.hasAttribute('disabled')) return;
+});
+
+nextBtns.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    if (btn.hasAttribute('disabled')) return;
     goToSlide(currentSlide + 1);
   });
+});
 
-  updateGalleryButtonStates();
-  dots.forEach(function(dot, i) {
-    dot.addEventListener('click', function() { goToSlide(i); });
+updateGalleryButtonStates();
+
+dots.forEach(function(dot) {
+  dot.addEventListener('click', function() {
+    goToSlide(parseInt(dot.dataset.index));
   });
+});
 
   /* Swipe / drag support for gallery (touch + mouse) */
   var pointerStartX = 0;
