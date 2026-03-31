@@ -22,37 +22,31 @@
     </div>
   </div>
 
-  <!-- Mobile view: Hidden navigation carousel -->
-  <div class="logos-mobile-carousel">
-    <div class="carousel-container">
-      <div class="carousel-track">
-        {% for block in section.blocks %}
-          <div class="carousel-slide">
-            <div class="logo-mobile">
-              {% if block.settings.svg_mobile != blank %}
-                {{
-                  block.settings.svg_mobile 
-                  | image_url: width: 300
-                  | image_tag: 
-                    alt: block.settings.image_alt | default: section.settings.heading,
-                    loading: 'lazy'
-                }}
-              {% else %}
-                {{
-                  block.settings.svg_desktop 
-                  | image_url: width: 300
-                  | image_tag: 
-                    alt: block.settings.image_alt | default: section.settings.heading,
-                    loading: 'lazy'
-                }}
-              {% endif %}
-            </div>
-          </div>
-        {% endfor %}
+  <!-- Mobile view: Looping scroll -->
+<div class="logos-mobile-scroll">
+  <div class="scroll-track">
+    {% for block in section.blocks %}
+      <div class="scroll-item">
+        {% if block.settings.svg_mobile != blank %}
+          {{ block.settings.svg_mobile | image_url: width: 300 | image_tag: alt: block.settings.image_alt | default: section.settings.heading, loading: 'lazy' }}
+        {% elsif block.settings.svg_desktop != blank %}
+          {{ block.settings.svg_desktop | image_url: width: 300 | image_tag: alt: block.settings.image_alt | default: section.settings.heading, loading: 'lazy' }}
+        {% endif %}
       </div>
-    </div>
+    {% endfor %}
+    {% comment %} Duplicate for seamless loop {% endcomment %}
+    {% for block in section.blocks %}
+      <div class="scroll-item" aria-hidden="true">
+        {% if block.settings.svg_mobile != blank %}
+          {{ block.settings.svg_mobile | image_url: width: 300 | image_tag: alt: '', loading: 'lazy' }}
+        {% elsif block.settings.svg_desktop != blank %}
+          {{ block.settings.svg_desktop | image_url: width: 300 | image_tag: alt: '', loading: 'lazy' }}
+        {% endif %}
+      </div>
+    {% endfor %}
   </div>
 </div>
+  </div>
 
 <style>
 .as-seen-on-section {
