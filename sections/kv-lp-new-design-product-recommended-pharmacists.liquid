@@ -307,7 +307,7 @@ video.addEventListener('ended', function() {
     });
   });
 })();
-// Video handling with info hide/show
+{% comment %} // Video handling with info hide/show
 section.querySelectorAll('.lp-pharmacist-card.has-video').forEach(function(card) {
   var video = card.querySelector('.lp-pharmacist-video');
   var playBtn = card.querySelector('.lp-pharmacist-play-btn');
@@ -364,7 +364,7 @@ section.querySelectorAll('.lp-pharmacist-card.has-video').forEach(function(card)
     pause();
     video.currentTime = 0;
   });
-});
+}); {% endcomment %}
 </script>
 
 {% schema %}
