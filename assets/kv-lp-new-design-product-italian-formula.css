@@ -341,4 +341,10 @@ aspect-ratio: 23/49;
   .lp-comparison-table__heading{
     font-size:30px;
   }
+  .lp-comparison-table__cell{
+    font-size:9px;
+  }
+  .lp-comparison-table__others-label{
+    font-size:10px;
+  }
 }
