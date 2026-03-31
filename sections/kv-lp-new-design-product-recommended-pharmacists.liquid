@@ -253,7 +253,7 @@ var btnP=document.querySelectorAll(".lp-pharmacist-play-btn")
     function play() {
       video.play().catch(function(error) {
         console.log('Play failed:', error);
-        if (playBtn) btnP.style.opacity = '0';
+        if (playBtn) btnP.style.opacity = '0 !important';
       });
       isPlaying = true;
       card.classList.add('is-playing');
