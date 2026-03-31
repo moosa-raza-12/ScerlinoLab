@@ -92,23 +92,11 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!section) return;
 
   const adviceToggle = section.querySelector('[data-advice-toggle]');
-if (adviceToggle) {
-  const header = adviceToggle.querySelector('.lp-how-to-use__advice-header');
-  const body = adviceToggle.querySelector('.lp-how-to-use__advice-body');
-  const iconPlus = adviceToggle.querySelector('.lp-how-to-use__icon-plus');
-  const iconMinus = adviceToggle.querySelector('.lp-how-to-use__icon-minus');
-
-  (header || adviceToggle).addEventListener('click', function () {
-    const isOpen = adviceToggle.classList.toggle('is-open');
-
-    if (body) {
-      body.style.maxHeight = isOpen ? body.scrollHeight + 'px' : '0px';
-    }
-
-    if (iconPlus) iconPlus.style.display = isOpen ? 'none' : 'block';
-    if (iconMinus) iconMinus.style.display = isOpen ? 'block' : 'none';
-  });
-}
+  if (adviceToggle) {
+    adviceToggle.addEventListener('click', function() {
+      section.classList.toggle('is-steps-open');
+    });
+  }
 
   const grid = section.querySelector('[data-carousel]');
   const dots = section.querySelectorAll('[data-dot]');
