@@ -61,6 +61,23 @@
   padding: 1rem;
   background: rgba(0, 0, 0, 0.05);
   border-radius: 8px;
+  /* ADD THESE TRANSITION PROPERTIES */
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out, margin 0.3s ease-out;
+}
+
+.lp-how-to-use__advice-content.is-open {
+  max-height: 500px; /* Adjust based on your content height */
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.lp-how-to-use__advice-content {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
 
