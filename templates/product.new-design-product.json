@@ -60,6 +60,18 @@
             "image": "shopify://shop_images/08.png"
           }
         },
+        "gallery_image_rCb3PW": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/10.png"
+          }
+        },
+        "gallery_image_MwEUB6": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/13.png"
+          }
+        },
         "block_0": {
           "type": "benefit",
           "settings": {
@@ -321,6 +333,8 @@
         "gallery_image_fbTNnU",
         "gallery_image_RExENV",
         "gallery_image_RcgQdf",
+        "gallery_image_rCb3PW",
+        "gallery_image_MwEUB6",
         "block_0",
         "block_1",
         "block_2",
