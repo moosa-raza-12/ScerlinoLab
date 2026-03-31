@@ -96,41 +96,58 @@ max-width: 232px;
   display: block;
   object-fit: contain;
 }
+@media screen and (max-width: 749px) {
+  .logos-desktop { display: none; }
 
-/* Mobile Carousel - No visible navigation */
-.logos-mobile-carousel {
-  display: none;
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
+  .logos-mobile-scroll {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  }
+
+  .scroll-track {
+    display: flex;
+    gap: 32px;
+    width: max-content;
+    animation: logo-marquee 18s linear infinite;
+  }
+
+  .scroll-track:hover {
+    animation-play-state: paused;
+  }
+
+  .scroll-item {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .scroll-item img {
+    width: auto;
+    max-width: 100px;
+    max-height: 20px;
+    object-fit: contain;
+    display: block;
+  }
+
+  @keyframes logo-marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .as-seen-on-section {
+    align-items: flex-start;
+    padding: 0px 0px 36px;
+    width: 100%;
+  }
+
+  .as-seen-on-section p {
+    font-size: 16px;
+    padding-left: 20px;
+  }
 }
-
-.carousel-container {
-  overflow: hidden;
-  width: 100%;
-  cursor: grab;
-}
-
-.carousel-container:active {
-  cursor: grabbing;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.3s ease-out;
-}
-
-.carousel-slide {
-  flex: 0 0 33.333%; /* Show 3 logos at a time */
-  display: flex;
-  {% comment %} justify-content: center; {% endcomment %}
-  align-items: center;
-  {% comment %} padding: 10px; {% endcomment %}
-  box-sizing: border-box;
-  pointer-events: none; /* Prevents individual logo clicks during drag */
-}
-
 .logo-mobile img {
   width: auto;
   max-width: 113px;
@@ -185,7 +202,7 @@ max-width: 232px;
 }
 </style>
 
-<script>
+{% comment %} <script>
 document.addEventListener('DOMContentLoaded', function() {
   const section = document.querySelector('.as-seen-on-section');
   if (!section) return;
@@ -357,7 +374,7 @@ function goToIndex(idx) {
   // Re-initialize on window resize
   window.addEventListener('resize', initCarousel);
 });
-</script>
+</script> {% endcomment %}
 
 {% schema %}
 {
