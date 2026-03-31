@@ -23,6 +23,23 @@
           </div>
         </div>
       {% endif %}
+      {% if section.settings.advice_text != blank %}
+  <div class="lp-how-to-use__advice" data-advice-toggle>
+    <span>{{ section.settings.advice_text }}</span>
+    <div class="lp-how-to-use__advice-toggle">
+      <svg class="lp-how-to-use__icon-plus" ... ></svg>
+      <svg class="lp-how-to-use__icon-minus" ... style="display:none;"></svg>
+    </div>
+  </div>
+  <!-- ADD THIS NEW DIV -->
+  <div class="lp-how-to-use__advice-content" data-advice-content style="display: none;">
+    {% if section.settings.advice_content != blank %}
+      {{ section.settings.advice_content }}
+    {% else %}
+      <p>Apply product to clean, dry skin. Use gentle circular motions. For best results, use consistently as part of your nightly routine. Avoid contact with eyes. If irritation occurs, discontinue use.</p>
+    {% endif %}
+  </div>
+{% endif %}
     </div>
 
     <div class="lp-how-to-use__grid-wrapper">
@@ -294,7 +311,12 @@ document.addEventListener('DOMContentLoaded', function() {
       "id": "advice_text",
       "label": "Advice Label",
       "default": "Expert Advice"
-    }
+    },{
+  "type": "richtext",
+  "id": "advice_content",
+  "label": "Advice Content",
+  "default": "<p>Apply product to clean, dry skin. Use gentle circular motions. For best results, use consistently as part of your nightly routine. Avoid contact with eyes. If irritation occurs, discontinue use.</p>"
+}
   ],
   "blocks": [
     {
