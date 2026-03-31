@@ -337,3 +337,8 @@ aspect-ratio: 23/49;
   } */
 
 }
+@media screen and (min-width: 400px){
+  .lp-comparison-table__heading{
+    font-size:30px;
+  }
+}
