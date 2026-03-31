@@ -727,13 +727,13 @@ letter-spacing: 0px;  background: var(--primary-text); color: white; font-size: 
 }
 /* Add this media query at the end of your CSS file or after the existing .lp-product-gallery__nav styles */
 
-/* Add this at the end of your CSS file */
+//* Add this at the end of your CSS file */
 
-/* Mobile styles - Move navigation outside the card and position it below */
+/* Mobile styles - Move navigation outside of lp-product-gallery__main */
 @media (max-width: 768px) {
   .lp-product-gallery {
-    margin-bottom: 0;
     position: relative;
+    margin-bottom: 0;
   }
   
   .lp-product-gallery__main {
@@ -742,7 +742,7 @@ letter-spacing: 0px;  background: var(--primary-text); color: white; font-size: 
     border-radius: 10px;
   }
   
-  /* Remove the absolute positioning and make it a normal block element below the card */
+  /* Move navigation outside of main and position it below */
   .lp-product-gallery__nav {
     position: static;
     display: flex;
@@ -759,18 +759,28 @@ letter-spacing: 0px;  background: var(--primary-text); color: white; font-size: 
   .lp-product-gallery__arrow {
     width: 44px;
     height: 36px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .lp-product-gallery__arrow--next {
+    background: var(--primary-text);
+    color: var(--white);
+    border: none;
   }
   
   .lp-product-gallery__dots {
     background: rgba(0, 0, 0, 0.6);
     padding: 6px 12px;
+    border-radius: 99px;
   }
   
   .lp-product-gallery__dot {
     width: 8px;
     height: 8px;
     background: rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
   }
   
   .lp-product-gallery__dot.active {
@@ -779,7 +789,7 @@ letter-spacing: 0px;  background: var(--primary-text); color: white; font-size: 
   }
 }
 
-/* Optional: For tablet devices */
+/* For tablet devices */
 @media (min-width: 769px) and (max-width: 1024px) {
   .lp-product-gallery__nav {
     position: static;
