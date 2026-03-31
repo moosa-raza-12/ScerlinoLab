@@ -260,6 +260,7 @@ width: 33%;
   font-weight: 500 !important;
   margin-bottom: 17px;
   letter-spacing: 0px;
+  display:none;
 }
 .lp-variant-picker__options {
   display: flex;
