@@ -727,40 +727,63 @@ letter-spacing: 0px;  background: var(--primary-text); color: white; font-size: 
 }
 /* Add this media query at the end of your CSS file or after the existing .lp-product-gallery__nav styles */
 
-/* Mobile styles - move navigation after the card */
+/* Add this at the end of your CSS file */
+
+/* Mobile styles - Move navigation outside the card and position it below */
 @media (max-width: 768px) {
   .lp-product-gallery {
+    margin-bottom: 0;
     position: relative;
-    margin-bottom: 16px;
   }
   
   .lp-product-gallery__main {
     position: relative;
-    margin-bottom: 60px; /* Add space for the navigation that will be moved outside */
+    margin-bottom: 0;
+    border-radius: 10px;
   }
   
+  /* Remove the absolute positioning and make it a normal block element below the card */
   .lp-product-gallery__nav {
-    position: static; /* Remove absolute positioning on mobile */
+    position: static;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 16px;
+    margin-bottom: 24px;
     padding: 0;
     width: 100%;
+    background: transparent;
   }
   
-  /* Optional: Style adjustments for better mobile appearance */
+  /* Style adjustments for better appearance */
   .lp-product-gallery__arrow {
     width: 44px;
     height: 36px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
   
   .lp-product-gallery__dots {
-    gap: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 6px 12px;
   }
   
   .lp-product-gallery__dot {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  .lp-product-gallery__dot.active {
+    background: #ffffff;
+    transform: scale(1.2);
+  }
+}
+
+/* Optional: For tablet devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .lp-product-gallery__nav {
+    position: static;
+    margin-top: 16px;
+    margin-bottom: 24px;
   }
 }
