@@ -519,150 +519,253 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <script>
-  /* --- Handle both desktop and mobile navigation (sync them together) --- */
-const desktopNav = section.querySelector('.lp-product-gallery__nav:not(.lp-product-gallery__nav--mobile)');
+  /* --- Mobile Navigation Control (lp-product-gallery__nav--mobile) --- */
 const mobileNav = section.querySelector('.lp-product-gallery__nav--mobile');
+const desktopNav = section.querySelector('.lp-product-gallery__nav:not(.lp-product-gallery__nav--mobile)');
 
-// Get references to track and items (already defined above)
-const track = section.querySelector('#GalleryTrack-{{ section.id }}');
-const items = track ? Array.from(track.querySelectorAll('.lp-product-gallery__item')) : [];
-
-let currentSlide = 0;
-
-// Function to update all navigation buttons and dots
-function updateAllNavStates() {
-  // Get all prev and next buttons from both navigations
-  const allPrevBtns = section.querySelectorAll('.lp-product-gallery__arrow--prev');
-  const allNextBtns = section.querySelectorAll('.lp-product-gallery__arrow--next');
+if (mobileNav) {
+  // Get references to the track and items (already defined in your code)
+  const track = section.querySelector('#GalleryTrack-{{ section.id }}');
+  const items = track ? Array.from(track.querySelectorAll('.lp-product-gallery__item')) : [];
+  let currentSlide = 0;
   
-  // Update prev buttons
-  allPrevBtns.forEach(btn => {
-    if (currentSlide === 0) {
-      btn.classList.add('is-disabled');
-      btn.classList.remove('is-active');
-      btn.setAttribute('disabled', '');
-      btn.setAttribute('aria-disabled', 'true');
-    } else {
-      btn.classList.remove('is-disabled');
-      btn.classList.add('is-active');
-      btn.removeAttribute('disabled');
-      btn.setAttribute('aria-disabled', 'false');
+  // Get the buttons and dots from mobile navigation
+  const mobilePrevBtn = mobileNav.querySelector('.lp-product-gallery__arrow--prev');
+  const mobileNextBtn = mobileNav.querySelector('.lp-product-gallery__arrow--next');
+  const mobileDots = mobileNav.querySelectorAll('.lp-product-gallery__dot');
+  
+  // Get the buttons and dots from desktop navigation (to sync)
+  const desktopPrevBtn = desktopNav ? desktopNav.querySelector('.lp-product-gallery__arrow--prev') : null;
+  const desktopNextBtn = desktopNav ? desktopNav.querySelector('.lp-product-gallery__arrow--next') : null;
+  const desktopDots = desktopNav ? desktopNav.querySelectorAll('.lp-product-gallery__dot') : [];
+  
+  // Function to update all navigation states (both mobile and desktop)
+  function updateAllNavigationStates() {
+    // Update mobile prev button
+    if (mobilePrevBtn) {
+      if (currentSlide === 0) {
+        mobilePrevBtn.classList.add('is-disabled');
+        mobilePrevBtn.classList.remove('is-active');
+        mobilePrevBtn.setAttribute('disabled', '');
+        mobilePrevBtn.setAttribute('aria-disabled', 'true');
+      } else {
+        mobilePrevBtn.classList.remove('is-disabled');
+        mobilePrevBtn.classList.add('is-active');
+        mobilePrevBtn.removeAttribute('disabled');
+        mobilePrevBtn.setAttribute('aria-disabled', 'false');
+      }
     }
-  });
-  
-  // Update next buttons
-  allNextBtns.forEach(btn => {
-    if (currentSlide === items.length - 1) {
-      btn.classList.add('is-disabled');
-      btn.classList.remove('is-active');
-      btn.setAttribute('disabled', '');
-      btn.setAttribute('aria-disabled', 'true');
-    } else {
-      btn.classList.remove('is-disabled');
-      btn.classList.add('is-active');
-      btn.removeAttribute('disabled');
-      btn.setAttribute('aria-disabled', 'false');
+    
+    // Update mobile next button
+    if (mobileNextBtn) {
+      if (currentSlide === items.length - 1) {
+        mobileNextBtn.classList.add('is-disabled');
+        mobileNextBtn.classList.remove('is-active');
+        mobileNextBtn.setAttribute('disabled', '');
+        mobileNextBtn.setAttribute('aria-disabled', 'true');
+      } else {
+        mobileNextBtn.classList.remove('is-disabled');
+        mobileNextBtn.classList.add('is-active');
+        mobileNextBtn.removeAttribute('disabled');
+        mobileNextBtn.setAttribute('aria-disabled', 'false');
+      }
     }
+    
+    // Update desktop prev button (if exists)
+    if (desktopPrevBtn) {
+      if (currentSlide === 0) {
+        desktopPrevBtn.classList.add('is-disabled');
+        desktopPrevBtn.classList.remove('is-active');
+        desktopPrevBtn.setAttribute('disabled', '');
+        desktopPrevBtn.setAttribute('aria-disabled', 'true');
+      } else {
+        desktopPrevBtn.classList.remove('is-disabled');
+        desktopPrevBtn.classList.add('is-active');
+        desktopPrevBtn.removeAttribute('disabled');
+        desktopPrevBtn.setAttribute('aria-disabled', 'false');
+      }
+    }
+    
+    // Update desktop next button (if exists)
+    if (desktopNextBtn) {
+      if (currentSlide === items.length - 1) {
+        desktopNextBtn.classList.add('is-disabled');
+        desktopNextBtn.classList.remove('is-active');
+        desktopNextBtn.setAttribute('disabled', '');
+        desktopNextBtn.setAttribute('aria-disabled', 'true');
+      } else {
+        desktopNextBtn.classList.remove('is-disabled');
+        desktopNextBtn.classList.add('is-active');
+        desktopNextBtn.removeAttribute('disabled');
+        desktopNextBtn.setAttribute('aria-disabled', 'false');
+      }
+    }
+    
+    // Update mobile dots
+    mobileDots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
+    });
+    
+    // Update desktop dots
+    desktopDots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
+    });
+  }
+  
+  // Function to go to a specific slide
+  function goToSlide(index) {
+    if (items.length === 0) return;
+    if (index < 0) index = 0;
+    if (index >= items.length) index = items.length - 1;
+    currentSlide = index;
+    
+    // Update track position
+    if (track) {
+      track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+    }
+    
+    // Update all navigation states
+    updateAllNavigationStates();
+  }
+  
+  // Mobile prev button click handler
+  if (mobilePrevBtn) {
+    mobilePrevBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (mobilePrevBtn.hasAttribute('disabled')) return;
+      goToSlide(currentSlide - 1);
+    });
+  }
+  
+  // Mobile next button click handler
+  if (mobileNextBtn) {
+    mobileNextBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (mobileNextBtn.hasAttribute('disabled')) return;
+      goToSlide(currentSlide + 1);
+    });
+  }
+  
+  // Mobile dots click handlers
+  mobileDots.forEach((dot, index) => {
+    dot.addEventListener('click', function(e) {
+      e.preventDefault();
+      goToSlide(index);
+    });
   });
   
-  // Update all dots
-  const allDots = section.querySelectorAll('.lp-product-gallery__dot');
-  allDots.forEach((dot, i) => {
-    dot.classList.toggle('active', i === currentSlide);
-  });
-}
-
-// Function to go to a specific slide
-function goToSlide(index) {
-  if (items.length === 0) return;
-  if (index < 0) index = 0;
-  if (index >= items.length) index = items.length - 1;
-  currentSlide = index;
+  // If desktop navigation exists, sync it to use the same goToSlide function
+  if (desktopPrevBtn) {
+    // Remove existing event listeners (if any) and add new ones
+    const newDesktopPrevBtn = desktopPrevBtn.cloneNode(true);
+    desktopPrevBtn.parentNode.replaceChild(newDesktopPrevBtn, desktopPrevBtn);
+    newDesktopPrevBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (newDesktopPrevBtn.hasAttribute('disabled')) return;
+      goToSlide(currentSlide - 1);
+    });
+  }
   
-  // Update track position
+  if (desktopNextBtn) {
+    const newDesktopNextBtn = desktopNextBtn.cloneNode(true);
+    desktopNextBtn.parentNode.replaceChild(newDesktopNextBtn, desktopNextBtn);
+    newDesktopNextBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (newDesktopNextBtn.hasAttribute('disabled')) return;
+      goToSlide(currentSlide + 1);
+    });
+  }
+  
+  if (desktopDots.length > 0) {
+    desktopDots.forEach((dot, index) => {
+      const newDot = dot.cloneNode(true);
+      dot.parentNode.replaceChild(newDot, dot);
+      newDot.addEventListener('click', function(e) {
+        e.preventDefault();
+        goToSlide(index);
+      });
+    });
+  }
+  
+  // Initialize the first slide and update states
+  const activeDot = section.querySelector('.lp-product-gallery__dot.active');
+  if (activeDot && activeDot.dataset.index) {
+    currentSlide = parseInt(activeDot.dataset.index);
+  } else if (items.length > 0) {
+    currentSlide = 0;
+  }
+  
+  // Update track position based on initial slide
   if (track) {
     track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
   }
   
   // Update all navigation states
-  updateAllNavStates();
-}
-
-// Handle prev button clicks (works for both desktop and mobile)
-function handlePrevClick(e) {
-  e.preventDefault();
-  const btn = e.currentTarget;
-  if (btn.hasAttribute('disabled')) return;
-  goToSlide(currentSlide - 1);
-}
-
-// Handle next button clicks (works for both desktop and mobile)
-function handleNextClick(e) {
-  e.preventDefault();
-  const btn = e.currentTarget;
-  if (btn.hasAttribute('disabled')) return;
-  goToSlide(currentSlide + 1);
-}
-
-// Handle dot clicks (works for both desktop and mobile)
-function handleDotClick(e) {
-  const index = parseInt(e.currentTarget.dataset.index);
-  if (!isNaN(index)) {
-    goToSlide(index);
+  updateAllNavigationStates();
+  
+  // If you have swipe/drag functionality, integrate it with goToSlide
+  if (track) {
+    // Store reference to existing swipe handlers
+    let pointerStartX = 0;
+    let pointerStartY = 0;
+    let isSwiping = false;
+    let swipeThreshold = 40;
+    
+    function onPointerStart(x, y) {
+      pointerStartX = x;
+      pointerStartY = y;
+      isSwiping = true;
+    }
+    
+    function onPointerEnd(x, y) {
+      if (!isSwiping) return;
+      isSwiping = false;
+      var diffX = pointerStartX - x;
+      var diffY = Math.abs(pointerStartY - y);
+      if (Math.abs(diffX) > swipeThreshold && Math.abs(diffX) > diffY) {
+        goToSlide(diffX > 0 ? currentSlide + 1 : currentSlide - 1);
+      }
+    }
+    
+    // Add swipe listeners
+    track.addEventListener('touchstart', function(e) {
+      onPointerStart(e.changedTouches[0].screenX, e.changedTouches[0].screenY);
+    }, { passive: true });
+    
+    track.addEventListener('touchmove', function(e) {
+      if (!isSwiping) return;
+      var diffX = Math.abs(e.changedTouches[0].screenX - pointerStartX);
+      var diffY = Math.abs(e.changedTouches[0].screenY - pointerStartY);
+      if (diffX > diffY && diffX > 10) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+    
+    track.addEventListener('touchend', function(e) {
+      onPointerEnd(e.changedTouches[0].screenX, e.changedTouches[0].screenY);
+    }, { passive: true });
+    
+    track.addEventListener('mousedown', function(e) {
+      onPointerStart(e.screenX, e.screenY);
+      track.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+    
+    document.addEventListener('mousemove', function(e) {
+      if (!isSwiping) return;
+      e.preventDefault();
+    });
+    
+    document.addEventListener('mouseup', function(e) {
+      if (!isSwiping) return;
+      track.style.cursor = '';
+      onPointerEnd(e.screenX, e.screenY);
+    });
+    
+    track.style.cursor = 'grab';
+    track.addEventListener('dragstart', function(e) { e.preventDefault(); });
   }
 }
-
-// Initialize navigation controls
-function initNavigation() {
-  // Get all prev buttons
-  const allPrevBtns = section.querySelectorAll('.lp-product-gallery__arrow--prev');
-  const allNextBtns = section.querySelectorAll('.lp-product-gallery__arrow--next');
-  const allDots = section.querySelectorAll('.lp-product-gallery__dot');
-  
-  // Remove existing event listeners and add new ones
-  allPrevBtns.forEach(btn => {
-    btn.removeEventListener('click', handlePrevClick);
-    btn.addEventListener('click', handlePrevClick);
-  });
-  
-  allNextBtns.forEach(btn => {
-    btn.removeEventListener('click', handleNextClick);
-    btn.addEventListener('click', handleNextClick);
-  });
-  
-  allDots.forEach(dot => {
-    dot.removeEventListener('click', handleDotClick);
-    dot.addEventListener('click', handleDotClick);
-  });
-  
-  // Update all navigation states
-  updateAllNavStates();
-}
-
-// Call initialization
-if (items.length > 0) {
-  initNavigation();
-}
-
-// If you have existing swipe/drag functionality, update it to use the same goToSlide function
-// Update the swipe handlers to use the new goToSlide function
-if (track) {
-  // Your existing swipe code should use the goToSlide function
-  // For example, update the onPointerEnd function:
-  const originalOnPointerEnd = window.onPointerEnd;
-  window.onPointerEnd = function(x, y) {
-    if (!isSwiping) return;
-    isSwiping = false;
-    var diffX = pointerStartX - x;
-    var diffY = Math.abs(pointerStartY - y);
-    if (Math.abs(diffX) > swipeThreshold && Math.abs(diffX) > diffY) {
-      goToSlide(diffX > 0 ? currentSlide + 1 : currentSlide - 1);
-    }
-  };
-}
-
-// Also update any existing goToSlide references in your code
-// Look for any instances where you call goToSlide and ensure they use the new version
 document.addEventListener('DOMContentLoaded', function() {
   const section = document.querySelector('[data-section-id="{{ section.id }}"]');
   if (!section) return;
