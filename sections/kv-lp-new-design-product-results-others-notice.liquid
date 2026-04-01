@@ -1,4 +1,4 @@
-﻿{{ 'kv-lp-new-design-product-results-others-notice.css' | asset_url | stylesheet_tag }}
+{{ 'kv-lp-new-design-product-results-others-notice.css' | asset_url | stylesheet_tag }}
 
 <section class="lp-results-notice" id="lp-section-{{ section.id }}">
   <div class="lp-results-notice__container" id="lp-results-notice-container">
@@ -62,7 +62,7 @@
           <path d="M8 1L1 8L8 15M1 8H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
-      <div class="lp-results-notice__dots">
+      <div class="lp-results-notice__dots" id="lp-results-notice-dots-{{ section.id }}">
         {% for block in section.blocks %}
           <span class="lp-results-notice__dot{% if forloop.first %} is-active{% endif %}" data-dot="{{ forloop.index0 }}"></span>
         {% endfor %}
@@ -81,158 +81,232 @@
   if (!section) return;
 
   var listWrapper = section.querySelector('.lp-results-notice__list-wrapper');
+  var list = section.querySelector('.lp-results-notice__list');
   var cards = section.querySelectorAll('.lp-results-notice__card');
-  var dots = section.querySelectorAll('[data-dot]');
+  var dotsContainer = section.querySelector('#lp-results-notice-dots-{{ section.id }}');
   var prevBtn = section.querySelector('[data-nav="prev"]');
   var nextBtn = section.querySelector('[data-nav="next"]');
   var totalCards = cards.length;
 
   if (!listWrapper || totalCards === 0) return;
 
+  var currentPage = 0;
+  var mode = '';
+
+  function isDesktop() {
+    return window.innerWidth >= 1024;
+  }
+
+  function getPerPage() {
+    return isDesktop() ? 3 : 1;
+  }
+
+  function getTotalPages() {
+    return isDesktop() ? Math.ceil(totalCards / getPerPage()) : totalCards;
+  }
+
   function getGap() {
-    var list = section.querySelector('.lp-results-notice__list');
     if (!list) return 20;
     return parseFloat(getComputedStyle(list).gap) || 20;
   }
+
+  /* ── Desktop: transform-based page slider ── */
+
+  function sizeCardsDesktop() {
+    var gap = getGap();
+    var containerWidth = listWrapper.offsetWidth;
+    var cardW = (containerWidth - gap * 2) / 3;
+    cards.forEach(function(card) { card.style.width = cardW + 'px'; });
+  }
+
+  function slideToPage(page, smooth) {
+    var gap = getGap();
+    var containerWidth = listWrapper.offsetWidth;
+    var pageWidth = containerWidth + gap;
+    var cardW = (containerWidth - gap * 2) / 3;
+    var totalWidth = totalCards * (cardW + gap) - gap;
+    var maxOffset = totalWidth - containerWidth;
+    var offset = Math.min(page * pageWidth, maxOffset);
+    if (offset < 0) offset = 0;
+    list.style.transition = smooth ? 'transform 0.45s ease' : 'none';
+    list.style.transform = 'translateX(-' + offset + 'px)';
+  }
+
+  /* ── Mobile: scroll-based card slider ── */
 
   function getCardWidth() {
     if (cards.length === 0) return 0;
     return cards[0].offsetWidth + getGap();
   }
 
-  function getCurrentCardIndex() {
+  function getMobileIndex() {
     var cardWidth = getCardWidth();
     if (cardWidth === 0) return 0;
-    var scrollPosition = listWrapper.scrollLeft;
-    var index = Math.round(scrollPosition / cardWidth);
-    return Math.min(Math.max(0, index), totalCards - 1);
+    var idx = Math.round(listWrapper.scrollLeft / cardWidth);
+    return Math.min(Math.max(0, idx), totalCards - 1);
   }
 
-  function updateButtonStates() {
-    var currentIndex = getCurrentCardIndex();
+  function scrollToCard(index, smooth) {
+    if (index < 0) index = 0;
+    if (index >= totalCards) index = totalCards - 1;
+    var cardWidth = getCardWidth();
+    if (cardWidth === 0) return;
+    listWrapper.scrollTo({
+      left: index * cardWidth,
+      behavior: smooth ? 'smooth' : 'auto'
+    });
+  }
 
-    if (currentIndex === 0) {
+  /* ── Shared: dots + buttons ── */
+
+  function buildDots() {
+    var total = isDesktop() ? getTotalPages() : totalCards;
+    dotsContainer.innerHTML = '';
+    for (var i = 0; i < total; i++) {
+      var dot = document.createElement('span');
+      dot.className = 'lp-results-notice__dot' + (i === 0 ? ' is-active' : '');
+      dot.setAttribute('data-dot', i);
+      dot.addEventListener('click', (function(idx) {
+        return function() { goTo(idx, true); };
+      })(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateDots() {
+    var idx = isDesktop() ? currentPage : getMobileIndex();
+    var dots = dotsContainer.querySelectorAll('[data-dot]');
+    dots.forEach(function(dot, i) {
+      dot.classList.toggle('is-active', i === idx);
+    });
+  }
+
+  function updateButtons() {
+    var idx = isDesktop() ? currentPage : getMobileIndex();
+    var max = isDesktop() ? getTotalPages() - 1 : totalCards - 1;
+
+    if (idx <= 0) {
       prevBtn.classList.remove('is-active');
     } else {
       prevBtn.classList.add('is-active');
     }
-
-    if (currentIndex === totalCards - 1) {
+    if (idx >= max) {
       nextBtn.classList.remove('is-active');
     } else {
       nextBtn.classList.add('is-active');
     }
   }
 
-  function updateDots() {
-    var currentIndex = getCurrentCardIndex();
-    dots.forEach(function(dot, i) {
-      dot.classList.toggle('is-active', i === currentIndex);
-    });
+  function goTo(idx, smooth) {
+    if (isDesktop()) {
+      var maxPage = getTotalPages() - 1;
+      if (idx < 0) idx = 0;
+      if (idx > maxPage) idx = maxPage;
+      currentPage = idx;
+      slideToPage(currentPage, smooth);
+    } else {
+      scrollToCard(idx, smooth);
+    }
+    updateDots();
+    updateButtons();
   }
 
-  function scrollToCard(index, smooth) {
-    if (index < 0) index = 0;
-    if (index >= totalCards) index = totalCards - 1;
+  /* ── Events ── */
 
-    var cardWidth = getCardWidth();
-    if (cardWidth === 0) return;
+  prevBtn.addEventListener('click', function() {
+    var idx = isDesktop() ? currentPage : getMobileIndex();
+    if (idx > 0) goTo(idx - 1, true);
+  });
 
-    var scrollPosition = index * cardWidth;
-
-    listWrapper.scrollTo({
-      left: scrollPosition,
-      behavior: smooth ? 'smooth' : 'auto'
-    });
-  }
+  nextBtn.addEventListener('click', function() {
+    var idx = isDesktop() ? currentPage : getMobileIndex();
+    var max = isDesktop() ? getTotalPages() - 1 : totalCards - 1;
+    if (idx < max) goTo(idx + 1, true);
+  });
 
   var scrollTimeout;
   listWrapper.addEventListener('scroll', function() {
+    if (isDesktop()) return;
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(function() {
       updateDots();
-      updateButtonStates();
+      updateButtons();
     }, 50);
   });
 
-  if (prevBtn) {
-    prevBtn.addEventListener('click', function() {
-      var currentIndex = getCurrentCardIndex();
-      if (currentIndex > 0) {
-        scrollToCard(currentIndex - 1, true);
-      }
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', function() {
-      var currentIndex = getCurrentCardIndex();
-      if (currentIndex < totalCards - 1) {
-        scrollToCard(currentIndex + 1, true);
-      }
-    });
-  }
-
-  dots.forEach(function(dot, index) {
-    dot.addEventListener('click', function() {
-      scrollToCard(index, true);
-    });
-  });
-
   var touchStartX = 0;
-  var touchEndX = 0;
-
   listWrapper.addEventListener('touchstart', function(e) {
     touchStartX = e.changedTouches[0].screenX;
   });
-
   listWrapper.addEventListener('touchend', function(e) {
-    touchEndX = e.changedTouches[0].screenX;
-    var swipeThreshold = 50;
-    var currentIndex = getCurrentCardIndex();
+    var touchEndX = e.changedTouches[0].screenX;
+    var threshold = 50;
+    var idx = isDesktop() ? currentPage : getMobileIndex();
+    var max = isDesktop() ? getTotalPages() - 1 : totalCards - 1;
 
-    if (touchEndX < touchStartX - swipeThreshold && currentIndex < totalCards - 1) {
-      scrollToCard(currentIndex + 1, true);
-    } else if (touchEndX > touchStartX + swipeThreshold && currentIndex > 0) {
-      scrollToCard(currentIndex - 1, true);
+    if (touchEndX < touchStartX - threshold && idx < max) {
+      goTo(idx + 1, true);
+    } else if (touchEndX > touchStartX + threshold && idx > 0) {
+      goTo(idx - 1, true);
     }
   });
 
   document.addEventListener('keydown', function(e) {
     var rect = section.getBoundingClientRect();
-    var isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    if (rect.top >= window.innerHeight || rect.bottom <= 0) return;
 
-    if (!isVisible) return;
+    var idx = isDesktop() ? currentPage : getMobileIndex();
+    var max = isDesktop() ? getTotalPages() - 1 : totalCards - 1;
 
-    var currentIndex = getCurrentCardIndex();
-
-    if (e.key === 'ArrowLeft' && currentIndex > 0) {
-      scrollToCard(currentIndex - 1, true);
+    if (e.key === 'ArrowLeft' && idx > 0) {
+      goTo(idx - 1, true);
       e.preventDefault();
-    } else if (e.key === 'ArrowRight' && currentIndex < totalCards - 1) {
-      scrollToCard(currentIndex + 1, true);
+    } else if (e.key === 'ArrowRight' && idx < max) {
+      goTo(idx + 1, true);
       e.preventDefault();
     }
   });
 
-  var resizeTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
-      var currentIndex = getCurrentCardIndex();
-      scrollToCard(currentIndex, false);
-      updateButtonStates();
-      updateDots();
-    }, 250);
-  });
+  /* ── Setup / Resize ── */
 
-  function initialize() {
-    scrollToCard(0, false);
-    updateButtonStates();
+  function setup() {
+    var newMode = isDesktop() ? 'desktop' : 'mobile';
+
+    if (newMode === 'desktop') {
+      listWrapper.style.overflow = 'hidden';
+      list.style.width = 'max-content';
+      sizeCardsDesktop();
+      slideToPage(currentPage, false);
+    } else {
+      listWrapper.style.overflow = '';
+      list.style.transform = '';
+      list.style.transition = '';
+      list.style.width = '';
+      cards.forEach(function(c) { c.style.width = ''; });
+    }
+
+    if (newMode !== mode) {
+      mode = newMode;
+      currentPage = 0;
+      buildDots();
+      if (newMode === 'desktop') {
+        slideToPage(0, false);
+      } else {
+        scrollToCard(0, false);
+      }
+    }
+
+    updateButtons();
     updateDots();
   }
 
-  initialize();
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(setup, 200);
+  });
+
+  setup();
 })();
 </script>
 </section>

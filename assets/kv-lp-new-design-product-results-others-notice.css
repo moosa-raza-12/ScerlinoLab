@@ -10,7 +10,7 @@
 }
 
 .lp-results-notice__container {
-  max-width: 1440px;
+  max-width: 1040px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -265,18 +265,18 @@
   .lp-results-notice__list-wrapper {
     margin: 0;
     padding: 0;
-    overflow: visible;
+    overflow: hidden;
     padding-bottom: 40px;
   }
   .lp-results-notice__list {
     display: flex;
     gap: 30px;
-    width: 100%;
+    width: max-content;
+    transition: transform 0.45s ease;
   }
   .lp-results-notice__card {
-    flex: 1;
-    width: auto;
-    max-width: 328px;
+    flex-shrink: 0;
+    max-width: none;
   }
   .lp-results-notice__media {
     height: 222px;
@@ -292,6 +292,6 @@
     padding: 4px 8px;
   }
   .lp-results-notice__nav {
-    display: none;
+    display: flex;
   }
 }
