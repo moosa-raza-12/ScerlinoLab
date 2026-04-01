@@ -231,38 +231,45 @@
             "answer": ""
           }
         },
-        "block_9": {
+        "testimonial_video_mfHKRC": {
           "type": "testimonial_video",
           "settings": {
-            "video": "shopify://files/videos/moast-Ugc Video 08 Eng.mp4",
+            "video": "shopify://files/videos/Ugc Video 01 Eng.mp4",
             "video_caption": ""
           }
         },
-        "block_10": {
+        "testimonial_video_eQrNLG": {
           "type": "testimonial_video",
           "settings": {
-            "video": "shopify://files/videos/moast-Ugc Video 03 Eng.mp4",
+            "video": "shopify://files/videos/Ugc Video 02 Eng.mp4",
             "video_caption": ""
           }
         },
-        "block_11": {
+        "testimonial_video_893x9N": {
           "type": "testimonial_video",
           "settings": {
-            "video": "shopify://files/videos/moast-Ugc Video 01 Eng.mp4",
+            "video": "shopify://files/videos/Ugc Video 03 Eng.mp4",
             "video_caption": ""
           }
         },
-        "testimonial_video_ELzybj": {
+        "testimonial_video_dTfjWx": {
           "type": "testimonial_video",
           "settings": {
-            "video": "shopify://files/videos/moast-Ugc Video 09 Eng.mp4",
+            "video": "shopify://files/videos/Ugc Video 04 Eng.mp4",
             "video_caption": ""
           }
         },
-        "testimonial_video_RxUcTA": {
+        "testimonial_video_kQK6Hw": {
           "type": "testimonial_video",
           "settings": {
-            "video": "shopify://files/videos/moast-Ugc Video 02 Eng.mp4",
+            "video": "shopify://files/videos/Ugc Video 05 Eng.mp4",
+            "video_caption": ""
+          }
+        },
+        "testimonial_video_BYbhr9": {
+          "type": "testimonial_video",
+          "settings": {
+            "video": "shopify://files/videos/Ugc Video 06 Eng.mp4",
             "video_caption": ""
           }
         },
@@ -356,11 +363,12 @@
         "faq_Kn34f9",
         "faq_WDr77L",
         "faq_9yzE3d",
-        "block_9",
-        "block_10",
-        "block_11",
-        "testimonial_video_ELzybj",
-        "testimonial_video_RxUcTA",
+        "testimonial_video_mfHKRC",
+        "testimonial_video_eQrNLG",
+        "testimonial_video_893x9N",
+        "testimonial_video_dTfjWx",
+        "testimonial_video_kQK6Hw",
+        "testimonial_video_BYbhr9",
         "quick_link_fWH9FJ",
         "quick_link_znBERe",
         "quick_link_K3biVT",
