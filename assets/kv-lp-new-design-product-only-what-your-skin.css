@@ -330,6 +330,7 @@ letter-spacing: 0px;
 .lp-ingredient-card__full-content {
   font-size: 14px;
   line-height: 1.6;
+  letter-spacing: 0px;
 }
 /* Desktop styles - hide mobile tags, show desktop tag */
 .lp-ingredient-card__tags--mobile {

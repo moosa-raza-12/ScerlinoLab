@@ -90,6 +90,12 @@
   gap: 18px;
 }
 
+@media (max-width: 768px) {
+  .lp-efficacy__usp {
+    min-width: 175px !important;
+  }
+}
+
 .lp-efficacy__percentage {
   font-size: 49px;
   font-weight: 500;

@@ -42,46 +42,74 @@
 }
 
 
+.lp-how-to-use__advice-wrapper {
+  border-radius: 8px;
+  background: var(--card-bg);
+  width: 280px;
+  padding: 0;
+}
+
+.lp-how-to-use__advice-wrapper.is-open {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 20px;
+  gap: 6px;
+  align-self: stretch;
+  background: #F3F3F3;
+}
+
 .lp-how-to-use__advice {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--card-bg);
+  width: 100%;
+  background-color: transparent;
   padding: 10px 20px;
-  border-radius: 8px;
-  min-width: 280px;
   font-size: 14px;
-  font-weight: 350;
+  font-weight: 400;
   color: var(--text-dark);
   letter-spacing: 0px;
   cursor: pointer;
 }
+
+.lp-how-to-use__advice-wrapper.is-open .lp-how-to-use__advice {
+  padding: 0;
+}
+
 .lp-how-to-use__advice-content {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-  /* ADD THESE TRANSITION PROPERTIES */
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 1rem;
-  transition: max-height 0.3s ease-out, padding 0.3s ease-out, margin 0.3s ease-out;
+  display: none;
+  font-size: 12px;
+  font-weight: 350;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+.lp-how-to-use__advice-content p {
+  margin: 0;
 }
 
 .lp-how-to-use__advice-content.is-open {
-  max-height: 500px; /* Adjust based on your content height */
-  padding: 1rem;
-  margin-top: 1rem;
+  display: block;
+  animation: adviceFadeIn 0.35s ease;
+  letter-spacing: 0px;
+}
+
+@keyframes adviceFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .lp-how-to-use__advice-toggle {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   background: var(--text-dark);
-  border-radius: 7px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .lp-how-to-use__grid-wrapper {
