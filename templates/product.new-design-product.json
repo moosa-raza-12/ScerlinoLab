@@ -136,7 +136,7 @@
           "type": "bundle",
           "settings": {
             "quantity": 3,
-            "title": "3-month treatment",
+            "title": "3 Bottles",
             "discount_percentage": "43",
             "badge_text": "Most Popular",
             "badge_type": "navy",
@@ -161,7 +161,7 @@
           "type": "bundle",
           "settings": {
             "quantity": 1,
-            "title": "1-month treatment",
+            "title": "1 Bottle",
             "discount_percentage": "0",
             "badge_text": "",
             "badge_type": "gold",
