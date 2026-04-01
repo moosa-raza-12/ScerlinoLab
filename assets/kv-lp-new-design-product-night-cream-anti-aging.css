@@ -627,44 +627,49 @@ letter-spacing: 0px;  background: var(--primary-text); color: white; font-size: 
   top: 0;
   left: 0;
 }
-.lp-video-play {
+.lp-video-controls {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 8px;
+  z-index: 4;
+  background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 100%);
+}
+.lp-video-ctrl {
+  width: 36px;
+  height: 36px;
   border: none;
-  background: transparent;
-  border-radius: 0;
+  background: rgba(0,0,0,0.35);
+  border-radius: 8px;
   cursor: pointer;
-  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease, opacity 0.2s ease;
   padding: 0;
-  box-shadow: none;
+  color: #fff;
+  transition: background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
-.lp-video-play svg {
-  width: 30px;
-  height: 30px;
+.lp-video-ctrl:hover {
+  background: rgba(0,0,0,0.55);
 }
-.lp-video-play:hover {
-  transform: translate(-50%, -50%) scale(1.1);
+.lp-video-ctrl svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
-.lp-video-play::after {
-  display: none;
-}
-.lp-testimonial-card.is-playing .lp-video-play {
-  opacity: 0;
-  pointer-events: none;
+.lp-video-ctrl--fullscreen {
+  margin-left: auto;
 }
 
 /* Video card caption */
 .lp-testimonial-card__caption {
   position: absolute;
-  bottom: 16px;
+  bottom: 56px;
   left: 12px;
   right: 12px;
   z-index: 3;

@@ -363,9 +363,19 @@
                       preload="metadata"
                     ></video>
                   {% endif %}
-                  <button class="lp-video-play" aria-label="Play Video">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M14.9927 30C12.9221 30 10.9821 29.6079 9.17271 28.8238C7.36333 28.0494 5.77165 26.9748 4.39768 25.6002C3.02371 24.2256 1.94485 22.6331 1.1611 20.8228C0.387034 19.0126 0 17.0716 0 15C0 12.9284 0.387034 10.9874 1.1611 9.17715C1.94485 7.35721 3.02371 5.76476 4.39768 4.39981C5.77165 3.02517 7.36333 1.95063 9.17271 1.17619C10.9821 0.392062 12.9221 0 14.9927 0C17.0634 0 19.0034 0.392062 20.8128 1.17619C22.6318 1.95063 24.2284 3.02517 25.6023 4.39981C26.9763 5.76476 28.0503 7.35721 28.8244 9.17715C29.6081 10.9874 30 12.9284 30 15C30 17.0716 29.6081 19.0126 28.8244 20.8228C28.0503 22.6331 26.9763 24.2256 25.6023 25.6002C24.2284 26.9748 22.6318 28.0494 20.8128 28.8238C19.0034 29.6079 17.0634 30 14.9927 30ZM12.3803 20.9245L20.7547 15.9874C20.9966 15.8325 21.1563 15.6341 21.2337 15.3921C21.3208 15.1404 21.3208 14.8887 21.2337 14.637C21.1563 14.3853 20.9966 14.1917 20.7547 14.0561L12.3803 9.09003C12.119 8.93514 11.8481 8.87222 11.5675 8.90126C11.2966 8.9303 11.0692 9.03195 10.8853 9.2062C10.7015 9.37076 10.6096 9.6031 10.6096 9.90319V20.1113C10.6096 20.4114 10.7015 20.6534 10.8853 20.8374C11.0692 21.0116 11.2917 21.1133 11.553 21.1423C11.8239 21.1617 12.0997 21.0891 12.3803 20.9245Z" fill="white"/></svg>
-                  </button>
+                  <div class="lp-video-controls">
+                    <button class="lp-video-ctrl lp-video-ctrl--pause" aria-label="Pause">
+                      <svg class="lp-ctrl-icon lp-ctrl-icon--pause" width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="6" y="4" width="4" height="16" rx="1" fill="white"/><rect x="14" y="4" width="4" height="16" rx="1" fill="white"/></svg>
+                      <svg class="lp-ctrl-icon lp-ctrl-icon--play" width="20" height="20" viewBox="0 0 24 24" fill="none" style="display:none"><path d="M8 5.14v13.72a1 1 0 001.5.86l11.24-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z" fill="white"/></svg>
+                    </button>
+                    <button class="lp-video-ctrl lp-video-ctrl--mute" aria-label="Unmute">
+                      <svg class="lp-ctrl-icon lp-ctrl-icon--muted" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" fill="white"/><line x1="23" y1="9" x2="17" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="9" x2="23" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                      <svg class="lp-ctrl-icon lp-ctrl-icon--unmuted" width="20" height="20" viewBox="0 0 24 24" fill="none" style="display:none"><path d="M11 5L6 9H2v6h4l5 4V5z" fill="white"/><path d="M15.54 8.46a5 5 0 010 7.07" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M19.07 4.93a10 10 0 010 14.14" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                    </button>
+                    <button class="lp-video-ctrl lp-video-ctrl--fullscreen" aria-label="Fullscreen">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                  </div>
                 </div>
                 {% if block.settings.video_caption != blank %}
                   <div class="lp-testimonial-card__caption">
@@ -735,98 +745,102 @@ dots.forEach(function(dot) {
     });
   }
 
-  /* --- Testimonial Video: Autoplay on Hover --- */
-  /* --- Testimonial Video: Play/Pause with unmute option --- */
-/* --- Testimonial Video: Autoplay on Hover (muted) + Click to unmute/play with sound --- */
-/* --- Testimonial Video: Click to play with sound (NO HOVER) --- */
-  /* --- Testimonial Video: Click to play with sound (Play button hides when playing) --- */
+  /* --- Testimonial Video: Autoplay muted with controls --- */
   section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
     var video = card.querySelector('.lp-video-native');
-    var playBtn = card.querySelector('.lp-video-play');
+    var pauseBtn = card.querySelector('.lp-video-ctrl--pause');
+    var muteBtn = card.querySelector('.lp-video-ctrl--mute');
+    var fullscreenBtn = card.querySelector('.lp-video-ctrl--fullscreen');
     if (!video) return;
 
-    var isPlaying = false;
-    var isUnmuted = false;
+    var pauseIcon = pauseBtn ? pauseBtn.querySelector('.lp-ctrl-icon--pause') : null;
+    var playIcon = pauseBtn ? pauseBtn.querySelector('.lp-ctrl-icon--play') : null;
+    var mutedIcon = muteBtn ? muteBtn.querySelector('.lp-ctrl-icon--muted') : null;
+    var unmutedIcon = muteBtn ? muteBtn.querySelector('.lp-ctrl-icon--unmuted') : null;
 
-    // Ensure video is muted by default (won't autoplay)
     video.muted = true;
-    video.preload = 'metadata';
+    video.playsInline = true;
 
-    // Function to hide play button
-    function hidePlayButton() {
-      if (playBtn) {
-        playBtn.style.opacity = '0';
-        playBtn.style.visibility = 'hidden';
-        playBtn.style.pointerEvents = 'none';
-      }
-    }
-
-    // Function to show play button
-    function showPlayButton() {
-      if (playBtn) {
-        playBtn.style.opacity = '';
-        playBtn.style.visibility = '';
-        playBtn.style.pointerEvents = '';
-      }
-    }
-
-    function playVideoWithSound() {
-      video.currentTime = 0;
-      video.muted = false;
-      video.play().catch(function(e) {
-        console.log('Play failed:', e);
-      });
-      isPlaying = true;
-      isUnmuted = true;
-      card.classList.add('is-playing');
-      hidePlayButton(); // Hide play button when video starts playing
-    }
-
-    function pauseVideo() {
-      video.pause();
-      isPlaying = false;
-      card.classList.remove('is-playing');
-      showPlayButton(); // Show play button when video is paused
-    }
-
-    function togglePlayWithSound() {
-      if (isPlaying && !video.paused) {
-        // Currently playing → pause
-        pauseVideo();
+    function updatePauseIcon() {
+      if (!pauseIcon || !playIcon) return;
+      if (video.paused) {
+        pauseIcon.style.display = 'none';
+        playIcon.style.display = '';
       } else {
-        // Not playing → start with sound
-        playVideoWithSound();
+        pauseIcon.style.display = '';
+        playIcon.style.display = 'none';
       }
     }
 
-    // Listen for video end event to show play button again
-    video.addEventListener('ended', function() {
-      isPlaying = false;
-      card.classList.remove('is-playing');
-      showPlayButton();
-    });
-
-    // Listen for video pause event (in case it's paused by other means)
-    video.addEventListener('pause', function() {
-      if (video.currentTime === 0 || video.ended) {
-        showPlayButton();
+    function updateMuteIcon() {
+      if (!mutedIcon || !unmutedIcon) return;
+      if (video.muted) {
+        mutedIcon.style.display = '';
+        unmutedIcon.style.display = 'none';
+      } else {
+        mutedIcon.style.display = 'none';
+        unmutedIcon.style.display = '';
       }
-    });
+    }
 
-    /* Play button click: play with sound */
-    if (playBtn) {
-      playBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        togglePlayWithSound();
+    function tryAutoplay() {
+      video.play().then(function() {
+        updatePauseIcon();
+      }).catch(function() {
+        updatePauseIcon();
       });
     }
 
-    /* Click on video itself to toggle play/pause */
-    video.addEventListener('click', function(e) {
-      e.stopPropagation();
-      togglePlayWithSound();
-    });
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          tryAutoplay();
+        } else {
+          video.pause();
+          updatePauseIcon();
+        }
+      });
+    }, { threshold: 0.4 });
+    observer.observe(card);
+
+    if (pauseBtn) {
+      pauseBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+        updatePauseIcon();
+      });
+    }
+
+    if (muteBtn) {
+      muteBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        video.muted = !video.muted;
+        updateMuteIcon();
+      });
+    }
+
+    if (fullscreenBtn) {
+      fullscreenBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (video.requestFullscreen) {
+          video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) {
+          video.webkitRequestFullscreen();
+        } else if (video.webkitEnterFullScreen) {
+          video.webkitEnterFullScreen();
+        }
+      });
+    }
+
+    video.addEventListener('play', updatePauseIcon);
+    video.addEventListener('pause', updatePauseIcon);
+
+    updatePauseIcon();
+    updateMuteIcon();
   });
     /* --- Quick Link Pills: smooth scroll to target section --- */
   section.querySelectorAll('.lp-pill--scroll').forEach(function(pill) {
