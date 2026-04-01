@@ -94,6 +94,7 @@
   display: block;
   animation: adviceFadeIn 0.35s ease;
   letter-spacing: 0px;
+  text-align: left;
 }
 
 @keyframes adviceFadeIn {

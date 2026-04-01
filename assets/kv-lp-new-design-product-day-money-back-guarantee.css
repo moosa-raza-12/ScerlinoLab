@@ -61,12 +61,24 @@
 
 .lp-guarantee__icon {
   flex-shrink: 0;
+  position: relative;
+  width: 150px;
+  height: 151px;
 }
 
-.lp-guarantee__icon img {
+.lp-guarantee__icon-border {
+  display: block;
   width: 150px;
-  height: 150px;
-  object-fit: contain;
+  height: 151px;
+}
+
+.lp-guarantee__icon-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: auto;
 }
 
 .lp-guarantee__content {

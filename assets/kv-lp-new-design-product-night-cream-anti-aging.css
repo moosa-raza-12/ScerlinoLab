@@ -692,8 +692,7 @@ letter-spacing: 0px;  background: var(--primary-text); color: white; font-size: 
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
-  max-width: 488px !important;
-  /* width is set dynamically via JS based on video count */
+  width: 100%;
 }
 
 

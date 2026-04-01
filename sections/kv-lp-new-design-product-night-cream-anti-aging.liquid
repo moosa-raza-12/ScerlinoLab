@@ -853,9 +853,6 @@ dots.forEach(function(dot) {
   var videoCount = parseInt(scrollBar ? scrollBar.dataset.videoCount : 0, 10) || 0;
 
   if (slider && scrollBar && thumb && videoCount > 0) {
-    /* Set the track width dynamically: 120px per video */
-    var trackWidth = videoCount * 120;
-    scrollBar.style.width = trackWidth + 'px';
 
     function getMaxScroll() {
       return slider.scrollWidth - slider.clientWidth;
@@ -889,8 +886,6 @@ dots.forEach(function(dot) {
 
     slider.addEventListener('scroll', updateThumbPosition);
     window.addEventListener('resize', function() {
-      trackWidth = videoCount * 120;
-      scrollBar.style.width = trackWidth + 'px';
       updateThumbPosition();
     });
     updateThumbPosition();
