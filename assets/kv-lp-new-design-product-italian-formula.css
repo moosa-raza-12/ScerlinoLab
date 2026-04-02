@@ -352,3 +352,13 @@ aspect-ratio: 23/49;
   } */
 
 }
+
+
+@media (max-width: 639px) { 
+.lp-comparison-table__grid {
+    grid-template-columns: 48% 26% 26%;
+}
+
+
+
+}
