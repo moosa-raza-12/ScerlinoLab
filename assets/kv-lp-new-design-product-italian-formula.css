@@ -203,10 +203,14 @@
   /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
 }
 
-.lp-comparison-table__logo {
+/* .lp-comparison-table__logo {
 max-width: 23px;
 max-height: 49px;
 aspect-ratio: 23/49;
+} */
+
+.lp-comparison-table__logo {
+    max-width: 87px;
 }
 
 .lp-comparison-table__brand-name {
