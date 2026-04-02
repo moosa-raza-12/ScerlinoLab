@@ -998,7 +998,7 @@
       "type": "kv-lp-new-design-product-what-our-customers-say",
       "settings": {
         "widget_title": "73,000 Men Made the Switch.\n\nHere's Why They Stayed.",
-        "widget_type": "videos_carousel"
+        "widget_type": "reviews_grid_widget"
       }
     }
   },
