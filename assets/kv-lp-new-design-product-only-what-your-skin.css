@@ -370,7 +370,8 @@ gap: 6px;
   }
 }
 
-
+@media (max-width: 400px) { 
 .lp-ingredients__title {
     font-size: 30px;
+}
 }
