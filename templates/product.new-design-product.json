@@ -437,21 +437,6 @@
     "kv-lp-new-design-product-results-others-notice": {
       "type": "kv-lp-new-design-product-results-others-notice",
       "blocks": {
-        "block_0": {
-          "type": "review",
-          "settings": {
-            "image_before": "shopify://shop_images/Rectangle_4399.png",
-            "image_after": "shopify://shop_images/Rectangle_4400.png",
-            "label_before": "Before",
-            "label_after": "Month 3",
-            "reviewer_name": "Richard, 63",
-            "reviewer_subtitle": "",
-            "testimonial": "\"My neck was the thing I hated most. That loose skin folding over my collar - I'd pull at it every morning. After about 6 weeks, my wife grabbed my face and said 'your neck looks different.' By month 4, I stopped wearing turtlenecks to hide it.\"",
-            "tag_1": "Tighter neck skin",
-            "tag_2": "Less visible sagging",
-            "tag_3": "Smoother neck texture"
-          }
-        },
         "block_1": {
           "type": "review",
           "settings": {
@@ -467,13 +452,28 @@
             "tag_3": "Refreshed appearance"
           }
         },
+        "block_0": {
+          "type": "review",
+          "settings": {
+            "image_before": "shopify://shop_images/Rectangle_4399.png",
+            "image_after": "shopify://shop_images/Rectangle_4400.png",
+            "label_before": "Before",
+            "label_after": "Month 4",
+            "reviewer_name": "Richard, 63",
+            "reviewer_subtitle": "",
+            "testimonial": "\"My neck was the thing I hated most. That loose skin folding over my collar - I'd pull at it every morning. After about 6 weeks, my wife grabbed my face and said 'your neck looks different.' By month 4, I stopped wearing turtlenecks to hide it.\"",
+            "tag_1": "Tighter neck skin",
+            "tag_2": "Less visible sagging",
+            "tag_3": "Smoother neck texture"
+          }
+        },
         "block_2": {
           "type": "review",
           "settings": {
             "image_before": "shopify://shop_images/Rectangle_4399_2.png",
             "image_after": "shopify://shop_images/Rectangle_4400_2.png",
             "label_before": "Before",
-            "label_after": "Month 3",
+            "label_after": "Month 6",
             "reviewer_name": "Thomas, 59",
             "reviewer_subtitle": "",
             "testimonial": "\"I'd lost my jawline completely. Everything had kind of melted south - the jowls, the sagging along my chin. By week 8, I could actually see the edge of my jaw again. My barber noticed before I even said anything. That told me everything.\"",
@@ -518,7 +518,7 @@
             "image_before": "shopify://shop_images/Rectangle_4399_5.png",
             "image_after": "shopify://shop_images/Rectangle_4400_5.png",
             "label_before": "Before",
-            "label_after": "Month 6",
+            "label_after": "Month 3",
             "reviewer_name": "David, 58",
             "reviewer_subtitle": "",
             "testimonial": "\"I was getting 8 hours of sleep but looked like I was getting 4. The bags, the dull color, the uneven patches. My son saw me on FaceTime and said 'Dad, you look... good. What happened?' That's a first.\"",
@@ -529,8 +529,8 @@
         }
       },
       "block_order": [
-        "block_0",
         "block_1",
+        "block_0",
         "block_2",
         "review_WijYa3",
         "review_W8Ptka",
