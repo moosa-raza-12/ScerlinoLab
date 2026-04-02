@@ -397,28 +397,28 @@
         "logo_GDm89D": {
           "type": "logo",
           "settings": {
-            "svg_desktop": "shopify://shop_images/Vector_9c5df884-25ae-4abe-a15e-c91253ff4349.png",
+            "svg_desktop": "shopify://shop_images/seen-logo1.png",
             "image_alt": "Logo"
           }
         },
         "logo_CWCQtw": {
           "type": "logo",
           "settings": {
-            "svg_desktop": "shopify://shop_images/stylosophy_black_1_82ffa252-ccd8-4192-b5fb-8d4ed0b29db5.png",
+            "svg_desktop": "shopify://shop_images/seen-logo2.png",
             "image_alt": "Logo"
           }
         },
         "logo_hex7W3": {
           "type": "logo",
           "settings": {
-            "svg_desktop": "shopify://shop_images/stylosophy_black_2_a4688926-90ce-41e8-9adc-c76657d6f2fa.png",
+            "svg_desktop": "shopify://shop_images/seen-logo3.png",
             "image_alt": "Logo"
           }
         },
         "logo_9BfeLP": {
           "type": "logo",
           "settings": {
-            "svg_desktop": "shopify://shop_images/Uomo_Moderno_1_f9ee930e-00a4-424b-85a6-173010ccdc6d.png",
+            "svg_desktop": "shopify://shop_images/seen-logo4.png",
             "image_alt": "Logo"
           }
         }
