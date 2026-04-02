@@ -6,18 +6,16 @@
     <div class="logos-grid">
       {% for block in section.blocks %}
         <div class="logo-item">
-          <div class="logo-desktop">
-            {% if block.settings.svg_desktop != blank %}
-              {{
-                block.settings.svg_desktop 
-                | image_url: width: 300
-                | image_tag: 
-                  alt: block.settings.image_alt | default: section.settings.heading,
-                  loading: 'lazy'
-              }}
-            {% endif %}
-          </div>
-        </div>
+  <div class="logo-desktop">
+    {% if block.settings.svg_desktop != blank %}
+      <img
+        src="{{ block.settings.svg_desktop | img_url: 'master' }}"
+        alt="{{ block.settings.image_alt | default: section.settings.heading }}"
+        loading="lazy"
+      >
+    {% endif %}
+  </div>
+</div>
       {% endfor %}
     </div>
   </div>
