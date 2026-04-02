@@ -37,6 +37,7 @@
   .footer__content-top .grid {
     row-gap: 6rem;
     margin-bottom: 0;
+    column-gap: 30px;
   }
 }
 
