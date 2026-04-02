@@ -127,3 +127,11 @@
   letter-spacing: -1px;
 }
 }
+
+
+
+ @media (max-width: 400px) { 
+.lp-guarantee__title{
+    font-size: 30px;
+}
+}
