@@ -397,28 +397,28 @@
         "logo_GDm89D": {
           "type": "logo",
           "settings": {
-            "svg_desktop": "shopify://shop_images/Vector.png",
+            "svg_desktop": "shopify://shop_images/Vector_9c5df884-25ae-4abe-a15e-c91253ff4349.png",
             "image_alt": "Logo"
           }
         },
         "logo_CWCQtw": {
           "type": "logo",
           "settings": {
-            "svg_desktop": "shopify://shop_images/stylosophy_black_1.png",
+            "svg_desktop": "shopify://shop_images/stylosophy_black_1_82ffa252-ccd8-4192-b5fb-8d4ed0b29db5.png",
             "image_alt": "Logo"
           }
         },
         "logo_hex7W3": {
           "type": "logo",
           "settings": {
-            "svg_desktop": "shopify://shop_images/stylosophy_black_2.png",
+            "svg_desktop": "shopify://shop_images/stylosophy_black_2_a4688926-90ce-41e8-9adc-c76657d6f2fa.png",
             "image_alt": "Logo"
           }
         },
         "logo_9BfeLP": {
           "type": "logo",
           "settings": {
-            "svg_desktop": "shopify://shop_images/Uomo_Moderno_1.png",
+            "svg_desktop": "shopify://shop_images/Uomo_Moderno_1_f9ee930e-00a4-424b-85a6-173010ccdc6d.png",
             "image_alt": "Logo"
           }
         }
@@ -799,6 +799,7 @@
     "kv-lp-new-design-product-note-from-our-italian": {
       "type": "kv-lp-new-design-product-note-from-our-italian",
       "settings": {
+        "badge_text": "Nocera Inferiore, Italy",
         "heading": "Three Generations. One Lab. Since 1987",
         "content": "<p>In 1987, the Serlino family opened a small laboratory in the Italian countryside. No investors. No corporate backing. Just a pharmacist, his family, and a commitment to making things properly.<br/><br/>Three generations later, that same lab produces every batch of SerlinoLab by hand, in small quantities. This is not mass production. We make less in a year than most American brands make in a week.<br/><br/>Because when a formula takes 38 years to perfect, you don't rush it off a factory line.<br/><br/><strong>— The Serlino Family, Italy. Since 1987.</strong></p>",
         "image": "shopify://shop_images/image_1224_3bc09518-b32c-4ccc-89a8-f99fd6c68ff3.png",
