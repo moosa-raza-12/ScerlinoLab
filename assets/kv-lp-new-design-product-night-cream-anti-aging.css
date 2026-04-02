@@ -7,7 +7,7 @@
   color: var(--primary-text);
   font-family: inherit;
   /* padding: 24px 0 40px; */
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 /* .lp-product-info {
   padding: 0 20px;
@@ -36,7 +36,7 @@
   .lp-product-gallery {
     margin-bottom: 24px;
     max-width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     /* margin-left: -200px;
     width: calc(100% + 200px); */
   }
@@ -49,14 +49,15 @@
 .lp-product-gallery {
   margin-bottom: 16px;
   max-width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .lp-product-gallery__main {
-  position: relative;
-  background: var(--white);
-  /* border-radius: 10px; */
-  overflow: hidden;
-  width: 100%;
+    position: relative;
+    background: var(--white);
+    overflow: hidden;
+    width: 100%;
+    position: sticky;
+    top: 160px;
 }
 .lp-product-gallery__track {
   display: flex;
