@@ -21,6 +21,12 @@
 }
 }
 
+@media screen and (max-width: 725px) {
+  .lp-ingredients__subheading--mobile{
+    font-size: 12px !important;
+  }
+}
+
 @media (min-width: 1024px) {
   .lp-ingredients {
     padding: 64px 20px;

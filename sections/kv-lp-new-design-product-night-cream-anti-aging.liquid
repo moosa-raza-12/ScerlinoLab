@@ -348,6 +348,12 @@
                       preload="metadata"
                     ></video>
                   {% endif %}
+                  <div class="lp-video-play-overlay" aria-label="Play video">
+                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.85)"/>
+                      <path d="M26 20v24l20-12L26 20z" fill="#17162E"/>
+                    </svg>
+                  </div>
                   <div class="lp-video-controls">
                     <button class="lp-video-ctrl lp-video-ctrl--pause" aria-label="Pause">
                       <svg class="lp-ctrl-icon lp-ctrl-icon--pause" width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="6" y="4" width="4" height="16" rx="1" fill="white"/><rect x="14" y="4" width="4" height="16" rx="1" fill="white"/></svg>
@@ -698,9 +704,10 @@ dots.forEach(function(dot) {
     });
   }
 
-  /* --- Testimonial Video: Autoplay muted with controls --- */
+  /* --- Testimonial Video: Play on click (no autoplay) --- */
   section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
     var video = card.querySelector('.lp-video-native');
+    var playOverlay = card.querySelector('.lp-video-play-overlay');
     var pauseBtn = card.querySelector('.lp-video-ctrl--pause');
     var muteBtn = card.querySelector('.lp-video-ctrl--mute');
     var fullscreenBtn = card.querySelector('.lp-video-ctrl--fullscreen');
@@ -736,33 +743,35 @@ dots.forEach(function(dot) {
       }
     }
 
-    function tryAutoplay() {
-      video.play().then(function() {
-        updatePauseIcon();
-      }).catch(function() {
-        updatePauseIcon();
-      });
+    function showOverlay() {
+      if (playOverlay) playOverlay.classList.remove('is-hidden');
     }
 
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          tryAutoplay();
-        } else {
-          video.pause();
+    function hideOverlay() {
+      if (playOverlay) playOverlay.classList.add('is-hidden');
+    }
+
+    if (playOverlay) {
+      playOverlay.addEventListener('click', function(e) {
+        e.stopPropagation();
+        video.play().then(function() {
+          hideOverlay();
           updatePauseIcon();
-        }
+        }).catch(function() {
+          updatePauseIcon();
+        });
       });
-    }, { threshold: 0.4 });
-    observer.observe(card);
+    }
 
     if (pauseBtn) {
       pauseBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         if (video.paused) {
           video.play();
+          hideOverlay();
         } else {
           video.pause();
+          showOverlay();
         }
         updatePauseIcon();
       });
@@ -789,8 +798,18 @@ dots.forEach(function(dot) {
       });
     }
 
-    video.addEventListener('play', updatePauseIcon);
-    video.addEventListener('pause', updatePauseIcon);
+    video.addEventListener('play', function() {
+      updatePauseIcon();
+      hideOverlay();
+    });
+    video.addEventListener('pause', function() {
+      updatePauseIcon();
+      showOverlay();
+    });
+    video.addEventListener('ended', function() {
+      showOverlay();
+      updatePauseIcon();
+    });
 
     updatePauseIcon();
     updateMuteIcon();

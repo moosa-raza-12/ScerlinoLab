@@ -4,29 +4,36 @@
   --accent-gold: #FFD700;
   --white: #FFFFFF;
   --gray-light: #F3F3F3;
-  /* background: var(--bg-color); */
   color: var(--primary-text);
   font-family: inherit;
-  padding: 24px 20px 40px;
+  /* padding: 24px 0 40px; */
   overflow-x: hidden;
+}
+.lp-product-info {
+  padding: 0 20px;
 }
 
 @media (min-width: 1300px) {
   .lp-product-details {
-    padding: 24px 200px 0 200px;
+    padding: 24px 0 0 0;
   }
   .lp-product-details__container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+ display: flex;
     gap: 64px;
     max-width: 1440px;
     margin: 0 auto;
+    padding-left: 200px;
   }
   .lp-product-gallery {
-  margin-bottom: 24px;
-  max-width: 100%;
-  overflow: hidden;
-}
+    margin-bottom: 24px;
+    max-width: 100%;
+    overflow: hidden;
+    margin-left: -200px;
+    width: calc(100% + 200px);
+  }
+  .lp-product-info {
+    padding: 0 200px 0 0;
+  }
 }
 
 /* Gallery */
@@ -600,8 +607,8 @@ object-fit: contain; border-radius: 4px; flex-shrink: 0;
 }
 @media (max-width: 768px) {
   .lp-testimonial-card {
-    min-width: 42%;
-    flex: 0 0 42%;
+    min-width: calc(33.333% - 7px);
+    flex: 0 0 calc(33.333% - 7px);
   }
 }
 .lp-faq-summary {
@@ -665,6 +672,37 @@ object-fit: contain; border-radius: 4px; flex-shrink: 0;
 }
 .lp-video-ctrl--fullscreen {
   margin-left: auto;
+}
+
+/* Play overlay */
+.lp-video-play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease;
+}
+.lp-video-play-overlay:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+.lp-video-play-overlay svg {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+  transition: transform 0.2s ease;
+}
+.lp-video-play-overlay:hover svg {
+  transform: scale(1.1);
+}
+.lp-video-play-overlay.is-hidden {
+  display: none;
 }
 
 /* Video card caption */
