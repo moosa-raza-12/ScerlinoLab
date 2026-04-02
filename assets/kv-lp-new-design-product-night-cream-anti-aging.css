@@ -45,7 +45,7 @@
 .lp-product-gallery__main {
   position: relative;
   background: var(--white);
-  border-radius: 10px;
+  /* border-radius: 10px; */
   overflow: hidden;
   width: 100%;
 }
