@@ -383,4 +383,8 @@
   height: 300px;
 }
 
+.lp-how-to-use__card {
+    flex: 0 0 40%;
+}
+
  }
