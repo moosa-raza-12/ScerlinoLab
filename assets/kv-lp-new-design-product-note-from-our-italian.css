@@ -155,3 +155,10 @@ letter-spacing: 0px !important;
 .lp-note-lab__badge.mobile{display: flex !important;}
   
 }
+
+
+ @media (max-width: 400px) { 
+.lp-note-lab__heading{
+    font-size: 30px;
+}
+}
