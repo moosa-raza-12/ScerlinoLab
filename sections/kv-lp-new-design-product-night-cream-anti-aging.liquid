@@ -291,28 +291,13 @@
         </button>
       <div class="lp-shipping-meta">
   <span class="lp-meta-item">
-    <svg class="lp-dot" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="3" fill="#3AC835"/><circle cx="6" cy="6" r="4.5" stroke="#3AC835" stroke-opacity="0.35" stroke-width="3"/></svg> 
-    <span id="delivery-info-{{ section.id }}">Loading delivery info...</span>
+    <svg class="lp-dot" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="3" fill="#3AC835"/><circle cx="6" cy="6" r="4.5" stroke="#3AC835" stroke-opacity="0.35" stroke-width="3"/></svg>
+    <span id="delivery-info-{{ section.id }}">Calculating delivery...</span>
   </span>
   <span class="lp-meta-item">
-    <span id="shipping-label-{{ section.id }}"><strong>FREE</strong>&nbsp; Shipping to</span>&nbsp; <span id="user-location-{{ section.id }}">loading...</span>
+    <img id="country-flag-{{ section.id }}" src="https://flagcdn.com/w20/us.png" alt="Country Flag" class="lp-country-flag" width="16" height="12" loading="lazy">
+    <span id="shipping-label-{{ section.id }}"><strong>FREE</strong>&nbsp; Shipping over <strong>$75</strong></span>
   </span>
-</div>
-
-<div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">
-  <parcelpanel-edd 
-    id="pp-edd-widget-{{ section.id }}"
-    settingsStr='{
-      "corner_radius": 8,
-      "margin_top": 0,
-      "margin_bottom": 0,
-      "padding_x": 0,
-      "padding_y": 0,
-      "border_color": "transparent",
-      "icon": "🚚",
-      "show_icon": false
-    }'>
-  </parcelpanel-edd>
 </div>
 </div>
       <div class="lp-guarantee-banner">
@@ -414,85 +399,53 @@
       </div>
     </div>
   </div>
- <script src="https://shopify-edd.parcelpanel.com/loader.js" defer></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var sectionId = '{{ section.id }}';
   var deliverySpan = document.getElementById('delivery-info-' + sectionId);
-  var locationSpan = document.getElementById('user-location-' + sectionId);
-  var resolved = false;
+  var flagImg = document.getElementById('country-flag-' + sectionId);
+  var shippingLabel = document.getElementById('shipping-label-' + sectionId);
 
-  function getWidgetText(widget) {
-    var text = '';
-    if (widget.shadowRoot) {
-      text = widget.shadowRoot.textContent || '';
-    }
-    if (!text.trim()) {
-      text = widget.innerText || widget.textContent || '';
-    }
-    text = text.replace(/\.parcelpanel[^}]*\}/g, '');
-    text = text.replace(/[\n\r]+/g, ' ').replace(/\s+/g, ' ').trim();
-    return text;
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  function getDeliveryDate(daysToAdd) {
+    var date = new Date();
+    date.setDate(date.getDate() + daysToAdd);
+    return months[date.getMonth()] + ' ' + date.getDate();
   }
 
-  function getEndDate(raw) {
-    var cleaned = raw.replace(/🎁/g, '').trim();
-    var parts = cleaned.split(/\s*-\s*/);
-    var endPart = parts.length > 1 ? parts[parts.length - 1] : parts[0];
-    endPart = endPart.replace(/,?\s*\d{4}/g, '').replace(/\s+/g, ' ').trim();
-    var m = endPart.match(/([A-Za-z]+)\s+(\d{1,2})/);
-    if (m) return m[1] + ' ' + m[2];
-    return endPart;
-  }
+  function updateDelivery(countryCode) {
+    var isUS = countryCode && countryCode.toUpperCase() === 'US';
+    var deliveryDays = isUS ? 5 : 10;
+    var deliveryDate = getDeliveryDate(deliveryDays);
 
-  function getParcelPanelData() {
-    if (resolved) return;
-    var widget = document.getElementById('pp-edd-widget-' + sectionId);
-    if (!widget || !deliverySpan || !locationSpan) return;
-
-    var widgetText = getWidgetText(widget);
-    if (!widgetText || !widgetText.includes('Deliver to')) return;
-
-    var locationMatch = widgetText.match(/Deliver to\s+(?:[^,]+,\s*)?([A-Za-z\s]+?)\s+Order/i);
-    if (!locationMatch) {
-      locationMatch = widgetText.match(/Deliver to\s+([A-Za-z\s]+?)(?:\s+Order|\s+Get|\s*$)/i);
-    }
-    if (locationMatch && locationMatch[1]) {
-      locationSpan.textContent = locationMatch[1].trim();
-    }
-
-    var dateMatch = widgetText.match(/Get your order by\s+(.+?)(?:\s*🎁|\s*Deliver|\s*$)/i);
-    if (dateMatch && dateMatch[1]) {
-      var endDate = getEndDate(dateMatch[1]);
-      deliverySpan.innerHTML = 'Delivers by <strong>' + endDate + '</strong>';
-      resolved = true;
-    } else {
-      deliverySpan.textContent = 'Delivers in 3-5 business days';
+    if (deliverySpan) {
+      deliverySpan.innerHTML = 'Delivers by <strong>' + deliveryDate + '</strong>';
     }
   }
 
-  function observeWidget() {
-    var widget = document.getElementById('pp-edd-widget-' + sectionId);
-    if (!widget) return;
+  updateDelivery('US');
 
-    var target = widget.shadowRoot || widget;
-    var observer = new MutationObserver(function() {
-      getParcelPanelData();
-      if (resolved) observer.disconnect();
+  fetch('https://get.geojs.io/v1/ip/geo.json')
+    .then(function(response) { return response.json(); })
+    .then(function(data) {
+      var countryCode = data.country_code || 'US';
+
+      if (flagImg) {
+        flagImg.src = 'https://flagcdn.com/w20/' + countryCode.toLowerCase() + '.png';
+        flagImg.alt = (data.country || 'Country') + ' Flag';
+      }
+
+      updateDelivery(countryCode);
+
+      if (shippingLabel) {
+        shippingLabel.innerHTML = '<strong>FREE</strong>&nbsp; Shipping over <strong>$75</strong>';
+      }
+    })
+    .catch(function() {
+      updateDelivery('US');
     });
-    observer.observe(target, { childList: true, subtree: true, characterData: true });
-
-    setTimeout(function() { observer.disconnect(); }, 15000);
-  }
-
-  setTimeout(getParcelPanelData, 1500);
-  setTimeout(getParcelPanelData, 3000);
-  setTimeout(getParcelPanelData, 5000);
-  setTimeout(getParcelPanelData, 8000);
-
-  setTimeout(observeWidget, 500);
-  setTimeout(observeWidget, 2000);
 });
 </script>
 </section>
@@ -678,10 +631,10 @@ dots.forEach(function(dot) {
       var shippingInfo = radio.dataset.shippingInfo || '';
       var isFree = !shippingInfo || shippingInfo.toLowerCase().indexOf('free') !== -1;
       if (isFree) {
-        shippingLabelEl.innerHTML = '<strong>FREE</strong>&nbsp; Shipping to';
+        shippingLabelEl.innerHTML = '<strong>FREE</strong>&nbsp; Shipping over <strong>$75</strong>';
       } else {
         var cost = shippingInfo.replace(/^[+\s]+/, '').replace(/\s*shipping\s*/i, '').trim();
-        shippingLabelEl.innerHTML = '<strong>' + cost + '</strong>&nbsp; Shipping to';
+        shippingLabelEl.innerHTML = '<strong>' + cost + '</strong>&nbsp; Shipping';
       }
     }
 

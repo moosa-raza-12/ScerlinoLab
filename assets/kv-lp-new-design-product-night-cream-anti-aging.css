@@ -495,6 +495,7 @@ object-fit: contain; border-radius: 4px; flex-shrink: 0;
 }
 .lp-shipping-meta strong { color: #222; }
 .lp-dot { width: 12px; height: 12px; display: inline-block; vertical-align: middle; margin-right: 6px; flex-shrink: 0; }
+.lp-country-flag { width: 16px; height: 12px; border-radius: 2px; flex-shrink: 0; object-fit: cover; }
 
 .lp-guarantee-banner {
   background: var(--white);
@@ -747,6 +748,7 @@ object-fit: contain; border-radius: 4px; flex-shrink: 0;
 .lp-meta-item{
   display: flex;
   align-items: center;
+  gap: 6px;
 }
 .lp-product-gallery__nav-mobile{
   display: none;
