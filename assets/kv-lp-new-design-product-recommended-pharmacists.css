@@ -4,7 +4,7 @@
   --overlay-bg: rgba(0, 0, 0, 0.47);
   --white: #ffffff;
   background-color: var(--bg-color);
-  padding: 40px 0 40px 20px;
+  padding: 40px 0 40px;
   overflow: hidden;
 }
 
@@ -36,11 +36,11 @@
 }
 
 .lp-pharmacists-grid-wrapper {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  margin: 0 -20px;
-  padding: 0 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    /* margin: 0 -20px; */
+    /* padding: 0 20px; */
 }
 
 .lp-pharmacists-grid-wrapper::-webkit-scrollbar {
