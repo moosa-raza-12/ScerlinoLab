@@ -312,7 +312,7 @@
           "type": "quick_link",
           "settings": {
             "label": "Tests",
-            "section_id": "lp-efficacy-overlay"
+            "section_id": "lp-efficacy-container"
           }
         },
         "quick_link_RAEJcF": {
