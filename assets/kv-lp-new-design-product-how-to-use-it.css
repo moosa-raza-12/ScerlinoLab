@@ -167,7 +167,7 @@
 
 .lp-how-to-use__card-image {
   width: 100%;
-  height: 350px;
+  height: 400px;
   overflow: hidden;
   border-radius: 12px;
 }
@@ -375,3 +375,13 @@
     display: none;
   }
 }
+
+
+@media (max-width: 639px) { 
+
+.lp-how-to-use__card-image {
+  width: 100%;
+  height: 300px;
+}
+
+ }
