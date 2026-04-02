@@ -214,3 +214,10 @@ line-height:normal;
     /* padding-left: 200px; */
   }
 }
+
+
+ @media (max-width: 400px) {
+.lp-efficacy__title {font-size: 30px;}
+
+
+ }
