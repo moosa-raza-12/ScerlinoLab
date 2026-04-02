@@ -412,6 +412,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var deliverySpan = document.getElementById('delivery-info-' + sectionId);
   var flagImg = document.getElementById('country-flag-' + sectionId);
   var shippingLabel = document.getElementById('shipping-label-' + sectionId);
+  var stickyDelivery = document.querySelector('.lp-sticky-delivery');
+  var stickyFlag = document.querySelector('.lp-sticky-flag');
+  var stickyShipping = document.querySelector('.lp-sticky-shipping');
 
   var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
@@ -425,10 +428,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var isUS = countryCode && countryCode.toUpperCase() === 'US';
     var deliveryDays = isUS ? 5 : 10;
     var deliveryDate = getDeliveryDate(deliveryDays);
+    var html = 'Delivers by <strong>' + deliveryDate + '</strong>';
 
-    if (deliverySpan) {
-      deliverySpan.innerHTML = 'Delivers by <strong>' + deliveryDate + '</strong>';
-    }
+    if (deliverySpan) deliverySpan.innerHTML = html;
+    if (stickyDelivery) stickyDelivery.innerHTML = html;
   }
 
   updateDelivery('US');
@@ -437,17 +440,17 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(function(response) { return response.json(); })
     .then(function(data) {
       var countryCode = data.country_code || 'US';
+      var flagUrl = 'https://flagcdn.com/w20/' + countryCode.toLowerCase() + '.png';
+      var altText = (data.country || 'Country') + ' Flag';
 
-      if (flagImg) {
-        flagImg.src = 'https://flagcdn.com/w20/' + countryCode.toLowerCase() + '.png';
-        flagImg.alt = (data.country || 'Country') + ' Flag';
-      }
+      if (flagImg) { flagImg.src = flagUrl; flagImg.alt = altText; }
+      if (stickyFlag) { stickyFlag.src = flagUrl; stickyFlag.alt = altText; }
 
       updateDelivery(countryCode);
 
-      if (shippingLabel) {
-        shippingLabel.innerHTML = '<strong>FREE</strong>&nbsp; Shipping over <strong>$75</strong>';
-      }
+      var shippingHtml = '<strong>FREE</strong>&nbsp; Shipping over <strong>$75</strong>';
+      if (shippingLabel) shippingLabel.innerHTML = shippingHtml;
+      if (stickyShipping) stickyShipping.innerHTML = shippingHtml;
     })
     .catch(function() {
       updateDelivery('US');
@@ -636,12 +639,16 @@ dots.forEach(function(dot) {
     if (shippingLabelEl) {
       var shippingInfo = radio.dataset.shippingInfo || '';
       var isFree = !shippingInfo || shippingInfo.toLowerCase().indexOf('free') !== -1;
+      var shippingHtml;
       if (isFree) {
-        shippingLabelEl.innerHTML = '<strong>FREE</strong>&nbsp; Shipping over <strong>$75</strong>';
+        shippingHtml = '<strong>FREE</strong>&nbsp; Shipping over <strong>$75</strong>';
       } else {
         var cost = shippingInfo.replace(/^[+\s]+/, '').replace(/\s*shipping\s*/i, '').trim();
-        shippingLabelEl.innerHTML = '<strong>' + cost + '</strong>&nbsp; Shipping';
+        shippingHtml = '<strong>' + cost + '</strong>&nbsp; Shipping';
       }
+      shippingLabelEl.innerHTML = shippingHtml;
+      var stickyShipEl = document.querySelector('.lp-sticky-shipping');
+      if (stickyShipEl) stickyShipEl.innerHTML = shippingHtml;
     }
 
     if (atcButton) {
@@ -961,10 +968,92 @@ dots.forEach(function(dot) {
       slider.style.scrollBehavior = '';
     });
 
-    slider.addEventListener('dragstart', function(e) { e.preventDefault(); });
+    slider.addEventListener('dragstart', function(e) { e.preventDefault();       });
+  }
+
+  /* --- Sticky ATC: show when .lp-atc-button leaves viewport --- */
+  var stickyBar = document.getElementById('lp-sticky-atc');
+  var mainAtcBtn = section.querySelector('.lp-atc-button');
+
+  if (stickyBar && mainAtcBtn) {
+    var stickyObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        stickyBar.classList.toggle('is-visible', !entry.isIntersecting);
+      });
+    }, { threshold: 0 });
+
+    stickyObserver.observe(mainAtcBtn);
+
+    stickyBar.querySelector('.lp-sticky-atc__btn').addEventListener('click', function() {
+      mainAtcBtn.click();
+    });
   }
 });
 </script>
+
+<div class="lp-sticky-atc" id="lp-sticky-atc">
+  <div class="lp-sticky-atc__inner">
+    <button type="button" class="lp-sticky-atc__btn">Select Options</button>
+    <div class="lp-shipping-meta lp-sticky-atc__meta">
+      <span class="lp-meta-item">
+        <svg class="lp-dot" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="3" fill="#3AC835"/><circle cx="6" cy="6" r="4.5" stroke="#3AC835" stroke-opacity="0.35" stroke-width="3"/></svg>
+        <span class="lp-sticky-delivery">Calculating delivery...</span>
+      </span>
+      <span class="lp-meta-item">
+        <img class="lp-country-flag lp-sticky-flag" src="https://flagcdn.com/w20/us.png" alt="Country Flag" width="16" height="12" loading="lazy">
+        <span class="lp-sticky-shipping"><strong>FREE</strong>&nbsp; Shipping over <strong>$75</strong></span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<style>
+.lp-sticky-atc {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #fff;
+  box-shadow: 0 -2px 12px rgba(0,0,0,.12);
+  transform: translateY(100%);
+  transition: transform .3s ease;
+  pointer-events: none;
+}
+.lp-sticky-atc.is-visible {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.lp-sticky-atc__inner {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 12px 20px 14px;
+}
+.lp-sticky-atc__btn {
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  background: #FDCB04;
+  color: #1a2a3a;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s;
+  letter-spacing: .3px;
+}
+.lp-sticky-atc__btn:hover {
+  background: #f0be00;
+}
+.lp-sticky-atc__btn:active {
+  transform: scale(.985);
+}
+.lp-sticky-atc__meta {
+  justify-content: center;
+  margin-top: 10px;
+}
+</style>
 
 {% schema %}
 {
