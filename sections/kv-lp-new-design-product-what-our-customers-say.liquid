@@ -60,43 +60,21 @@
     {% when "star_rating_badge" %}
       <div
         class="jdgm-widget jdgm-preview-badge"
+        data-product-title="{{ product.title | escape }}"
         data-id="{{ product.id }}">
         {{ product.metafields.judgeme.badge }}
       </div>
 
     {% when "review_widget" %}
-      {% assign has_legacy = false %}
-      {% if product.metafields.judgeme.widget.size > 20 %}
-        {% assign has_legacy = true %}
-      {% endif %}
-
       <div class="lp-reviews-widget">
         <div style="clear: both"></div>
         <div
           id="judgeme_product_reviews"
           class="jdgm-widget jdgm-review-widget"
           data-product-title="{{ product.title | escape }}"
-          data-id="{{ product.id }}"
-          data-product-id="{{ product.id }}"
-          data-widget="review"
-          data-auto-install="false"
-          data-shop-reviews-count="{{ shop.metafields.judgeme.shop_reviews_count | default: 0 | escape }}"
-          data-entry-point="review_widget.js"
-          data-entry-key="review-widget/main.js">
-          {% if has_legacy %}
-            <div class="jdgm-legacy-widget-content" style="display: none;">
-              {{ product.metafields.judgeme.widget }}
-            </div>
-          {% endif %}
+          data-id="{{ product.id }}">
+          {{ product.metafields.judgeme.widget }}
         </div>
-
-        {% if product.metafields.judgeme.review_widget_data %}
-          <script>
-            jdgm.data ||= {};
-            jdgm.data.reviewWidget ||= {};
-            jdgm.data.reviewWidget[{{ product.id }}] = {{ product.metafields.judgeme.review_widget_data }};
-          </script>
-        {% endif %}
       </div>
 
     {% when "reviews_carousel" %}
@@ -149,13 +127,45 @@
             <span
               class="jdgm-all-reviews-text__text"
               data-score="{{ shop.metafields.judgeme.all_reviews_rating }}"
-              data-number-of-reviews="{{ shop.metafields.judgeme.all_reviews_count }}"
-              data-locale="en">
+              data-number-of-reviews="{{ shop.metafields.judgeme.all_reviews_count }}">
               Customers rate us {{ shop.metafields.judgeme.all_reviews_rating | round: 1 }}/5 based on {{ shop.metafields.judgeme.all_reviews_count }} reviews.
             </span>
           </a>
         </div>
       </div>
+
+    {% when "cards_carousel" %}
+      <div class="jdgm-carousel-wrapper jdgm-cards-carousel-wrapper"></div>
+
+    {% when "testimonials_carousel" %}
+      <div class="jdgm-carousel-wrapper jdgm-testimonials-carousel-wrapper"></div>
+
+    {% when "videos_carousel" %}
+      <div class="jdgm-carousel-wrapper jdgm-videos-carousel-wrapper"></div>
+
+    {% when "reviews_grid_widget" %}
+      <div class="jdgm-widget jdgm-reviews-grid"></div>
+
+    {% when "all_reviews_widget" %}
+      <div class="jdgm-widget jdgm-all-reviews-widget">
+        <div class="jdgm-all-reviews__body"></div>
+      </div>
+
+    {% when "floating_reviews_tab" %}
+      <section class="jdgm-widget jdgm-revs-tab">
+        <div class="jdgm-revs-tab-btn btn" position="bottom">Reviews</div>
+        <div class="jdgm-revs-tab__header">
+          <a class="jdgm-close-ico"></a>
+          <h3 class="jdgm-revs-tab__title">Product Reviews</h3>
+          <a href="/pages/reviews">
+            <div class="jdgm-all-reviews-rating"></div>
+            <span class="jdgm-all-reviews-count"></span> reviews
+          </a>
+        </div>
+      </section>
+
+    {% when "popup_reviews_widget" %}
+      <div class="jdgm-widget jdgm-popup-reviews-widget"></div>
   {% endcase %}
 </div>
 
@@ -188,12 +198,32 @@
           "label": "Reviews Carousel"
         },
         {
-          "value": "judge_me_medals",
-          "label": "Judge.me Medals"
+          "value": "cards_carousel",
+          "label": "Cards Carousel"
+        },
+        {
+          "value": "testimonials_carousel",
+          "label": "Testimonials Carousel"
+        },
+        {
+          "value": "videos_carousel",
+          "label": "Videos Carousel"
+        },
+        {
+          "value": "reviews_grid_widget",
+          "label": "Reviews Grid Widget"
         },
         {
           "value": "ugc_media_grid",
           "label": "UGC Media Grid"
+        },
+        {
+          "value": "all_reviews_widget",
+          "label": "All Reviews Widget"
+        },
+        {
+          "value": "judge_me_medals",
+          "label": "Judge.me Medals"
         },
         {
           "value": "verified_reviews_counter",
@@ -202,6 +232,14 @@
         {
           "value": "all_reviews_counter",
           "label": "All Reviews Counter"
+        },
+        {
+          "value": "floating_reviews_tab",
+          "label": "Floating Reviews Tab"
+        },
+        {
+          "value": "popup_reviews_widget",
+          "label": "Pop-up Reviews Widget"
         }
       ]
     }
