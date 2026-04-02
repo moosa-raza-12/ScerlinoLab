@@ -820,10 +820,21 @@ object-fit: contain; border-radius: 4px; flex-shrink: 0;
 }
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 1199.98px) {
+
+.lp-product-details__container {
+    gap: 40px;
+}
+
+}
 
 
+@media (max-width: 991.98px) { 
 
+.lp-product-details__container {
+    gap: 0px;
+    grid-template-columns: 1fr;
+}
 
 
 }
