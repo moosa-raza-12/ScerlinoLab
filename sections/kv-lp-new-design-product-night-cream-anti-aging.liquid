@@ -985,7 +985,13 @@ dots.forEach(function(dot) {
     stickyObserver.observe(mainAtcBtn);
 
     stickyBar.querySelector('.lp-sticky-atc__btn').addEventListener('click', function() {
-      mainAtcBtn.click();
+      var target = section.querySelector('.lp-product-info');
+      if (target) {
+        var header = document.querySelector('sticky-header') || document.querySelector('.shopify-section-header');
+        var offset = header ? header.offsetHeight : 0;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - offset - 16;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
     });
   }
 });
