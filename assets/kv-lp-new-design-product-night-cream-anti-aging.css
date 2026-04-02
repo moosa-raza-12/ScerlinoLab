@@ -143,11 +143,12 @@
   transform: scale(1.05);
 }
 .lp-product-gallery__dots {
-  display: flex;
-  gap: 4px;
-  background: rgba(255,255,255,0.1);
-  padding: 4px 8px;
-  border-radius: 99px;
+    display: flex;
+    gap: 4px;
+    padding: 4px 8px;
+    backdrop-filter: 12px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.20);
 }
 .lp-product-gallery__dot {
   width: 8px;
