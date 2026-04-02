@@ -842,7 +842,7 @@ object-fit: contain; border-radius: 4px; flex-shrink: 0;
 
 @media (max-width: 991.98px) { 
 
-.lp-product-gallery__item {
+.lp-product-gallery__main{
   margin: 0 -20px;
 }
 
