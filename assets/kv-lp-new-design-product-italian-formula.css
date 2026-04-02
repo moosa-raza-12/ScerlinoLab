@@ -209,7 +209,13 @@ max-height: 49px;
 aspect-ratio: 23/49;
 } */
 
-.lp-comparison-table__logo
+.lp-comparison-table__logo {
+    max-width: 87px;
+    width: 100%;
+    display: block;
+}
+
+
 .lp-comparison-table__brand-name {
   color: #0A1124;
   font-weight: 700;
