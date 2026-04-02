@@ -28,19 +28,36 @@
     {% for block in section.blocks %}
       <div class="scroll-item">
         {% if block.settings.svg_mobile != blank %}
-          {{ block.settings.svg_mobile | image_url: width: 300 | image_tag: alt: block.settings.image_alt | default: section.settings.heading, loading: 'lazy' }}
+          <img
+            src="{{ block.settings.svg_mobile | img_url: 'master' }}"
+            alt="{{ block.settings.image_alt | default: section.settings.heading }}"
+            loading="lazy"
+          >
         {% elsif block.settings.svg_desktop != blank %}
-          {{ block.settings.svg_desktop | image_url: width: 300 | image_tag: alt: block.settings.image_alt | default: section.settings.heading, loading: 'lazy' }}
+          <img
+            src="{{ block.settings.svg_desktop | img_url: 'master' }}"
+            alt="{{ block.settings.image_alt | default: section.settings.heading }}"
+            loading="lazy"
+          >
         {% endif %}
       </div>
     {% endfor %}
+
     {% comment %} Duplicate for seamless loop {% endcomment %}
     {% for block in section.blocks %}
       <div class="scroll-item" aria-hidden="true">
         {% if block.settings.svg_mobile != blank %}
-          {{ block.settings.svg_mobile | image_url: width: 300 | image_tag: alt: '', loading: 'lazy' }}
+          <img
+            src="{{ block.settings.svg_mobile | img_url: 'master' }}"
+            alt=""
+            loading="lazy"
+          >
         {% elsif block.settings.svg_desktop != blank %}
-          {{ block.settings.svg_desktop | image_url: width: 300 | image_tag: alt: '', loading: 'lazy' }}
+          <img
+            src="{{ block.settings.svg_desktop | img_url: 'master' }}"
+            alt=""
+            loading="lazy"
+          >
         {% endif %}
       </div>
     {% endfor %}
