@@ -92,7 +92,7 @@
 
 @media (max-width: 768px) {
   .lp-efficacy__usp {
-    min-width: 175px !important;
+    min-width: unset !important;
   }
 }
 
