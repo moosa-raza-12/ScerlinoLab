@@ -369,3 +369,8 @@ gap: 6px;
     display: inline-block;
   }
 }
+
+
+.lp-ingredients__title {
+    font-size: 30px;
+}
