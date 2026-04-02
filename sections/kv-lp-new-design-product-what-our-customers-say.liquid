@@ -54,29 +54,49 @@
     {{ section.settings.widget_title }}
   </h3>
 
-  {% assign jm_style = '' %}
   {% assign widget = section.settings.widget_type %}
 
   {% case widget %}
-    {% when "single_product_preview_badge" %}
+    {% when "star_rating_badge" %}
       <div
-        style="{{ jm_style }}"
         class="jdgm-widget jdgm-preview-badge"
-        data-product-title="{{ product.title | escape }}"
         data-id="{{ product.id }}">
         {{ product.metafields.judgeme.badge }}
       </div>
 
     {% when "review_widget" %}
+      {% assign has_legacy = false %}
+      {% if product.metafields.judgeme.widget.size > 20 %}
+        {% assign has_legacy = true %}
+      {% endif %}
+
       <div class="lp-reviews-widget">
-        <div style="clear:both"></div>
+        <div style="clear: both"></div>
         <div
           id="judgeme_product_reviews"
           class="jdgm-widget jdgm-review-widget"
           data-product-title="{{ product.title | escape }}"
-          data-id="{{ product.id }}">
-          {{ product.metafields.judgeme.widget }}
+          data-id="{{ product.id }}"
+          data-product-id="{{ product.id }}"
+          data-widget="review"
+          data-auto-install="false"
+          data-shop-reviews-count="{{ shop.metafields.judgeme.shop_reviews_count | default: 0 | escape }}"
+          data-entry-point="review_widget.js"
+          data-entry-key="review-widget/main.js">
+          {% if has_legacy %}
+            <div class="jdgm-legacy-widget-content" style="display: none;">
+              {{ product.metafields.judgeme.widget }}
+            </div>
+          {% endif %}
         </div>
+
+        {% if product.metafields.judgeme.review_widget_data %}
+          <script>
+            jdgm.data ||= {};
+            jdgm.data.reviewWidget ||= {};
+            jdgm.data.reviewWidget[{{ product.id }}] = {{ product.metafields.judgeme.review_widget_data }};
+          </script>
+        {% endif %}
       </div>
 
     {% when "reviews_carousel" %}
@@ -103,7 +123,23 @@
         {{ jm_metafields.featured_carousel }}
       </div>
 
-    {% when "reviews_text" %}
+    {% when "judge_me_medals" %}
+      {{ shop.metafields.judgeme.medals }}
+
+    {% when "ugc_media_grid" %}
+      <div class="jdgm-widget jdgm-ugc-media-wrapper">
+        {{ shop.metafields.judgeme.ugc_media_grid }}
+      </div>
+
+    {% when "verified_reviews_counter" %}
+      <div style="clear: both"></div>
+      <div style="text-align: center">
+        <a class="jdgm-verified-count-badget" href="javascript:void(0)">
+          {{ shop.metafields.judgeme.verified_badge }}
+        </a>
+      </div>
+
+    {% when "all_reviews_counter" %}
       <div style="text-align: center">
         <div class="jdgm-widget jdgm-all-reviews-text">
           <a href="javascript:void(0)">
@@ -113,27 +149,12 @@
             <span
               class="jdgm-all-reviews-text__text"
               data-score="{{ shop.metafields.judgeme.all_reviews_rating }}"
-              data-number-of-reviews="{{ shop.metafields.judgeme.all_reviews_count }}">
+              data-number-of-reviews="{{ shop.metafields.judgeme.all_reviews_count }}"
+              data-locale="en">
               Customers rate us {{ shop.metafields.judgeme.all_reviews_rating | round: 1 }}/5 based on {{ shop.metafields.judgeme.all_reviews_count }} reviews.
             </span>
           </a>
         </div>
-      </div>
-
-    {% when "section_for_medals" %}
-      {{ shop.metafields.judgeme.medals }}
-
-    {% when "ugc_media_grid" %}
-      <div class="jdgm-widget jdgm-ugc-media-wrapper">
-        {{ shop.metafields.judgeme.ugc_media_grid }}
-      </div>
-
-    {% when "verified_reviews_count_badge" %}
-      <div style="clear:both"></div>
-      <div style="text-align: center">
-        <a class="jdgm-verified-count-badget" href="javascript:void(0)">
-          {{ shop.metafields.judgeme.verified_badge }}
-        </a>
       </div>
   {% endcase %}
 </div>
@@ -155,32 +176,32 @@
       "default": "review_widget",
       "options": [
         {
-          "value": "single_product_preview_badge",
-          "label": "Single product preview badge"
+          "value": "review_widget",
+          "label": "Review Widget"
         },
         {
-          "value": "review_widget",
-          "label": "Review widget"
+          "value": "star_rating_badge",
+          "label": "Star Rating Badge"
         },
         {
           "value": "reviews_carousel",
-          "label": "Reviews carousel"
+          "label": "Reviews Carousel"
         },
         {
-          "value": "reviews_text",
-          "label": "Reviews text"
-        },
-        {
-          "value": "section_for_medals",
-          "label": "Section for medals"
+          "value": "judge_me_medals",
+          "label": "Judge.me Medals"
         },
         {
           "value": "ugc_media_grid",
-          "label": "UGC media grid"
+          "label": "UGC Media Grid"
         },
         {
-          "value": "verified_reviews_count_badge",
-          "label": "Verified reviews count badge"
+          "value": "verified_reviews_counter",
+          "label": "Verified Reviews Counter"
+        },
+        {
+          "value": "all_reviews_counter",
+          "label": "All Reviews Counter"
         }
       ]
     }
