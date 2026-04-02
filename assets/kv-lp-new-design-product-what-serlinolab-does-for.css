@@ -85,16 +85,16 @@
 }
 
 .lp-benefit-item {
-  background: rgba(245, 245, 247, 0.20);
-  box-shadow: 0 0 0 1px rgb(245 245 247 / 40%);
-  /* backdrop-filter: blur(10px); */
-  backdrop-filter: blur(32px);
-  border-radius: 220px;
-  padding: 16px 17px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-align: left;
+    border-radius: 220px;
+    padding: 16px 17px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+    background: rgb(255 255 255 / 10%);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 20%);
 }
 
 .lp-benefit-item__icon {
@@ -133,19 +133,20 @@
 }
 
 .lp-trustpilot-bar {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  background: #ffffff1a;
-  backdrop-filter: blur(32px);
-  border-radius: 200px;
-  padding: 12px 16px;
-  width: calc(100% - 40px);
-  max-width: 390px;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1;
+    background: rgb(255 255 255 / 10%);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border-radius: 200px;
+    padding: 12px 16px;
+    width: calc(100% - 40px);
+    max-width: 390px;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 20%);
 }
-
 .lp-trustpilot-bar__inner {
   display: flex;
   align-items: center;
