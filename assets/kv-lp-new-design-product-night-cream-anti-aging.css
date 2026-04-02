@@ -846,6 +846,7 @@ object-fit: contain; border-radius: 4px; flex-shrink: 0;
   margin: 0 -20px;
 }
 
+.lp-product-gallery{overflow: visible;}
 
 }
 
