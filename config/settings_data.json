@@ -174,9 +174,12 @@
           "link": "",
           "marquee_height": 54,
           "font_size": 24,
+          "highlight_text": "❄️ Winter Sale",
+          "main_text": "47% off and free shipping",
+          "highlight_position": "top",
           "show_icon": true,
           "enable_countdown": true,
-          "countdown_date": "2026-03-30T23:59:59"
+          "countdown_date": "2026-04-12T23:59:59"
         }
       }
     },
