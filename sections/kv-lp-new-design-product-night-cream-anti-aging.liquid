@@ -1043,18 +1043,19 @@ dots.forEach(function(dot) {
   padding: 12px 20px 14px;
 }
 .lp-sticky-atc__btn {
-  display: block;
-  width: 100%;
-  padding: 16px 24px;
-  border: none;
-  border-radius: 12px;
-  background: {{ section.settings.sticky_atc_button_bg }};
-  color: {{ section.settings.sticky_atc_button_color }};
-  font-size: 18px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background .2s, transform .1s;
-  letter-spacing: .3px;
+    display: block;
+    width: 100%;
+    padding: 19px;
+    border: none;
+    border-radius: 12px;
+    background: #ffd700;
+    color: #000000;
+    cursor: pointer;
+    transition: background .2s, transform .1s;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 .lp-sticky-atc__btn:hover {
   filter: brightness(.95);
@@ -1063,8 +1064,10 @@ dots.forEach(function(dot) {
   transform: scale(.985);
 }
 .lp-sticky-atc__meta {
-  justify-content: center;
-  margin-top: 10px;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding: 0;
+    gap: 12px;
 }
 </style>
 {% endif %}
