@@ -991,19 +991,26 @@ dots.forEach(function(dot) {
 });
 </script>
 
+{% if section.settings.sticky_atc_enabled %}
 <div class="lp-sticky-atc" id="lp-sticky-atc">
   <div class="lp-sticky-atc__inner">
-    <button type="button" class="lp-sticky-atc__btn">Select Options</button>
-    <div class="lp-shipping-meta lp-sticky-atc__meta">
-      <span class="lp-meta-item">
-        <svg class="lp-dot" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="3" fill="#3AC835"/><circle cx="6" cy="6" r="4.5" stroke="#3AC835" stroke-opacity="0.35" stroke-width="3"/></svg>
-        <span class="lp-sticky-delivery">Calculating delivery...</span>
-      </span>
-      <span class="lp-meta-item">
-        <img class="lp-country-flag lp-sticky-flag" src="https://flagcdn.com/w20/us.png" alt="Country Flag" width="16" height="12" loading="lazy">
-        <span class="lp-sticky-shipping"><strong>FREE</strong>&nbsp; Shipping over <strong>$75</strong></span>
-      </span>
-    </div>
+    <button type="button" class="lp-sticky-atc__btn">{{ section.settings.sticky_atc_button_text | default: 'Select Options' }}</button>
+    {% if section.settings.sticky_atc_show_delivery or section.settings.sticky_atc_show_shipping %}
+      <div class="lp-shipping-meta lp-sticky-atc__meta">
+        {% if section.settings.sticky_atc_show_delivery %}
+          <span class="lp-meta-item">
+            <svg class="lp-dot" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="3" fill="#3AC835"/><circle cx="6" cy="6" r="4.5" stroke="#3AC835" stroke-opacity="0.35" stroke-width="3"/></svg>
+            <span class="lp-sticky-delivery">Calculating delivery...</span>
+          </span>
+        {% endif %}
+        {% if section.settings.sticky_atc_show_shipping %}
+          <span class="lp-meta-item">
+            <img class="lp-country-flag lp-sticky-flag" src="https://flagcdn.com/w20/us.png" alt="Country Flag" width="16" height="12" loading="lazy">
+            <span class="lp-sticky-shipping"><strong>FREE</strong>&nbsp; Shipping over <strong>$75</strong></span>
+          </span>
+        {% endif %}
+      </div>
+    {% endif %}
   </div>
 </div>
 
@@ -1035,16 +1042,16 @@ dots.forEach(function(dot) {
   padding: 16px 24px;
   border: none;
   border-radius: 12px;
-  background: #FDCB04;
-  color: #1a2a3a;
+  background: {{ section.settings.sticky_atc_button_bg }};
+  color: {{ section.settings.sticky_atc_button_color }};
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
-  transition: background .2s;
+  transition: background .2s, transform .1s;
   letter-spacing: .3px;
 }
 .lp-sticky-atc__btn:hover {
-  background: #f0be00;
+  filter: brightness(.95);
 }
 .lp-sticky-atc__btn:active {
   transform: scale(.985);
@@ -1054,6 +1061,7 @@ dots.forEach(function(dot) {
   margin-top: 10px;
 }
 </style>
+{% endif %}
 
 {% schema %}
 {
