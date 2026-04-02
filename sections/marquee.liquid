@@ -14,7 +14,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 44px;
+  min-height: 44px;
+  height: auto;
   width: 100%;
   max-width: 100%;
   overflow: hidden;
@@ -32,7 +33,7 @@
   white-space: nowrap;
   width: 100%;
   max-width: 100%;
-  padding: 8px 20px;
+  padding: 6px 20px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -51,25 +52,44 @@
 }
 
 .section-{{ section.id }} .marquee-text-content {
-  display: flex;
+  display: flex !important;
+  flex-direction: column !important;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 1px;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0px;
+  line-height: 1.2;
+  white-space: normal !important;
+}
+
+.section-{{ section.id }} .marquee-text-content.highlight-below {
+  flex-direction: column-reverse;
 }
 
 .section-{{ section.id }} .marquee-text-highlight {
+  display: block;
+  width: 100%;
+  text-align: center;
   font-weight: 500;
   color: {{ section.settings.colorText }};
-  line-height: 14px;
+  font-size: 14px;
+  line-height: 1.2;
   font-family: "ABC Repro" !important;
+  /* opacity: 0.85; */
+  white-space: nowrap;
 }
 
 .section-{{ section.id }} .marquee-text-regular {
-  font-weight: 400;
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
   color: {{ section.settings.colorText }};
-  opacity: 0.9;
+  font-size: 14px;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .section-{{ section.id }} .marquee-countdown {
@@ -184,14 +204,25 @@ line-height: 12px;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0px;
-    gap: 2px;
+    gap: 1px;
     flex-shrink: 1;
     min-width: 0;
     overflow: hidden;
   }
 
+  .section-{{ section.id }} .marquee-text-content.highlight-below {
+    flex-direction: column-reverse;
+  }
+
+  .section-{{ section.id }} .marquee-text-highlight {
+    font-size: 12px;
+  }
+
+  .section-{{ section.id }} .marquee-text-regular {
+    font-size: 12px;
+  }
+
   .section-{{ section.id }} .marquee-text-content span {
-    /* white-space: nowrap; */
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
@@ -244,12 +275,13 @@ line-height: 12px;
         </span>
       {%- endif -%}
 
-      <div class="marquee-text-content">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'text' -%}
-            <span class="marquee-text-{{ block.settings.text_style }}" {{ block.shopify_attributes }}>{{ block.settings.new_text | escape }}</span>
-          {%- endif -%}
-        {%- endfor -%}
+      <div class="marquee-text-content {% if section.settings.highlight_position == 'below' %}highlight-below{% endif %}">
+        {%- if section.settings.highlight_text != blank -%}
+          <span class="marquee-text-highlight">{{ section.settings.highlight_text | escape }}</span>
+        {%- endif -%}
+        {%- if section.settings.main_text != blank -%}
+          <span class="marquee-text-regular">{{ section.settings.main_text | escape }}</span>
+        {%- endif -%}
       </div>
 
       {%- if section.settings.enable_countdown -%}
@@ -368,6 +400,36 @@ line-height: 12px;
       "step": 1,
       "default": 13,
       "label": "Font size"
+    },
+    {
+      "type": "text",
+      "id": "highlight_text",
+      "label": "Highlight text (small)",
+      "default": "❄️ Winter Sale",
+      "info": "Smaller text line (e.g. sale name, label)"
+    },
+    {
+      "type": "text",
+      "id": "main_text",
+      "label": "Main text (large)",
+      "default": "47% off and free shipping",
+      "info": "Larger prominent text line"
+    },
+    {
+      "type": "select",
+      "id": "highlight_position",
+      "label": "Highlight text position",
+      "default": "top",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top (above main text)"
+        },
+        {
+          "value": "below",
+          "label": "Below (under main text)"
+        }
+      ]
     },
     {
       "type": "checkbox",
