@@ -145,3 +145,13 @@ letter-spacing: 0px !important;
   letter-spacing: 0px !important;
   }
 }
+
+
+@media (max-width: 767.98px) { 
+
+
+.lp-note-lab__badge{display: none;}
+
+.lp-note-lab__badge{display: flex !important;}
+  
+}
