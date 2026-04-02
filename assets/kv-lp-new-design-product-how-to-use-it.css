@@ -388,3 +388,12 @@
 }
 
  }
+
+
+ @media (max-width: 767.98px) { 
+
+.lp-how-to-use__card {
+    flex: 0 0 50%;
+}
+
+ }
