@@ -152,6 +152,6 @@ letter-spacing: 0px !important;
 
 .lp-note-lab__badge{display: none;}
 
-.lp-note-lab__badge{display: flex !important;}
+.lp-note-lab__badge-mobile{display: flex !important;}
   
 }
