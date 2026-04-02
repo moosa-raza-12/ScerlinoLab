@@ -485,8 +485,8 @@
         "review_WijYa3": {
           "type": "review",
           "settings": {
-            "image_before": "shopify://shop_images/Rectangle_4399_3.png",
-            "image_after": "shopify://shop_images/Rectangle_4400_3.png",
+            "image_before": "shopify://shop_images/mike-1.png",
+            "image_after": "shopify://shop_images/mike-2.png",
             "label_before": "Before",
             "label_after": "Month 4",
             "reviewer_name": "Michael, 51",
