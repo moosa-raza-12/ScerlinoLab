@@ -62,7 +62,7 @@
 .lp-comparison-table__grid {
   display: grid;
   grid-template-columns: 1fr auto auto;
-  min-width: 350px;
+  min-width: fit-content;
   width: 100%;
   align-items: end;
 }
