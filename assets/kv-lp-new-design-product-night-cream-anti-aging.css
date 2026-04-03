@@ -847,7 +847,10 @@ object-fit: contain; border-radius: 4px; flex-shrink: 0;
     width: auto;
 }
 
-.lp-product-gallery{overflow: visible;}
+.lp-product-gallery {
+    overflow: hidden;
+    position: unset;
+}
 
   .lp-product-details {
     padding: 0 0 0 0;
