@@ -22,10 +22,12 @@
     grid-template-columns: 1fr 1fr;
 }
 
-@media (min-width: 1300px) {
   .lp-product-details {
     padding: 24px 0 0 0;
   }
+
+@media (min-width: 1300px) {
+
   /* .lp-product-details__container {
  display: flex;
     gap: 64px;
