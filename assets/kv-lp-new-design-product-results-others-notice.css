@@ -298,6 +298,15 @@
 }
 
 
+ @media (max-width: 639px) {
+
+.lp-results-notice__testimonial {
+    font-size: 14px;
+}
+
+ }
+
+
  @media (max-width: 400px) {
 .lp-results-notice__title {font-size: 30px;}
 
