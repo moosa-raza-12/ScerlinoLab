@@ -75,9 +75,9 @@ letter-spacing: 0px !important;
 }
 
 @media screen and (max-width: 725px) {
-  .lp-note-lab__description{
+  /* .lp-note-lab__description{
    font-size: 12px;
-  }
+  } */
 }
 
 .lp-note-lab__description p {
