@@ -78,6 +78,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border-radius: 10px;
 }
 .lp-product-gallery__img {
   width: 100%;
@@ -857,6 +858,10 @@ object-fit: contain; border-radius: 4px; flex-shrink: 0;
   .lp-product-details {
     padding: 0 0 0 0;
   }
+
+  .lp-product-gallery__item {
+  border-radius: 0;
+}
 
 }
 
