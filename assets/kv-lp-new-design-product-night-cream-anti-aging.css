@@ -49,17 +49,16 @@
 
 /* Gallery */
 .lp-product-gallery {
-  margin-bottom: 16px;
-  max-width: 100%;
-  /* overflow: hidden; */
+    margin-bottom: 16px;
+    max-width: 100%;
+    position: sticky;
+    top: 160px;
+    height: max-content;
+    overflow: hidden;
 }
 .lp-product-gallery__main {
     position: relative;
     background: var(--white);
-    overflow: hidden;
-    width: 100%;
-    position: sticky;
-    top: 160px;
 }
 .lp-product-gallery__track {
   display: flex;
