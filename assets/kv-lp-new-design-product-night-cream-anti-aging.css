@@ -804,15 +804,15 @@ object-fit: contain; border-radius: 4px; flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
-/* .lp-product-gallery__nav{
+.lp-product-gallery__nav{
   display:none;
  
-} */
+}
 .lp-product-gallery__nav-mobile{
-   display:none;
+   display: flex;
    align-items: center;
   justify-content: space-between;
-  margin: 10px 0;
+  margin: 0 0 16px 0;
 }
 
 
