@@ -5,7 +5,14 @@
   display: flex;
   gap: 8px;
   align-items: center;
-  justify-content: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.lp-product-gallery__thumbs::-webkit-scrollbar {
+  display: none;
 }
 .lp-product-gallery__thumb {
   display: block;
@@ -555,18 +562,29 @@ function updateGalleryButtonStates() {
   });
 }
 
+function scrollActiveThumbIntoView() {
+  var thumbsContainer = section.querySelector('.lp-product-gallery__thumbs');
+  if (!thumbsContainer) return;
+  var activeThumb = thumbsContainer.querySelector('.lp-product-gallery__thumb.active');
+  if (!activeThumb) return;
+  var containerRect = thumbsContainer.getBoundingClientRect();
+  var thumbRect = activeThumb.getBoundingClientRect();
+  var offsetLeft = thumbRect.left - containerRect.left + thumbsContainer.scrollLeft;
+  var scrollTo = offsetLeft - (containerRect.width / 2) + (thumbRect.width / 2);
+  thumbsContainer.scrollLeft = scrollTo;
+}
+
 function goToSlide(index) {
   if (items.length === 0) return;
   if (index < 0) index = 0;
   if (index >= items.length) index = items.length - 1;
   currentSlide = index;
   track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
-  dots.forEach(function(dot, i) {
-    // Each nav has its own set of dots; sync all of them
-    // dots from both navs are interleaved, so we mod by items.length
+  dots.forEach(function(dot) {
     dot.classList.toggle('active', parseInt(dot.dataset.index) === currentSlide);
   });
   updateGalleryButtonStates();
+  scrollActiveThumbIntoView();
 }
 
 prevBtns.forEach(function(btn) {
