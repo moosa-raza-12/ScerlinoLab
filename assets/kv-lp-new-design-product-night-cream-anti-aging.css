@@ -842,16 +842,12 @@ object-fit: contain; border-radius: 4px; flex-shrink: 0;
 
 @media (max-width: 991.98px) { 
 
-.lp-product-gallery__main {
-    margin: 0 -20px;
-    width: auto;
-}
-
 .lp-product-gallery {
     overflow: hidden;
     position: unset;
+    margin: 0 -20px;
+    max-width: unset;
 }
-
 .lp-product-gallery__nav {
     padding: 0 20px;
 }
