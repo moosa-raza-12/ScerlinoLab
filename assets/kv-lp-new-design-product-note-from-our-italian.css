@@ -63,10 +63,10 @@
 } */
 
 @media screen and ( min-width: 725px) and (max-width: 1100px) {
-  .lp-note-lab__description{
+  /* .lp-note-lab__description{
     width:70%;
     margin: 0 auto;
-  }
+  } */
 }
 .lp-note-lab__description {
   color: #17162E;
