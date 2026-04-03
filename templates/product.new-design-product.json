@@ -750,37 +750,49 @@
         "block_0": {
           "type": "row",
           "settings": {
-            "feature_name": "Rebuilds collagen at the structural level"
+            "feature_name": "Rebuilds collagen in dermis"
           }
         },
         "block_1": {
           "type": "row",
           "settings": {
-            "feature_name": "Rebuilds collagen at the structural level"
+            "feature_name": "Gentle retinol no irritation"
           }
         },
         "block_2": {
           "type": "row",
           "settings": {
-            "feature_name": "Rebuilds collagen at the structural level"
+            "feature_name": "Deep absorption not surface level"
           }
         },
         "block_3": {
           "type": "row",
           "settings": {
-            "feature_name": "No alcohol, silicones, or synthetic fillers"
+            "feature_name": "No inflammation or damage"
           }
         },
         "block_4": {
           "type": "row",
           "settings": {
-            "feature_name": "Pharmaceutical-grade, artisanalItalian formula"
+            "feature_name": "No silicones or fillers"
           }
         },
         "block_5": {
           "type": "row",
           "settings": {
-            "feature_name": "60-day money-back guarantee"
+            "feature_name": "Made for men over 40"
+          }
+        },
+        "row_V7KWzw": {
+          "type": "row",
+          "settings": {
+            "feature_name": "One step nightly routine"
+          }
+        },
+        "row_JyywP9": {
+          "type": "row",
+          "settings": {
+            "feature_name": "60 day money back guarantee"
           }
         }
       },
@@ -790,7 +802,9 @@
         "block_2",
         "block_3",
         "block_4",
-        "block_5"
+        "block_5",
+        "row_V7KWzw",
+        "row_JyywP9"
       ],
       "settings": {
         "heading": "Why Men Are Switching to SerlinoLab",
