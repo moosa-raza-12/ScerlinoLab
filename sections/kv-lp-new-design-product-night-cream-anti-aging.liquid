@@ -782,28 +782,33 @@ dots.forEach(function(dot) {
   allVideoCards.forEach(function(card) {
     var video = card.querySelector('.lp-video-native');
     var playOverlay = card.querySelector('.lp-video-play-overlay');
+    var playSvg = playOverlay ? playOverlay.querySelector('svg') : null;
     if (!video) return;
 
     video.muted = true;
     video.loop = true;
     video.playsInline = true;
 
-    if (playOverlay) {
-      playOverlay.addEventListener('click', function(e) {
+    if (playSvg) {
+      playSvg.style.cursor = 'pointer';
+      playSvg.addEventListener('click', function(e) {
         e.stopPropagation();
-        if (video.paused) {
-          stopAllVideos();
-          video.muted = false;
-          video.play().then(function() {
-            playOverlay.classList.add('is-hidden');
-          }).catch(function() {});
-        } else {
-          video.pause();
-          video.muted = true;
-          playOverlay.classList.remove('is-hidden');
-        }
+        stopAllVideos();
+        video.muted = false;
+        video.play().then(function() {
+          playOverlay.classList.add('is-hidden');
+        }).catch(function() {});
       });
     }
+
+    video.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (!video.paused) {
+        video.pause();
+        video.muted = true;
+        if (playOverlay) playOverlay.classList.remove('is-hidden');
+      }
+    });
   });
     /* --- Quick Link Pills: smooth scroll to target section --- */
   section.querySelectorAll('.lp-pill--scroll').forEach(function(pill) {
