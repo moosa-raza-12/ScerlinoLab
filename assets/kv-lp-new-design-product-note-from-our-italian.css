@@ -2,20 +2,21 @@
   --text-color: #17162E;
   --bg-color: #FFFFFF;
   background-color: var(--bg-color);
-  padding: 32px 20px;
+  padding: 32px 0px;
 }
 
 
 
-  .lp-note-lab__container {
+.lp-note-lab__container {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 63px;
+    gap: 64px;
     display: flex;
-  max-width: 1440px;
-  margin: 0 auto;
-  }
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
 
 .lp-note-lab__badge {
@@ -101,7 +102,7 @@ letter-spacing: 0px !important;
 
 @media (min-width: 1340px) {
   .lp-note-lab {
-    padding: 64px 200px;
+    padding: 64px 0px;
   }
 
   .lp-note-lab__text-content {
