@@ -374,14 +374,15 @@
   .lp-how-to-use.is-steps-open .lp-how-to-use__nav {
     display: none;
   }
+  .lp-how-to-use__card-image {
+  height: 300px;
+}
 }
 
 
 @media (max-width: 767.98px) { 
 
-.lp-how-to-use__card-image {
-  height: 300px;
-}
+
 
 .lp-how-to-use__card {
     flex: 0 0 40%;
