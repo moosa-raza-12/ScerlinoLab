@@ -765,7 +765,21 @@ dots.forEach(function(dot) {
   }
 
   /* --- Testimonial Video: overlay toggles play/stop with sound --- */
-  section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
+  var allVideoCards = section.querySelectorAll('.lp-testimonial-card');
+
+  function stopAllVideos() {
+    allVideoCards.forEach(function(c) {
+      var v = c.querySelector('.lp-video-native');
+      var o = c.querySelector('.lp-video-play-overlay');
+      if (v && !v.paused) {
+        v.pause();
+        v.muted = true;
+      }
+      if (o) o.classList.remove('is-hidden');
+    });
+  }
+
+  allVideoCards.forEach(function(card) {
     var video = card.querySelector('.lp-video-native');
     var playOverlay = card.querySelector('.lp-video-play-overlay');
     if (!video) return;
@@ -774,25 +788,22 @@ dots.forEach(function(dot) {
     video.loop = true;
     video.playsInline = true;
 
-    function toggleVideo(e) {
-      e.stopPropagation();
-      if (video.paused) {
-        video.muted = false;
-        video.play().then(function() {
-          playOverlay.classList.add('is-hidden');
-        }).catch(function() {});
-      } else {
-        video.pause();
-        video.muted = true;
-        playOverlay.classList.remove('is-hidden');
-      }
-    }
-
     if (playOverlay) {
-      playOverlay.addEventListener('click', toggleVideo);
+      playOverlay.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (video.paused) {
+          stopAllVideos();
+          video.muted = false;
+          video.play().then(function() {
+            playOverlay.classList.add('is-hidden');
+          }).catch(function() {});
+        } else {
+          video.pause();
+          video.muted = true;
+          playOverlay.classList.remove('is-hidden');
+        }
+      });
     }
-
-    video.addEventListener('click', toggleVideo);
   });
     /* --- Quick Link Pills: smooth scroll to target section --- */
   section.querySelectorAll('.lp-pill--scroll').forEach(function(pill) {

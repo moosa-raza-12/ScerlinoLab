@@ -703,10 +703,10 @@ object-fit: contain; border-radius: 4px; flex-shrink: 0;
   background: rgba(0, 0, 0, 0.35);
 }
 .lp-video-play-overlay svg {
-  width: 48px;
-  height: 48px;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
-  transition: transform 0.2s ease;
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,.3));
+    transition: transform .2s ease;
 }
 .lp-video-play-overlay:hover svg {
   transform: scale(1.1);
