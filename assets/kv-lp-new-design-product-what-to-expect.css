@@ -257,6 +257,14 @@ gap:14px;
   }
 }
 
+@media (max-width: 639px) {
+.lp-wte__subheading {
+    font-size: 14px;
+}
+}
+
+
+
 @media (max-width: 400px) {
 .lp-wte__heading {
   font-size: 30px;
