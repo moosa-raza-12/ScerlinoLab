@@ -17,31 +17,25 @@
   margin: 0 auto;
   }
 
-.lp-note-lab__text-content {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
 
 .lp-note-lab__badge {
-  display: flex;
-  padding: 10px 13px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  border-radius: 200px;
-  background: #cccccc;
-  width: fit-content;
-  margin: 0 auto 10px;
-  color: #000;
-  font-family: "ABC Repro";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 350;
-  line-height: normal;
-  letter-spacing: 0px;
+    display: flex;
+    padding: 10px 13px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 200px;
+    background: #ccc;
+    width: fit-content;
+    margin: 0 0 10px;
+    color: #000;
+    font-family: ABC Repro;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+    letter-spacing: 0px;
 }
-
 .lp-note-lab__badge svg {
   width: 18px;
   height: 18px;
@@ -152,6 +146,12 @@ letter-spacing: 0px !important;
 .lp-note-lab__container {
   flex-direction: row;
   gap: 20px;
+}
+
+.lp-note-lab__text-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
   
 }
