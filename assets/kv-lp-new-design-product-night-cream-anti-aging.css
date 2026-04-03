@@ -58,7 +58,6 @@
 }
 .lp-product-gallery__main {
     position: relative;
-    background: var(--white);
 }
 .lp-product-gallery__track {
   display: flex;
