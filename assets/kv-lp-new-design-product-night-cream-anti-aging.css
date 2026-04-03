@@ -849,7 +849,8 @@ object-fit: contain; border-radius: 4px; flex-shrink: 0;
     max-width: unset;
 }
 .lp-product-gallery__nav {
-    padding: 0 20px;
+    padding: unset;
+    margin: 16px 0 24px;
 }
 
   .lp-product-details {
