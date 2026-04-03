@@ -45,6 +45,7 @@
 <section class="lp-product-details" data-section-id="{{ section.id }}" data-product-url="{{ product.url | within: collection }}">
   <div class="lp-product-details__container">
     {% comment %} Gallery Section {% endcomment %}
+    <div class="lp-product-gallery-flow">
     <div class="lp-product-gallery">
       <div class="lp-product-gallery__main">
         {%- assign extra_image_count = 0 -%}
@@ -131,7 +132,8 @@
               </svg>
             </button>
           </div>
-        {% endif %}
+          {% endif %}
+        </div>
       </div>
     </div>
 
