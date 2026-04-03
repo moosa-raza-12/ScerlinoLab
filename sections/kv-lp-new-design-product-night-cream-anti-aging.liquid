@@ -409,19 +409,6 @@
                       <path d="M26 20v24l20-12L26 20z" fill="#17162E"/>
                     </svg>
                   </div>
-                  <div class="lp-video-controls">
-                    <button class="lp-video-ctrl lp-video-ctrl--pause" aria-label="Pause">
-                      <svg class="lp-ctrl-icon lp-ctrl-icon--pause" width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="6" y="4" width="4" height="16" rx="1" fill="white"/><rect x="14" y="4" width="4" height="16" rx="1" fill="white"/></svg>
-                      <svg class="lp-ctrl-icon lp-ctrl-icon--play" width="20" height="20" viewBox="0 0 24 24" fill="none" style="display:none"><path d="M8 5.14v13.72a1 1 0 001.5.86l11.24-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z" fill="white"/></svg>
-                    </button>
-                    <button class="lp-video-ctrl lp-video-ctrl--mute" aria-label="Unmute">
-                      <svg class="lp-ctrl-icon lp-ctrl-icon--muted" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z" fill="white"/><line x1="23" y1="9" x2="17" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="9" x2="23" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-                      <svg class="lp-ctrl-icon lp-ctrl-icon--unmuted" width="20" height="20" viewBox="0 0 24 24" fill="none" style="display:none"><path d="M11 5L6 9H2v6h4l5 4V5z" fill="white"/><path d="M15.54 8.46a5 5 0 010 7.07" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M19.07 4.93a10 10 0 010 14.14" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-                    </button>
-                    <button class="lp-video-ctrl lp-video-ctrl--fullscreen" aria-label="Fullscreen">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-                  </div>
                 </div>
                 {% if block.settings.video_caption != blank %}
                   <div class="lp-testimonial-card__caption">
@@ -777,115 +764,35 @@ dots.forEach(function(dot) {
     });
   }
 
-  /* --- Testimonial Video: Play on click (no autoplay) --- */
+  /* --- Testimonial Video: overlay toggles play/stop with sound --- */
   section.querySelectorAll('.lp-testimonial-card').forEach(function(card) {
     var video = card.querySelector('.lp-video-native');
     var playOverlay = card.querySelector('.lp-video-play-overlay');
-    var pauseBtn = card.querySelector('.lp-video-ctrl--pause');
-    var muteBtn = card.querySelector('.lp-video-ctrl--mute');
-    var fullscreenBtn = card.querySelector('.lp-video-ctrl--fullscreen');
     if (!video) return;
 
-    var pauseIcon = pauseBtn ? pauseBtn.querySelector('.lp-ctrl-icon--pause') : null;
-    var playIcon = pauseBtn ? pauseBtn.querySelector('.lp-ctrl-icon--play') : null;
-    var mutedIcon = muteBtn ? muteBtn.querySelector('.lp-ctrl-icon--muted') : null;
-    var unmutedIcon = muteBtn ? muteBtn.querySelector('.lp-ctrl-icon--unmuted') : null;
-
     video.muted = true;
+    video.loop = true;
     video.playsInline = true;
 
-    function updatePauseIcon() {
-      if (!pauseIcon || !playIcon) return;
+    function toggleVideo(e) {
+      e.stopPropagation();
       if (video.paused) {
-        pauseIcon.style.display = 'none';
-        playIcon.style.display = '';
+        video.muted = false;
+        video.play().then(function() {
+          playOverlay.classList.add('is-hidden');
+        }).catch(function() {});
       } else {
-        pauseIcon.style.display = '';
-        playIcon.style.display = 'none';
+        video.pause();
+        video.muted = true;
+        playOverlay.classList.remove('is-hidden');
       }
-    }
-
-    function updateMuteIcon() {
-      if (!mutedIcon || !unmutedIcon) return;
-      if (video.muted) {
-        mutedIcon.style.display = '';
-        unmutedIcon.style.display = 'none';
-      } else {
-        mutedIcon.style.display = 'none';
-        unmutedIcon.style.display = '';
-      }
-    }
-
-    function showOverlay() {
-      if (playOverlay) playOverlay.classList.remove('is-hidden');
-    }
-
-    function hideOverlay() {
-      if (playOverlay) playOverlay.classList.add('is-hidden');
     }
 
     if (playOverlay) {
-      playOverlay.addEventListener('click', function(e) {
-        e.stopPropagation();
-        video.play().then(function() {
-          hideOverlay();
-          updatePauseIcon();
-        }).catch(function() {
-          updatePauseIcon();
-        });
-      });
+      playOverlay.addEventListener('click', toggleVideo);
     }
 
-    if (pauseBtn) {
-      pauseBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (video.paused) {
-          video.play();
-          hideOverlay();
-        } else {
-          video.pause();
-          showOverlay();
-        }
-        updatePauseIcon();
-      });
-    }
-
-    if (muteBtn) {
-      muteBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        video.muted = !video.muted;
-        updateMuteIcon();
-      });
-    }
-
-    if (fullscreenBtn) {
-      fullscreenBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (video.requestFullscreen) {
-          video.requestFullscreen();
-        } else if (video.webkitRequestFullscreen) {
-          video.webkitRequestFullscreen();
-        } else if (video.webkitEnterFullScreen) {
-          video.webkitEnterFullScreen();
-        }
-      });
-    }
-
-    video.addEventListener('play', function() {
-      updatePauseIcon();
-      hideOverlay();
-    });
-    video.addEventListener('pause', function() {
-      updatePauseIcon();
-      showOverlay();
-    });
-    video.addEventListener('ended', function() {
-      showOverlay();
-      updatePauseIcon();
-    });
-
-    updatePauseIcon();
-    updateMuteIcon();
+    video.addEventListener('click', toggleVideo);
   });
     /* --- Quick Link Pills: smooth scroll to target section --- */
   section.querySelectorAll('.lp-pill--scroll').forEach(function(pill) {
