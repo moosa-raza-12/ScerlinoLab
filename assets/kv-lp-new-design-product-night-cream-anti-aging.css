@@ -90,6 +90,7 @@
     align-items: center;
     justify-content: space-between;
     margin: 16px 0 0 0;
+    gap: 16px;
 }
 .lp-product-gallery__arrow {
   width: 48px;
@@ -102,6 +103,7 @@
   align-items: center;
   justify-content: center;
   color: var(--primary-text);
+  min-width: 48px;
 }
 .lp-product-gallery__arrow--next {
   background: var(--primary-text);
