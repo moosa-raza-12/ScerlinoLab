@@ -40,6 +40,27 @@
   object-fit: cover;
   border-radius: 6px;
 }
+.lp-testimonials__slider {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.lp-testimonials__scroll-bar {
+  position: relative;
+  height: 4px;
+  border-radius: 2px;
+  background: #e0e0e0;
+  overflow: hidden;
+}
+.lp-testimonials__scroll-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 2px;
+  background: #1A2A49;
+  min-width: 8%;
+  transition: width .15s ease-out;
+}
 </style>
 
 <section class="lp-product-details" data-section-id="{{ section.id }}" data-product-url="{{ product.url | within: collection }}">
@@ -828,101 +849,27 @@ dots.forEach(function(dot) {
     });
   });
 
-  /* --- Testimonials scroll bar (progress bar synced with scroll) --- */
+  /* --- Testimonials progress bar synced with scroll --- */
   var slider = section.querySelector('.lp-testimonials__slider');
   var scrollBar = section.querySelector('.lp-testimonials__scroll-bar');
   var thumb = section.querySelector('.lp-testimonials__scroll-thumb');
-  var videoCount = parseInt(scrollBar ? scrollBar.dataset.videoCount : 0, 10) || 0;
 
-  if (slider && scrollBar && thumb && videoCount > 0) {
-
-    function getMaxScroll() {
-      return slider.scrollWidth - slider.clientWidth;
-    }
-
-    function getThumbWidth() {
-      var barWidth = scrollBar.offsetWidth;
-      var max = getMaxScroll();
-      if (max <= 0) return barWidth;
-      /* Thumb width = proportion of visible area to total scrollable width */
-      var ratio = slider.clientWidth / slider.scrollWidth;
-      var tw = Math.max(ratio * barWidth, 30); /* min 30px so it stays grabbable */
-      return tw;
-    }
-
-    function updateThumbPosition() {
-      var max = getMaxScroll();
-      var barWidth = scrollBar.offsetWidth;
+  if (slider && scrollBar && thumb) {
+    function updateProgress() {
+      var max = slider.scrollWidth - slider.clientWidth;
       if (max <= 0) {
-        /* No overflow — thumb fills full track */
-        thumb.style.left = '0px';
-        thumb.style.width = barWidth + 'px';
+        thumb.style.width = '100%';
         return;
       }
-      var thumbW = getThumbWidth();
-      thumb.style.width = thumbW + 'px';
-      var pct = slider.scrollLeft / max;
-      var maxLeft = barWidth - thumbW;
-      thumb.style.left = (pct * maxLeft) + 'px';
+      var viewportRatio = slider.clientWidth / slider.scrollWidth;
+      var scrollRatio = slider.scrollLeft / max;
+      var pct = viewportRatio + scrollRatio * (1 - viewportRatio);
+      thumb.style.width = (pct * 100) + '%';
     }
 
-    slider.addEventListener('scroll', updateThumbPosition);
-    window.addEventListener('resize', function() {
-      updateThumbPosition();
-    });
-    updateThumbPosition();
-
-    /* Make thumb draggable */
-    var isDragging = false;
-    var dragStartX = 0;
-    var dragStartLeft = 0;
-
-    function onThumbDragStart(e) {
-      isDragging = true;
-      scrollBar.classList.add('is-dragging');
-      var clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      dragStartX = clientX;
-      dragStartLeft = parseFloat(thumb.style.left) || 0;
-      e.preventDefault();
-    }
-
-    function handleThumbDrag(e) {
-      if (!isDragging) return;
-      var clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      var delta = clientX - dragStartX;
-      var barWidth = scrollBar.offsetWidth;
-      var thumbW = getThumbWidth();
-      var maxLeft = barWidth - thumbW;
-      var newLeft = Math.min(Math.max(dragStartLeft + delta, 0), maxLeft);
-      var pct = maxLeft > 0 ? newLeft / maxLeft : 0;
-      slider.scrollLeft = pct * getMaxScroll();
-    }
-
-    function onThumbDragEnd() {
-      if (!isDragging) return;
-      isDragging = false;
-      scrollBar.classList.remove('is-dragging');
-    }
-
-    thumb.addEventListener('mousedown', onThumbDragStart);
-    thumb.addEventListener('touchstart', onThumbDragStart, { passive: false });
-    document.addEventListener('mousemove', handleThumbDrag);
-    document.addEventListener('touchmove', handleThumbDrag, { passive: false });
-    document.addEventListener('mouseup', onThumbDragEnd);
-    document.addEventListener('touchend', onThumbDragEnd);
-
-    /* Click on scroll bar track to jump */
-    scrollBar.addEventListener('click', function(e) {
-      if (e.target === thumb) return;
-      var rect = scrollBar.getBoundingClientRect();
-      var clickX = e.clientX - rect.left;
-      var barWidth = scrollBar.offsetWidth;
-      var thumbW = getThumbWidth();
-      var maxLeft = barWidth - thumbW;
-      var newLeft = Math.min(Math.max(clickX - thumbW / 2, 0), maxLeft);
-      var pct = maxLeft > 0 ? newLeft / maxLeft : 0;
-      slider.scrollLeft = pct * getMaxScroll();
-    });
+    slider.addEventListener('scroll', updateProgress);
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
   }
 
   /* --- Desktop mouse drag-to-scroll for testimonials slider --- */
