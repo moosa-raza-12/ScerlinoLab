@@ -417,7 +417,8 @@
                   {% if block.settings.video != blank %}
                     <video
                       class="lp-video-native"
-                      src="{{ block.settings.video.sources[1].url | default: block.settings.video.sources[0].url }}"
+                      src="{{ block.settings.video.sources[1].url | default: block.settings.video.sources[0].url }}#t=0.001"
+                      poster="{{ block.settings.video.preview_image | image_url: width: 600 }}"
                       muted
                       loop
                       playsinline
