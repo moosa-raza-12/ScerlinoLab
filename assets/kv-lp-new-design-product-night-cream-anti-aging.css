@@ -86,13 +86,11 @@
   object-fit: contain;
 }
 .lp-product-gallery__nav {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    position: unset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16px 0 0 0;
 }
 .lp-product-gallery__arrow {
   width: 48px;
