@@ -115,7 +115,7 @@
             "badge_text": "Best Value",
             "badge_type": "gold",
             "shipping_info": "Free Shipping",
-            "enable_free_gifts": true,
+            "enable_free_gifts": false,
             "gift_value": "$100",
             "gift_1_product": "how-to-be-irresistible-to-women",
             "gift_1_image": "shopify://shop_images/image_15.png",
