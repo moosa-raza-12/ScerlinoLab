@@ -397,6 +397,76 @@
         "sticky_atc_show_shipping": true
       }
     },
+    "featured_product_mt84VP": {
+      "type": "featured-product",
+      "blocks": {
+        "text_6qP6MT": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_Vp8dhR": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_DhXFqp": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_EbrJxW": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_cyYMDq": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_QbLqa3": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_7EycEN": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_6qP6MT",
+        "title_Vp8dhR",
+        "price_DhXFqp",
+        "variant_picker_EbrJxW",
+        "quantity_selector_cyYMDq",
+        "buy_buttons_QbLqa3",
+        "share_7EycEN"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "antiage-night-cream",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "kv_lp_new_design_product_as_seen_on_U4HVgj": {
       "type": "kv-lp-new-design-product-as-seen-on",
       "blocks": {
@@ -1024,6 +1094,7 @@
   },
   "order": [
     "kv-lp-new-design-product-night-cream-anti-aging",
+    "featured_product_mt84VP",
     "kv_lp_new_design_product_as_seen_on_U4HVgj",
     "kv-lp-new-design-product-results-others-notice",
     "kv-lp-new-design-product-clinically-validated",
