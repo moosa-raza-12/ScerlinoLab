@@ -1,0 +1,213 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_612931265250787920": {
+      "settings": {
+        "checksum": "e3ab532a30598781697e23f8b77e58bcbfe357be554578a6db261d397ae7d43b_1_1_1_0__1",
+        "ggKc8WNBVWU_errorMessage": "Cannot add product to cart",
+        "ggKc8WNBVWU_label": "Add to Cart",
+        "ggKc8WNBVWU_outOfStockLabel": "Out of stock",
+        "ggKc8WNBVWU_successMessage": "Add product to cart successfully",
+        "ggKc8WNBVWU_unavailableLabel": "Unavailable",
+        "ggKc8WNBVWU_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "ggN9tsbUxz4_text": "<p><span style=\"color:#27B57C;\">60-DAY MONEY-BACK GUARANTEE</span></p>",
+        "ggYtYrY0ilV_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-855c3a52-b3d7-425a-b0b5-b4d2ab68831f.gif"
+      },
+      "type": "gp-section-612931265250787920"
+    },
+    "gp_section_612931265250853456": {
+      "settings": {
+        "checksum": "3876a54345faf2981ae9bfc3fd238a075bd2557be254a7360528d3a8608e4b5b_1_1_1_0__1",
+        "gg0JcSIpWVP_text": "<p>We don't cut corners. Every product meets Italy's strict cosmetic regulations - among the toughest in the world.</p>",
+        "gg6L9RXZIQ8_text": "<span style=\"color:#17162E;\">Dermatologically Tested. Zero Compromise.</span>",
+        "gg7gn1FJBMm_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-110e3836-f08b-4573-b0c4-8b068bc90158.webp",
+        "ggN_jeWW70h_childItem_0": "<p>Dermatologically tested on sensitive skin.</p>",
+        "ggN_jeWW70h_childItem_1": "<p>No alcohol. No silicones. No synthetic fillers.</p>",
+        "ggN_jeWW70h_childItem_2": "<p>Formulated for men's skin over 40</p>",
+        "ggNmsStac2e_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-fd204759-bd9d-4564-9e30-3ff2facb72de.png",
+        "ggQLiWM-JtM_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-e46a3a2f-849d-44f9-af18-1f896711cf75.svg",
+        "ggQLiWM-JtM_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-c655eed5-781e-4573-ae8f-dcc158d1ba54.svg",
+        "ggUanceUzXi_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-c201111b-2c79-4cb4-adc9-950c1d554fa0.svg",
+        "ggXv5AQWGX0_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-f38c5f91-d5da-4d32-bd0d-baa7d21d94d9.svg",
+        "ggXv5AQWGX0_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-ccd458cb-6d00-4a2e-88a2-83f5fdd2a52f.svg",
+        "ggYfYrk8YlQ_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-59f03ce9-5093-49a7-8899-4ed2c59f9c6e.svg",
+        "ggYfYrk8YlQ_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-3924ecee-e1e0-4e43-800b-caf5813f81ee.svg",
+        "ggdM8K5nK79_text": "Dermatologically Tested.<br>Zero Compromise.",
+        "ggpDAVtpxL3_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-95f97f96-3ac6-43f3-a6c4-2d9c145ac439.svg",
+        "ggpDAVtpxL3_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-68760459-e9b5-4dcc-9f72-c98497c3c7ae.svg",
+        "ggzlvlH6qX5_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-7d367004-345b-4043-9c72-afc7d87c0d0f.svg",
+        "ggzlvlH6qX5_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-56fd53f7-8efc-4739-9a22-53c0f65750f5.svg"
+      },
+      "type": "gp-section-612931265250853456"
+    },
+    "gp_section_612931265250984528": {
+      "settings": {
+        "checksum": "2f789fa68dd2f7b74a021fa00d6029ed9667182506eb317cfaece729138e7bc5_1_1_1_0__1",
+        "gg3coYSaqZ5_text": "<p><strong>Body Cream</strong></p>",
+        "gg5XkL42PK1_text": "<p>Natural, streak-free color. Mix with your moisturizer. Look rested, not orange.</p>",
+        "ggDJISqTCi-_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/self_tanning.webp",
+        "ggEQB1d0Ebn_text": "<p>Night Face Cream</p>",
+        "ggNm-gvOb5E_text": "<p><strong>Self-Tanning Drops</strong></p>",
+        "ggOn2diIyt2_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/1_-_Crema_viso.webp",
+        "ggU5gsYxMhj_text": "<p>Our bestseller. Retinyl palmitate rebuilds collagen while you sleep.</p>",
+        "ggUQLta7uZg_text": "<p>Face Cleanser</p>",
+        "ggXab83P3wM_text": "<p>One basket. Your entire routine. Sorted.</p>",
+        "gg_SS87WCWW_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/4_-_Detergente.webp",
+        "ggfv5gBoyWa_text": "<p>Targets dark circles, puffiness, and crow's feet around the delicate eye area.</p>",
+        "ggpW64Prmcu_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/2_-_Contorno_o.webp",
+        "ggsJcnMWAwj_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/body_cream.webp",
+        "gguBYKCrEr7_text": "<p>Deep cleans without stripping.</p><p>Prepares skin to absorb active ingredients.</p>",
+        "ggwTMw9UkAs_text": "<span style=\"color:#17162E;\">What's Inside Your Easter Basket</span>",
+        "ggxiPiZUY3U_text": "<p>Full-body hydration with the same Italian ingredients your face already loves.</p>",
+        "ggzDUkLGezi_text": "<p>Eye Cream</p>"
+      },
+      "type": "gp-section-612931265250984528"
+    },
+    "gp_section_612931265251050064": {
+      "settings": {
+        "checksum": "07e519a0b9afc436da6c37b2c4f7cc62dfc2456ee2a9ecdd87763132aba9145d_1_1_1_0__1",
+        "gg1zHPMhpBz_text": "<span style=\"color:#17162E;\">What Our Customers Are Saying</span>"
+      },
+      "type": "gp-section-612931265251050064"
+    },
+    "gp_section_612931265251246672": {
+      "settings": {
+        "checksum": "4d4ead38d69c9065be1752f2ae7ab2510432029b6ded8d6abcb85b28830815fa_1_1_1_0__1",
+        "ggkMvQwLxsF_label": "Back to Top ↑"
+      },
+      "type": "gp-section-612931265251246672"
+    },
+    "gp_section_612931265251312208": {
+      "settings": {
+        "checksum": "b820c45411cff7b6325efdcb2e19983ad9bab977ff8579e9af4e109e4dcf778b_1_1_1_0__1"
+      },
+      "type": "gp-section-612931265251312208"
+    },
+    "gp_section_612931265251377744": {
+      "settings": {
+        "checksum": "d81745f98c651cfc52e496b70970470ed371aade58ea373c22b8ce4166c9ed17_1_1_1_0__1",
+        "gg81WwevIKk_childItem_0": "<p>1x Face Cleanser [$30]</p>",
+        "gg81WwevIKk_childItem_1": "<p>1x Night Cream [$70]</p>",
+        "gg81WwevIKk_childItem_2": "<p>1x Eye Cream [$50]</p>",
+        "gg81WwevIKk_childItem_3": "<p>1x Self-Tanning Drops [$40]</p>",
+        "gg81WwevIKk_childItem_4": "<p>1x Body Cream [$45]</p>",
+        "ggCdVdus-lO_text": "<p>If it doesn’t live up to what we say, you’ve got 60 days to get every dollar back.<br>No hoops. No drama.</p>",
+        "ggE8G3dTEvr_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/english_easter_promo-compressed_495b581e-f73c-4d75-9f24-4902b8695a62.webp",
+        "ggF6cpKcBIz_text": "<p>FREE shipping included. No code needed.</p>",
+        "ggFelEKodsn_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/inclusions_us_webp.webp",
+        "ggGQnUrUejM_text": "<p>In Italy, Easter is one of the biggest celebrations of the year. We wanted to bring that tradition to our American customers. This is our way of saying Happy Easter - with a real gift, not a fake \"sale.\"</p>",
+        "ggJGgGzDoCT_text": "<p>No, this is a one-time purchase. No hidden charges, no auto-renewals.</p>",
+        "ggKD-sLbzDS_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/english_easter_promo-compressed_495b581e-f73c-4d75-9f24-4902b8695a62.webp",
+        "ggQ43e9vHkH_text": "<p>60-day money-back guarantee. If you don't love the products, contact us for a full refund. No questions asked.</p>",
+        "ggRKewb9k-W_text": "<p>Until the timer hits zero or we sell out - whichever comes first. We have limited Easter Basket inventory and once it's gone, it's gone.</p>",
+        "ggVLmbUDTCI_text": "<p><span style=\"font-size:23px;\">The SerlinoLab Easter Basket</span></p>",
+        "ggVoREShrCJ_errorMessage": "Cannot add product to cart",
+        "ggVoREShrCJ_label": "Add to Cart",
+        "ggVoREShrCJ_outOfStockLabel": "Out of stock",
+        "ggVoREShrCJ_successMessage": "Add product to cart successfully",
+        "ggVoREShrCJ_unavailableLabel": "Unavailable",
+        "ggVoREShrCJ_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "ggd3njxJyN7_text": "60-day Guarantee",
+        "ggfNnmMpjbV_text": "<p><span style=\"color:#F7021F;font-size:21px;\"><s>$235</s></span> <strong>$69.99</strong> - You save<strong> </strong><span style=\"color:#3EB217;\"><strong>$165</strong></span></p>",
+        "ggiZXsXw0Re_text": "<p>Yes. Free shipping. No minimum. No catch.</p>",
+        "ggileuCzhVg_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/inclusions_us_webp.webp",
+        "ggjQP6yooHN_childItem_0": "<p>Why is the discount so big?</p>",
+        "ggjQP6yooHN_childItem_1": "<p>Is this a subscription?</p>",
+        "ggjQP6yooHN_childItem_2": "<p>What if I've never tried some of these products?</p>",
+        "ggjQP6yooHN_childItem_3": "<p>How long will this offer last?</p>",
+        "ggjQP6yooHN_childItem_4": "<p>Is shipping really free?</p>",
+        "ggjQP6yooHN_childItem_5": "<p>What&#039;s your return policy?</p>",
+        "ggk80Dd_Zoh_childItem_0": "<p><span style=\"color:#A00000;font-size:16px;\"><strong>Hurry! Stock is running low</strong></span></p>",
+        "ggvQZ3j8iza_text": "<p>Italians don't do small Easters - so neither do we: all 5 products, one price, $70, free shipping, 70% off, gone when they're gone.</p><p><strong>For the price of a single SerlinoLab Night Cream, you get:</strong></p>",
+        "ggyfGY-rP17_childItem_0": "<p><span style=\"color:#A00000;font-size:13px;\"><strong>Hurry! Stock is running low due to high demand</strong></span></p>",
+        "ggzK-ia7kn6_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-8396a127-da90-4a3b-8488-86e449f996a8.webp",
+        "ggzK-ia7kn6_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-8396a127-da90-4a3b-8488-86e449f996a8.webp",
+        "ggzoDBXJ_II_text": "<p>That's the whole point. For the price of one Night Cream, you get to try every product in our lineup. Zero risk with our 60-day money-back guarantee.</p>"
+      },
+      "type": "gp-section-612931265251377744"
+    },
+    "gp_section_612931265251443280": {
+      "settings": {
+        "checksum": "b65400436bd9d8379c6ab7fc416431b8e5e22c0c8ea477ec70f1d0a9c2000106_1_1_1_0__1",
+        "gg2xFSx-IzP_text": "<p>Until the timer hits zero or we sell out - whichever comes first. We have limited Easter Basket inventory and once it's gone, it's gone.</p>",
+        "gg5r67GKkA8_childItem_0": "<p><span style=\"font-size:16px;\">Why is the discount so big?</span></p>",
+        "gg5r67GKkA8_childItem_1": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Is this a subscription?</span></p>",
+        "gg5r67GKkA8_childItem_2": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">What if I've never tried some of these products?</span></p>",
+        "gg5r67GKkA8_childItem_3": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">How long will this offer last?</span></p>",
+        "gg5r67GKkA8_childItem_4": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Is shipping really free?</span></p>",
+        "gg5r67GKkA8_childItem_5": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">What&#039;s your return policy?</span></p>",
+        "ggBr_m71saN_text": "<p>That's the whole point. For the price of one Night Cream, you get to try every product in our lineup. Zero risk with our 60-day money-back guarantee.</p>",
+        "ggE2a9V-meS_text": "<p>No. This is a one-time purchase. No hidden charges, no auto-renewals.</p>",
+        "ggKeQeBypCw_text": "<p>In Italy, Easter is one of the biggest celebrations of the year. We wanted to bring that tradition to our American customers. This is our way of saying Happy Easter - with a real gift, not a fake \"sale.\"</p>",
+        "gg__kifShYw_text": "<span style=\"color:#17162E;\">Frequently Asked Questions</span>",
+        "gglFYYGZwgb_text": "<p>60-day money-back guarantee. If you don't love the products, contact us for a full refund. No questions asked.</p>",
+        "ggzn9yZbmxc_text": "<p>Yes. Free shipping. No minimum. No catch.</p>"
+      },
+      "type": "gp-section-612931265251443280"
+    },
+    "gp_section_612936136716714576": {
+      "settings": {
+        "checksum": "0018043d157eb6df226bc173ba42ca6db65a1d2552e7f142da95ebafb0cd1e7a_1_1_1_0__1",
+        "ggLwBJKA3Qp_text": "<p>SerlinoLab products are developed and manufactured in a family-owned laboratory in Italy. Not a factory. Not mass-produced. Small batches, premium ingredients sourced from Italian suppliers, and formulations refined over decades.</p><p>&nbsp;</p><p>This is the standard Italian men have trusted for years. Now it's yours.</p>",
+        "ggvK3gIdSIc_text": "Made in Italy. By a Family That's Been Doing This for Decades.",
+        "ggxZiH0WJ8d_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/Lab_photo_with_Founders_v2_copy.webp",
+        "ggxZiH0WJ8d_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/Lab_photo_with_Founders_v2_copy.webp",
+        "ggzol3EwMlU_text": "<span style=\"color:#17162E;\">Made in Italy. By a Family That's</span><br><span style=\"color:#17162E;\">Been Doing This for Decades.</span>"
+      },
+      "type": "gp-section-612936136716714576"
+    },
+    "gp_section_612936898284880739": {
+      "settings": {
+        "checksum": "d53af1a19bd61fd3495c8edc067baf0944c85fa2d294b75fc6946c7d9ddb5304_1_1_1_0__1",
+        "gg4roEAUHi2_text": "<span style=\"font-size:1em;\">🐣</span> EASTER SALE - 70% OFF + FREE Shipping",
+        "ggT6aK39vNr_text": "<p><span style=\"font-size:14px;\"><i>Ends in👇🏻</i></span></p>",
+        "ggUfdQA7gWC_dayLabel": "day",
+        "ggUfdQA7gWC_hourLabel": "hours",
+        "ggUfdQA7gWC_minuteLabel": "minutes",
+        "ggUfdQA7gWC_secondLabel": "seconds",
+        "ggUfdQA7gWC_weekLabel": "Weeks",
+        "section_preload": "true"
+      },
+      "type": "gp-section-612936898284880739"
+    },
+    "gp_section_612967023890137824": {
+      "settings": {
+        "checksum": "f9b13609536805d424758ab642849849ba3ffc8a22e86849875084358eb463ae_1_1_1_0__1",
+        "gg11cAbs_PC_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-fd204759-bd9d-4564-9e30-3ff2facb72de.png",
+        "gg6WuPsEo_D_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-af77021a-12c9-40dd-8132-2c59edf287dc.png",
+        "gg9_pMaOU0N_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-83e1af8d-ad67-4b33-83ee-51f80fee6167.png",
+        "ggExEaGKr2u_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-af77021a-12c9-40dd-8132-2c59edf287dc.png",
+        "ggJa4oSrIiq_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-af77021a-12c9-40dd-8132-2c59edf287dc.png",
+        "ggZ8lwr7Ai7_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-af77021a-12c9-40dd-8132-2c59edf287dc.png",
+        "ggd3-7D3jx7_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-af77021a-12c9-40dd-8132-2c59edf287dc.png",
+        "gghyrkXGjUq_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-af77021a-12c9-40dd-8132-2c59edf287dc.png",
+        "gglE6dw_00B_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-af77021a-12c9-40dd-8132-2c59edf287dc.png",
+        "ggmqO_1XOSP_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-2b1f58d6-457d-4734-a2f5-b5db983ef2fb.png",
+        "ggqdiW2nx-n_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-eee8f948-1544-47ee-acc0-8fe5b99f735a.png",
+        "ggw7Tid4Ov1_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-af77021a-12c9-40dd-8132-2c59edf287dc.png"
+      },
+      "type": "gp-section-612967023890137824"
+    }
+  },
+  "order": [
+    "gp_section_612936898284880739",
+    "gp_section_612931265251377744",
+    "gp_section_612931265250984528",
+    "gp_section_612931265251050064",
+    "gp_section_612931265250853456",
+    "gp_section_612967023890137824",
+    "gp_section_612936136716714576",
+    "gp_section_612931265251443280",
+    "gp_section_612931265251312208",
+    "gp_section_612931265251246672",
+    "gp_section_612931265250787920"
+  ]
+}

@@ -1,0 +1,65 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_612460810270147171": {
+      "settings": {
+        "checksum": "809b04b7571eefce5ba65c156c206d01b8f5b85f20f41ad1a693a051f066875e_1_1_1_0__1",
+        "gg72OiKreey_text": "<strong>Step 2 - Apply SerlinoLab Night Cream (60 seconds)</strong>",
+        "gg7bZX__dVQ_text": "<span style=\"color:rgb(21,21,21);\">Use 2 pump - about the size of a small coin. That's it. The formula is concentrated. More cream does NOT mean faster results. It just means you'll run out sooner. One bottle is designed to last 30 days when used correctly. If you're running out in two weeks, you're using too much - and more doesn't mean better. The formula is designed to work at this concentration. Gently press into your face, neck, and jawline. Don't rub aggressively - let the Retinyl Palmitate do the work overnight.</span>",
+        "ggE0hMMGFfF_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:px;\"><strong>Step 1&nbsp;- Cleanse (30 seconds)</strong></span>",
+        "ggH5YrS5Fl6_text": "Step 3 - Let It Work (While You Sleep)",
+        "ggWkUN3-NOO_text": "Step 1 - Cleanse (30 seconds)",
+        "ggXXvFvLg18_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:px;\">Your Nightly SerlinoLab Routine - 2 Steps, 2 Minutes</span>",
+        "ggYOXIZSlZF_text": "<span style=\"color:rgb(21,21,21);\">Wash your face with a gentle cleanser to remove the day's buildup. This opens your pores so the active ingredients can actually penetrate. Applying cream on top of dirt and oil is like painting over rust - it won't stick.</span>",
+        "ggfEZdgueQr_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:36px;\"><strong>Step 3 - Let It Work (While You Sleep)</strong></span>",
+        "ggpD57UA6dq_text": "Step 2 - Apply SerlinoLab Night Cream<br>(60 seconds)",
+        "ggs3FlWZSva_text": "<span style=\"color:rgb(21,21,21);\">The cold-pressed olive oil locks the treatment in for 6-8 hours. No need for a second product on top. Go to bed, and your skin's natural collagen production does the rest.</span><br>&nbsp;<span style=\"color:rgb(21,21,21);\">*Want the complete Italian routine?*</span>"
+      },
+      "type": "gp-section-612460810270147171"
+    },
+    "gp_section_612460810270212707": {
+      "settings": {
+        "checksum": "28c98487c6b62e718b032dfaed2d914b6b154c753e1ee878c2a8c80d031ec6e0_1_1_1_0__1",
+        "gg1OpfeLZJO_text": "<span style=\"color:rgb(21,21,21);\">Collagen rebuilding compounds over time. The longer you stay consistent, the more dramatic the transformation. This is why Italian men look the way they do - they don't stop after one jar.</span><br><br><span style=\"color:rgb(21,21,21);\">Then right after this timeline, hit them with:</span><span style=\"color:rgb(21,21,21);\">*\"Consistency is everything. Make sure you don't run out mid-routine.\"*</span>",
+        "gg83-CpApD5_text": "<span style=\"color:rgb(21,21,21);\">Your skin starts to feel different. Hydration improves, the tired/dull look begins to fade. You might not see dramatic changes yet - that's normal. The Retinyl Palmitate is working beneath the surface, signaling your skin to start rebuilding collagen.</span>",
+        "ggBRLccIXMp_text": "Week 1-2",
+        "ggBcgvPi0e2_label": "Reorder SerlinoLab Night Cream",
+        "ggBcgvPi0e2_outOfStockLabel": "Out of stock",
+        "ggBcgvPi0e2_unavailableLabel": "Unavailable",
+        "ggBcgvPi0e2_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "ggFdPOanZvt_text": "Month 3+",
+        "ggNg_hiI7V3_text": "<span style=\"color:rgb(21,21,21);\">This is where guys start noticing. Skin texture smooths out. Fine lines around the eyes begin softening. Your face looks more \"rested\" even on rough mornings.</span>",
+        "ggaARCVG9i8_text": "The Foundation",
+        "ggcoRK3e9Gm_text": "The Shift",
+        "gggXLlgRpt5_text": "Week 3-4",
+        "ggo8v2n7IX1_text": "Week 6-8",
+        "ggqX-Yu8dOC_text": "<span style=\"color:rgb(21,21,21);\">Neck firms up noticeably. Deep grooves and creases start softening. This is usually when other people start commenting. \"Did you do something different?\"</span>",
+        "ggwrkHed9Q9_text": "The Compound Effect",
+        "ggzgsyuwelr_text": "Real Results"
+      },
+      "type": "gp-section-612460810270212707"
+    },
+    "gp_section_612460810270278243": {
+      "settings": {
+        "checksum": "f11ed11532f2b155cb0e00eecd4cb99ece754330d0a47ee1432d0a61d7d66076_1_1_1_0__1",
+        "gg7Ab2uXtqk_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:px;\">The Italian Evening Routine - A Guide To Your SerlinoLab Night Cream</span>",
+        "ggK54Z-wJ2L_text": "<strong>Everything you need to know - how much to apply, when to apply it, and the simple 2-step routine Italian men swear by.</strong>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-612460810270278243"
+    }
+  },
+  "order": [
+    "gp_section_612460810270278243",
+    "gp_section_612460810270147171",
+    "gp_section_612460810270212707"
+  ]
+}

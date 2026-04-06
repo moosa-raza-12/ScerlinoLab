@@ -1,0 +1,618 @@
+
+    
+    
+    <style {% if section.settings.section_preload == "false" %} class="gps-link gps-style" type="text/disabled-css" {% endif %}>.gps-612933529973555993.gps.gpsil [style*="--as:"]{align-self:var(--as)}.gps-612933529973555993.gps.gpsil [style*="--aspect:"]{aspect-ratio:var(--aspect)}.gps-612933529973555993.gps.gpsil [style*="--bg:"]{background:var(--bg)}.gps-612933529973555993.gps.gpsil [style*="--hvr-bg:"]:hover{background:var(--hvr-bg)}.gps-612933529973555993.gps.gpsil [style*="--bga:"]{background-attachment:var(--bga)}.gps-612933529973555993.gps.gpsil [style*="--bgc:"]{background-color:var(--bgc)}.gps-612933529973555993.gps.gpsil [style*="--bgi:"]{background-image:var(--bgi)}.gps-612933529973555993.gps.gpsil [style*="--hvr-bgi:"]:hover{background-image:var(--hvr-bgi)}.gps-612933529973555993.gps.gpsil [style*="--bgp:"]{background-position:var(--bgp)}.gps-612933529973555993.gps.gpsil [style*="--bgr:"]{background-repeat:var(--bgr)}.gps-612933529973555993.gps.gpsil [style*="--bgs:"]{background-size:var(--bgs)}.gps-612933529973555993.gps.gpsil [style*="--b:"]{border:var(--b)}.gps-612933529973555993.gps.gpsil [style*="--hvr-b:"]:hover{border:var(--hvr-b)}.gps-612933529973555993.gps.gpsil [style*="--bb:"]{border-bottom:var(--bb)}.gps-612933529973555993.gps.gpsil [style*="--hvr-bb:"]:hover{border-bottom:var(--hvr-bb)}.gps-612933529973555993.gps.gpsil [style*="--bc:"]{border-color:var(--bc)}.gps-612933529973555993.gps.gpsil [style*="--bblr:"]{border-bottom-left-radius:var(--bblr)}.gps-612933529973555993.gps.gpsil [style*="--hvr-bblr:"]:hover{border-bottom-left-radius:var(--hvr-bblr)}.gps-612933529973555993.gps.gpsil [style*="--bbrr:"]{border-bottom-right-radius:var(--bbrr)}.gps-612933529973555993.gps.gpsil [style*="--hvr-bbrr:"]:hover{border-bottom-right-radius:var(--hvr-bbrr)}.gps-612933529973555993.gps.gpsil [style*="--bl:"]{border-left:var(--bl)}.gps-612933529973555993.gps.gpsil [style*="--radius:"]{border-radius:var(--radius)}.gps-612933529973555993.gps.gpsil [style*="--bs:"]{border-style:var(--bs)}.gps-612933529973555993.gps.gpsil [style*="--bt:"]{border-top:var(--bt)}.gps-612933529973555993.gps.gpsil [style*="--hvr-bt:"]:hover{border-top:var(--hvr-bt)}.gps-612933529973555993.gps.gpsil [style*="--btlr:"]{border-top-left-radius:var(--btlr)}.gps-612933529973555993.gps.gpsil [style*="--hvr-btlr:"]:hover{border-top-left-radius:var(--hvr-btlr)}.gps-612933529973555993.gps.gpsil [style*="--btrr:"]{border-top-right-radius:var(--btrr)}.gps-612933529973555993.gps.gpsil [style*="--hvr-btrr:"]:hover{border-top-right-radius:var(--hvr-btrr)}.gps-612933529973555993.gps.gpsil [style*="--bw:"]{border-width:var(--bw)}.gps-612933529973555993.gps.gpsil [style*="--shadow:"]{box-shadow:var(--shadow)}.gps-612933529973555993.gps.gpsil [style*="--c:"]{color:var(--c)}.gps-612933529973555993.gps.gpsil [style*="--hvr-c:"]:hover{color:var(--hvr-c)}.gps-612933529973555993.gps.gpsil [style*="--cg:"]{-moz-column-gap:var(--cg);column-gap:var(--cg)}.gps-612933529973555993.gps.gpsil [style*="--ff:"]{font-family:var(--ff)}.gps-612933529973555993.gps.gpsil [style*="--size:"]{font-size:var(--size)}.gps-612933529973555993.gps.gpsil [style*="--weight:"]{font-weight:var(--weight)}.gps-612933529973555993.gps.gpsil [style*="--gtc:"]{grid-template-columns:var(--gtc)}.gps-612933529973555993.gps.gpsil [style*="--h:"]{height:var(--h)}.gps-612933529973555993.gps.gpsil [style*="--jc:"]{justify-content:var(--jc)}.gps-612933529973555993.gps.gpsil [style*="--lh:"]{line-height:var(--lh)}.gps-612933529973555993.gps.gpsil [style*="--tdt:"]{text-decoration-thickness:var(--tdt)}.gps-612933529973555993.gps.gpsil [style*="--tdl:"]{text-decoration-line:var(--tdl)}.gps-612933529973555993.gps.gpsil [style*="--m:"]{margin:var(--m)}.gps-612933529973555993.gps.gpsil [style*="--mb:"]{margin-bottom:var(--mb)}.gps-612933529973555993.gps.gpsil [style*="--ml:"]{margin-left:var(--ml)}.gps-612933529973555993.gps.gpsil [style*="--mr:"]{margin-right:var(--mr)}.gps-612933529973555993.gps.gpsil [style*="--mt:"]{margin-top:var(--mt)}.gps-612933529973555993.gps.gpsil [style*="--objf:"]{-o-object-fit:var(--objf);object-fit:var(--objf)}.gps-612933529973555993.gps.gpsil [style*="--op:"]{opacity:var(--op)}.gps-612933529973555993.gps.gpsil [style*="--o:"]{order:var(--o)}.gps-612933529973555993.gps.gpsil [style*="--pc:"]{place-content:var(--pc)}.gps-612933529973555993.gps.gpsil [style*="--p:"]{padding:var(--p)}.gps-612933529973555993.gps.gpsil [style*="--pb:"]{padding-bottom:var(--pb)}.gps-612933529973555993.gps.gpsil [style*="--pl:"]{padding-left:var(--pl)}.gps-612933529973555993.gps.gpsil [style*="--pr:"]{padding-right:var(--pr)}.gps-612933529973555993.gps.gpsil [style*="--pt:"]{padding-top:var(--pt)}.gps-612933529973555993.gps.gpsil [style*="--pos:"]{position:var(--pos)}.gps-612933529973555993.gps.gpsil [style*="--rg:"]{row-gap:var(--rg)}.gps-612933529973555993.gps.gpsil [style*="--ta:"]{text-align:var(--ta)}.gps-612933529973555993.gps.gpsil [style*="--ts:"]{text-shadow:var(--ts)}.gps-612933529973555993.gps.gpsil [style*="--t:"]{transform:var(--t)}.gps-612933529973555993.gps.gpsil [style*="--w:"]{width:var(--w)}.gps-612933529973555993.gps.gpsil [style*="--line-clamp:"]{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp)}@media only screen and (max-width:1024px){.gps-612933529973555993.gps.gpsil [style*="--aspect-tablet:"]{aspect-ratio:var(--aspect-tablet)}.gps-612933529973555993.gps.gpsil [style*="--size-tablet:"]{font-size:var(--size-tablet)}.gps-612933529973555993.gps.gpsil [style*="--h-tablet:"]{height:var(--h-tablet)}.gps-612933529973555993.gps.gpsil [style*="--lh-tablet:"]{line-height:var(--lh-tablet)}.gps-612933529973555993.gps.gpsil [style*="--mt-tablet:"]{margin-top:var(--mt-tablet)}.gps-612933529973555993.gps.gpsil [style*="--pb-tablet:"]{padding-bottom:var(--pb-tablet)}.gps-612933529973555993.gps.gpsil [style*="--pl-tablet:"]{padding-left:var(--pl-tablet)}.gps-612933529973555993.gps.gpsil [style*="--pr-tablet:"]{padding-right:var(--pr-tablet)}.gps-612933529973555993.gps.gpsil [style*="--pt-tablet:"]{padding-top:var(--pt-tablet)}.gps-612933529973555993.gps.gpsil [style*="--w-tablet:"]{width:var(--w-tablet)}.gps-612933529973555993.gps.gpsil [style*="--line-clamp-tablet:"]{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp-tablet)}}@media only screen and (max-width:767px){.gps-612933529973555993.gps.gpsil [style*="--aspect-mobile:"]{aspect-ratio:var(--aspect-mobile)}.gps-612933529973555993.gps.gpsil [style*="--bga-mobile:"]{background-attachment:var(--bga-mobile)}.gps-612933529973555993.gps.gpsil [style*="--bgc-mobile:"]{background-color:var(--bgc-mobile)}.gps-612933529973555993.gps.gpsil [style*="--bgi-mobile:"]{background-image:var(--bgi-mobile)}.gps-612933529973555993.gps.gpsil [style*="--bgp-mobile:"]{background-position:var(--bgp-mobile)}.gps-612933529973555993.gps.gpsil [style*="--bgr-mobile:"]{background-repeat:var(--bgr-mobile)}.gps-612933529973555993.gps.gpsil [style*="--bgs-mobile:"]{background-size:var(--bgs-mobile)}.gps-612933529973555993.gps.gpsil [style*="--bc-mobile:"]{border-color:var(--bc-mobile)}.gps-612933529973555993.gps.gpsil [style*="--bblr-mobile:"]{border-bottom-left-radius:var(--bblr-mobile)}.gps-612933529973555993.gps.gpsil [style*="--bbrr-mobile:"]{border-bottom-right-radius:var(--bbrr-mobile)}.gps-612933529973555993.gps.gpsil [style*="--bs-mobile:"]{border-style:var(--bs-mobile)}.gps-612933529973555993.gps.gpsil [style*="--btlr-mobile:"]{border-top-left-radius:var(--btlr-mobile)}.gps-612933529973555993.gps.gpsil [style*="--btrr-mobile:"]{border-top-right-radius:var(--btrr-mobile)}.gps-612933529973555993.gps.gpsil [style*="--bw-mobile:"]{border-width:var(--bw-mobile)}.gps-612933529973555993.gps.gpsil [style*="--size-mobile:"]{font-size:var(--size-mobile)}.gps-612933529973555993.gps.gpsil [style*="--gtc-mobile:"]{grid-template-columns:var(--gtc-mobile)}.gps-612933529973555993.gps.gpsil [style*="--h-mobile:"]{height:var(--h-mobile)}.gps-612933529973555993.gps.gpsil [style*="--jc-mobile:"]{justify-content:var(--jc-mobile)}.gps-612933529973555993.gps.gpsil [style*="--lh-mobile:"]{line-height:var(--lh-mobile)}.gps-612933529973555993.gps.gpsil [style*="--mb-mobile:"]{margin-bottom:var(--mb-mobile)}.gps-612933529973555993.gps.gpsil [style*="--ml-mobile:"]{margin-left:var(--ml-mobile)}.gps-612933529973555993.gps.gpsil [style*="--mr-mobile:"]{margin-right:var(--mr-mobile)}.gps-612933529973555993.gps.gpsil [style*="--mt-mobile:"]{margin-top:var(--mt-mobile)}.gps-612933529973555993.gps.gpsil [style*="--pb-mobile:"]{padding-bottom:var(--pb-mobile)}.gps-612933529973555993.gps.gpsil [style*="--pl-mobile:"]{padding-left:var(--pl-mobile)}.gps-612933529973555993.gps.gpsil [style*="--pr-mobile:"]{padding-right:var(--pr-mobile)}.gps-612933529973555993.gps.gpsil [style*="--pt-mobile:"]{padding-top:var(--pt-mobile)}.gps-612933529973555993.gps.gpsil [style*="--pos-mobile:"]{position:var(--pos-mobile)}.gps-612933529973555993.gps.gpsil [style*="--w-mobile:"]{width:var(--w-mobile)}.gps-612933529973555993.gps.gpsil [style*="--line-clamp-mobile:"]{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp-mobile)}}.gps-612933529973555993 .gp-invisible{visibility:hidden}.gps-612933529973555993 .gp-absolute{position:absolute}.gps-612933529973555993 .gp-relative{position:relative}.gps-612933529973555993 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-612933529973555993 .gp-mb-0{margin-bottom:0}.gps-612933529973555993 .gp-inline-block{display:inline-block}.gps-612933529973555993 .gp-flex{display:flex}.gps-612933529973555993 .gp-inline-flex{display:inline-flex}.gps-612933529973555993 .gp-grid{display:grid}.gps-612933529973555993 .gp-contents{display:contents}.gps-612933529973555993 .\!gp-hidden{display:none!important}.gps-612933529973555993 .gp-hidden{display:none}.gps-612933529973555993 .gp-h-5{height:20px}.gps-612933529973555993 .gp-h-auto{height:auto}.gps-612933529973555993 .gp-h-full{height:100%}.gps-612933529973555993 .gp-w-5{width:20px}.gps-612933529973555993 .gp-w-full{width:100%}.gps-612933529973555993 .gp-max-w-full{max-width:100%}.gps-612933529973555993 .gp-flex-none{flex:none}.gps-612933529973555993 .gp-cursor-default{cursor:default}.gps-612933529973555993 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-612933529973555993 .gp-flex-col{flex-direction:column}.gps-612933529973555993 .gp-items-center{align-items:center}.gps-612933529973555993 .gp-justify-center{justify-content:center}.gps-612933529973555993 .gp-overflow-hidden{overflow:hidden}.gps-612933529973555993 .gp-break-words{overflow-wrap:break-word}.gps-612933529973555993 .gp-text-center{text-align:center}.gps-612933529973555993 .gp-no-underline{text-decoration-line:none}.gps-612933529973555993 .gp-opacity-25{opacity:.25}.gps-612933529973555993 .gp-opacity-30{opacity:.3}.gps-612933529973555993 .gp-opacity-75{opacity:.75}.gps-612933529973555993 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-612933529973555993 .gp-duration-200{transition-duration:.2s}.gps-612933529973555993 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-612933529973555993 .disabled\:gp-btn-disabled:disabled{cursor:default}.gps-612933529973555993 .disabled\:gp-opacity-30:disabled{opacity:.3}.gps-612933529973555993 .gp-group\/button:active .group-active\/button\:\!gp-text-inherit{color:inherit!important}.gps-612933529973555993 .data-\[hidden\=true\]\:\!gp-hidden[data-hidden=true]{display:none!important}.gps-612933529973555993 .data-\[hidden\=true\]\:gp-hidden[data-hidden=true]{display:none}.gps-612933529973555993 .gp-group[data-state=loading] .group-data-\[state\=loading\]\:gp-visible{visibility:visible}.gps-612933529973555993 .gp-group[data-state=loading] .group-data-\[state\=loading\]\:gp-invisible{visibility:hidden}@keyframes gp-spin{to{transform:rotate(1turn)}}.gps-612933529973555993 .gp-group[data-state=loading] .group-data-\[state\=loading\]\:gp-animate-spin{animation:gp-spin 1s linear infinite}@media (max-width:1024px){.gps-612933529973555993 .tablet\:\!gp-hidden{display:none!important}.gps-612933529973555993 .tablet\:gp-hidden{display:none}.gps-612933529973555993 .tablet\:gp-h-auto{height:auto}.gps-612933529973555993 .tablet\:gp-flex-none{flex:none}}@media (max-width:767px){.gps-612933529973555993 .mobile\:\!gp-hidden{display:none!important}.gps-612933529973555993 .mobile\:gp-hidden{display:none}.gps-612933529973555993 .mobile\:gp-h-auto{height:auto}.gps-612933529973555993 .mobile\:gp-flex-none{flex:none}}.gps-612933529973555993 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}.gps-612933529973555993 .\[\&_p\]\:gp-whitespace-pre-line p{white-space:pre-line}</style>
+    
+  
+    
+    
+    
+
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+
+    
+        <section
+          class="gp-mx-auto gp-max-w-full [&_*]:gp-max-w-full {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
+          style="--w:calc(55% + 2 * var(--g-ct-p, 15px));--w-tablet:calc(var(--g-ct-w, 100%) + 2 * var(--g-ct-p, 15px));--w-mobile:calc(89% + 2 * var(--g-ct-p, 15px));--pl:none;--pl-tablet:none;--pl-mobile:none;--pr:none;--pr-tablet:none;--pr-mobile:none"
+        >
+          
+    <gp-row gp-data='{"background":{"desktop":{"type":"color","color":"transparent","image":{"src":"","width":0,"height":0},"size":"cover","position":{"x":50,"y":50},"repeat":"no-repeat","attachment":"scroll"}},"uid":"gHguRaGGsv"}' data-id="gHguRaGGsv" id="gHguRaGGsv" data-same-height-subgrid-container class="gHguRaGGsv gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--blockPadding:base;--mt:22px;--pt:0px;--pb:0px;--mt-tablet:22px;--pt-tablet:0px;--pb-tablet:0px;--mt-mobile:22px;--pt-mobile:0px;--pb-mobile:0px;--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--op:100%;--cg:16px;--rg:0px;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:55%;--w-mobile:89%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="g8XxJY4LM9 gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+      {%- assign gpBkProduct = product -%}
+      
+      {%- liquid
+        if request.page_type == 'product'
+          if 'static' == 'static'
+            if '9940427636983' == 'latest'
+              paginate collections.all.products by 100000
+                assign product = collections.all.products | sort: 'created_at' | reverse | first
+              endpaginate
+            else
+              assign product = all_products['easter-basket']
+              assign productId = '9940427636983' | times: 1
+              if product == empty or product == null
+                paginate collections.all.products by 100000
+                  for item in collections.all.products
+                    if item.id == productId
+                      assign product = item
+                    endif
+                  endfor
+                endpaginate
+              endif
+            endif
+          endif
+        else
+          if '9940427636983' == 'latest'
+            paginate collections.all.products by 100000
+              assign product = collections.all.products | sort: 'created_at'| reverse | first
+            endpaginate
+          else
+            assign product = all_products['easter-basket']
+            assign productId = '9940427636983' | times: 1
+            if product == empty or product == null
+              paginate collections.all.products by 100000
+                for item in collections.all.products
+                  if item.id == productId
+                    assign product = item
+                  endif
+                endfor
+              endpaginate
+            endif
+          endif
+        endif
+      -%}
+    
+    
+    {% if product != empty and product != null %}
+      
+      {%- assign initVariantId =  -%}
+      {%- assign product_form_id = 'product-form-' | append: "gKgM1HLNaz" -%}
+      {%- assign variant = product.selected_or_first_available_variant -%}
+      {%- assign productSelectedVariant = product.selected_or_first_available_variant -%}
+      {%-if productSelectedVariant == empty or productSelectedVariant == null -%}
+        {%- assign productSelectedVariant = product.selected_or_first_available_variant -%}
+      {%- endif -%}
+      {%-if variant == empty or variant == null -%}
+        {%- assign variant = product.selected_or_first_available_variant -%}
+      {%- endif -%}
+    
+      <gp-product
+        data-uid="gKgM1HLNaz"
+        data-id="gKgM1HLNaz"
+        style="--pos-mobile:static"
+        
+        gp-context='{"productId": {{ product.id }}, "preSelectedOptionIds": [], "isSyncProduct": "true", "hasPreSelected": false, "variantSelected": {{ variant | json | escape }},  "inventory_management": {{ variant.inventory_management | json | escape  }}, "inventory_policy": {{ variant.inventory_policy | json | escape }}, "inventoryQuantity": {{ variant.inventory_quantity | default: 0 }}, "quantity": 1, "formId": "{{ product_form_id }}" }'
+        gp-data='{"variantSelected": {{ variant | json | escape }}, "quantity": 1, "productUrl":{{ product.url | json | escape }}, "productHandle":{{ product.handle | json | escape }}, "collectionUrl": {{ collection.url | json | escape }}, "collectionHandle": {{ collection.handle | json | escape }}}'
+      >
+        <product-form class="product-form">
+          {%- form 'product', product, id: product_form_id, class: 'form contents', data-type: 'add-to-cart-form', autocomplete: 'off'  -%}
+            <input type="hidden" name="id" value="{{ variant.id }}" />
+            <input type="hidden" name="quantity" value="{{ quantity }}" />
+            <button type="submit" onclick="return false;" style="display:none;"></button>
+            
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"type":"color","color":"transparent"}},"uid":"gKgM1HLNaz"}' data-id="gKgM1HLNaz-row" id="gKgM1HLNaz" data-same-height-subgrid-container class="gKgM1HLNaz gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--op:100%;--mt:0px;--mt-tablet:0px;--mt-mobile:-64px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--pos-mobile:static;--cg:var(--g-s-2xl);--rg:16px;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:1200px;--w-mobile:1200px;--bgc:transparent;--bgi:url();--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gNoY03if-- gp-relative gp-flex gp-flex-col"
+    >
+      
+    {%- assign total_combinations = 1 -%}
+    {% for option in product.options_with_values %}{%- assign total_combinations = total_combinations | times: option.values.size -%}{% endfor %}
+    {%- liquid
+      assign inventory_quantity = variant.inventory_quantity | default: 0
+      assign is_in_stock = variant.available
+    -%}
+    <gp-product-button
+      
+      gp-data-wrapper="true"
+      gp-href="{{ request.origin }}{{ routes.root_url | split: '/' | join: '/' }}/cart"
+      class="gp-product-button"
+      gp-label-out-of-stock="{{ section.settings.ggg7eUx8FbQ_outOfStockLabel }}"
+      gp-label-unavailable="{{ section.settings.ggg7eUx8FbQ_unavailableLabel }}"
+      gp-data='{"styles":{"errorTypo":{"attrs":{"color":"error"},"custom":{"fontFamily":{"type":"custom","value":"FuturaStd-Heavy"},"fontSize":{"desktop":"14px","mobile":"18px","tablet":"14px"},"fontWeight":"400","hasShadowText":false,"lineHeight":{"desktop":"180%","mobile":"22px","tablet":"180%"},"textShadow":{"angle":37,"blur":"2px","color":"rgba(0, 0, 0, 0.6)","distance":"4px","type":"custom"}},"type":"paragraph-2"},"successTypo":{"attrs":{"color":"success"},"type":"paragraph-2"}},"setting":{"errorType":"built-in","actionEffect":"continue-shopping","enableMessage":true,"label":"Add to Cart","errorMessage":"{{ section.settings.ggg7eUx8FbQ_errorMessage }}","successMessage":"{{ section.settings.ggg7eUx8FbQ_successMessage }}","outOfStockLabel":"Out of stock","customURL":{"link":"/cart","target":"_self"}},"variantID":"{{variant.id}}","disabled":"{{variant.available}}","totalVariant":"{{total_combinations}}"}'
+      data-variant-selection-required-message="{{ section.settings.ggg7eUx8FbQ_variantSelectionRequiredMessage }}"
+      gp-enable-third-partycart="{{shop.metafields.GEMPAGES.enableThirdPartyCart}}"
+    >
+      
+    <gp-button
+      gp-data='{}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_PRODUCT;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:0px;--pt:0px;--pl-tablet:32px;--pr-tablet:32px;--mb-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--ta:left" class="{% unless variant.available %} !gp-hidden {% endunless %}">
+        <style>[data-id="gg7eUx8FbQ"].gp-button-base::before, [data-id="gg7eUx8FbQ-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+    
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      border-top-left-radius: 60px;
+      border-top-right-radius: 60px;
+      
+  
+    }
+  
+      
+  [data-id="gg7eUx8FbQ"]:hover::before, [data-id="gg7eUx8FbQ-interaction"]:hover::before {
+    border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+    
+  }</style>
+        
+        <button
+          data-id="gg7eUx8FbQ" dataId="gg7eUx8FbQ" data-state="idle" aria-label="Add to Cart"
+          name="add" gp-data-hidden="{% unless variant.available %}true{% endunless %}"
+          type="submit"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:0px;--pr:0px;--pt:18px;--pb:18px;--pl-mobile:0px;--pr-mobile:0px;--pt-mobile:10px;--pb-mobile:10px;--bblr:60px;--bbrr:60px;--btlr:60px;--btrr:60px;--hvr-bblr:60px;--hvr-bbrr:60px;--hvr-btlr:60px;--hvr-btrr:60px;--shadow:none;--bgi:;--hvr-bgi:;--hvr-bg:#ffd700;--bg:#FFD700;--hvr-c:#151723;--c:#17162E;--ff:var(--g-font-ABCRepro, 'ABCRepro'), var(--g-font-heading, heading);--size:17px;--size-tablet:20px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:34px;--weight:bold"
+          class="gp-button-atc tcustomizer-submit-button gg7eUx8FbQ gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30  undefined"
+        >
+        
+  <svg
+    class="gp-invisible gp-absolute gp-h-5 gp-w-5 group-data-[state=loading]:gp-animate-spin group-data-[state=loading]:gp-visible"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
+    <circle
+      class="gp-opacity-25"
+      cx="12"
+      cy="12"
+      r="10"
+      stroke="currentColor"
+      stroke-width="4"
+    ></circle>
+    <path
+      class="gp-opacity-75"
+      fill="currentColor"
+      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+    ></path>
+  </svg>
+
+        <div class="gp-inline-flex">
+          
+          
+    <span
+      data-gp-text
+      style="--ff:var(--g-font-ABCRepro, 'ABCRepro'), var(--g-font-heading, heading);--size:17px;--size-tablet:20px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:34px;--weight:bold;--ts:none;word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
+    >
+      {{ section.settings.ggg7eUx8FbQ_label }}
+    </span>
+        </div>
+        
+    
+  <div
+    class="group-data-[state=loading]:gp-invisible data-[hidden=true]:gp-hidden"
+    style="--mr:8px;--ml:8px"
+  >
+    
+    <svg width="1em" height="1em" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M1.10522 9C1.10522 8.72386 1.32908 8.5 1.60522 8.5H18.1062C18.3823 8.5 18.6062 8.72386 18.6062 9V11C18.6062 11.2761 18.3823 11.5 18.1062 11.5H1.60522C1.32908 11.5 1.10522 11.2761 1.10522 11V9Z"
+        fill="currentColor" />
+    </svg>
+  
+  </div>
+
+    
+            
+      <gp-product-price
+        id="shopify-text-element-undefined" data-hidden="{% if variant.compare_at_price > variant.price and variant.compare_at_price >= 0 %}false{% else %}true{% endif %}"
+        class="gp-product-price group-data-[state=loading]:gp-invisible data-[hidden=true]:!gp-hidden gp-button-price"
+        
+        gp-data='{"priceType":"compare","locale":"{{shop.locale}}","currency":"{{shop.currency}}","moneyFormat":"{{ shop.money_format | replace: '"', '\\"' | escape }}"}'
+      >
+        
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div id="p-price-undefined" data-id
+        
+        style="--dynamic-source-color:#F4F4F4"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-price gp-product-compare-price gp-button-price  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-ABCRepro-Screen, 'ABCRepro-Screen'), var(--g-font-heading, heading);--weight:400;--size:15px;--size-tablet:20px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:34px;word-break:break-word;overflow:hidden;opacity:50%;--tdl:line-through"
+        >
+          
+      {% if variant.compare_at_price  %}
+        {{ variant.compare_at_price | money}}
+      {% else %}
+
+      {% endif %}
+    
+        </div>
+      </div>
+    </div>
+    
+      </gp-product-price>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-product-price-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+            
+  <div style="--mr:2px;--ml:2px;display:block !important"></div>
+
+          
+            
+      <gp-product-price
+        id="shopify-text-element-undefined"
+        class="gp-product-price group-data-[state=loading]:gp-invisible data-[hidden=true]:!gp-hidden gp-button-price"
+        
+        gp-data='{"priceType":"regular","locale":"{{shop.locale}}","currency":"{{shop.currency}}","moneyFormat":"{{ shop.money_format | replace: '"', '\\"' | escape }}"}'
+      >
+        
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div id="p-price-undefined" data-id
+        
+        style="--dynamic-source-color:#F4F4F4"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-price gp-money gp-button-price  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-ABCRepro, 'ABCRepro'), var(--g-font-heading, heading);--weight:700;--size:15px;--size-tablet:20px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:34px;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          
+     {% if variant.price %}
+       {{ variant.price | money}}
+     {% endif %}
+   
+        </div>
+      </div>
+    </div>
+    
+      </gp-product-price>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-product-price-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+            
+          
+  
+        </button>
+      </div>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
+      
+    <gp-button
+      gp-data='{}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_PRODUCT;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:0px;--pt:0px;--pl-tablet:32px;--pr-tablet:32px;--mb-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--ta:left" class="{% if variant.available %} !gp-hidden {% endif %}">
+        <style>[data-id="gg7eUx8FbQ-sold-out"].gp-button-base::before, [data-id="gg7eUx8FbQ-sold-out-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+    
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      border-top-left-radius: 60px;
+      border-top-right-radius: 60px;
+      
+  
+    }
+  
+      
+  [data-id="gg7eUx8FbQ-sold-out"]:hover::before, [data-id="gg7eUx8FbQ-sold-out-interaction"]:hover::before {
+    
+    
+  }</style>
+        
+        <button
+          data-id="gg7eUx8FbQ-sold-out" dataId="gg7eUx8FbQ-sold-out" data-state="idle" aria-label="{{ section.settings.ggg7eUx8FbQ_outOfStockLabel }}"
+          gp-data-hidden="{% if variant.available %}true{% endif %}"
+          type="button"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:0px;--pr:0px;--pt:18px;--pb:18px;--pl-mobile:0px;--pr-mobile:0px;--pt-mobile:10px;--pb-mobile:10px;--bblr:60px;--bbrr:60px;--btlr:60px;--btrr:60px;--hvr-bblr:60px;--hvr-bbrr:60px;--hvr-btlr:60px;--hvr-btrr:60px;--shadow:none;--bgi:;--hvr-bgi:;--bg:#FFD700;--hvr-bg:#FFD700;--c:#151723;--ff:var(--g-font-ABCRepro, 'ABCRepro'), var(--g-font-heading, heading);--size:17px;--size-tablet:20px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:34px;--weight:bold"
+          class="gp-cursor-default gp-opacity-30 btn-disabled gp-button-sold-out gg7eUx8FbQ-sold-out gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30 "
+        >
+        
+        <div class="gp-inline-flex">
+          
+          
+    <span
+      data-gp-text
+      style="--ff:var(--g-font-ABCRepro, 'ABCRepro'), var(--g-font-heading, heading);--size:17px;--size-tablet:20px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:34px;--weight:bold;--ts:none;word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
+    >
+      {{ section.settings.ggg7eUx8FbQ_outOfStockLabel }}
+    </span>
+        </div>
+        
+    
+  <div
+    class="group-data-[state=loading]:gp-invisible data-[hidden=true]:gp-hidden"
+    style="--mr:8px;--ml:8px"
+  >
+    
+    <svg width="1em" height="1em" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M1.10522 9C1.10522 8.72386 1.32908 8.5 1.60522 8.5H18.1062C18.3823 8.5 18.6062 8.72386 18.6062 9V11C18.6062 11.2761 18.3823 11.5 18.1062 11.5H1.60522C1.32908 11.5 1.10522 11.2761 1.10522 11V9Z"
+        fill="currentColor" />
+    </svg>
+  
+  </div>
+
+    
+            
+      <gp-product-price
+        id="shopify-text-element-undefined" data-hidden="{% if variant.compare_at_price > variant.price and variant.compare_at_price >= 0 %}false{% else %}true{% endif %}"
+        class="gp-product-price group-data-[state=loading]:gp-invisible data-[hidden=true]:!gp-hidden gp-button-price"
+        
+        gp-data='{"priceType":"compare","locale":"{{shop.locale}}","currency":"{{shop.currency}}","moneyFormat":"{{ shop.money_format | replace: '"', '\\"' | escape }}"}'
+      >
+        
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div id="p-price-undefined" data-id
+        
+        style="--dynamic-source-color:#F4F4F4"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-price gp-product-compare-price gp-button-price  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-ABCRepro-Screen, 'ABCRepro-Screen'), var(--g-font-heading, heading);--weight:400;--size:15px;--size-tablet:20px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:34px;word-break:break-word;overflow:hidden;opacity:50%;--tdl:line-through"
+        >
+          
+      {% if variant.compare_at_price  %}
+        {{ variant.compare_at_price | money}}
+      {% else %}
+
+      {% endif %}
+    
+        </div>
+      </div>
+    </div>
+    
+      </gp-product-price>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-product-price-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+            
+  <div style="--mr:2px;--ml:2px;display:block !important"></div>
+
+          
+            
+      <gp-product-price
+        id="shopify-text-element-undefined"
+        class="gp-product-price group-data-[state=loading]:gp-invisible data-[hidden=true]:!gp-hidden gp-button-price"
+        
+        gp-data='{"priceType":"regular","locale":"{{shop.locale}}","currency":"{{shop.currency}}","moneyFormat":"{{ shop.money_format | replace: '"', '\\"' | escape }}"}'
+      >
+        
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div id="p-price-undefined" data-id
+        
+        style="--dynamic-source-color:#F4F4F4"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-price gp-money gp-button-price  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-ABCRepro, 'ABCRepro'), var(--g-font-heading, heading);--weight:700;--size:15px;--size-tablet:20px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:34px;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          
+     {% if variant.price %}
+       {{ variant.price | money}}
+     {% endif %}
+   
+        </div>
+      </div>
+    </div>
+    
+      </gp-product-price>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-product-price-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+            
+          
+  
+        </button>
+      </div>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
+    </gp-product-button>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-product-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+  
+    <div
+      
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_PRODUCT;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:10px;--mt-mobile:10px;--ml-mobile:20px;--mb-mobile:10px;--mr-mobile:20px;--ta:left;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+      data-keep-class="true"
+      class="g31usER9QS gp-custom-code">
+      <div>
+    <parcelpanel-edd 
+    settingsStr='{
+        "corner_radius":16,
+        "margin_top":16,
+        "margin_bottom":16,
+        "padding_x":16,
+        "padding_y":16,
+        "border_color":"#0155b6",
+        "icon":"🚚"
+    }'>
+</parcelpanel-edd> 
+
+<script src="https://shopify-edd.parcelpanel.com/loader.js" defer></script>
+    </div>
+    </div>
+  
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"preload":false,"repeat":"no-repeat","size":"cover","type":"color","video":"","videoHtml5":""},"mobile":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"loop":"","position":{"x":50,"y":50},"preload":false,"repeat":"no-repeat","size":"cover","type":"color","video":"","videoHtml5":""}},"uid":"gpA5oiMhaF"}' data-id="gpA5oiMhaF" id="gpA5oiMhaF" data-same-height-subgrid-container class="gpA5oiMhaF gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:solid;--bs-mobile:solid;--bw:2px 2px 2px 2px;--bw-mobile:2px 2px 2px 2px;--bc:#17162E;--bc-mobile:#17162E;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_PRODUCT;--bblr:16px;--bbrr:16px;--btlr:16px;--btrr:16px;--bblr-mobile:20px;--bbrr-mobile:20px;--btlr-mobile:20px;--btrr-mobile:20px;--ml:auto;--pt:10px;--pl:10px;--pb:10px;--pr:10px;--ml-mobile:auto;--mb-mobile:0px;--mr-mobile:auto;--pt-mobile:5px;--pl-mobile:5px;--pb-mobile:5px;--pr-mobile:5px;--cg:8px;--gtc:minmax(0, 2fr) minmax(0, 10fr);--gtc-mobile:minmax(0, 3fr) minmax(0, 9fr);--w:var(--g-ct-w, 1200px);--h:auto;--h-mobile:auto;--bgc:transparent;--bgc-mobile:transparent;--bgi:url();--bgi-mobile:url();--bgp:50% 50%;--bgp-mobile:50% 50%;--bgs:cover;--bgs-mobile:cover;--bgr:no-repeat;--bgr-mobile:no-repeat;--bga:scroll;--bga-mobile:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:center;--jc-mobile:center"
+      class="giZocggLJg gp-relative gp-flex gp-flex-col"
+    >
+      
+    <div
+      role="presentation"
+      data-id="gbeH0xAfQU"
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_PRODUCT;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center"
+      class="gp-group/image gp-relative force-publish-1774875910233 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gbeH0xAfQU"
+    >
+      <div
+        
+        style="border-radius:inherit;--jc:center"
+        class="gp-h-full gp-w-full gp-flex pointer-events-auto"
+      >
+        
+    <picture style="border-radius:inherit" class="gp-contents">
+      
+      <source media="(max-width: 767px)" data-srcSet="{{ section.settings.ggbeH0xAfQU_srcSet_mobile_src }}" srcset="{{ section.settings.ggbeH0xAfQU_srcSet_mobile_src }}" />
+      <source media="(max-width: 1024px)" data-srcSet="{{ section.settings.ggbeH0xAfQU_srcSet_desktop_src }}" srcset="{{ section.settings.ggbeH0xAfQU_srcSet_desktop_src }}" />
+    
+      
+      <img
+        loading="eager" fetchpriority="high"
+        src="{{ section.settings.ggbeH0xAfQU_srcSet_desktop_src }}" data-src="{{ section.settings.ggbeH0xAfQU_srcSet_desktop_src }}"
+        alt=""
+        width="100%"
+        style="--aspect:auto;--aspect-tablet:auto;--aspect-mobile:auto;--objf:cover;--h:auto;--h-tablet:auto;--h-mobile:auto;--b:none;--bc:#000000;--bw:1px 1px 1px 1px;--radiusType:none;--shadow:none"
+        class="gp-inline-block gp-w-full gp-max-w-full gp_force_load"
+      />
+    
+    </picture>
+  
+      </div>
+    </div>
+  
+    </div><div
+      data-same-height-display-contents
+      style="--jc:center;--jc-mobile:center"
+      class="grRwO5D8Ra gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gAWx1JH6ez"}' data-id="gAWx1JH6ez" id="gAWx1JH6ez" data-same-height-subgrid-container class="gAWx1JH6ez gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_PRODUCT;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--cg:8px;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--h:auto;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start;--jc-mobile:start"
+      class="gORRtI37xE gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="ggATQQTu8I"
+        class="ggATQQTu8I"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_PRODUCT;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ff:var(--g-font-ABCRepro, 'ABCRepro'), var(--g-font-heading, heading);--size:20px;--size-tablet:46px;--size-mobile:16px;--lh:130%;--lh-tablet:130%;--lh-mobile:120%;--weight:bold;--c:#17162E;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pb:2px;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gggATQQTu8I_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gD_FHiFFOA"
+        class="gD_FHiFFOA"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_PRODUCT;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-ABCRepro-Screen, 'ABCRepro-Screen'), var(--g-font-body, body);--weight:400;--size:14px;--size-tablet:16px;--size-mobile:12px;--lh:120%;--lh-tablet:180%;--lh-mobile:15px;--c:#17162E;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggD_FHiFFOA_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+
+      
+    </gp-row>
+  
+  
+    </div>
+
+      
+    </gp-row>
+  
+  
+    </div>
+
+      
+    </gp-row>
+  
+  
+          {%- endform -%}
+        </product-form>
+      </gp-product>
+      {%- assign product = gpBkProduct -%}
+    {% else %}
+      <div class="gp-text-center">{{ 'gempages.Product.product_not_found' | t }}</div>
+    {% endif %}
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-product-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+    </div>
+
+      
+    </gp-row>
+  
+        </section>
+      
+  
+    
+{% schema %}
+  {
+    
+    "name": "Section 6",
+    "tag": "section",
+    "class": "gps-612933529973555993 gps gpsil",
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/j0rgbv-09/apps/gempages-cro/app/shopify/edit?pageType=GP_PRODUCT&editorId=612931265150059088&sectionId=612933529973555993)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"false"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggg7eUx8FbQ_label","label":"ggg7eUx8FbQ_label","default":"Add to Cart"},{"type":"html","id":"ggg7eUx8FbQ_outOfStockLabel","label":"ggg7eUx8FbQ_outOfStockLabel","default":"Out of stock"},{"type":"html","id":"ggg7eUx8FbQ_unavailableLabel","label":"ggg7eUx8FbQ_unavailableLabel","default":"Unavailable"},{"type":"html","id":"ggg7eUx8FbQ_variantSelectionRequiredMessage","label":"ggg7eUx8FbQ_variantSelectionRequiredMessage","default":"Please select a variant to add product to cart"},{"type":"html","id":"ggg7eUx8FbQ_successMessage","label":"ggg7eUx8FbQ_successMessage","default":"Add product to cart successfully"},{"type":"html","id":"ggg7eUx8FbQ_errorMessage","label":"ggg7eUx8FbQ_errorMessage","default":"Cannot add product to cart"},{"type":"html","id":"ggbeH0xAfQU_srcSet_desktop_src","label":"ggbeH0xAfQU_srcSet_desktop_src","default":"https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-8396a127-da90-4a3b-8488-86e449f996a8.webp"},{"type":"html","id":"ggbeH0xAfQU_srcSet_mobile_src","label":"ggbeH0xAfQU_srcSet_mobile_src","default":"https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-8396a127-da90-4a3b-8488-86e449f996a8.webp"},{"type":"html","id":"gggATQQTu8I_text","label":"gggATQQTu8I_text","default":"60-day Guarantee"},{"type":"html","id":"ggD_FHiFFOA_text","label":"ggD_FHiFFOA_text","default":"<p>If it doesn’t live up to what we say, you’ve got 60 days to get every dollar back.<br>No hoops. No drama.</p>"}],
+    "blocks": [{"type": "@app"}],
+    "locales": {}
+  }
+{% endschema %}

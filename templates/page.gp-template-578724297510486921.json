@@ -15,11 +15,12 @@
         "moast_carousel_hC3hGB": {
           "type": "shopify://apps/moast/blocks/carousel/1ac7547b-5443-446c-868c-7fab4566ee16",
           "settings": {
-            "dynamic": false,
             "feed": "520dd46b-c399-4c10-be60-1a93918655d9",
+            "dynamic": false,
+            "buy_button_action": "add",
+            "sort": "latest",
             "slide_type": "cards",
             "autoplay_mode": "all",
-            "autoscroll_duration": 0,
             "slide_size": "100",
             "border": 0,
             "border_color": "linear-gradient(to right, #833ab4, #fd1d1d, #fcb045)",
@@ -27,10 +28,17 @@
             "slide_spacing": 16,
             "padding_top": 40,
             "pagination": "overlay",
+            "show_likes": false,
+            "show_share": false,
+            "default_mute": false,
+            "show_products": false,
+            "show_captions": false,
+            "show_player_captions": false,
+            "autoscroll_duration": 0,
             "click_action": "fullscreen",
             "float_location": "bottom_right",
             "float_size": "medium",
-            "show_captions": false,
+            "show_reviews": false,
             "custom_css": ""
           }
         }
@@ -74,11 +82,12 @@
         "moast_carousel_WAJDhB": {
           "type": "shopify://apps/moast/blocks/carousel/1ac7547b-5443-446c-868c-7fab4566ee16",
           "settings": {
-            "dynamic": false,
             "feed": "0b9c46d3-8cb7-4b8a-b2c8-5f32fd97e015",
+            "dynamic": false,
+            "buy_button_action": "add",
+            "sort": "latest",
             "slide_type": "cards",
             "autoplay_mode": "all",
-            "autoscroll_duration": 0,
             "slide_size": "250",
             "border": 0,
             "border_color": "linear-gradient(to right, #833ab4, #fd1d1d, #fcb045)",
@@ -86,10 +95,17 @@
             "slide_spacing": 16,
             "padding_top": 40,
             "pagination": "overlay",
+            "show_likes": false,
+            "show_share": false,
+            "default_mute": false,
+            "show_products": false,
+            "show_captions": false,
+            "show_player_captions": false,
+            "autoscroll_duration": 0,
             "click_action": "fullscreen",
             "float_location": "bottom_right",
             "float_size": "medium",
-            "show_captions": false,
+            "show_reviews": false,
             "custom_css": ""
           }
         }
@@ -181,15 +197,15 @@
         "checksum": "",
         "ggnGs12-Z1B_text": "Anti-aging ingredients <span style=\"color:#0155B6;\">clinically tested</span>",
         "ggB9ocecH-q_text": "<p>They don't just hydrate, but actively fight the signs of time</p>",
+        "ggpuoFL-R1O_label": "<p>Plump</p>",
+        "gghliwIxolK_text": "<p>Hyaluronic acid</p>",
+        "ggBtHP5oI8R_text": "<p>Intensely hydrates and \"fills\" wrinkles from within for an immediate lifting effect.</p>",
         "ggRyjsa0tmT_label": "<p>Stretches</p>",
         "gg0LM__B8FF_text": "<p>Retinol (Vitamin A)</p>",
         "gga63BqK69q_text": "<p>Actively stimulates collagen production, visibly reducing wrinkles and fine lines.</p>",
         "ggUArggES35_label": "<p>Protects</p>",
         "ggxUgzRm_Jj_text": "<p>Olive Oil</p>",
         "ggfZyen1cpu_text": "<p>Powerful antioxidant that prevents collagen loss and protects skin from environmental damage.</p>",
-        "ggpuoFL-R1O_label": "<p>Plump</p>",
-        "gghliwIxolK_text": "<p>Hyaluronic acid</p>",
-        "ggBtHP5oI8R_text": "<p>Intensely hydrates and \"fills\" wrinkles from within for an immediate lifting effect.</p>",
         "ggSZDcGHmcC_childItem_0": "<p>Full Ingredient List</p>",
         "ggRnfRQhKZp_text": "<p><span style=\"background-color:transparent;color:#000000;font-size:11pt;\">aqua, propylene glycol, glycerin, caprylic/capric triglyceride, hydrogenated ethylhexyl olivate, glyceryl stearate se, aloe barbadensis leaf juice, sodium polyacrylate, phenoxyethanol, hydrogenated olive oil unsaponifiables, tocopherol, tetrasodium glutamate diacetate, urea, trehalose, ethylhexylglycerin, hydrolyzed rice protein, lavandula angustifolia oil, propanediol, sorbitol, linalool, lecithin, olive oil peg-8 esters, helianthus annuus seed oil, tocopheryl acetate, hydroxyethylcellulose, sodium hyaluronate, potassium sorbate, sodium benzoate, xanthan gum, benzyl alcohol, sodium ascorbyl phosphate, limonene, retinyl palmitate, daucus carota sativa root, ascorbic acid, citric acid.</span></p>"
       }
@@ -230,9 +246,11 @@
         "ggvB4QVVEaP_text": "<p><strong>NO</strong> at the moment <strong>Omnis cream is only available on our website .</strong></p><p> </p><p>We've chosen to sell exclusively online to <strong>maintain competitive prices</strong> by avoiding intermediaries and <strong>offering </strong>a shopping experience with personalized recommendations for each customer via WhatsApp, something that wouldn't be possible in physical stores.</p>",
         "ggbUHOmTnxs_text": "<p><strong>No problem!</strong> Our products are suitable for all skin types, even the most sensitive.</p>",
         "ggRc5Y_1poF_text": "<p>Absolutely NO! The consistency is super light, refreshing and with a light touch of lavender</p>",
+        "ggJ3hl_LIG2_text": "<p>Based on the experiences of <strong>multiple customers,</strong> you can already see the first results after the<strong> first days of use,</strong> up to having <strong>completely regenerated skin</strong> after 8 weeks of application.</p>",
         "ggCBDbaKf6F_text": "<p>Using it every night, it lasts between 1 and 2 months. A very small amount is all you need. 50 ml bottle.</p>",
         "ggOXNDMBmah_text": "<p><strong>In the evening, </strong>after cleaning and drying your face, apply 1-2 doses on the clean face and massage with circular movements until completely absorbed. Bring the excess along the neck.</p>",
-        "ggrsN-dkHKO_text": "<p>The main ingredients are <strong>hyaluronic acid</strong> and <strong>retinol.</strong><br><br>INCI<br><br>Aqua, propylene glycol, glycerin, caprylic/capric triglyceride, hydrogenated ethylhexyl olivate, glyceryl stearate se, aloe barbadensis leaf juice, sodium polyacrylate, phenoxyethanol, hydrogenated olive oil unsaponifiables, tocopherol, tetrasodium glutamate diacetate, urea, trehalose, ethylhexylglycerin, hydrolyzed rice protein, lavandula angustifolia oil, propanediol, sorbitol, linalool, lecithin, olive oil peg-8 esters, helianthus annuus seed oil, tocopheryl acetate, hydroxyethylcellulose, sodium hyaluronate, potassium sorbate, sodium benzoate, xanthan gum, benzyl alcohol, sodium ascorbyl phosphate, limonene, retinyl palmitate, daucus carota sativa root, ascorbic acid, citric acid.</p>"
+        "ggrsN-dkHKO_text": "<p>The main ingredients are <strong>hyaluronic acid</strong> and <strong>retinol.</strong><br><br>INCI<br><br>Aqua, propylene glycol, glycerin, caprylic/capric triglyceride, hydrogenated ethylhexyl olivate, glyceryl stearate se, aloe barbadensis leaf juice, sodium polyacrylate, phenoxyethanol, hydrogenated olive oil unsaponifiables, tocopherol, tetrasodium glutamate diacetate, urea, trehalose, ethylhexylglycerin, hydrolyzed rice protein, lavandula angustifolia oil, propanediol, sorbitol, linalool, lecithin, olive oil peg-8 esters, helianthus annuus seed oil, tocopheryl acetate, hydroxyethylcellulose, sodium hyaluronate, potassium sorbate, sodium benzoate, xanthan gum, benzyl alcohol, sodium ascorbyl phosphate, limonene, retinyl palmitate, daucus carota sativa root, ascorbic acid, citric acid.</p>",
+        "ggVaWH-BoFH_text": "<p>Of course! You will receive your order in 24/48 hours and you can pay in cash on delivery.</p>"
       }
     },
     "gp_section_580444195840328275": {

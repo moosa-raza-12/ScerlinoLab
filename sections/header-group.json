@@ -14,13 +14,6 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement_Nxbq8e": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welcome to our store",
-            "link": ""
-          }
-        },
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
@@ -30,7 +23,6 @@
         }
       },
       "block_order": [
-        "announcement_Nxbq8e",
         "announcement-bar-0"
       ],
       "disabled": true,
@@ -47,7 +39,7 @@
     "header": {
       "type": "header",
       "custom_css": [
-        ".header--middle-left {grid-template-columns: 1fr auto 1fr; column-gap: 2rem; margin-top: 44px;}",
+        ".header--middle-left {grid-template-columns: 1fr auto 1fr; column-gap: 2rem; margin-top: 54px;}",
         ".header__cart-count {background-color: #ffd700; color: #151723; font-weight: bold;}"
       ],
       "settings": {
@@ -61,7 +53,7 @@
         "menu_color_scheme": "scheme-1",
         "enable_country_selector": false,
         "enable_language_selector": false,
-        "enable_customer_avatar": true,
+        "enable_customer_avatar": false,
         "margin_bottom": 0,
         "padding_top": 28,
         "padding_bottom": 28

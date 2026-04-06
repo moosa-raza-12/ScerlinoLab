@@ -1,0 +1,61 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_612462104313594387": {
+      "type": "gp-section-612462104313594387",
+      "settings": {
+        "section_preload": "true",
+        "checksum": "308e11ad4efc77dbe6462c5fdf19a826492e01e438a0796d40cec30cbade11af_1_1_1_0__1",
+        "ggU7cTwtojF_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:px;\">A Guide To Your SerlinoLab Eye Cream</span>",
+        "ggBe0DJx3pQ_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:px;\">Where to apply it, how much, and why technique matters more than quantity.</span>",
+        "gg7pGzZg7y3_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:px;\">How To Use It</span>",
+        "ggt5W7ctjdK_text": "Keep it in the fridge",
+        "gg9KjE6e4-X_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:px;\"><strong>Keep it in the fridge</strong></span>",
+        "ggW5doHsOy8_text": "<span style=\"color:rgb(21,21,21);\">The cold reduces puffiness faster and makes the product more effective. It takes 30 seconds and makes a noticeable difference, especially in the morning.</span>",
+        "gg1vOTZxWgQ_text": "Step 1 — Cleanse first",
+        "ggQay7_0R18_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:36px;\"><strong>Step 1 — Cleanse first</strong></span>",
+        "gg91q9-JyhQ_text": "<span style=\"color:rgb(21,21,21);\">Always apply to a clean face. The skin around the eye is the thinnest on your entire body — it absorbs everything. Remove residue before you start.</span>",
+        "ggf683RWjbT_text": "Step 2 — Apply",
+        "ggyciH0gnK2_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:36px;\"><strong>Step 2 — Apply</strong></span>",
+        "ggtMsuzvFc3_text": "<span style=\"color:rgb(21,21,21);\">Squeeze a tiny amount onto your fingertip — less than a pea. That's enough for both eyes. Dot it along the orbital bone — the curved edge of the eye socket, not the eyelid itself. Never directly under the lash line.</span><br><br>&nbsp;<span style=\"color:rgb(21,21,21);\">Use your ring finger only. It applies the least pressure of any finger. Tap gently in a circle from the inner corner outward, following the bone. Don't rub, don't drag. Pulling the skin around the eye accelerates exactly what you're trying to fix.</span><br><br><span style=\"color:rgb(21,21,21);\">More product does not mean better results. It sits on top of the skin and goes to waste. Less, applied correctly, works. More, applied wrong, doesn't.</span>",
+        "ggGtAaYlwRQ_text": "Step 3 — Let it absorb",
+        "ggwFyO5fsZD_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:36px;\"><strong>Step 3 — Let it absorb</strong></span>",
+        "ggSvMUldtVE_text": "<span style=\"color:rgb(21,21,21);\">60 seconds before applying anything else on top. The actives need direct contact with the skin.</span><br><br><span style=\"color:rgb(21,21,21);\">Use morning, evening, or both.</span>",
+        "gg50lSKjFA0_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:px;\">What To Expect</span>",
+        "ggwCdGlY-we_text": "Week 1–2",
+        "ggnKgtsDXwv_text": "<span style=\"color:rgb(21,21,21);\">Puffiness reduces. The skin feels firmer. Dark circles don't disappear yet — but the hollow, tired look starts to lift.</span>",
+        "ggPnTyC8Wnw_text": "Week 3–4",
+        "ggLENM_VMAh_text": "<span style=\"color:rgb(21,21,21);\">Fine lines at the corners begin softening. You start looking rested even when you're not.</span>",
+        "ggAAzj-iPZZ_text": "Week 6–8",
+        "ggOX1w76kcs_text": "<span style=\"color:rgb(21,21,21);\">Dark circles and under-eye hollows visibly reduced. The eye area looks tighter. This is when people around you start noticing — without being able to say why.</span>",
+        "gggFo5HWShx_text": "Month 3+",
+        "ggeiOwctp3l_text": "<span style=\"color:rgb(21,21,21);\">Structural improvement. One jar was a start. Three months is a real change.</span><br><span style=\"color:rgb(21,21,21);\">Consistency is everything. Don't run out mid-routine.</span>"
+      }
+    },
+    "gp_section_612462104313659923": {
+      "type": "gp-section-612462104313659923",
+      "settings": {
+        "checksum": "dbac8a120ae5fbb31f449b9cf359e661230430b534c3e6b47b96b5f0362950ce_1_1_1_0__1",
+        "ggiYR2kAsPO_text": "Want sharper skin to go with it?",
+        "ggWGYsmeVyJ_text": "<strong>Try the SerlinoLab</strong><br><strong>Core Kit</strong>",
+        "gg6ThyUlouz_text": "1x Face Cleanser 1.7 FL OZ<br>1x Eye Cream 0.5 FL OZ<br>1x Night Face Cream &nbsp;3.4 FL OZ",
+        "ggY23I_5FsI_label": "Add to Cart",
+        "ggY23I_5FsI_outOfStockLabel": "Out of stock",
+        "ggY23I_5FsI_unavailableLabel": "Unavailable",
+        "ggY23I_5FsI_variantSelectionRequiredMessage": "Please select a variant to add product to cart"
+      }
+    }
+  },
+  "order": [
+    "gp_section_612462104313594387",
+    "gp_section_612462104313659923"
+  ]
+}

@@ -1,0 +1,65 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_612462497235993387": {
+      "settings": {
+        "checksum": "bf4a12d0ae0de4ab0215d1e65317526fc9da934b7b1705bab566859505875aa1_1_1_1_0__1",
+        "gg0KM42e2GL_text": "Week 1–2",
+        "gg64GOh2eDx_text": "<strong>Morning</strong>",
+        "gg8ospjT2J1_text": "Step 1 — Cleanse — SerlinoLab Face Wash",
+        "ggAeeRopKnc_text": "<strong>Your Daily Routine</strong>",
+        "ggDthIAxs_6_text": "Step 2 — Eye Cream",
+        "ggEjZ5LQaBy_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:36px;\"><strong>Step 3 — Night Cream</strong></span>",
+        "ggJ0n5V806-_text": "Step 3 — Night Cream",
+        "ggK36cgwamk_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:px;\">The Italian Routine — A Guide To Your SerlinoLab Core Kit</span>",
+        "ggKnh4dvsle_text": "Month 3+",
+        "ggLdcL9wj3h_text": "<span style=\"color:rgb(21,21,21);\">Same as the morning. Tiny amount, ring finger, tap along the orbital bone.</span>",
+        "ggLjq5WQEie_text": "<span style=\"color:rgb(21,21,21);\">Keep it in the fridge. The cold reduces puffiness faster and makes the product more effective.</span><br>&nbsp;<span style=\"color:rgb(21,21,21);\">Squeeze a tiny amount — less than a pea. That's enough for both eyes. Dot along the orbital bone — the curved edge of the eye socket, not the eyelid. Use your ring finger only. Tap gently from the inner corner outward. Don't rub, don't drag.</span><br>&nbsp;<span style=\"color:rgb(21,21,21);\">More product does not mean better results. It sits on top of the skin and goes to waste.</span>",
+        "ggRDCFhgrgU_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:36px;\"><strong>Step 1 — Cleanse — SerlinoLab Face Wash</strong></span>",
+        "ggROrVBslzN_text": "<span style=\"color:rgb(21,21,21);\">Under-eye hollows and dark circles visibly reduce. Deeper creases start softening. This is when people around you start noticing — without being able to say why.</span>",
+        "ggTMUMNxJzW_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:px;\"><strong>Step 1 — Cleanse — SerlinoLab Face Wash</strong></span>",
+        "ggWoT1b_-Eh_text": "Step 2 — Eye Cream",
+        "ggXVzZvOIFl_text": "<span style=\"color:rgb(21,21,21);\">Skin feels more hydrated. The tired, dull look starts to fade. Puffiness around the eyes begins to reduce.</span>",
+        "gg_lm3QR6nr_text": "Step 1 — Cleanse — SerlinoLab Face Wash",
+        "ggdQOXEFY85_text": "<span style=\"color:rgb(21,21,21);\">Skin texture smooths out. Fine lines at the corners of the eyes begin softening. Your face looks more rested, even on rough mornings.</span>",
+        "ggegSxTS29j_text": "<span style=\"color:rgb(21,21,21);\">Remove the day's buildup before anything else. Applying cream on top of dirt is like painting over rust — it won't work.</span>",
+        "gggbpLREsor_text": "<span style=\"color:rgb(21,21,21);\">Start with a clean face. Remove the oil and residue from the night. Active ingredients absorb into clean skin — not on top of whatever built up overnight.</span>",
+        "ggnWQETxIVI_text": "<span style=\"color:rgb(21,21,21);\">Two presses — about the size of a small coin. The formula is concentrated. More does not mean faster results — it means you run out sooner. One bottle is designed to last 30 days at the correct dose.</span><br>&nbsp;<span style=\"color:rgb(21,21,21);\">Press gently into your face, neck, and jawline. Don't rub. Let the Retinyl Palmitate do the work overnight.</span>",
+        "ggn_A8Phlnt_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:px;\">What To Expect</span>",
+        "ggqiB4D3vmJ_text": "Week 3–4",
+        "ggrBodN9Ldd_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:36px;\"><strong>Step 2 — Eye Cream</strong></span>",
+        "ggrGrL-0j7K_text": "<span style=\"color:rgb(21,21,21);\">The longer you stay consistent, the more the results build. Don't stop after one jar.</span><br><span style=\"color:rgb(21,21,21);\">Consistency is everything. Don't run out mid-routine.</span>",
+        "ggwR4bT3XZl_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:36px;\"><strong>Step 2 — Eye Cream</strong></span>",
+        "ggyGd4XtY1c_text": "Week 6–8",
+        "ggzZVldmL9M_text": "<strong>Evening</strong>",
+        "ggzxCZz2gq5_text": "<span style=\"background-color:rgb(255,255,255);color:#17162E;font-size:px;\">Three products. Two minutes. Morning and night. This is the routine that works.</span>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-612462497235993387"
+    },
+    "gp_section_612462497236058923": {
+      "settings": {
+        "checksum": "155b738930929afd004e3a0775cbdd5c92776eec680bb6fdf11ce49a0248d96c_1_1_1_0__1",
+        "ggM8jxt0Cju_label": "Add to Cart",
+        "ggM8jxt0Cju_outOfStockLabel": "Out of stock",
+        "ggM8jxt0Cju_unavailableLabel": "Unavailable",
+        "ggM8jxt0Cju_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "ggZfHAUeuBq_text": "1x Face Cleanser 1.7 FL OZ<br>1x Eye Cream 0.5 FL OZ<br>1x Night Face Cream &nbsp;3.4 FL OZ",
+        "ggh_xoo6vS6_text": "<strong>Reorder the</strong><br><strong>SerlinoLab Core Kit</strong>"
+      },
+      "type": "gp-section-612462497236058923"
+    }
+  },
+  "order": [
+    "gp_section_612462497235993387",
+    "gp_section_612462497236058923"
+  ]
+}
