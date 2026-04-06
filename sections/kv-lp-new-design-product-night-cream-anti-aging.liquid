@@ -761,7 +761,7 @@ dots.forEach(function(dot) {
    * involved, items get the correct properties and discounts apply properly.
    * Falls back to direct cart/add (gifts at full price) if the bridge is unavailable.
    */
-  var kcBridgeEl = document.getElementById('lp-kaching-bridge-' + sectionId);
+  var kcBridgeEl = document.getElementById('lp-kaching-bridge-{{ section.id }}');
   var kcBridge = { ready: false, dealBars: [], atcBtn: null };
 
   function kcScan() {
