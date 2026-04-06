@@ -451,6 +451,7 @@
         "buy_buttons_QbLqa3",
         "share_7EycEN"
       ],
+      "disabled": true,
       "name": "t:sections.featured-product.presets.name",
       "settings": {
         "product": "antiage-night-cream",
