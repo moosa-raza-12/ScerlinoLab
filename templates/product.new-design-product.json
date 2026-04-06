@@ -602,8 +602,8 @@
         "block_2": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/image_1223_ea7cb2ca-2c5d-4319-9bd5-9360dbad16f0.png",
-            "video": "shopify://files/videos/moast-Filomeno Usa_eyecrea,.mp4",
+            "image": "shopify://shop_images/Filomeno.png",
+            "video": "shopify://files/videos/Filomeno.mp4",
             "quote": "Advanced formulas and quality actives, Made in Italy excellence.",
             "name": "Dr Marco Filomeno",
             "role": "Owner of 3 pharmacies in Italy"
@@ -612,8 +612,8 @@
         "block_1": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/image_1223_91e9a8af-c7e4-4df6-bddf-cf0051b10556.png",
-            "video": "shopify://files/videos/moast-La Rox  Face Cream.mp4",
+            "image": "shopify://shop_images/Rox.png",
+            "video": "shopify://files/videos/Rox.mp4",
             "quote": "After 18 years as SerlinoLab is the only men's brand that has truly convinced me.",
             "name": "Dr. Rossella Romano",
             "role": "Hospital Pharmacy Specialist"
@@ -622,8 +622,8 @@
         "block_0": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/image_1223.png",
-            "video": "shopify://files/videos/moast-Lanzax  Face Cream.mp4",
+            "image": "shopify://shop_images/Lanza.png",
+            "video": "shopify://files/videos/Lanza.mp4",
             "quote": "As a pharmacist, SerlinoLab creams are the only ones I've seen that work on men.",
             "name": "Dr. Silvia Lanza",
             "role": "Expert in Skin Health and Medicine"
