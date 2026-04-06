@@ -712,15 +712,7 @@ dots.forEach(function(dot) {
     }
 
     if (shippingLabelEl) {
-      var shippingInfo = radio.dataset.shippingInfo || '';
-      var isFree = !shippingInfo || shippingInfo.toLowerCase().indexOf('free') !== -1;
-      var shippingHtml;
-      if (isFree) {
-        shippingHtml = '<strong>FREE</strong>&nbsp; Shipping over <strong>$75</strong>';
-      } else {
-        var cost = shippingInfo.replace(/^[+\s]+/, '').replace(/\s*shipping\s*/i, '').trim();
-        shippingHtml = '<strong>' + cost + '</strong>&nbsp; Shipping';
-      }
+      var shippingHtml = '<strong>FREE</strong>&nbsp; Shipping over <strong>$75</strong>';
       shippingLabelEl.innerHTML = shippingHtml;
       var stickyShipEl = document.querySelector('.lp-sticky-shipping');
       if (stickyShipEl) stickyShipEl.innerHTML = shippingHtml;
