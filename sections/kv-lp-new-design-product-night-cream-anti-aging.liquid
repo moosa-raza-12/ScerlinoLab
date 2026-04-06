@@ -1,17 +1,6 @@
 {{ 'kv-lp-new-design-product-night-cream-anti-aging.css' | asset_url | stylesheet_tag }}
 
 <style>
-.lp-kaching-bridge {
-  position: fixed !important;
-  left: 0 !important;
-  bottom: -9999px !important;
-  width: 400px;
-  height: 400px;
-  overflow: hidden;
-  pointer-events: none;
-  opacity: 0.001;
-  z-index: -1;
-}
 .lp-product-gallery__thumbs {
   display: flex;
   gap: 8px;
@@ -492,10 +481,6 @@
     </div>
   </div>
 
-  <div id="lp-kaching-bridge-{{ section.id }}" class="lp-kaching-bridge" aria-hidden="true">
-    <kaching-bundle product-id="{{ product.id }}"></kaching-bundle>
-  </div>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var sectionId = '{{ section.id }}';
@@ -757,74 +742,6 @@ dots.forEach(function(dot) {
   var checkedBundle = section.querySelector('.lp-bundle-radio:checked');
   if (checkedBundle) syncBundle(checkedBundle);
 
-  /* --- Kaching Bridge: capture deal ID from hidden widget for free gift pricing ---
-   * Kaching's discount function only applies 100% off on gifts when items carry
-   * a __kaching_bundles property with the deal ID. We capture that ID from
-   * Kaching's public 'deal-bar-selected' event on the hidden widget, then
-   * include it when adding items to cart. */
-  var kcBridgeEl = document.getElementById('lp-kaching-bridge-{{ section.id }}');
-  var kcDealId = null;
-
-  if (kcBridgeEl) {
-    kcBridgeEl.addEventListener('submit', function(e) { e.preventDefault(); e.stopPropagation(); }, true);
-
-    function onKcDeal(e) {
-      if (!e.detail) return;
-      kcDealId = (typeof e.detail === 'object') ? (e.detail.id || e.detail.dealBarId || e.detail) : e.detail;
-      console.log('[LP] Kaching deal ID captured:', kcDealId);
-    }
-
-    function attachKcListeners(el) {
-      el.addEventListener('deal-bar-selected', onKcDeal);
-    }
-
-    var kcObs = new MutationObserver(function() {
-      var kb = kcBridgeEl.querySelector('kaching-bundles-block');
-      if (kb) { attachKcListeners(kb); kcObs.disconnect(); }
-    });
-    kcObs.observe(kcBridgeEl, { childList: true, subtree: true });
-    var kb = kcBridgeEl.querySelector('kaching-bundles-block');
-    if (kb) attachKcListeners(kb);
-  }
-
-  function refreshCartCount() {
-    fetch('/cart.js').then(function(r) { return r.json(); }).then(function(cart) {
-      document.querySelectorAll('[data-cart-count], .cart-count-bubble span').forEach(function(el) {
-        el.textContent = cart.item_count;
-      });
-    });
-  }
-
-  function atcDone(btn) {
-    btn.querySelector('span:first-child').textContent = 'Added!';
-    setTimeout(function() {
-      btn.disabled = false;
-      btn.querySelector('span:first-child').textContent = 'Add to cart';
-    }, 1500);
-    refreshCartCount();
-  }
-
-  function addItemsDirect(btn, variantId, qty, giftIds) {
-    var items = [{ id: parseInt(variantId, 10), quantity: qty }];
-    if (giftIds) {
-      giftIds.split(',').forEach(function(gid) {
-        var id = parseInt(gid.trim(), 10);
-        if (id) items.push({ id: id, quantity: 1 });
-      });
-    }
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ items: items })
-    })
-    .then(function(res) { return res.json(); })
-    .then(function() { atcDone(btn); })
-    .catch(function() {
-      btn.querySelector('span:first-child').textContent = 'Error – retry';
-      btn.disabled = false;
-    });
-  }
-
   /* --- Custom Add to Cart via AJAX --- */
   if (atcButton) {
     atcButton.addEventListener('click', function(e) {
@@ -838,36 +755,37 @@ dots.forEach(function(dot) {
       btn.disabled = true;
       btn.querySelector('span:first-child').textContent = 'Adding...';
 
-      /* If gifts are involved and we captured a Kaching deal ID, tag every
-         item with __kaching_bundles so the Shopify Function applies the
-         free-gift discount. Bypass the client-side interceptor via the
-         kaching_bundles=true query param so our properties reach Shopify. */
-      if (giftIds && kcDealId) {
-        var dealMain = JSON.stringify({ deal: String(kcDealId), main: true });
-        var dealGift = JSON.stringify({ deal: String(kcDealId) });
-
-        var items = [{
-          id: parseInt(variantId, 10),
-          quantity: qty,
-          properties: { __kaching_bundles: dealMain }
-        }];
+      var items = [{ id: parseInt(variantId, 10), quantity: qty }];
+      if (giftIds) {
         giftIds.split(',').forEach(function(gid) {
           var id = parseInt(gid.trim(), 10);
-          if (id) items.push({ id: id, quantity: 1, properties: { __kaching_bundles: dealGift } });
+          if (id) items.push({ id: id, quantity: 1 });
         });
-
-        fetch('/cart/add.js?kaching_bundles=true', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ items: items })
-        })
-        .then(function(res) { return res.json(); })
-        .then(function() { atcDone(btn); })
-        .catch(function() { addItemsDirect(btn, variantId, qty, giftIds); });
-        return;
       }
 
-      addItemsDirect(btn, variantId, qty, giftIds);
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: items })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function() {
+        btn.querySelector('span:first-child').textContent = 'Added!';
+        setTimeout(function() {
+          btn.disabled = false;
+          btn.querySelector('span:first-child').textContent = 'Add to cart';
+        }, 1500);
+        /* Update cart count if the theme has a cart count element */
+        fetch('/cart.js').then(function(r) { return r.json(); }).then(function(cart) {
+          document.querySelectorAll('[data-cart-count], .cart-count-bubble span').forEach(function(el) {
+            el.textContent = cart.item_count;
+          });
+        });
+      })
+      .catch(function() {
+        btn.querySelector('span:first-child').textContent = 'Error – retry';
+        btn.disabled = false;
+      });
     });
   }
 
