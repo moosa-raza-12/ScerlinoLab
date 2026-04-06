@@ -186,49 +186,56 @@
           "type": "faq",
           "settings": {
             "question": "What happened to Omnis? Why is it now SerlinoLab?",
-            "answer": "<p>SerlinoLab is the new global brand of Omnis, bringing the same Italian quality with enhanced formulas.</p>"
+            "answer": "<p>We updated our name and packaging to better reflect the true Italian identity of our brand.</p><p> The formulas? Exactly the same.</p><p> Same ingredients, same quality, same lab on the Amalfi Coast.</p><p>Just a new look.</p><p>We hope you like it as much as we do</p>"
           }
         },
         "block_8": {
           "type": "faq",
           "settings": {
             "question": "Will SerlinoLab work for me?",
-            "answer": "<p>Our formulas are dermatologically tested for all skin types targeting specific aging concerns.</p>"
+            "answer": "<p><strong>Here's the honest truth: SerlinoLab works for the vast majority of men, but we can't promise it works for absolutely everyone.</strong></p><p> Our formula has delivered results for thousands of Italian men aged 40+. The clinical studies prove it - 87% see significant wrinkle reduction in 8 weeks. But every man's skin is different, and we'd be lying if we said it's 100% guaranteed for everyone.</p><p><strong>That's exactly why we offer the 60-day money-back guarantee.</strong> We don't want your money if SerlinoLab doesn't give you the younger, firmer skin you're looking for. Try it for two full months - if you don't see dramatic improvements, we'll refund every penn</p>"
           }
         },
         "faq_p7JYUk": {
           "type": "faq",
           "settings": {
             "question": "Can it be found in stores/pharmacies?",
-            "answer": ""
+            "answer": "<p><strong>NO</strong> at the moment<strong> the SerlinoLab cream is only available on our website.</strong></p><p> We just launched in the US and we have a very limited batch available.</p>"
           }
         },
         "faq_EyrjLA": {
           "type": "faq",
           "settings": {
             "question": "How long does it last?",
-            "answer": ""
+            "answer": "<p><strong>1 bottle lasts exactly 1 month with daily use - which is why we recommend at least 2.</strong></p><p> <strong>Month 1</strong> gives initial improvements, but <strong>month 2</strong> is when 93% of men see dramatic results. Most men desperately search for more after seeing early changes.</p><p> Plus our <strong>60-day money-back </strong>guarantee covers your entire transformation journey.</p>"
           }
         },
         "faq_Kn34f9": {
           "type": "faq",
           "settings": {
             "question": "How to use it?",
-            "answer": ""
+            "answer": "<p><strong>In the evening,</strong>after cleaning and drying your face, apply 1-2 doses on the clean face and massage with circular movements until completely absorbed. Bring the excess along the neck.</p>"
           }
         },
         "faq_WDr77L": {
           "type": "faq",
           "settings": {
             "question": "How long does it take to see results?",
-            "answer": ""
+            "answer": "<p><strong>Men notice improvements from the very first use, but the real transformation happens week by week.</strong></p><p> <strong>Week 1-2:</strong> skin feels immediately smoother and more hydrated. People start saying \"you look rested today.\"</p><p> <strong>Week 6-8:</strong> This is where the magic happens. 93% of men see a significant reduction in wrinkles and fine lines. Skin looks visibly younger, and people start asking \"what's your secret?\"</p><p> <strong>The science behind it:</strong> SerlinoLab works deep beneath the surface to stimulate collagen production - that's why it takes 6-8 weeks for the dramatic results. Unlike basic moisturizers that just sit on top, omnis uses a <strong>bio-identical form of Vitamin A</strong> your skin naturally stores. Your body recognizes it. It welcomes it in. So you get the collagen rebuilding of a prescription cream, with the gentleness of a moisturizer. All gain. No burn.</p><p><strong>Here's the best part:</strong> <strong>60 days</strong> to see these results risk-free. If you don't look in the mirror after 8 weeks and see noticeably younger, firmer skin, we'll refund every penny. Thousands of men across Italy are already experiencing this transformation - <strong>try it yourself with zero risk</strong>.</p>"
           }
         },
         "faq_9yzE3d": {
           "type": "faq",
           "settings": {
             "question": "How long does shipping take?",
-            "answer": ""
+            "answer": "<p>We ship from our <strong>warehouse in New Jersey </strong>within 24h of receiving your order!<br/><br/>You will receive your order in <strong>2-5 business days!</strong></p>"
+          }
+        },
+        "faq_DzrgPf": {
+          "type": "faq",
+          "settings": {
+            "question": "Where is the formula produced?",
+            "answer": "<p>SerlinoLab is 100% formulated and made in italy 🇮🇹 following the strictest italian tests and regulation.</p><p> Formulated with 95% natural ingredients, it contains:</p><p>NO Alcohol, No Paraben, No harsh silicones</p><p> It's vegan, cruelty free. and dermatologically tested</p>"
           }
         },
         "testimonial_video_mfHKRC": {
@@ -363,6 +370,7 @@
         "faq_Kn34f9",
         "faq_WDr77L",
         "faq_9yzE3d",
+        "faq_DzrgPf",
         "testimonial_video_mfHKRC",
         "testimonial_video_eQrNLG",
         "testimonial_video_893x9N",

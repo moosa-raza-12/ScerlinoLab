@@ -3,11 +3,13 @@
 <style>
 .lp-kaching-bridge {
   position: fixed !important;
-  left: -9999px !important;
-  top: -9999px !important;
+  left: 0 !important;
+  bottom: -9999px !important;
   width: 400px;
+  height: 400px;
+  overflow: hidden;
   pointer-events: none;
-  opacity: 0;
+  opacity: 0.001;
   z-index: -1;
 }
 .lp-product-gallery__thumbs {
@@ -755,38 +757,35 @@ dots.forEach(function(dot) {
   var checkedBundle = section.querySelector('.lp-bundle-radio:checked');
   if (checkedBundle) syncBundle(checkedBundle);
 
-  /* --- Kaching Bridge: hidden widget for proper free gift discount pricing ---
-   * Kaching only applies 100% off on gifts when line items carry __kaching_bundles
-   * properties. By delegating ATC to the hidden Kaching widget when gifts are
-   * involved, items get the correct properties and discounts apply properly.
-   * Falls back to direct cart/add (gifts at full price) if the bridge is unavailable.
-   */
+  /* --- Kaching Bridge: capture deal ID from hidden widget for free gift pricing ---
+   * Kaching's discount function only applies 100% off on gifts when items carry
+   * a __kaching_bundles property with the deal ID. We capture that ID from
+   * Kaching's public 'deal-bar-selected' event on the hidden widget, then
+   * include it when adding items to cart. */
   var kcBridgeEl = document.getElementById('lp-kaching-bridge-{{ section.id }}');
-  var kcBridge = { ready: false, dealBars: [], atcBtn: null };
-
-  function kcScan() {
-    if (!kcBridgeEl) return false;
-    var w = kcBridgeEl.querySelector('kaching-bundles-block') || kcBridgeEl;
-    var bars = w.querySelectorAll('[class*="dealBar"],[class*="deal-bar"],[class*="DealBar"],[data-deal-bar-id]');
-    if (!bars.length) bars = w.querySelectorAll('input[type="radio"]');
-    var btn = w.querySelector('button[type="submit"],[class*="addToCart"],[class*="add-to-cart"],[class*="AddToCart"]');
-    if (!btn) { var f = w.querySelector('form[action*="/cart/add"]'); if (f) btn = f.querySelector('button'); }
-    if (bars.length > 0) {
-      kcBridge.dealBars = Array.from(bars);
-      kcBridge.atcBtn = btn;
-      kcBridge.ready = true;
-    }
-    return kcBridge.ready;
-  }
+  var kcDealId = null;
 
   if (kcBridgeEl) {
     kcBridgeEl.addEventListener('submit', function(e) { e.preventDefault(); e.stopPropagation(); }, true);
-    var kcPollN = 0;
-    var kcPollId = setInterval(function() { if (kcScan() || ++kcPollN >= 40) clearInterval(kcPollId); }, 250);
-    kcScan();
-  }
 
-  var bundleRadioList = Array.from(section.querySelectorAll('.lp-bundle-radio'));
+    function onKcDeal(e) {
+      if (!e.detail) return;
+      kcDealId = (typeof e.detail === 'object') ? (e.detail.id || e.detail.dealBarId || e.detail) : e.detail;
+      console.log('[LP] Kaching deal ID captured:', kcDealId);
+    }
+
+    function attachKcListeners(el) {
+      el.addEventListener('deal-bar-selected', onKcDeal);
+    }
+
+    var kcObs = new MutationObserver(function() {
+      var kb = kcBridgeEl.querySelector('kaching-bundles-block');
+      if (kb) { attachKcListeners(kb); kcObs.disconnect(); }
+    });
+    kcObs.observe(kcBridgeEl, { childList: true, subtree: true });
+    var kb = kcBridgeEl.querySelector('kaching-bundles-block');
+    if (kb) attachKcListeners(kb);
+  }
 
   function refreshCartCount() {
     fetch('/cart.js').then(function(r) { return r.json(); }).then(function(cart) {
@@ -839,55 +838,32 @@ dots.forEach(function(dot) {
       btn.disabled = true;
       btn.querySelector('span:first-child').textContent = 'Adding...';
 
-      /* When free gifts are involved and the hidden Kaching widget is ready,
-         delegate ATC to Kaching so items carry __kaching_bundles properties
-         and the discount function applies 100% off on gifts. */
-      if (giftIds && kcBridge.ready && kcBridge.atcBtn) {
-        var checkedRadio = section.querySelector('.lp-bundle-radio:checked');
-        var bundleIdx = checkedRadio ? bundleRadioList.indexOf(checkedRadio) : -1;
+      /* If gifts are involved and we captured a Kaching deal ID, tag every
+         item with __kaching_bundles so the Shopify Function applies the
+         free-gift discount. Bypass the client-side interceptor via the
+         kaching_bundles=true query param so our properties reach Shopify. */
+      if (giftIds && kcDealId) {
+        var dealMain = JSON.stringify({ deal: String(kcDealId), main: true });
+        var dealGift = JSON.stringify({ deal: String(kcDealId) });
 
-        if (bundleIdx >= 0 && bundleIdx < kcBridge.dealBars.length) {
-          kcBridgeEl.style.pointerEvents = 'auto';
-          kcBridge.dealBars[bundleIdx].click();
-          kcBridgeEl.style.pointerEvents = '';
-        }
+        var items = [{
+          id: parseInt(variantId, 10),
+          quantity: qty,
+          properties: { __kaching_bundles: dealMain }
+        }];
+        giftIds.split(',').forEach(function(gid) {
+          var id = parseInt(gid.trim(), 10);
+          if (id) items.push({ id: id, quantity: 1, properties: { __kaching_bundles: dealGift } });
+        });
 
-        setTimeout(function() {
-          fetch('/cart.js')
-            .then(function(r) { return r.json(); })
-            .then(function(cartBefore) {
-              var countBefore = cartBefore.item_count;
-
-              kcBridgeEl.style.pointerEvents = 'auto';
-              kcBridge.atcBtn.click();
-              kcBridgeEl.style.pointerEvents = '';
-
-              setTimeout(function() {
-                fetch('/cart.js')
-                  .then(function(r) { return r.json(); })
-                  .then(function(cartAfter) {
-                    if (cartAfter.item_count > countBefore) {
-                      atcDone(btn);
-                    } else {
-                      /* intercept_cart_request may be ON: Kaching set fallback deal
-                         but didn't add directly. Fire our own fetch so the interceptor
-                         can merge the bundle items (with proper properties) into it. */
-                      fetch('/cart/add.js', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                        body: JSON.stringify({ items: [{ id: parseInt(variantId, 10), quantity: qty }] })
-                      })
-                      .then(function(res) { return res.json(); })
-                      .then(function() { atcDone(btn); })
-                      .catch(function() { addItemsDirect(btn, variantId, qty, giftIds); });
-                    }
-                  })
-                  .catch(function() { addItemsDirect(btn, variantId, qty, giftIds); });
-              }, 1500);
-            })
-            .catch(function() { addItemsDirect(btn, variantId, qty, giftIds); });
-        }, 500);
-
+        fetch('/cart/add.js?kaching_bundles=true', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ items: items })
+        })
+        .then(function(res) { return res.json(); })
+        .then(function() { atcDone(btn); })
+        .catch(function() { addItemsDirect(btn, variantId, qty, giftIds); });
         return;
       }
 
