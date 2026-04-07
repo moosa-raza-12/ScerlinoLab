@@ -479,6 +479,14 @@
     "kv_lp_new_design_product_as_seen_on_U4HVgj": {
       "type": "kv-lp-new-design-product-as-seen-on",
       "blocks": {
+        "logo_JwikB9": {
+          "type": "logo",
+          "settings": {
+            "svg_desktop": "shopify://shop_images/logo_Vanity_fair.png",
+            "svg_mobile": "shopify://shop_images/logo_Vanity_fair.png",
+            "image_alt": "Logo"
+          }
+        },
         "logo_GDm89D": {
           "type": "logo",
           "settings": {
@@ -509,6 +517,7 @@
         }
       },
       "block_order": [
+        "logo_JwikB9",
         "logo_GDm89D",
         "logo_CWCQtw",
         "logo_hex7W3",
