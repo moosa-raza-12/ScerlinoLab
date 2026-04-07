@@ -1,20 +1,110 @@
 
-    {% render 'gp-head', 'isThemeSection: true' %}
+    {% render 'gp-head', isThemeSection: true %}
     
-    <style {% if section.settings.section_preload == "false" %} class="gps-link gps-style" type="text/disabled-css" {% endif %}>.gps-578994961920295705.gps.gpsil [style*="--ai:"]{align-items:var(--ai)}.gps-578994961920295705.gps.gpsil [style*="--bg:"]{background:var(--bg)}.gps-578994961920295705.gps.gpsil [style*="--hvr-bg:"]:hover{background:var(--hvr-bg)}.gps-578994961920295705.gps.gpsil [style*="--bga:"]{background-attachment:var(--bga)}.gps-578994961920295705.gps.gpsil [style*="--bgc:"]{background-color:var(--bgc)}.gps-578994961920295705.gps.gpsil [style*="--hvr-bgc:"]:hover{background-color:var(--hvr-bgc)}.gps-578994961920295705.gps.gpsil [style*="--bgi:"]{background-image:var(--bgi)}.gps-578994961920295705.gps.gpsil [style*="--bgp:"]{background-position:var(--bgp)}.gps-578994961920295705.gps.gpsil [style*="--bgr:"]{background-repeat:var(--bgr)}.gps-578994961920295705.gps.gpsil [style*="--bgs:"]{background-size:var(--bgs)}.gps-578994961920295705.gps.gpsil [style*="--b:"]{border:var(--b)}.gps-578994961920295705.gps.gpsil [style*="--hvr-b:"]:hover{border:var(--hvr-b)}.gps-578994961920295705.gps.gpsil [style*="--bb:"]{border-bottom:var(--bb)}.gps-578994961920295705.gps.gpsil [style*="--bc:"]{border-color:var(--bc)}.gps-578994961920295705.gps.gpsil [style*="--hvr-bc:"]:hover{border-color:var(--hvr-bc)}.gps-578994961920295705.gps.gpsil [style*="--bblr:"]{border-bottom-left-radius:var(--bblr)}.gps-578994961920295705.gps.gpsil [style*="--bbrr:"]{border-bottom-right-radius:var(--bbrr)}.gps-578994961920295705.gps.gpsil [style*="--bs:"]{border-style:var(--bs)}.gps-578994961920295705.gps.gpsil [style*="--hvr-bs:"]:hover{border-style:var(--hvr-bs)}.gps-578994961920295705.gps.gpsil [style*="--bt:"]{border-top:var(--bt)}.gps-578994961920295705.gps.gpsil [style*="--btlr:"]{border-top-left-radius:var(--btlr)}.gps-578994961920295705.gps.gpsil [style*="--btrr:"]{border-top-right-radius:var(--btrr)}.gps-578994961920295705.gps.gpsil [style*="--bw:"]{border-width:var(--bw)}.gps-578994961920295705.gps.gpsil [style*="--hvr-bw:"]:hover{border-width:var(--hvr-bw)}.gps-578994961920295705.gps.gpsil [style*="--shadow:"]{box-shadow:var(--shadow)}.gps-578994961920295705.gps.gpsil [style*="--c:"]{color:var(--c)}.gps-578994961920295705.gps.gpsil [style*="--cg:"]{-moz-column-gap:var(--cg);column-gap:var(--cg)}.gps-578994961920295705.gps.gpsil [style*="--fd:"]{flex-direction:var(--fd)}.gps-578994961920295705.gps.gpsil [style*="--ff:"]{font-family:var(--ff)}.gps-578994961920295705.gps.gpsil [style*="--size:"]{font-size:var(--size)}.gps-578994961920295705.gps.gpsil [style*="--weight:"]{font-weight:var(--weight)}.gps-578994961920295705.gps.gpsil [style*="--gg:"]{grid-gap:var(--gg)}.gps-578994961920295705.gps.gpsil [style*="--gtc:"]{grid-template-columns:var(--gtc)}.gps-578994961920295705.gps.gpsil [style*="--h:"]{height:var(--h)}.gps-578994961920295705.gps.gpsil [style*="--jc:"]{justify-content:var(--jc)}.gps-578994961920295705.gps.gpsil [style*="--ls:"]{letter-spacing:var(--ls)}.gps-578994961920295705.gps.gpsil [style*="--lh:"]{line-height:var(--lh)}.gps-578994961920295705.gps.gpsil [style*="--tdt:"]{text-decoration-thickness:var(--tdt)}.gps-578994961920295705.gps.gpsil [style*="--tdl:"]{text-decoration-line:var(--tdl)}.gps-578994961920295705.gps.gpsil [style*="--m:"]{margin:var(--m)}.gps-578994961920295705.gps.gpsil [style*="--mb:"]{margin-bottom:var(--mb)}.gps-578994961920295705.gps.gpsil [style*="--op:"]{opacity:var(--op)}.gps-578994961920295705.gps.gpsil [style*="--o:"]{order:var(--o)}.gps-578994961920295705.gps.gpsil [style*="--pc:"]{place-content:var(--pc)}.gps-578994961920295705.gps.gpsil [style*="--p:"]{padding:var(--p)}.gps-578994961920295705.gps.gpsil [style*="--pb:"]{padding-bottom:var(--pb)}.gps-578994961920295705.gps.gpsil [style*="--pl:"]{padding-left:var(--pl)}.gps-578994961920295705.gps.gpsil [style*="--pr:"]{padding-right:var(--pr)}.gps-578994961920295705.gps.gpsil [style*="--pt:"]{padding-top:var(--pt)}.gps-578994961920295705.gps.gpsil [style*="--ta:"]{text-align:var(--ta)}.gps-578994961920295705.gps.gpsil [style*="--ts:"]{text-shadow:var(--ts)}.gps-578994961920295705.gps.gpsil [style*="--tt:"]{text-transform:var(--tt)}.gps-578994961920295705.gps.gpsil [style*="--t:"]{transform:var(--t)}.gps-578994961920295705.gps.gpsil [style*="--w:"]{width:var(--w)}.gps-578994961920295705.gps.gpsil [style*="--line-clamp:"]{-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp);display:-webkit-box;overflow:hidden}@media only screen and (max-width:1024px){.gps-578994961920295705.gps.gpsil [style*="--size-tablet:"]{font-size:var(--size-tablet)}.gps-578994961920295705.gps.gpsil [style*="--h-tablet:"]{height:var(--h-tablet)}.gps-578994961920295705.gps.gpsil [style*="--lh-tablet:"]{line-height:var(--lh-tablet)}.gps-578994961920295705.gps.gpsil [style*="--mb-tablet:"]{margin-bottom:var(--mb-tablet)}.gps-578994961920295705.gps.gpsil [style*="--pb-tablet:"]{padding-bottom:var(--pb-tablet)}.gps-578994961920295705.gps.gpsil [style*="--pl-tablet:"]{padding-left:var(--pl-tablet)}.gps-578994961920295705.gps.gpsil [style*="--pr-tablet:"]{padding-right:var(--pr-tablet)}.gps-578994961920295705.gps.gpsil [style*="--pt-tablet:"]{padding-top:var(--pt-tablet)}.gps-578994961920295705.gps.gpsil [style*="--w-tablet:"]{width:var(--w-tablet)}.gps-578994961920295705.gps.gpsil [style*="--line-clamp-tablet:"]{-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp-tablet);display:-webkit-box;overflow:hidden}}@media only screen and (max-width:767px){.gps-578994961920295705.gps.gpsil [style*="--size-mobile:"]{font-size:var(--size-mobile)}.gps-578994961920295705.gps.gpsil [style*="--gg-mobile:"]{grid-gap:var(--gg-mobile)}.gps-578994961920295705.gps.gpsil [style*="--gtc-mobile:"]{grid-template-columns:var(--gtc-mobile)}.gps-578994961920295705.gps.gpsil [style*="--h-mobile:"]{height:var(--h-mobile)}.gps-578994961920295705.gps.gpsil [style*="--lh-mobile:"]{line-height:var(--lh-mobile)}.gps-578994961920295705.gps.gpsil [style*="--mb-mobile:"]{margin-bottom:var(--mb-mobile)}.gps-578994961920295705.gps.gpsil [style*="--pb-mobile:"]{padding-bottom:var(--pb-mobile)}.gps-578994961920295705.gps.gpsil [style*="--pl-mobile:"]{padding-left:var(--pl-mobile)}.gps-578994961920295705.gps.gpsil [style*="--pr-mobile:"]{padding-right:var(--pr-mobile)}.gps-578994961920295705.gps.gpsil [style*="--pt-mobile:"]{padding-top:var(--pt-mobile)}.gps-578994961920295705.gps.gpsil [style*="--w-mobile:"]{width:var(--w-mobile)}.gps-578994961920295705.gps.gpsil [style*="--line-clamp-mobile:"]{-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp-mobile);display:-webkit-box;overflow:hidden}}.gps-578994961920295705 .-gp-rotate-90,.gps-578994961920295705 .gp-rotate-180,.gps-578994961920295705 .gp-rotate-90{--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1}.gps-578994961920295705 .gp-relative{position:relative}.gps-578994961920295705 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-578994961920295705 .gp-mb-0{margin-bottom:0}.gps-578994961920295705 .gp-flex{display:flex}.gps-578994961920295705 .gp-inline-flex{display:inline-flex}.gps-578994961920295705 .gp-grid{display:grid}.gps-578994961920295705 .\!gp-hidden{display:none!important}.gps-578994961920295705 .gp-hidden{display:none}.gps-578994961920295705 .gp-min-h-0{min-height:0}.gps-578994961920295705 .gp-w-full{width:100%}.gps-578994961920295705 .gp-max-w-full{max-width:100%}.gps-578994961920295705 .-gp-rotate-90{--tw-rotate:-90deg}.gps-578994961920295705 .-gp-rotate-90,.gps-578994961920295705 .gp-rotate-180{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.gps-578994961920295705 .gp-rotate-180{--tw-rotate:180deg}.gps-578994961920295705 .gp-rotate-90{--tw-rotate:90deg;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.gps-578994961920295705 .gp-cursor-pointer{cursor:pointer}.gps-578994961920295705 .gp-grid-rows-\[0fr\]{grid-template-rows:0fr}.gps-578994961920295705 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-578994961920295705 .gp-flex-col{flex-direction:column}.gps-578994961920295705 .gp-items-center{align-items:center}.gps-578994961920295705 .gp-justify-center{justify-content:center}.gps-578994961920295705 .gp-gap-\[16px\]{gap:16px}.gps-578994961920295705 .gp-overflow-hidden{overflow:hidden}.gps-578994961920295705 .gp-overflow-clip{overflow:clip}.gps-578994961920295705 .gp-break-all{word-break:break-all}.gps-578994961920295705 .gp-transition-all{transition-duration:.15s;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-578994961920295705 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-578994961920295705 .gp-duration-200{transition-duration:.2s}.gps-578994961920295705 .gp-duration-500{transition-duration:.5s}.gps-578994961920295705 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (hover:hover) and (pointer:fine){.gps-578994961920295705 .gp-group:hover .group-hover\:\[color\:var\(--icon-expand-hover-color\)\]{color:var(--icon-expand-hover-color)}.gps-578994961920295705 .gp-group:hover .group-hover\:\[color\:var\(--text-hover-color\)\!important\]{color:var(--text-hover-color)!important}}@media (max-width:1024px){.gps-578994961920295705 .tablet\:\!gp-hidden{display:none!important}.gps-578994961920295705 .tablet\:gp-hidden{display:none}}@media (max-width:767px){.gps-578994961920295705 .mobile\:\!gp-hidden{display:none!important}.gps-578994961920295705 .mobile\:gp-hidden{display:none}}.gps-578994961920295705 .\[\&\>svg\]\:\!gp-h-\[var\(--height-iconCollapseSize\)\]>svg{height:var(--height-iconCollapseSize)!important}.gps-578994961920295705 .\[\&\>svg\]\:\!gp-w-full>svg{width:100%!important}.gps-578994961920295705 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}</style>
+    <style {% if section.settings.section_preload == "false" %} class="gps-link gps-style" type="text/disabled-css" {% endif %}>.gps-578994961920295705.gps.gpsil [style*="--ai:"]{align-items:var(--ai)}.gps-578994961920295705.gps.gpsil [style*="--bg:"]{background:var(--bg)}.gps-578994961920295705.gps.gpsil [style*="--hvr-bg:"]:hover{background:var(--hvr-bg)}.gps-578994961920295705.gps.gpsil [style*="--bga:"]{background-attachment:var(--bga)}.gps-578994961920295705.gps.gpsil [style*="--bgc:"]{background-color:var(--bgc)}.gps-578994961920295705.gps.gpsil [style*="--hvr-bgc:"]:hover{background-color:var(--hvr-bgc)}.gps-578994961920295705.gps.gpsil [style*="--bgi:"]{background-image:var(--bgi)}.gps-578994961920295705.gps.gpsil [style*="--bgp:"]{background-position:var(--bgp)}.gps-578994961920295705.gps.gpsil [style*="--bgr:"]{background-repeat:var(--bgr)}.gps-578994961920295705.gps.gpsil [style*="--bgs:"]{background-size:var(--bgs)}.gps-578994961920295705.gps.gpsil [style*="--b:"]{border:var(--b)}.gps-578994961920295705.gps.gpsil [style*="--hvr-b:"]:hover{border:var(--hvr-b)}.gps-578994961920295705.gps.gpsil [style*="--bb:"]{border-bottom:var(--bb)}.gps-578994961920295705.gps.gpsil [style*="--bc:"]{border-color:var(--bc)}.gps-578994961920295705.gps.gpsil [style*="--hvr-bc:"]:hover{border-color:var(--hvr-bc)}.gps-578994961920295705.gps.gpsil [style*="--bblr:"]{border-bottom-left-radius:var(--bblr)}.gps-578994961920295705.gps.gpsil [style*="--bbrr:"]{border-bottom-right-radius:var(--bbrr)}.gps-578994961920295705.gps.gpsil [style*="--bs:"]{border-style:var(--bs)}.gps-578994961920295705.gps.gpsil [style*="--hvr-bs:"]:hover{border-style:var(--hvr-bs)}.gps-578994961920295705.gps.gpsil [style*="--bt:"]{border-top:var(--bt)}.gps-578994961920295705.gps.gpsil [style*="--btlr:"]{border-top-left-radius:var(--btlr)}.gps-578994961920295705.gps.gpsil [style*="--btrr:"]{border-top-right-radius:var(--btrr)}.gps-578994961920295705.gps.gpsil [style*="--bw:"]{border-width:var(--bw)}.gps-578994961920295705.gps.gpsil [style*="--hvr-bw:"]:hover{border-width:var(--hvr-bw)}.gps-578994961920295705.gps.gpsil [style*="--shadow:"]{box-shadow:var(--shadow)}.gps-578994961920295705.gps.gpsil [style*="--c:"]{color:var(--c)}.gps-578994961920295705.gps.gpsil [style*="--cg:"]{-moz-column-gap:var(--cg);column-gap:var(--cg)}.gps-578994961920295705.gps.gpsil [style*="--fd:"]{flex-direction:var(--fd)}.gps-578994961920295705.gps.gpsil [style*="--ff:"]{font-family:var(--ff)}.gps-578994961920295705.gps.gpsil [style*="--size:"]{font-size:var(--size)}.gps-578994961920295705.gps.gpsil [style*="--weight:"]{font-weight:var(--weight)}.gps-578994961920295705.gps.gpsil [style*="--gg:"]{grid-gap:var(--gg)}.gps-578994961920295705.gps.gpsil [style*="--gtc:"]{grid-template-columns:var(--gtc)}.gps-578994961920295705.gps.gpsil [style*="--h:"]{height:var(--h)}.gps-578994961920295705.gps.gpsil [style*="--jc:"]{justify-content:var(--jc)}.gps-578994961920295705.gps.gpsil [style*="--ls:"]{letter-spacing:var(--ls)}.gps-578994961920295705.gps.gpsil [style*="--lh:"]{line-height:var(--lh)}.gps-578994961920295705.gps.gpsil [style*="--tdt:"]{text-decoration-thickness:var(--tdt)}.gps-578994961920295705.gps.gpsil [style*="--tdl:"]{text-decoration-line:var(--tdl)}.gps-578994961920295705.gps.gpsil [style*="--m:"]{margin:var(--m)}.gps-578994961920295705.gps.gpsil [style*="--mb:"]{margin-bottom:var(--mb)}.gps-578994961920295705.gps.gpsil [style*="--op:"]{opacity:var(--op)}.gps-578994961920295705.gps.gpsil [style*="--o:"]{order:var(--o)}.gps-578994961920295705.gps.gpsil [style*="--pc:"]{place-content:var(--pc)}.gps-578994961920295705.gps.gpsil [style*="--p:"]{padding:var(--p)}.gps-578994961920295705.gps.gpsil [style*="--pb:"]{padding-bottom:var(--pb)}.gps-578994961920295705.gps.gpsil [style*="--pl:"]{padding-left:var(--pl)}.gps-578994961920295705.gps.gpsil [style*="--pr:"]{padding-right:var(--pr)}.gps-578994961920295705.gps.gpsil [style*="--pt:"]{padding-top:var(--pt)}.gps-578994961920295705.gps.gpsil [style*="--ta:"]{text-align:var(--ta)}.gps-578994961920295705.gps.gpsil [style*="--ts:"]{text-shadow:var(--ts)}.gps-578994961920295705.gps.gpsil [style*="--tt:"]{text-transform:var(--tt)}.gps-578994961920295705.gps.gpsil [style*="--t:"]{transform:var(--t)}.gps-578994961920295705.gps.gpsil [style*="--w:"]{width:var(--w)}.gps-578994961920295705.gps.gpsil [style*="--line-clamp:"]{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp)}@media only screen and (max-width:1024px){.gps-578994961920295705.gps.gpsil [style*="--size-tablet:"]{font-size:var(--size-tablet)}.gps-578994961920295705.gps.gpsil [style*="--h-tablet:"]{height:var(--h-tablet)}.gps-578994961920295705.gps.gpsil [style*="--lh-tablet:"]{line-height:var(--lh-tablet)}.gps-578994961920295705.gps.gpsil [style*="--mb-tablet:"]{margin-bottom:var(--mb-tablet)}.gps-578994961920295705.gps.gpsil [style*="--pb-tablet:"]{padding-bottom:var(--pb-tablet)}.gps-578994961920295705.gps.gpsil [style*="--pl-tablet:"]{padding-left:var(--pl-tablet)}.gps-578994961920295705.gps.gpsil [style*="--pr-tablet:"]{padding-right:var(--pr-tablet)}.gps-578994961920295705.gps.gpsil [style*="--pt-tablet:"]{padding-top:var(--pt-tablet)}.gps-578994961920295705.gps.gpsil [style*="--w-tablet:"]{width:var(--w-tablet)}.gps-578994961920295705.gps.gpsil [style*="--line-clamp-tablet:"]{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp-tablet)}}@media only screen and (max-width:767px){.gps-578994961920295705.gps.gpsil [style*="--size-mobile:"]{font-size:var(--size-mobile)}.gps-578994961920295705.gps.gpsil [style*="--gg-mobile:"]{grid-gap:var(--gg-mobile)}.gps-578994961920295705.gps.gpsil [style*="--gtc-mobile:"]{grid-template-columns:var(--gtc-mobile)}.gps-578994961920295705.gps.gpsil [style*="--h-mobile:"]{height:var(--h-mobile)}.gps-578994961920295705.gps.gpsil [style*="--lh-mobile:"]{line-height:var(--lh-mobile)}.gps-578994961920295705.gps.gpsil [style*="--mb-mobile:"]{margin-bottom:var(--mb-mobile)}.gps-578994961920295705.gps.gpsil [style*="--pb-mobile:"]{padding-bottom:var(--pb-mobile)}.gps-578994961920295705.gps.gpsil [style*="--pl-mobile:"]{padding-left:var(--pl-mobile)}.gps-578994961920295705.gps.gpsil [style*="--pr-mobile:"]{padding-right:var(--pr-mobile)}.gps-578994961920295705.gps.gpsil [style*="--pt-mobile:"]{padding-top:var(--pt-mobile)}.gps-578994961920295705.gps.gpsil [style*="--w-mobile:"]{width:var(--w-mobile)}.gps-578994961920295705.gps.gpsil [style*="--line-clamp-mobile:"]{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp-mobile)}}.gps-578994961920295705 .-gp-rotate-90,.gps-578994961920295705 .gp-rotate-180,.gps-578994961920295705 .gp-rotate-90{--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1}.gps-578994961920295705 .gp-relative{position:relative}.gps-578994961920295705 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-578994961920295705 .gp-mb-0{margin-bottom:0}.gps-578994961920295705 .gp-flex{display:flex}.gps-578994961920295705 .gp-inline-flex{display:inline-flex}.gps-578994961920295705 .gp-grid{display:grid}.gps-578994961920295705 .\!gp-hidden{display:none!important}.gps-578994961920295705 .gp-hidden{display:none}.gps-578994961920295705 .gp-min-h-0{min-height:0}.gps-578994961920295705 .gp-w-full{width:100%}.gps-578994961920295705 .gp-max-w-full{max-width:100%}.gps-578994961920295705 .-gp-rotate-90{--tw-rotate:-90deg}.gps-578994961920295705 .-gp-rotate-90,.gps-578994961920295705 .gp-rotate-180{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.gps-578994961920295705 .gp-rotate-180{--tw-rotate:180deg}.gps-578994961920295705 .gp-rotate-90{--tw-rotate:90deg;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.gps-578994961920295705 .gp-cursor-pointer{cursor:pointer}.gps-578994961920295705 .gp-grid-rows-\[0fr\]{grid-template-rows:0fr}.gps-578994961920295705 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-578994961920295705 .gp-flex-col{flex-direction:column}.gps-578994961920295705 .gp-items-center{align-items:center}.gps-578994961920295705 .gp-justify-center{justify-content:center}.gps-578994961920295705 .gp-gap-\[16px\]{gap:16px}.gps-578994961920295705 .gp-overflow-hidden{overflow:hidden}.gps-578994961920295705 .gp-overflow-clip{overflow:clip}.gps-578994961920295705 .gp-break-all{word-break:break-all}.gps-578994961920295705 .gp-transition-all{transition-duration:.15s;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-578994961920295705 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-578994961920295705 .gp-duration-200{transition-duration:.2s}.gps-578994961920295705 .gp-duration-500{transition-duration:.5s}.gps-578994961920295705 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (hover:hover) and (pointer:fine){.gps-578994961920295705 .gp-group:hover .group-hover\:\[color\:var\(--icon-expand-hover-color\)\]{color:var(--icon-expand-hover-color)}.gps-578994961920295705 .gp-group:hover .group-hover\:\[color\:var\(--text-hover-color\)\!important\]{color:var(--text-hover-color)!important}}@media (max-width:1024px){.gps-578994961920295705 .tablet\:\!gp-hidden{display:none!important}.gps-578994961920295705 .tablet\:gp-hidden{display:none}}@media (max-width:767px){.gps-578994961920295705 .mobile\:\!gp-hidden{display:none!important}.gps-578994961920295705 .mobile\:gp-hidden{display:none}}.gps-578994961920295705 .\[\&\>svg\]\:\!gp-h-\[var\(--height-iconCollapseSize\)\]>svg{height:var(--height-iconCollapseSize)!important}.gps-578994961920295705 .\[\&\>svg\]\:\!gp-w-full>svg{width:100%!important}.gps-578994961920295705 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}</style>
     <style {% if section.settings.section_preload == "false" %} class="gps-link" type="text/disabled-css" {% endif %}>@font-face {
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaooCP.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/l/font?kit=1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCIPrc&skey=30a27f2564731c64&v=v37) format('woff');
 }
 @font-face {
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVs9pYCP.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/l/font?kit=1Ptxg8zYS_SKggPN4iEgvnHyvveLxVs9pbCIPrc&skey=30a27f2564731c64&v=v37) format('woff');
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCkIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCIIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 </style>
   
@@ -119,7 +209,7 @@
             </span>
           </div>
           
-        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left">
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--ta:left">
           
           
     {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
@@ -133,7 +223,7 @@
           class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
           style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-Raleway, 'Raleway'), var(--g-font-heading, heading);--size:20px;--size-tablet:20px;--size-mobile:20px;--lh:default;--lh-tablet:default;--lh-mobile:default;--weight:bold;--tt:none;word-break:break-word;overflow:hidden;--tdl:"
         >
-          {{ section.settings.ggQVgYjz4RJ_childItem_0 }}
+          <p><span style="font-size:16px;">{{ section.settings.ggQVgYjz4RJ_childItem_0 }}</span></p>
         </div>
       </div>
     </div>
@@ -189,7 +279,7 @@
             </span>
           </div>
           
-        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left">
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--ta:left">
           
           
     {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
@@ -203,7 +293,7 @@
           class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
           style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-Raleway, 'Raleway'), var(--g-font-heading, heading);--size:20px;--size-tablet:20px;--size-mobile:20px;--lh:default;--lh-tablet:default;--lh-mobile:default;--weight:bold;--tt:none;word-break:break-word;overflow:hidden;--tdl:"
         >
-          {{ section.settings.ggQVgYjz4RJ_childItem_1 }}
+          <p><span style="font-size:16px;">{{ section.settings.ggQVgYjz4RJ_childItem_1 }}</span></p>
         </div>
       </div>
     </div>
@@ -259,7 +349,7 @@
             </span>
           </div>
           
-        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left">
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--ta:left">
           
           
     {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
@@ -273,7 +363,7 @@
           class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
           style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-Raleway, 'Raleway'), var(--g-font-heading, heading);--size:20px;--size-tablet:20px;--size-mobile:20px;--lh:default;--lh-tablet:default;--lh-mobile:default;--weight:bold;--tt:none;word-break:break-word;overflow:hidden;--tdl:"
         >
-          {{ section.settings.ggQVgYjz4RJ_childItem_2 }}
+          <p><span style="background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;">{{ section.settings.ggQVgYjz4RJ_childItem_2 }}</span></p>
         </div>
       </div>
     </div>
@@ -329,7 +419,7 @@
             </span>
           </div>
           
-        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left">
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--ta:left">
           
           
     {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
@@ -343,7 +433,7 @@
           class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
           style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-Raleway, 'Raleway'), var(--g-font-heading, heading);--size:20px;--size-tablet:20px;--size-mobile:20px;--lh:default;--lh-tablet:default;--lh-mobile:default;--weight:bold;--tt:none;word-break:break-word;overflow:hidden;--tdl:"
         >
-          {{ section.settings.ggQVgYjz4RJ_childItem_3 }}
+          <p><span style="background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;">{{ section.settings.ggQVgYjz4RJ_childItem_3 }}</span></p>
         </div>
       </div>
     </div>
@@ -399,7 +489,7 @@
             </span>
           </div>
           
-        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left">
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--ta:left">
           
           
     {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
@@ -413,7 +503,7 @@
           class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
           style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-Raleway, 'Raleway'), var(--g-font-heading, heading);--size:20px;--size-tablet:20px;--size-mobile:20px;--lh:default;--lh-tablet:default;--lh-mobile:default;--weight:bold;--tt:none;word-break:break-word;overflow:hidden;--tdl:"
         >
-          {{ section.settings.ggQVgYjz4RJ_childItem_4 }}
+          <p><span style="background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;">{{ section.settings.ggQVgYjz4RJ_childItem_4 }}</span></p>
         </div>
       </div>
     </div>
@@ -440,7 +530,7 @@
           class=" gp-text-instant gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-Raleway, 'Raleway'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:18px;--size-mobile:16px;--lh:default;--lh-tablet:default;--lh-mobile:default;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
         >
-          {{ section.settings.ggCBDbaKf6F_text | replace: '$locationOrigin', locationOrigin }}
+          <p>{{ section.settings.ggCBDbaKf6F_text | replace: '$locationOrigin', locationOrigin }}</p>
         </div>
       </div>
     </div>
@@ -469,7 +559,7 @@
             </span>
           </div>
           
-        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left">
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--ta:left">
           
           
     {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
@@ -483,7 +573,7 @@
           class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
           style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-Raleway, 'Raleway'), var(--g-font-heading, heading);--size:20px;--size-tablet:20px;--size-mobile:20px;--lh:default;--lh-tablet:default;--lh-mobile:default;--weight:bold;--tt:none;word-break:break-word;overflow:hidden;--tdl:"
         >
-          {{ section.settings.ggQVgYjz4RJ_childItem_5 }}
+          <p><span style="background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;">{{ section.settings.ggQVgYjz4RJ_childItem_5 }}</span></p>
         </div>
       </div>
     </div>
@@ -510,7 +600,7 @@
           class=" gp-text-instant gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-Raleway, 'Raleway'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:18px;--size-mobile:16px;--lh:default;--lh-tablet:default;--lh-mobile:default;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
         >
-          {{ section.settings.ggOXNDMBmah_text | replace: '$locationOrigin', locationOrigin }}
+          <p>{{ section.settings.ggOXNDMBmah_text | replace: '$locationOrigin', locationOrigin }}</p>
         </div>
       </div>
     </div>
@@ -539,7 +629,7 @@
             </span>
           </div>
           
-        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left">
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--ta:left">
           
           
     {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
@@ -553,7 +643,7 @@
           class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
           style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-Raleway, 'Raleway'), var(--g-font-heading, heading);--size:20px;--size-tablet:20px;--size-mobile:20px;--lh:default;--lh-tablet:default;--lh-mobile:default;--weight:bold;--tt:none;word-break:break-word;overflow:hidden;--tdl:"
         >
-          {{ section.settings.ggQVgYjz4RJ_childItem_6 }}
+          <p><span style="background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;">{{ section.settings.ggQVgYjz4RJ_childItem_6 }}</span></p>
         </div>
       </div>
     </div>
@@ -609,7 +699,7 @@
             </span>
           </div>
           
-        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left">
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--ta:left">
           
           
     {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
@@ -623,7 +713,7 @@
           class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
           style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-Raleway, 'Raleway'), var(--g-font-heading, heading);--size:20px;--size-tablet:20px;--size-mobile:20px;--lh:default;--lh-tablet:default;--lh-mobile:default;--weight:bold;--tt:none;word-break:break-word;overflow:hidden;--tdl:"
         >
-          {{ section.settings.ggQVgYjz4RJ_childItem_7 }}
+          <p><span style="background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;">{{ section.settings.ggQVgYjz4RJ_childItem_7 }}</span></p>
         </div>
       </div>
     </div>
@@ -650,7 +740,7 @@
           class=" gp-text-instant gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-Raleway, 'Raleway'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:18px;--size-mobile:16px;--lh:default;--lh-tablet:default;--lh-mobile:default;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
         >
-          {{ section.settings.ggR6q8BZYnK_text | replace: '$locationOrigin', locationOrigin }}
+          <p>{{ section.settings.ggR6q8BZYnK_text | replace: '$locationOrigin', locationOrigin }}</p>
         </div>
       </div>
     </div>
@@ -679,7 +769,7 @@
             </span>
           </div>
           
-        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left">
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--ta:left">
           
           
     {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
@@ -693,7 +783,7 @@
           class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
           style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-Raleway, 'Raleway'), var(--g-font-heading, heading);--size:20px;--size-tablet:20px;--size-mobile:20px;--lh:default;--lh-tablet:default;--lh-mobile:default;--weight:bold;--tt:none;word-break:break-word;overflow:hidden;--tdl:"
         >
-          {{ section.settings.ggQVgYjz4RJ_childItem_8 }}
+          <p><span style="background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;">{{ section.settings.ggQVgYjz4RJ_childItem_8 }}</span></p>
         </div>
       </div>
     </div>
@@ -720,7 +810,7 @@
           class=" gp-text-instant gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-Raleway, 'Raleway'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:18px;--size-mobile:16px;--lh:default;--lh-tablet:default;--lh-mobile:default;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
         >
-          {{ section.settings.ggRuH9EFC9j_text | replace: '$locationOrigin', locationOrigin }}
+          <p>{{ section.settings.ggRuH9EFC9j_text | replace: '$locationOrigin', locationOrigin }}</p>
         </div>
       </div>
     </div>
@@ -772,7 +862,7 @@
     "name": "GEM - FAQ.CV",
     "tag": "section",
     "class": "gps-578994961920295705 gps gpsil",
-    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/j0rgbv-09/apps/gempages-cro/app/shopify/edit?pageType=THEME_SECTION&editorId=578994961920295705)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggCKxnWloLD_text","label":"ggCKxnWloLD_text","default":"Do You Still Have <span style=\"color:#0155B6;\">Any Doubts</span>?"},{"type":"html","id":"ggQVgYjz4RJ_childItem_0","label":"ggQVgYjz4RJ_childItem_0","default":"<p><span style=\"font-size:16px;\">How long does it take to see results?</span></p>"},{"type":"html","id":"ggQVgYjz4RJ_childItem_1","label":"ggQVgYjz4RJ_childItem_1","default":"<p><span style=\"font-size:16px;\">How long does it last?</span></p>"},{"type":"html","id":"ggQVgYjz4RJ_childItem_2","label":"ggQVgYjz4RJ_childItem_2","default":"<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Will Omnis work for me?</span></p>"},{"type":"html","id":"ggQVgYjz4RJ_childItem_3","label":"ggQVgYjz4RJ_childItem_3","default":"<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Where is the formula produced?</span></p>"},{"type":"html","id":"ggQVgYjz4RJ_childItem_4","label":"ggQVgYjz4RJ_childItem_4","default":"<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Is it suitable for sensitive skin?</span></p>"},{"type":"html","id":"ggQVgYjz4RJ_childItem_5","label":"ggQVgYjz4RJ_childItem_5","default":"<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Does it leave a greasy feeling on the skin?</span></p>"},{"type":"html","id":"ggQVgYjz4RJ_childItem_6","label":"ggQVgYjz4RJ_childItem_6","default":"<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">What is the full list of ingredients?</span></p>"},{"type":"html","id":"ggQVgYjz4RJ_childItem_7","label":"ggQVgYjz4RJ_childItem_7","default":"<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">How do you use it?</span></p>"},{"type":"html","id":"ggQVgYjz4RJ_childItem_8","label":"ggQVgYjz4RJ_childItem_8","default":"<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Can it visibly reduce the appearance of eye bags and puffy eyes?</span></p>"},{"type":"html","id":"ggkCktYhb1__text","label":"ggkCktYhb1__text","default":"<p><strong>You'll notice improvements from the very first use, but the real transformation happens week by week.</strong></p><p>&nbsp;</p><p><strong>Week 1-2:</strong> Your skin feels immediately smoother and more hydrated. People start saying \"you look rested today.\"</p><p>&nbsp;</p><p><strong>Week 6-8:</strong> This is where the magic happens. 93% of men see a significant reduction in wrinkles and fine lines. Your skin looks visibly younger, and people start asking \"what's your secret?\"</p><p>&nbsp;</p><p><strong>The science behind it:</strong> OMNIS works deep beneath the surface to stimulate collagen production - that's why it takes 6-8 weeks for the dramatic results. Unlike basic moisturizers that just sit on top, omnis uses a <strong>bio-identical form of Vitamin A</strong> your skin naturally stores. Your body recognizes it. It welcomes it in. So you get the collagen rebuilding of a prescription cream, with the gentleness of a moisturizer. All gain. No burn.</p><p>&nbsp;</p><p><strong>Here's the best part:</strong> You have <strong>60 days</strong> to see these results risk-free. If you don't look in the mirror after 8 weeks and see noticeably younger, firmer skin, we'll refund every penny. Thousands of men across Italy are already experiencing this transformation - <strong>try it yourself with zero risk</strong>.</p>"},{"type":"html","id":"ggvB4QVVEaP_text","label":"ggvB4QVVEaP_text","default":"<p><strong>1 bottle lasts exactly 1 month with daily use - which is why we recommend at least 2.</strong></p><p>&nbsp;</p><p><strong>Month 1</strong> gives initial improvements, but <strong>month 2</strong> is when 93% of men see dramatic results. Most men desperately search for more after seeing early changes.</p><p>&nbsp;</p><p>Plus our <strong>60-day money-back </strong>guarantee covers your entire transformation journey.</p>"},{"type":"html","id":"ggbUHOmTnxs_text","label":"ggbUHOmTnxs_text","default":"<p><strong>Here's the honest truth: OMNIS works for the vast majority of men, but we can't promise it works for absolutely everyone.</strong></p><p>&nbsp;</p><p>Our formula has delivered results for thousands of Italian men aged 40+. The clinical studies prove it - 87% see significant wrinkle reduction in 8 weeks. But every man's skin is different, and we'd be lying if we said it's 100% guaranteed for everyone.</p><p>&nbsp;</p><p><strong>That's exactly why we offer the 60-day money-back guarantee.</strong> We don't want your money if OMNIS doesn't give you the younger, firmer skin you're looking for. Try it for two full months - if you don't see dramatic improvements, we'll refund every penny.</p>"},{"type":"html","id":"ggRc5Y_1poF_text","label":"ggRc5Y_1poF_text","default":"<p>Omnis is 100% formulated and <strong>made in italy 🇮🇹</strong> &nbsp;following the strictest italian tests and standards.&nbsp;</p><p>&nbsp;</p><p>Formulated with 93% natural ingredients, it contains:</p><p>NO Alcohol, No Paraben, No harsh silicones</p><p>&nbsp;</p><p>It's vegan, cruelty free. and <strong>dermatologically tested.</strong></p>"},{"type":"html","id":"ggCBDbaKf6F_text","label":"ggCBDbaKf6F_text","default":"<p>&nbsp;Yes, the formula is gentle and suitable for all skin types, including sensitive skin.</p>"},{"type":"html","id":"ggOXNDMBmah_text","label":"ggOXNDMBmah_text","default":"<p>&nbsp;No, it has a <strong>lightweight, fast-absorbing texture</strong> that does not leave an oily residue.</p>"},{"type":"html","id":"ggrsN-dkHKO_text","label":"ggrsN-dkHKO_text","default":"<p>&nbsp;<strong>Full INCI:</strong></p><p>&nbsp;Aqua, propylene glycol, glycerin, caprylic/capric triglyceride, hydrogenated ethylhexyl olivate, glyceryl stearate se, aloe barbadensis leaf juice, sodium polyacrylate, phenoxyethanol, hydrogenated olive oil unsaponifiables, tocopherol, tetrasodium glutamate diacetate, urea, trehalose, ethylhexylglycerin, hydrolyzed rice protein, lavandula angustifolia oil, propanediol, sorbitol, linalool, lecithin, olive oil peg-8 esters, helianthus annuus seed oil, tocopheryl acetate, hydroxyethylcellulose, sodium hyaluronate, potassium sorbate, sodium benzoate, xanthan gum, benzyl alcohol, sodium ascorbyl phosphate, limonene, retinyl palmitate, daucus carota sativa root, ascorbic acid, citric acid.</p>"},{"type":"html","id":"ggR6q8BZYnK_text","label":"ggR6q8BZYnK_text","default":"<p>&nbsp;The <strong>Omnis Night Face Cream</strong> should be applied <strong>only at night</strong>. After cleansing your face, massage <strong>1-2 doses</strong> in circular motions until fully absorbed. Extend any excess product down to the neck.</p>"},{"type":"html","id":"ggRuH9EFC9j_text","label":"ggRuH9EFC9j_text","default":"<p>&nbsp;<strong>The cream is not specifically formulated for eye bags,</strong> but its firming and smoothing effect can help make the skin appear tighter and more youthful.</p>"}],
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/j0rgbv-09/apps/gempages-cro/app/shopify/edit?pageType=THEME_SECTION&editorId=578994961920295705)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggCKxnWloLD_text","label":"ggCKxnWloLD_text","default":"Do You Still Have <span style=\"color:#0155B6;\">Any Doubts</span>?"},{"type":"html","id":"ggQVgYjz4RJ_childItem_0","label":"ggQVgYjz4RJ_childItem_0","default":"How long does it take to see results?"},{"type":"html","id":"ggQVgYjz4RJ_childItem_1","label":"ggQVgYjz4RJ_childItem_1","default":"How long does it last?"},{"type":"html","id":"ggQVgYjz4RJ_childItem_2","label":"ggQVgYjz4RJ_childItem_2","default":"Will Omnis work for me?"},{"type":"html","id":"ggQVgYjz4RJ_childItem_3","label":"ggQVgYjz4RJ_childItem_3","default":"Where is the formula produced?"},{"type":"html","id":"ggQVgYjz4RJ_childItem_4","label":"ggQVgYjz4RJ_childItem_4","default":"Is it suitable for sensitive skin?"},{"type":"html","id":"ggQVgYjz4RJ_childItem_5","label":"ggQVgYjz4RJ_childItem_5","default":"Does it leave a greasy feeling on the skin?"},{"type":"html","id":"ggQVgYjz4RJ_childItem_6","label":"ggQVgYjz4RJ_childItem_6","default":"What is the full list of ingredients?"},{"type":"html","id":"ggQVgYjz4RJ_childItem_7","label":"ggQVgYjz4RJ_childItem_7","default":"How do you use it?"},{"type":"html","id":"ggQVgYjz4RJ_childItem_8","label":"ggQVgYjz4RJ_childItem_8","default":"Can it visibly reduce the appearance of eye bags and puffy eyes?"},{"type":"html","id":"ggkCktYhb1__text","label":"ggkCktYhb1__text","default":"<p><strong>You'll notice improvements from the very first use, but the real transformation happens week by week.</strong></p><p>&nbsp;</p><p><strong>Week 1-2:</strong> Your skin feels immediately smoother and more hydrated. People start saying \"you look rested today.\"</p><p>&nbsp;</p><p><strong>Week 6-8:</strong> This is where the magic happens. 93% of men see a significant reduction in wrinkles and fine lines. Your skin looks visibly younger, and people start asking \"what's your secret?\"</p><p>&nbsp;</p><p><strong>The science behind it:</strong> OMNIS works deep beneath the surface to stimulate collagen production - that's why it takes 6-8 weeks for the dramatic results. Unlike basic moisturizers that just sit on top, omnis uses a <strong>bio-identical form of Vitamin A</strong> your skin naturally stores. Your body recognizes it. It welcomes it in. So you get the collagen rebuilding of a prescription cream, with the gentleness of a moisturizer. All gain. No burn.</p><p>&nbsp;</p><p><strong>Here's the best part:</strong> You have <strong>60 days</strong> to see these results risk-free. If you don't look in the mirror after 8 weeks and see noticeably younger, firmer skin, we'll refund every penny. Thousands of men across Italy are already experiencing this transformation - <strong>try it yourself with zero risk</strong>.</p>"},{"type":"html","id":"ggvB4QVVEaP_text","label":"ggvB4QVVEaP_text","default":"<p><strong>1 bottle lasts exactly 1 month with daily use - which is why we recommend at least 2.</strong></p><p>&nbsp;</p><p><strong>Month 1</strong> gives initial improvements, but <strong>month 2</strong> is when 93% of men see dramatic results. Most men desperately search for more after seeing early changes.</p><p>&nbsp;</p><p>Plus our <strong>60-day money-back </strong>guarantee covers your entire transformation journey.</p>"},{"type":"html","id":"ggbUHOmTnxs_text","label":"ggbUHOmTnxs_text","default":"<p><strong>Here's the honest truth: OMNIS works for the vast majority of men, but we can't promise it works for absolutely everyone.</strong></p><p>&nbsp;</p><p>Our formula has delivered results for thousands of Italian men aged 40+. The clinical studies prove it - 87% see significant wrinkle reduction in 8 weeks. But every man's skin is different, and we'd be lying if we said it's 100% guaranteed for everyone.</p><p>&nbsp;</p><p><strong>That's exactly why we offer the 60-day money-back guarantee.</strong> We don't want your money if OMNIS doesn't give you the younger, firmer skin you're looking for. Try it for two full months - if you don't see dramatic improvements, we'll refund every penny.</p>"},{"type":"html","id":"ggRc5Y_1poF_text","label":"ggRc5Y_1poF_text","default":"<p>Omnis is 100% formulated and <strong>made in italy 🇮🇹</strong> &nbsp;following the strictest italian tests and standards.&nbsp;</p><p>&nbsp;</p><p>Formulated with 93% natural ingredients, it contains:</p><p>NO Alcohol, No Paraben, No harsh silicones</p><p>&nbsp;</p><p>It's vegan, cruelty free. and <strong>dermatologically tested.</strong></p>"},{"type":"html","id":"ggCBDbaKf6F_text","label":"ggCBDbaKf6F_text","default":"&nbsp;Yes, the formula is gentle and suitable for all skin types, including sensitive skin."},{"type":"html","id":"ggOXNDMBmah_text","label":"ggOXNDMBmah_text","default":"&nbsp;No, it has a <strong>lightweight, fast-absorbing texture</strong> that does not leave an oily residue."},{"type":"html","id":"ggrsN-dkHKO_text","label":"ggrsN-dkHKO_text","default":"<p>&nbsp;<strong>Full INCI:</strong></p><p>&nbsp;Aqua, propylene glycol, glycerin, caprylic/capric triglyceride, hydrogenated ethylhexyl olivate, glyceryl stearate se, aloe barbadensis leaf juice, sodium polyacrylate, phenoxyethanol, hydrogenated olive oil unsaponifiables, tocopherol, tetrasodium glutamate diacetate, urea, trehalose, ethylhexylglycerin, hydrolyzed rice protein, lavandula angustifolia oil, propanediol, sorbitol, linalool, lecithin, olive oil peg-8 esters, helianthus annuus seed oil, tocopheryl acetate, hydroxyethylcellulose, sodium hyaluronate, potassium sorbate, sodium benzoate, xanthan gum, benzyl alcohol, sodium ascorbyl phosphate, limonene, retinyl palmitate, daucus carota sativa root, ascorbic acid, citric acid.</p>"},{"type":"html","id":"ggR6q8BZYnK_text","label":"ggR6q8BZYnK_text","default":"&nbsp;The <strong>Omnis Night Face Cream</strong> should be applied <strong>only at night</strong>. After cleansing your face, massage <strong>1-2 doses</strong> in circular motions until fully absorbed. Extend any excess product down to the neck."},{"type":"html","id":"ggRuH9EFC9j_text","label":"ggRuH9EFC9j_text","default":"&nbsp;<strong>The cream is not specifically formulated for eye bags,</strong> but its firming and smoothing effect can help make the skin appear tighter and more youthful."}],
     "blocks": [{"type": "@app"}],
     "locales": {}
   }
