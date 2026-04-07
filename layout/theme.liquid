@@ -1,6 +1,44 @@
 <!doctype html>
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
+
+<script>
+    window.Shopify = window.Shopify || {theme: {id: {{ theme.id }}, role: '{{ theme.role }}' } };
+    window._template = {
+        directory: "{{ template.directory }}",
+        name: "{{ template.name }}",
+        suffix: "{{ template.suffix }}"
+    };
+    window.__productIdFromTemplate = {{ product.id | json }};
+    window.__plpCollectionIdFromTemplate = {{ collection.id | json }};
+    window.igProductData = (function() {
+      const data = {};
+      {%- if template.name == 'collection' -%}
+        {%- for product in collection.products -%}
+          data["{{ product.id }}"] = {
+            productId: {{ product.id | json }},
+            handle: {{ product.handle | json }},
+            tags: {{ product.tags | json }},
+            collectionIds: [{% for col in product.collections %}{{ col.id }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+            inventory: {% assign total = 0 %}{% for v in product.variants %}{% assign total = total | plus: v.inventory_quantity %}{% endfor %}{{ total }},
+            lowestVariantPrice: {{ product.price_min }}
+          };
+        {%- endfor -%}
+      {%- elsif template.name == 'product' -%}
+        data["{{ product.id }}"] = {
+          productId: {{ product.id | json }},
+          handle: {{ product.handle | json }},
+          tags: {{ product.tags | json }},
+          collectionIds: [{% for col in product.collections %}{{ col.id }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+          inventory: {% assign total = 0 %}{% for v in product.variants %}{% assign total = total | plus: v.inventory_quantity %}{% endfor %}{{ total }},
+          lowestVariantPrice: {{ product.price_min }}
+        };
+      {%- endif -%}
+      return data;
+    })();
+  </script>
+  <script type="module" fetchpriority="high" src="https://cdn.intelligems.io/esm/c47fbc48432a/bundle.js" data-em-disable async></script>
+
     <!-- TrustBox script -->
 <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
 <!-- End TrustBox script -->
