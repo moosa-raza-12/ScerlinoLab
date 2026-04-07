@@ -66,6 +66,10 @@
   transition: width .15s ease-out;
 }
 
+.lp-shipping-meta.lp-sticky-atc__meta {
+    margin: 12px 0 0 0;
+}
+
 @media (max-width: 767.98px) { 
 
     #lp-sticky-atc {
@@ -918,7 +922,8 @@ dots.forEach(function(dot) {
   if (stickyBar && mainAtcBtn) {
     var stickyObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
-        stickyBar.classList.toggle('is-visible', !entry.isIntersecting);
+        var scrolledPast = !entry.isIntersecting && entry.boundingClientRect.bottom < 0;
+        stickyBar.classList.toggle('is-visible', scrolledPast);
       });
     }, { threshold: 0 });
 
