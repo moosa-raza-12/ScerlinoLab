@@ -9,104 +9,228 @@
  */
 {
   "current": {
-    "animations_hover_elements": "none",
+    "logo": "shopify://shop_images/SerlinoLab_Website_Header_Logo_1080px.png",
+    "logo_width": 160,
+    "favicon": "shopify://shop_images/Favicon.png",
+    "type_header_font": "raleway_n8",
+    "heading_scale": 100,
+    "type_body_font": "raleway_n4",
+    "body_scale": 100,
+    "page_width": 1600,
+    "spacing_sections": 0,
+    "spacing_grid_horizontal": 40,
+    "spacing_grid_vertical": 8,
     "animations_reveal_on_scroll": true,
-    "badge_corner_radius": 40,
+    "animations_hover_elements": "none",
+    "buttons_border_thickness": 1,
+    "buttons_border_opacity": 100,
+    "buttons_radius": 40,
+    "buttons_shadow_opacity": 10,
+    "buttons_shadow_horizontal_offset": 0,
+    "buttons_shadow_vertical_offset": 12,
+    "buttons_shadow_blur": 20,
+    "variant_pills_border_thickness": 1,
+    "variant_pills_border_opacity": 55,
+    "variant_pills_radius": 40,
+    "variant_pills_shadow_opacity": 0,
+    "variant_pills_shadow_horizontal_offset": 0,
+    "variant_pills_shadow_vertical_offset": 4,
+    "variant_pills_shadow_blur": 5,
+    "inputs_border_thickness": 1,
+    "inputs_border_opacity": 55,
+    "inputs_radius": 0,
+    "inputs_shadow_opacity": 0,
+    "inputs_shadow_horizontal_offset": 0,
+    "inputs_shadow_vertical_offset": 4,
+    "inputs_shadow_blur": 5,
+    "card_style": "standard",
+    "card_image_padding": 0,
+    "card_text_alignment": "left",
+    "card_color_scheme": "scheme-2",
+    "card_border_thickness": 0,
+    "card_border_opacity": 10,
+    "card_corner_radius": 0,
+    "card_shadow_opacity": 0,
+    "card_shadow_horizontal_offset": 0,
+    "card_shadow_vertical_offset": 4,
+    "card_shadow_blur": 5,
+    "collection_card_style": "standard",
+    "collection_card_image_padding": 0,
+    "collection_card_text_alignment": "left",
+    "collection_card_color_scheme": "scheme-2",
+    "collection_card_border_thickness": 0,
+    "collection_card_border_opacity": 10,
+    "collection_card_corner_radius": 0,
+    "collection_card_shadow_opacity": 0,
+    "collection_card_shadow_horizontal_offset": 0,
+    "collection_card_shadow_vertical_offset": 4,
+    "collection_card_shadow_blur": 5,
+    "blog_card_style": "standard",
+    "blog_card_image_padding": 0,
+    "blog_card_text_alignment": "left",
+    "blog_card_color_scheme": "scheme-2",
+    "blog_card_border_thickness": 0,
+    "blog_card_border_opacity": 10,
+    "blog_card_corner_radius": 0,
+    "blog_card_shadow_opacity": 0,
+    "blog_card_shadow_horizontal_offset": 0,
+    "blog_card_shadow_vertical_offset": 4,
+    "blog_card_shadow_blur": 5,
+    "text_boxes_border_thickness": 0,
+    "text_boxes_border_opacity": 10,
+    "text_boxes_radius": 0,
+    "text_boxes_shadow_opacity": 0,
+    "text_boxes_shadow_horizontal_offset": 0,
+    "text_boxes_shadow_vertical_offset": 4,
+    "text_boxes_shadow_blur": 5,
+    "media_border_thickness": 1,
+    "media_border_opacity": 5,
+    "media_radius": 0,
+    "media_shadow_opacity": 0,
+    "media_shadow_horizontal_offset": 0,
+    "media_shadow_vertical_offset": 4,
+    "media_shadow_blur": 5,
+    "popup_border_thickness": 1,
+    "popup_border_opacity": 10,
+    "popup_corner_radius": 0,
+    "popup_shadow_opacity": 5,
+    "popup_shadow_horizontal_offset": 0,
+    "popup_shadow_vertical_offset": 4,
+    "popup_shadow_blur": 5,
+    "drawer_border_thickness": 1,
+    "drawer_border_opacity": 10,
+    "drawer_shadow_opacity": 0,
+    "drawer_shadow_horizontal_offset": 0,
+    "drawer_shadow_vertical_offset": 4,
+    "drawer_shadow_blur": 5,
     "badge_position": "bottom left",
-    "blocks": {
-      "10312807297210203588": {
-        "disabled": false,
-        "settings": {},
-        "type": "shopify://apps/aftersell-by-rokt/blocks/utm-triggers/509ec35d-0632-4dfc-a105-fa799cd9d149"
+    "badge_corner_radius": 40,
+    "sale_badge_color_scheme": "scheme-4",
+    "sold_out_badge_color_scheme": "scheme-3",
+    "brand_headline": "",
+    "brand_description": "<p></p>",
+    "brand_image_width": 100,
+    "social_facebook_link": "",
+    "social_instagram_link": "",
+    "social_youtube_link": "",
+    "social_tiktok_link": "",
+    "social_twitter_link": "",
+    "social_snapchat_link": "",
+    "social_pinterest_link": "",
+    "social_tumblr_link": "",
+    "social_vimeo_link": "",
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "currency_code_enabled": true,
+    "cart_type": "notification",
+    "show_vendor": false,
+    "show_cart_note": false,
+    "cart_drawer_collection": "",
+    "cart_color_scheme": "scheme-1",
+    "sections": {
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
       },
-      "14060646107696862457": {
-        "disabled": false,
-        "settings": {},
-        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8"
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
       },
-      "14327677521557774844": {
-        "disabled": false,
-        "settings": {},
-        "type": "shopify://apps/simprosys-google-shopping-feed/blocks/core_settings_block/1f0b859e-9fa6-4007-97e8-4513aff5ff3b"
-      },
-      "15557474716127144420": {
-        "disabled": false,
-        "settings": {},
-        "type": "shopify://apps/kaching-bundles/blocks/app-embed-block/6c637362-a106-4a32-94ac-94dcfd68cdb8"
-      },
-      "17676059084223943535": {
-        "disabled": false,
-        "settings": {},
-        "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a"
-      },
-      "6478312753674380289": {
-        "disabled": false,
-        "settings": {},
-        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3"
-      },
-      "855628211100114053": {
-        "disabled": false,
-        "settings": {},
-        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507"
-      },
-      "8703857832570158530": {
-        "disabled": false,
-        "settings": {},
-        "type": "shopify://apps/opus-cart-upsell/blocks/cart-drawer-app/6a3c5cf8-b330-4c39-a8c5-80f923c2e741"
-      },
-      "8778269090131883189": {
-        "disabled": true,
-        "settings": {},
-        "type": "shopify://apps/kaching-bundles/blocks/app-embed-block-v2/6c637362-a106-4a32-94ac-94dcfd68cdb8"
+      "marquee": {
+        "type": "marquee",
+        "blocks": {
+          "text_gpNtnP": {
+            "type": "text",
+            "settings": {
+              "new_text": "❄️Winter Sale: 47% off and free shipping",
+              "text_style": "highlight"
+            }
+          },
+          "text_7MJDHc": {
+            "type": "text",
+            "disabled": true,
+            "settings": {
+              "new_text": "Same Formulas, New Look",
+              "text_style": "highlight"
+            }
+          }
+        },
+        "block_order": [
+          "text_gpNtnP",
+          "text_7MJDHc"
+        ],
+        "custom_css": [
+          ".custom-marquee {position: fixed; top: 0; width: 100%; z-index: 9999;}",
+          "header.site-header {margin-top: 54px;}"
+        ],
+        "settings": {
+          "colorBackground": "#17162e",
+          "colorText": "#ffffff",
+          "link": "shopify://products/antiage-night-cream",
+          "marquee_height": 54,
+          "font_size": 24,
+          "highlight_text": "❄️ Winter Sale",
+          "main_text": "47% off and free shipping",
+          "highlight_position": "top",
+          "show_icon": true,
+          "enable_countdown": true,
+          "countdown_date": "2026-04-12T23:59:59"
+        }
       }
     },
-    "blog_card_border_opacity": 10,
-    "blog_card_border_thickness": 0,
-    "blog_card_color_scheme": "scheme-2",
-    "blog_card_corner_radius": 0,
-    "blog_card_image_padding": 0,
-    "blog_card_shadow_blur": 5,
-    "blog_card_shadow_horizontal_offset": 0,
-    "blog_card_shadow_opacity": 0,
-    "blog_card_shadow_vertical_offset": 4,
-    "blog_card_style": "standard",
-    "blog_card_text_alignment": "left",
-    "body_scale": 100,
-    "brand_description": "<p></p>",
-    "brand_headline": "",
-    "brand_image_width": 100,
-    "buttons_border_opacity": 100,
-    "buttons_border_thickness": 1,
-    "buttons_radius": 40,
-    "buttons_shadow_blur": 20,
-    "buttons_shadow_horizontal_offset": 0,
-    "buttons_shadow_opacity": 10,
-    "buttons_shadow_vertical_offset": 12,
-    "card_border_opacity": 10,
-    "card_border_thickness": 0,
-    "card_color_scheme": "scheme-2",
-    "card_corner_radius": 0,
-    "card_image_padding": 0,
-    "card_shadow_blur": 5,
-    "card_shadow_horizontal_offset": 0,
-    "card_shadow_opacity": 0,
-    "card_shadow_vertical_offset": 4,
-    "card_style": "standard",
-    "card_text_alignment": "left",
-    "cart_color_scheme": "scheme-1",
-    "cart_drawer_collection": "",
-    "cart_type": "notification",
-    "collection_card_border_opacity": 10,
-    "collection_card_border_thickness": 0,
-    "collection_card_color_scheme": "scheme-2",
-    "collection_card_corner_radius": 0,
-    "collection_card_image_padding": 0,
-    "collection_card_shadow_blur": 5,
-    "collection_card_shadow_horizontal_offset": 0,
-    "collection_card_shadow_opacity": 0,
-    "collection_card_shadow_vertical_offset": 4,
-    "collection_card_style": "standard",
-    "collection_card_text_alignment": "left",
+    "content_for_index": [],
+    "blocks": {
+      "10312807297210203588": {
+        "type": "shopify://apps/aftersell-by-rokt/blocks/utm-triggers/509ec35d-0632-4dfc-a105-fa799cd9d149",
+        "disabled": false,
+        "settings": {}
+      },
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "14327677521557774844": {
+        "type": "shopify://apps/simprosys-google-shopping-feed/blocks/core_settings_block/1f0b859e-9fa6-4007-97e8-4513aff5ff3b",
+        "disabled": false,
+        "settings": {}
+      },
+      "15557474716127144420": {
+        "type": "shopify://apps/kaching-bundles/blocks/app-embed-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
+        "disabled": false,
+        "settings": {}
+      },
+      "17676059084223943535": {
+        "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
+        "disabled": false,
+        "settings": {}
+      },
+      "6478312753674380289": {
+        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
+        "disabled": false,
+        "settings": {}
+      },
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "8703857832570158530": {
+        "type": "shopify://apps/opus-cart-upsell/blocks/cart-drawer-app/6a3c5cf8-b330-4c39-a8c5-80f923c2e741",
+        "disabled": false,
+        "settings": {}
+      },
+      "8778269090131883189": {
+        "type": "shopify://apps/kaching-bundles/blocks/app-embed-block-v2/6c637362-a106-4a32-94ac-94dcfd68cdb8",
+        "disabled": true,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
@@ -174,131 +298,7 @@
           "shadow": "#151723"
         }
       }
-    },
-    "content_for_index": [],
-    "currency_code_enabled": true,
-    "drawer_border_opacity": 10,
-    "drawer_border_thickness": 1,
-    "drawer_shadow_blur": 5,
-    "drawer_shadow_horizontal_offset": 0,
-    "drawer_shadow_opacity": 0,
-    "drawer_shadow_vertical_offset": 4,
-    "favicon": "shopify://shop_images/Favicon.png",
-    "heading_scale": 100,
-    "inputs_border_opacity": 55,
-    "inputs_border_thickness": 1,
-    "inputs_radius": 0,
-    "inputs_shadow_blur": 5,
-    "inputs_shadow_horizontal_offset": 0,
-    "inputs_shadow_opacity": 0,
-    "inputs_shadow_vertical_offset": 4,
-    "logo": "shopify://shop_images/SerlinoLab_Website_Header_Logo_1080px.png",
-    "logo_width": 160,
-    "media_border_opacity": 5,
-    "media_border_thickness": 1,
-    "media_radius": 0,
-    "media_shadow_blur": 5,
-    "media_shadow_horizontal_offset": 0,
-    "media_shadow_opacity": 0,
-    "media_shadow_vertical_offset": 4,
-    "page_width": 1600,
-    "popup_border_opacity": 10,
-    "popup_border_thickness": 1,
-    "popup_corner_radius": 0,
-    "popup_shadow_blur": 5,
-    "popup_shadow_horizontal_offset": 0,
-    "popup_shadow_opacity": 5,
-    "popup_shadow_vertical_offset": 4,
-    "predictive_search_enabled": true,
-    "predictive_search_show_price": false,
-    "predictive_search_show_vendor": false,
-    "sale_badge_color_scheme": "scheme-4",
-    "sections": {
-      "main-password-header": {
-        "type": "main-password-header",
-        "settings": {
-          "color_scheme": "scheme-1"
-        }
-      },
-      "main-password-footer": {
-        "type": "main-password-footer",
-        "settings": {
-          "color_scheme": "scheme-1"
-        }
-      },
-      "marquee": {
-        "type": "marquee",
-        "blocks": {
-          "text_gpNtnP": {
-            "type": "text",
-            "settings": {
-              "new_text": "❄️Winter Sale: 47% off and free shipping",
-              "text_style": "highlight"
-            }
-          },
-          "text_7MJDHc": {
-            "type": "text",
-            "disabled": true,
-            "settings": {
-              "new_text": "Same Formulas, New Look",
-              "text_style": "highlight"
-            }
-          }
-        },
-        "block_order": [
-          "text_gpNtnP",
-          "text_7MJDHc"
-        ],
-        "custom_css": [
-          ".custom-marquee {position: fixed; top: 0; width: 100%; z-index: 9999;}",
-          "header.site-header {margin-top: 54px;}"
-        ],
-        "settings": {
-          "colorBackground": "#17162e",
-          "colorText": "#ffffff",
-          "link": "",
-          "marquee_height": 54,
-          "font_size": 24,
-          "highlight_text": "❄️ Winter Sale",
-          "main_text": "47% off and free shipping",
-          "highlight_position": "top",
-          "show_icon": true,
-          "enable_countdown": true,
-          "countdown_date": "2026-04-12T23:59:59"
-        }
-      }
-    },
-    "show_cart_note": false,
-    "show_vendor": false,
-    "social_facebook_link": "",
-    "social_instagram_link": "",
-    "social_pinterest_link": "",
-    "social_snapchat_link": "",
-    "social_tiktok_link": "",
-    "social_tumblr_link": "",
-    "social_twitter_link": "",
-    "social_vimeo_link": "",
-    "social_youtube_link": "",
-    "sold_out_badge_color_scheme": "scheme-3",
-    "spacing_grid_horizontal": 40,
-    "spacing_grid_vertical": 8,
-    "spacing_sections": 0,
-    "text_boxes_border_opacity": 10,
-    "text_boxes_border_thickness": 0,
-    "text_boxes_radius": 0,
-    "text_boxes_shadow_blur": 5,
-    "text_boxes_shadow_horizontal_offset": 0,
-    "text_boxes_shadow_opacity": 0,
-    "text_boxes_shadow_vertical_offset": 4,
-    "type_body_font": "raleway_n4",
-    "type_header_font": "raleway_n8",
-    "variant_pills_border_opacity": 55,
-    "variant_pills_border_thickness": 1,
-    "variant_pills_radius": 40,
-    "variant_pills_shadow_blur": 5,
-    "variant_pills_shadow_horizontal_offset": 0,
-    "variant_pills_shadow_opacity": 0,
-    "variant_pills_shadow_vertical_offset": 4
+    }
   },
   "presets": {
     "Default": {
