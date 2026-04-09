@@ -245,6 +245,26 @@ class QuantityInput extends HTMLElement {
   onButtonClick(event) {
     event.preventDefault();
     const previousValue = this.input.value;
+    const minValue = parseInt(this.input.dataset.min || this.input.min || 0);
+
+    if (
+      event.target.name === 'minus' &&
+      this.dataset.removeOnMin === 'true' &&
+      parseInt(previousValue) <= minValue
+    ) {
+      const cartItems = this.closest('cart-items') || this.closest('cart-drawer-items');
+
+      if (cartItems && typeof cartItems.updateQuantity === 'function') {
+        cartItems.updateQuantity(
+          this.input.dataset.index,
+          0,
+          event,
+          event.target.name,
+          this.input.dataset.quantityVariantId
+        );
+        return;
+      }
+    }
 
     if (event.target.name === 'plus') {
       if (parseInt(this.input.dataset.min) > parseInt(this.input.step) && this.input.value == 0) {

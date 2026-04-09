@@ -83,6 +83,14 @@ class CartDrawer extends HTMLElement {
       sectionElement.innerHTML = this.getSectionInnerHTML(parsedState.sections[section.id], section.selector);
     });
 
+    document.dispatchEvent(
+      new CustomEvent('cart:updated', {
+        detail: {
+          source: 'cart-drawer-render',
+        },
+      })
+    );
+
     setTimeout(() => {
       this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
       this.open();

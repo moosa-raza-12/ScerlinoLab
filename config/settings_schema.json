@@ -1449,6 +1449,185 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
+      },
+      {
+        "type": "header",
+        "content": "Cart drawer content"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_title",
+        "label": "Drawer title",
+        "default": "Your cart"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_checkout_label",
+        "label": "Checkout button label",
+        "default": "Secure Checkout"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_checkout_note",
+        "label": "Checkout note",
+        "default": "Delivered in 2-5 business days"
+      },
+      {
+        "type": "header",
+        "content": "Cart drawer free shipping"
+      },
+      {
+        "type": "range",
+        "id": "cart_drawer_free_shipping_threshold",
+        "min": 0,
+        "max": 500,
+        "step": 5,
+        "unit": "$",
+        "label": "Free shipping threshold",
+        "default": 75
+      },
+      {
+        "type": "richtext",
+        "id": "cart_drawer_free_shipping_success",
+        "label": "Free shipping success text",
+        "default": "<p><strong>Congrats!</strong> You have achieved <strong>Free Shipping.</strong></p>"
+      },
+      {
+        "type": "richtext",
+        "id": "cart_drawer_free_shipping_remaining",
+        "label": "Free shipping remaining text",
+        "info": "Use [amount] where the remaining amount should appear.",
+        "default": "<p>You're <strong>[amount]</strong> away from free shipping.</p>"
+      },
+      {
+        "type": "header",
+        "content": "Cart drawer bundle sections"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_free_gifts_heading",
+        "label": "Free gifts heading",
+        "default": "Your free gifts"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_upsell_heading",
+        "label": "Upsell section heading",
+        "default": "You may also like"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_upsell_save_label",
+        "label": "Upsell savings label",
+        "default": "Save"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_free_label",
+        "label": "Free badge label",
+        "default": "FREE"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_add_label",
+        "label": "Upsell add button label",
+        "default": "Add"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_adding_label",
+        "label": "Upsell loading button label",
+        "default": "Adding..."
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_added_label",
+        "label": "Upsell added button label",
+        "default": "Added"
+      },
+      {
+        "type": "header",
+        "content": "Cart drawer metafields"
+      },
+      {
+        "type": "text",
+        "id": "cart_bundle_upsell_metafield_namespace",
+        "label": "Upsell metafield namespace",
+        "default": "custom"
+      },
+      {
+        "type": "text",
+        "id": "cart_bundle_upsell_metafield_key",
+        "label": "Upsell metafield key",
+        "default": "cart_addons"
+      },
+      {
+        "type": "paragraph",
+        "content": "Supports product_reference and list.product_reference metafields on products already in the cart."
+      },
+      {
+        "type": "text",
+        "id": "cart_bundle_gift_metafield_namespace",
+        "label": "Free gift metafield namespace",
+        "default": "custom"
+      },
+      {
+        "type": "text",
+        "id": "cart_bundle_gift_metafield_key",
+        "label": "Free gift metafield key",
+        "default": "bundle_free_gifts"
+      },
+      {
+        "type": "paragraph",
+        "content": "Supports product_reference, list.product_reference, variant_reference and list.variant_reference metafields on upsell products."
+      },
+      {
+        "type": "header",
+        "content": "Empty cart content"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_empty_heading",
+        "label": "Empty cart heading",
+        "default": "Your Cart Is Empty"
+      },
+      {
+        "type": "textarea",
+        "id": "cart_drawer_empty_text",
+        "label": "Empty cart text",
+        "default": "But Better Skin Is Just One Click Away"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_empty_button_label",
+        "label": "Empty cart button label",
+        "default": "Shop Now"
+      },
+      {
+        "type": "url",
+        "id": "cart_drawer_empty_button_link",
+        "label": "Empty cart button link"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_empty_menu_heading",
+        "label": "Empty cart links heading",
+        "default": "Learn More About SerlinoLab"
+      },
+      {
+        "type": "link_list",
+        "id": "cart_drawer_empty_menu",
+        "label": "Empty cart links menu"
+      },
+      {
+        "type": "image_picker",
+        "id": "cart_drawer_empty_promo_image",
+        "label": "Empty cart promo image"
+      },
+      {
+        "type": "url",
+        "id": "cart_drawer_empty_promo_link",
+        "label": "Empty cart promo link"
       }
     ]
   }

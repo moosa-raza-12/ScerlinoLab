@@ -1,6 +1,6 @@
 .drawer {
   position: fixed;
-  z-index: 1000;
+  z-index: 9999999;
   left: 0;
   top: 0;
   width: 100vw;
@@ -31,7 +31,6 @@
 
 .drawer__inner-empty {
   height: 100%;
-  padding: 0 1.5rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -206,10 +205,6 @@ cart-drawer-items {
   margin-bottom: 0;
 }
 
-.cart-drawer .cart-item:last-child {
-  margin-bottom: 1rem;
-}
-
 .cart-drawer .cart-item__media {
   grid-row: 1 / 3;
 }
@@ -240,10 +235,6 @@ cart-drawer-items {
 
 .cart-drawer .cart-items th {
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
-}
-
-.cart-drawer .cart-item:last-child {
-  margin-bottom: 1.5rem;
 }
 
 .cart-drawer .cart-item .loading__spinner {

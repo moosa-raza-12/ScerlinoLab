@@ -1,0 +1,130 @@
+{%- liquid
+  assign line = item.index | plus: 1
+  assign is_gift = gift | default: false
+-%}
+
+{%- if is_gift -%}
+  <article
+    id="CartDrawer-Item-{{ line }}"
+    class="cart-item cart-bundle-drawer__item cart-bundle-drawer__item--gift"
+    data-cart-item-key="{{ item.key | escape }}"
+    {% if item.properties['_bundle_uid'] != blank %}
+      data-bundle-uid="{{ item.properties['_bundle_uid'] | escape }}"
+    {% endif %}
+  >
+    {%- render 'loading-spinner' -%}
+
+    <div class="cart-bundle-drawer__item-media">
+      {%- if item.image -%}
+        <a href="{{ item.url }}" class="cart-item__link" tabindex="-1" aria-hidden="true"></a>
+        <img
+          class="cart-item__image"
+          src="{{ item.image | image_url: width: 154 }}"
+          alt="{{ item.image.alt | escape }}"
+          loading="lazy"
+          width="77"
+          height="77"
+        >
+      {%- endif -%}
+      <span class="cart-bundle-drawer__item-quantity-badge">{{ item.quantity }}</span>
+    </div>
+
+    <a href="{{ item.url }}" class="cart-item__name cart-bundle-drawer__gift-name">
+      {{ item.product.title | escape }}
+    </a>
+
+    <div class="cart-bundle-drawer__gift-price-group">
+      <span class="cart-bundle-drawer__gift-badge">{{ gift_label | default: 'FREE' }}</span>
+      {%- if item.original_line_price > 0 -%}
+        <s class="cart-bundle-drawer__gift-compare">{{ item.original_line_price | money }}</s>
+      {%- endif -%}
+    </div>
+
+    <div id="CartDrawer-LineItemError-{{ line }}" class="cart-item__error cart-bundle-drawer__gift-error" role="alert">
+      <small class="cart-item__error-text"></small>
+      <span class="svg-wrapper">
+        {{- 'icon-error.svg' | inline_asset_content -}}
+      </span>
+    </div>
+  </article>
+{%- else -%}
+  <article
+    id="CartDrawer-Item-{{ line }}"
+    class="cart-item cart-bundle-drawer__item cart-bundle-drawer__item--standard"
+    data-cart-item-key="{{ item.key | escape }}"
+    {% if item.properties['_bundle_uid'] != blank %}
+      data-bundle-uid="{{ item.properties['_bundle_uid'] | escape }}"
+    {% endif %}
+  >
+    {%- render 'loading-spinner' -%}
+
+    <div class="cart-bundle-drawer__item-media">
+      {%- if item.image -%}
+        <a href="{{ item.url }}" class="cart-item__link" tabindex="-1" aria-hidden="true"></a>
+        <img
+          class="cart-item__image"
+          src="{{ item.image | image_url: width: 154 }}"
+          alt="{{ item.image.alt | escape }}"
+          loading="lazy"
+          width="77"
+          height="77"
+        >
+      {%- endif -%}
+    </div>
+
+    <a href="{{ item.url }}" class="cart-item__name cart-bundle-drawer__standard-name">
+      {{ item.product.title | escape }}
+    </a>
+
+    <div class="cart-bundle-drawer__standard-price">
+      <strong class="cart-bundle-drawer__standard-price-value">{{ item.final_line_price | money }}</strong>
+    </div>
+
+    <div class="cart-bundle-drawer__standard-actions">
+      <quantity-input class="quantity cart-quantity cart-bundle-drawer__standard-quantity" data-remove-on-min="true">
+        <button class="quantity__button" name="minus" type="button">
+          <span class="visually-hidden">
+            {{- 'products.product.quantity.decrease' | t: product: item.product.title | escape -}}
+          </span>
+          <span class="svg-wrapper">
+            {{- 'icon-minus.svg' | inline_asset_content -}}
+          </span>
+        </button>
+        <input
+          class="quantity__input"
+          type="number"
+          data-quantity-variant-id="{{ item.variant.id }}"
+          name="updates[]"
+          value="{{ item.quantity }}"
+          {% # theme-check-disable %}
+          data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+          min="0"
+          data-min="{{ item.variant.quantity_rule.min }}"
+          {% if item.variant.quantity_rule.max != null %}
+            max="{{ item.variant.quantity_rule.max }}"
+          {% endif %}
+          step="{{ item.variant.quantity_rule.increment }}"
+          {% # theme-check-enable %}
+          aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+          id="Drawer-quantity-{{ line }}"
+          data-index="{{ line }}"
+        >
+        <button class="quantity__button" name="plus" type="button">
+          <span class="visually-hidden">
+            {{- 'products.product.quantity.increase' | t: product: item.product.title | escape -}}
+          </span>
+          <span class="svg-wrapper">
+            {{- 'icon-plus.svg' | inline_asset_content -}}
+          </span>
+        </button>
+      </quantity-input>
+    </div>
+
+    <div id="CartDrawer-LineItemError-{{ line }}" class="cart-item__error cart-bundle-drawer__standard-error" role="alert">
+      <small class="cart-item__error-text"></small>
+      <span class="svg-wrapper">
+        {{- 'icon-error.svg' | inline_asset_content -}}
+      </span>
+    </div>
+  </article>
+{%- endif -%}

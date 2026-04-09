@@ -1,1 +1,201 @@
-{"sections":{"main":{"type":"main-product","blocks":{"judge_me_reviews_preview_badge_xgPYYr":{"type":"shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8","settings":{}},"title":{"type":"title","settings":{}},"price":{"type":"price","settings":{}},"variant_picker":{"type":"variant_picker","settings":{"picker_type":"button","swatch_shape":"circle"}},"quantity_selector":{"type":"quantity_selector","settings":{}},"buy_buttons":{"type":"buy_buttons","settings":{"show_dynamic_checkout":false,"show_gift_card_recipient":true}},"description":{"type":"description","settings":{}},"parcel_panel_edd_KzGUgf":{"type":"shopify:\/\/apps\/parcelwill-parcel-panel\/blocks\/edd\/fc785c3f-90e0-4c98-a20c-7cde9ba5e4b5","settings":{"corner_radius":4,"margin_top":10,"margin_bottom":10,"padding_x":16,"padding_y":16}}},"block_order":["judge_me_reviews_preview_badge_xgPYYr","title","price","variant_picker","quantity_selector","buy_buttons","description","parcel_panel_edd_KzGUgf"],"settings":{"enable_sticky_info":true,"color_scheme":"scheme-2","media_size":"large","constrain_to_viewport":true,"media_fit":"contain","gallery_layout":"stacked","mobile_thumbnails":"hide","media_position":"left","image_zoom":"lightbox","hide_variants":true,"enable_video_looping":false,"padding_top":36,"padding_bottom":12}},"related-products":{"type":"related-products","settings":{"heading":"You may also like","heading_size":"h1","products_to_show":4,"columns_desktop":4,"columns_mobile":"2","color_scheme":"scheme-2","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"padding_top":36,"padding_bottom":28}},"1753711992306e02c6":{"type":"apps","blocks":{"judge_me_reviews_preview_badge_ihKqEJ":{"type":"shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8","settings":{}},"judge_me_reviews_featured_carousel_DpbPUt":{"type":"shopify:\/\/apps\/judge-me-reviews\/blocks\/featured_carousel\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8","settings":{"maxwidth":1080}}},"block_order":["judge_me_reviews_preview_badge_ihKqEJ","judge_me_reviews_featured_carousel_DpbPUt"],"settings":{"include_margins":true}},"multicolumn_x77yzR":{"type":"multicolumn","blocks":{"column_EbDtQn":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/1_delivery_box.png","title":"Shipping in 2-5 Days","text":"<p>FREE Shipping for orders over $75<\/p>","link_label":"","link":""}},"column_XC4jB8":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/Multicolumn_icons.png","title":"Made In Italy 🇮🇹","text":"<p>Highest quality ingredient sourced from Italian farm and high tech labs<\/p>","link_label":"","link":""}},"column_PiPKKk":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/3_star.png","title":"4.7\/5 ⭐️⭐️⭐️⭐️⭐️","text":"<p>The N.1 brand in Italy for men's skincare<\/p>","link_label":"","link":""}},"column_E9BJqk":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/chat_support.png","title":"Exceptional Support","text":"<p>Available 7 days a week: <\/p><p>info@serlinolab.com<br\/>+1 813-419-0008<\/p>","link_label":"","link":""}}},"block_order":["column_EbDtQn","column_XC4jB8","column_PiPKKk","column_E9BJqk"],"name":"t:sections.multicolumn.presets.name","settings":{"title":"","heading_size":"h1","image_width":"third","image_ratio":"adapt","button_label":"","button_link":"","columns_desktop":4,"column_alignment":"center","background_style":"none","color_scheme":"scheme-2","columns_mobile":"1","swipe_on_mobile":true,"padding_top":36,"padding_bottom":36}}},"order":["main","related-products","1753711992306e02c6","multicolumn_x77yzR"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "judge_me_reviews_preview_badge_xgPYYr": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "parcel_panel_edd_KzGUgf": {
+          "type": "shopify://apps/parcelwill-parcel-panel/blocks/edd/fc785c3f-90e0-4c98-a20c-7cde9ba5e4b5",
+          "settings": {
+            "corner_radius": 4,
+            "margin_top": 10,
+            "margin_bottom": 10,
+            "padding_x": 16,
+            "padding_y": 16
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_preview_badge_xgPYYr",
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "parcel_panel_edd_KzGUgf"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-2",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h1",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-2",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "1753711992306e02c6": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_preview_badge_ihKqEJ": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "judge_me_reviews_featured_carousel_DpbPUt": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_preview_badge_ihKqEJ",
+        "judge_me_reviews_featured_carousel_DpbPUt"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "multicolumn_x77yzR": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_EbDtQn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/1_delivery_box.png",
+            "title": "Shipping in 2-5 Days",
+            "text": "<p>FREE Shipping for orders over $75</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_XC4jB8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Multicolumn_icons.png",
+            "title": "Made In Italy 🇮🇹",
+            "text": "<p>Highest quality ingredient sourced from Italian farm and high tech labs</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_PiPKKk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/3_star.png",
+            "title": "4.7/5 ⭐️⭐️⭐️⭐️⭐️",
+            "text": "<p>The N.1 brand in Italy for men's skincare</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_E9BJqk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/chat_support.png",
+            "title": "Exceptional Support",
+            "text": "<p>Available 7 days a week: </p><p>info@serlinolab.com<br/>+1 813-419-0008</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_EbDtQn",
+        "column_XC4jB8",
+        "column_PiPKKk",
+        "column_E9BJqk"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "1753711992306e02c6",
+    "multicolumn_x77yzR"
+  ]
+}
