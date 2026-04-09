@@ -224,13 +224,13 @@
         "disabled": false,
         "settings": {}
       },
-      "8703857832570158530": {
-        "type": "shopify://apps/opus-cart-upsell/blocks/cart-drawer-app/6a3c5cf8-b330-4c39-a8c5-80f923c2e741",
-        "disabled": false,
-        "settings": {}
-      },
       "8778269090131883189": {
         "type": "shopify://apps/kaching-bundles/blocks/app-embed-block-v2/6c637362-a106-4a32-94ac-94dcfd68cdb8",
+        "disabled": true,
+        "settings": {}
+      },
+      "8703857832570158530": {
+        "type": "shopify://apps/opus-cart-upsell/blocks/cart-drawer-app/6a3c5cf8-b330-4c39-a8c5-80f923c2e741",
         "disabled": true,
         "settings": {}
       }
