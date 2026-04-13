@@ -9,131 +9,77 @@
  */
 {
   "sections": {
-    "gp_global_section_578003548697002949-7": {
-      "type": "gp-global-section-578003548697002949",
+    "gp_section_580496207122792968": {
+      "type": "gp-section-580496207122792968",
+      "blocks": {
+        "moast_carousel_UTR3Wg": {
+          "type": "shopify://apps/moast/blocks/carousel/1ac7547b-5443-446c-868c-7fab4566ee16",
+          "settings": {
+            "dynamic": false,
+            "feed": "520dd46b-c399-4c10-be60-1a93918655d9",
+            "feed_usage": "back_up",
+            "header": "",
+            "slide_type": "cards",
+            "product_cards": "none",
+            "autoplay_mode": "all",
+            "autoscroll_duration": 0,
+            "slide_size": "100",
+            "aspect_ratio": "vertical",
+            "border": 0,
+            "border_color": "linear-gradient(to right, #833ab4, #fd1d1d, #fcb045)",
+            "slide_rounding": "6",
+            "slide_spacing": 16,
+            "padding_top": 40,
+            "pagination": "overlay",
+            "alignment": "center",
+            "click_action": "fullscreen",
+            "float_location": "bottom_right",
+            "float_size": "medium",
+            "show_captions": false,
+            "custom_css": ""
+          }
+        },
+        "gp_app_kaching-bundles_g8yoLhOsaC": {
+          "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
+          "settings": {
+            "product": "{{ product }}",
+            "manual_deal_block_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "moast_carousel_UTR3Wg",
+        "gp_app_kaching-bundles_g8yoLhOsaC"
+      ],
       "settings": {
-        "section_preload": "false",
-        "checksum": "",
-        "ggnGs12-Z1B_text": "Anti-aging ingredients. <span style=\"color:#0155B6;\">Dermatologist Approved.</span>",
-        "ggB9ocecH-q_text": "<p>They don't just hydrate, but actively fight the signs of time</p>",
-        "ggRyjsa0tmT_label": "<p>Rebuild</p>",
-        "gg0LM__B8FF_text": "<p>Retynal Palmitate</p>",
-        "gga63BqK69q_text": "<p>Unlike harsh retinol that irritates, this is a Bio-identical Vitamin A your skin recognizes as its own. It stimulates collagen production without redness or peeling</p>",
-        "ggUArggES35_label": "<p>Protect</p>",
-        "ggxUgzRm_Jj_text": "<p>Italian Olive Oil</p>",
-        "ggfZyen1cpu_text": "<p>Powerful antioxidant that prevents collagen loss and protects skin from environmental damage</p>",
-        "ggpuoFL-R1O_label": "<p>Restore</p>",
-        "gghliwIxolK_text": "<p>Sodium Hyaluronate</p>",
-        "ggBtHP5oI8R_text": "<p>Unlike regular hyaluronic acid that stays on top, this low molecular weight version penetrates deep into the skin. Fills wrinkles from within for visible lifting</p>",
-        "ggSZDcGHmcC_childItem_0": "<p>Full Ingredient List</p>",
-        "ggRnfRQhKZp_text": "<p><span style=\"background-color:transparent;color:#000000;font-size:11pt;\">aqua, propylene glycol, glycerin, caprylic/capric triglyceride, hydrogenated ethylhexyl olivate, glyceryl stearate se, aloe barbadensis leaf juice, sodium polyacrylate, phenoxyethanol, hydrogenated olive oil unsaponifiables, tocopherol, tetrasodium glutamate diacetate, urea, trehalose, ethylhexylglycerin, hydrolyzed rice protein, lavandula angustifolia oil, propanediol, sorbitol, linalool, lecithin, olive oil peg-8 esters, helianthus annuus seed oil, tocopheryl acetate, hydroxyethylcellulose, sodium hyaluronate, potassium sorbate, sodium benzoate, xanthan gum, benzyl alcohol, sodium ascorbyl phosphate, limonene, retinyl palmitate, daucus carota sativa root, ascorbic acid, citric acid.</span></p>"
-      }
-    },
-    "gp_global_section_578438903275455207-5": {
-      "type": "gp-global-section-578438903275455207",
-      "settings": {
-        "section_preload": "false",
-        "checksum": ""
-      }
-    },
-    "gp_global_section_578689344378766209-9": {
-      "type": "gp-global-section-578689344378766209",
-      "settings": {
-        "section_preload": "false",
-        "checksum": "",
-        "ggEWS0HyaFY_text": "Dermatologically <span style=\"color:#0156B4;\">Tested in Italy </span>🇮🇹",
-        "ggKNKvSk1wm_text": "Dermatologically&nbsp;<br><span style=\"color:#0156B4;\">Tested in Italy </span>🇮🇹",
-        "gg35OU3qs2i_text": "<p>All Omnis creams are <strong>Made in Italy,</strong> produced by a<strong> small family owned</strong> <strong>lab with 38 years of experience.</strong></p><p>&nbsp;</p><p>❌ You won’t find: silicones, parabens, alcohol, synthetic fragrances. And of course, we do NOT test on animals!</p>"
-      }
-    },
-    "gp_global_section_578689601556710119-4": {
-      "type": "gp-global-section-578689601556710119",
-      "settings": {
-        "section_preload": "false",
-        "checksum": "",
-        "ggHosKKcadx_text": "From the First Application,<br><span style=\"color:#0155B6;\">Softer and More Elastic Skin</span>",
-        "ggzd_zWr5Wx_text": "From the First Application,&nbsp;<span style=\"color:#0155B6;\">Softer and More Elastic Skin</span>",
-        "ggDoSa4V4Gj_text": "<p>Visible <strong>wrinkle reduction*</strong></p>",
-        "ggc2NMC_Vh5_text": "<p>Confirms rapid absorption <strong>without greasy effect</strong></p>",
-        "ggfOmDqZVXB_text": "<p>More compact and toned skin in <strong>2 weeks</strong></p>",
-        "ggpJgU9SzKh_text": "<p>*Tests conducted on 124 men for 60 days</p>"
-      }
-    },
-    "gp_global_section_578690485296563073-6": {
-      "type": "gp-global-section-578690485296563073",
-      "settings": {
-        "section_preload": "false",
-        "checksum": "",
-        "ggLDUvfbJ4K_text": "Quick Absorption without Greasiness!",
-        "ggNrANFvusz_childItem_0": "<p><strong>The fragrance: </strong>light touch of lavender</p>",
-        "ggNrANFvusz_childItem_1": "<p><strong>The consistency: </strong>light and very fresh</p>",
-        "ggNrANFvusz_childItem_2": "<p><strong>Makes your skin feel: </strong>hydrated, soft and smooth</p>",
-        "ggNrANFvusz_childItem_3": "<p><strong>Makes your skin look: revitalized, deflated and radiant</strong></p>"
-      }
-    },
-    "gp_global_section_578704953934087041-2": {
-      "type": "gp-global-section-578704953934087041",
-      "settings": {
-        "section_preload": "false",
-        "checksum": "",
-        "ggn76sGJMNI_text": "Visible Results in<br><span style=\"color:#0155B6;\">Just 4 Weeks</span>",
-        "ggxXbq8652L_text": "Look <span style=\"color:#0155B6;\">Visibly Younger</span> in <span style=\"color:#000000;\">Weeks</span>",
-        "ggVF7Qko72Q_text": "<p>Maximum effectiveness after 2 bottle. Results may vary from person to person</p>"
-      }
-    },
-    "gp_global_section_578706541595591561-3": {
-      "type": "gp-global-section-578706541595591561",
-      "settings": {
-        "section_preload": "false",
-        "checksum": "",
-        "ggHMUVHYxt9_text": "The Science Behind <span style=\"color:#0155B6;\">OMNIS</span>",
-        "ggtpX4uWQHM_text": "<p>Every year after 40 men <strong>lose 1% of collagen</strong>. Omnis helps counteract this process for a more <strong>toned </strong>and <strong>youthful</strong> face.</p>"
-      }
-    },
-    "gp_global_section_578707057360765825-8": {
-      "type": "gp-global-section-578707057360765825",
-      "settings": {
-        "section_preload": "false",
-        "checksum": ""
-      }
-    },
-    "gp_global_section_578720624189375369-1": {
-      "type": "gp-global-section-578720624189375369",
-      "settings": {
-        "section_preload": "false",
-        "checksum": "",
-        "gg_Ilmmqi1d_text": "<p>\"Omnis, sales boom in Italy\"</p>",
-        "ggV930ImVYk_text": "<p>\"Made in Italy:&nbsp;<br>Omnis goes viral among men\"</p>",
-        "ggU2BJdZFfS_text": "<p>\"Omnis conquers the anti-aging market\"</p>",
-        "ggaw6WjoQSQ_text": "<p>\"Omnis, boom di vendite in Italia\"</p>",
-        "gg0oI_TdZ4z_text": "<p>\"Made in Italy: Omnis spopola tra gli uomini\"</p>",
-        "ggx5WwmS80u_text": "<p>\"Omnis conquista il mercato anti-età\"</p>"
-      }
-    },
-    "gp_global_section_578994961920295705-10": {
-      "type": "gp-global-section-578994961920295705",
-      "settings": {
-        "section_preload": "false",
-        "checksum": "",
-        "ggCKxnWloLD_text": "Do You Still Have <span style=\"color:#0155B6;\">Any Doubts</span>?",
-        "ggQVgYjz4RJ_childItem_0": "<p><span style=\"font-size:16px;\">How long does it take to see results?</span></p>",
-        "ggQVgYjz4RJ_childItem_1": "<p><span style=\"font-size:16px;\">How long does it last?</span></p>",
-        "ggQVgYjz4RJ_childItem_2": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Will Omnis work for me?</span></p>",
-        "ggQVgYjz4RJ_childItem_3": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Where is the formula produced?</span></p>",
-        "ggQVgYjz4RJ_childItem_4": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Is it suitable for sensitive skin?</span></p>",
-        "ggQVgYjz4RJ_childItem_5": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Does it leave a greasy feeling on the skin?</span></p>",
-        "ggQVgYjz4RJ_childItem_6": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">What is the full list of ingredients?</span></p>",
-        "ggQVgYjz4RJ_childItem_7": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">How do you use it?</span></p>",
-        "ggQVgYjz4RJ_childItem_8": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Can it visibly reduce the appearance of eye bags and puffy eyes?</span></p>",
-        "ggkCktYhb1__text": "<p><strong>You'll notice improvements from the very first use, but the real transformation happens week by week.</strong></p><p>&nbsp;</p><p><strong>Week 1-2:</strong> Your skin feels immediately smoother and more hydrated. People start saying \"you look rested today.\"</p><p>&nbsp;</p><p><strong>Week 6-8:</strong> This is where the magic happens. 93% of men see a significant reduction in wrinkles and fine lines. Your skin looks visibly younger, and people start asking \"what's your secret?\"</p><p>&nbsp;</p><p><strong>The science behind it:</strong> OMNIS works deep beneath the surface to stimulate collagen production - that's why it takes 6-8 weeks for the dramatic results. Unlike basic moisturizers that just sit on top, omnis uses a <strong>bio-identical form of Vitamin A</strong> your skin naturally stores. Your body recognizes it. It welcomes it in. So you get the collagen rebuilding of a prescription cream, with the gentleness of a moisturizer. All gain. No burn.</p><p>&nbsp;</p><p><strong>Here's the best part:</strong> You have <strong>60 days</strong> to see these results risk-free. If you don't look in the mirror after 8 weeks and see noticeably younger, firmer skin, we'll refund every penny. Thousands of men across Italy are already experiencing this transformation - <strong>try it yourself with zero risk</strong>.</p>",
-        "ggvB4QVVEaP_text": "<p><strong>1 bottle lasts exactly 1 month with daily use - which is why we recommend at least 2.</strong></p><p>&nbsp;</p><p><strong>Month 1</strong> gives initial improvements, but <strong>month 2</strong> is when 93% of men see dramatic results. Most men desperately search for more after seeing early changes.</p><p>&nbsp;</p><p>Plus our <strong>60-day money-back </strong>guarantee covers your entire transformation journey.</p>",
-        "ggbUHOmTnxs_text": "<p><strong>Here's the honest truth: OMNIS works for the vast majority of men, but we can't promise it works for absolutely everyone.</strong></p><p>&nbsp;</p><p>Our formula has delivered results for thousands of Italian men aged 40+. The clinical studies prove it - 87% see significant wrinkle reduction in 8 weeks. But every man's skin is different, and we'd be lying if we said it's 100% guaranteed for everyone.</p><p>&nbsp;</p><p><strong>That's exactly why we offer the 60-day money-back guarantee.</strong> We don't want your money if OMNIS doesn't give you the younger, firmer skin you're looking for. Try it for two full months - if you don't see dramatic improvements, we'll refund every penny.</p>",
-        "ggRc5Y_1poF_text": "<p>Omnis is 100% formulated and <strong>made in italy 🇮🇹</strong> &nbsp;following the strictest italian tests and standards.&nbsp;</p><p>&nbsp;</p><p>Formulated with 93% natural ingredients, it contains:</p><p>NO Alcohol, No Paraben, No harsh silicones</p><p>&nbsp;</p><p>It's vegan, cruelty free. and <strong>dermatologically tested.</strong></p>",
-        "ggCBDbaKf6F_text": "<p>&nbsp;Yes, the formula is gentle and suitable for all skin types, including sensitive skin.</p>",
-        "ggOXNDMBmah_text": "<p>&nbsp;No, it has a <strong>lightweight, fast-absorbing texture</strong> that does not leave an oily residue.</p>",
-        "ggrsN-dkHKO_text": "<p>&nbsp;<strong>Full INCI:</strong></p><p>&nbsp;Aqua, propylene glycol, glycerin, caprylic/capric triglyceride, hydrogenated ethylhexyl olivate, glyceryl stearate se, aloe barbadensis leaf juice, sodium polyacrylate, phenoxyethanol, hydrogenated olive oil unsaponifiables, tocopherol, tetrasodium glutamate diacetate, urea, trehalose, ethylhexylglycerin, hydrolyzed rice protein, lavandula angustifolia oil, propanediol, sorbitol, linalool, lecithin, olive oil peg-8 esters, helianthus annuus seed oil, tocopheryl acetate, hydroxyethylcellulose, sodium hyaluronate, potassium sorbate, sodium benzoate, xanthan gum, benzyl alcohol, sodium ascorbyl phosphate, limonene, retinyl palmitate, daucus carota sativa root, ascorbic acid, citric acid.</p>",
-        "ggR6q8BZYnK_text": "<p>&nbsp;The <strong>Omnis Night Face Cream</strong> should be applied <strong>only at night</strong>. After cleansing your face, massage <strong>1-2 doses</strong> in circular motions until fully absorbed. Extend any excess product down to the neck.</p>",
-        "ggRuH9EFC9j_text": "<p>&nbsp;<strong>The cream is not specifically formulated for eye bags,</strong> but its firming and smoothing effect can help make the skin appear tighter and more youthful.</p>"
+        "section_preload": "true",
+        "checksum": "222fe8acc5adc5ba2025d6122f6660a9a982b3709b9497c0b3f44cc8a2f7715b_1_1_1_0__1",
+        "ggviiph8ERl_text": "<p>Omnis AntiAge Night Cream • 50ml</p>",
+        "ggSzrYgvgcA_text": "<p><strong>4.6 Excellent</strong> | 3,439+ reviews</p>",
+        "ggVLmbUDTCI_text": "<p><span style=\"font-size:23px;\"> gp-text-instant gp-text</span></p>",
+        "gg81WwevIKk_childItem_0": "<p>100% Made In Italy</p>",
+        "gg81WwevIKk_childItem_1": "<p>Dermatologically Tested</p>",
+        "gg81WwevIKk_childItem_2": "<p>Firms and smooths skin texture</p>",
+        "ggbsEHDd1cH_label": "Add to Cart",
+        "ggbsEHDd1cH_outOfStockLabel": "Out of stock",
+        "ggbsEHDd1cH_unavailableLabel": "Unavailable",
+        "ggbsEHDd1cH_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "ggd3njxJyN7_text": "60-day Guarantee",
+        "ggCdVdus-lO_text": "<p>If the product doesn't meet your expectations, you have up to 60 days to request a complete refund, without any complications.</p>",
+        "ggB9Gp8U8JQ_childItem_0": "<p>Will Omnis work for me?</p>",
+        "ggB9Gp8U8JQ_childItem_1": "<p>Can it be found in stores/pharmacies?</p>",
+        "ggB9Gp8U8JQ_childItem_2": "<p>How long does it last?</p>",
+        "ggB9Gp8U8JQ_childItem_3": "<p>How to use it?</p>",
+        "ggB9Gp8U8JQ_childItem_4": "<p>How long does it take to see results?</p>",
+        "ggB9Gp8U8JQ_childItem_5": "<p>How long does shipping take?</p>",
+        "ggB9Gp8U8JQ_childItem_6": "<p>Where is the formula produced?</p>",
+        "ggKZrkCgfQz_text": "<p><strong>Here's the honest truth: OMNIS works for the vast majority of men, but we can't promise it works for absolutely everyone.</strong></p><p> </p><p>Our formula has delivered results for thousands of Italian men aged 40+. The clinical studies prove it - 87% see significant wrinkle reduction in 8 weeks. But every man's skin is different, and we'd be lying if we said it's 100% guaranteed for everyone.</p><p> </p><p><strong>That's exactly why we offer the 60-day money-back guarantee.</strong> We don't want your money if OMNIS doesn't give you the younger, firmer skin you're looking for. Try it for two full months - if you don't see dramatic improvements, we'll refund every penny.</p>",
+        "ggLuQ0nuQN8_text": "<p><strong>NO</strong> at the moment<strong> the Omnis cream is only available on our website.</strong></p><p> </p><p>We just launched in the US and we have a very limited batch available.</p>",
+        "ggR8kqovO2L_text": "<p><strong>1 bottle lasts exactly 1 month with daily use - which is why we recommend at least 2.</strong></p><p> </p><p><strong>Month 1</strong> gives initial improvements, but <strong>month 2</strong> is when 93% of men see dramatic results. Most men desperately search for more after seeing early changes.</p><p> </p><p>Plus our <strong>60-day money-back </strong>guarantee covers your entire transformation journey.</p>",
+        "ggFipoBsWwP_text": "<p><strong>In the evening, </strong>after cleaning and drying your face, apply 1-2 doses on the clean face and massage with circular movements until completely absorbed. Bring the excess along the neck.</p>",
+        "ggNgskm7d42_text": "<p><strong>Men notice improvements from the very first use, but the real transformation happens week by week.</strong></p><p> </p><p><strong>Week 1-2:</strong> skin feels immediately smoother and more hydrated. People start saying \"you look rested today.\"</p><p> </p><p><strong>Week 6-8:</strong> This is where the magic happens. 93% of men see a significant reduction in wrinkles and fine lines. Skin looks visibly younger, and people start asking \"what's your secret?\"</p><p> </p><p><strong>The science behind it:</strong> OMNIS works deep beneath the surface to stimulate collagen production - that's why it takes 6-8 weeks for the dramatic results. Unlike basic moisturizers that just sit on top, omnis uses a <strong>bio-identical form of Vitamin A</strong> your skin naturally stores. Your body recognizes it. It welcomes it in. So you get the collagen rebuilding of a prescription cream, with the gentleness of a moisturizer. All gain. No burn.</p><p> </p><p><strong>Here's the best part:</strong> <strong>60 days</strong> to see these results risk-free. If you don't look in the mirror after 8 weeks and see noticeably younger, firmer skin, we'll refund every penny. Thousands of men across Italy are already experiencing this transformation - <strong>try it yourself with zero risk</strong>.</p>",
+        "ggg59nFYXJE_text": "<p>We ship from our <strong>warehouse in New Jersey</strong> within 24h of receiving your order!<br><br>You will receive your order in <strong>2-5 business days!</strong></p>",
+        "ggWWrnyOmWZ_text": "<p>Omnis is 100% formulated and made in italy 🇮🇹 following the strictest italian tests and regulation.</p><p> </p><p>Formulated with 95% natural ingredients, it contains:</p><p>NO Alcohol, No Paraben, No harsh silicones</p><p> </p><p>It's vegan, cruelty free. and dermatologically tested</p>"
       }
     },
     "gp_section_580496207122530824": {
@@ -151,6 +97,7 @@
             "autoplay_mode": "all",
             "autoscroll_duration": 0,
             "slide_size": "250",
+            "aspect_ratio": "vertical",
             "border": 0,
             "border_color": "linear-gradient(to right, #833ab4, #fd1d1d, #fcb045)",
             "slide_rounding": "0",
@@ -170,21 +117,112 @@
         "moast_carousel_FtDaUa"
       ],
       "settings": {
+        "section_preload": "false",
         "checksum": "0d210b366fb0b8991223b64cafd740a421ce6f1afeb746ff9c2be62d4449fc0f_1_1_1_0__1",
         "ggi8RtjwtTh_text": "Recommended by Pharmacists<br><span style=\"color:#0155B6;\">throughout Italy</span>"
       }
     },
-    "gp_section_580496207122596360": {
-      "type": "gp-section-580496207122596360",
+    "gp_global_section_578720624189375369-1": {
+      "type": "gp-global-section-578720624189375369",
       "settings": {
-        "checksum": "5b71f90f6c81d4772c0cac1bfadeac36fc7356bbd2cc06449ab1cc4b31d3101a_1_1_1_0__1",
-        "ggkMvQwLxsF_label": "Back to Top ↑"
+        "section_preload": "false",
+        "checksum": "",
+        "gg6GOh6uSF5_background_desktop_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "gg6GOh6uSF5_background_desktop_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "gguLTHL15xu_srcSet_desktop_src_1981257442": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-a856bb65-b3ea-4a34-925b-0e60d7d19a70.webp",
+        "gguLTHL15xu_srcSet_mobile_src_1981257442": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-a856bb65-b3ea-4a34-925b-0e60d7d19a70.webp",
+        "gg_Ilmmqi1d_text": "<p>\"Omnis, sales boom in Italy\"</p>",
+        "ggprzXpuyGJ_background_desktop_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "ggprzXpuyGJ_background_desktop_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "ggQIdf-O4dE_srcSet_desktop_src_-384004244": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-b0f69999-ec4c-4522-a10b-677249d11903.svg",
+        "ggQIdf-O4dE_srcSet_mobile_src_-384004244": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-b0f69999-ec4c-4522-a10b-677249d11903.svg",
+        "ggV930ImVYk_text": "<p>\"Made in Italy: <br>Omnis goes viral among men\"</p>",
+        "ggozyBCvT_X_background_desktop_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "ggozyBCvT_X_background_desktop_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "ggD3ef7tXpg_srcSet_desktop_src_-363412829": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-33046468-69e0-4c9b-b064-d7878a8c254d.webp",
+        "ggD3ef7tXpg_srcSet_mobile_src_-363412829": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-33046468-69e0-4c9b-b064-d7878a8c254d.webp",
+        "ggU2BJdZFfS_text": "<p>\"Omnis conquers the anti-aging market\"</p>",
+        "gglSUL3bi6z_background_desktop_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "gglSUL3bi6z_background_desktop_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "ggI9UFYL_e-_srcSet_desktop_src_1981257442": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-a856bb65-b3ea-4a34-925b-0e60d7d19a70.webp",
+        "ggI9UFYL_e-_srcSet_mobile_src_1981257442": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-a856bb65-b3ea-4a34-925b-0e60d7d19a70.webp",
+        "ggaw6WjoQSQ_text": "<p>\"Omnis, boom di vendite in Italia\"</p>",
+        "ggqbUcxUQN9_background_desktop_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "ggqbUcxUQN9_background_desktop_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "ggK73ngd2_f_srcSet_desktop_src_-384004244": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-b0f69999-ec4c-4522-a10b-677249d11903.svg",
+        "ggK73ngd2_f_srcSet_mobile_src_-384004244": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-b0f69999-ec4c-4522-a10b-677249d11903.svg",
+        "gg0oI_TdZ4z_text": "<p>\"Made in Italy: Omnis spopola tra gli uomini\"</p>",
+        "ggH21UrRZDC_background_desktop_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "ggH21UrRZDC_background_desktop_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "ggMJhThy7vP_srcSet_desktop_src_-363412829": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-33046468-69e0-4c9b-b064-d7878a8c254d.webp",
+        "ggMJhThy7vP_srcSet_mobile_src_-363412829": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-33046468-69e0-4c9b-b064-d7878a8c254d.webp",
+        "ggx5WwmS80u_text": "<p>\"Omnis conquista il mercato anti-età\"</p>"
       }
     },
-    "gp_section_580496207122661896": {
-      "type": "gp-section-580496207122661896",
+    "gp_global_section_578704953934087041-2": {
+      "type": "gp-global-section-578704953934087041",
       "settings": {
-        "checksum": "d76e175200157f5e6791e30c63b0d4b236a40086872cf4d9eb2ccc29d2f6a926_1_1_1_0__1"
+        "section_preload": "false",
+        "checksum": "",
+        "ggn76sGJMNI_text": "Visible Results in<br><span style=\"color:#0155B6;\">Just 4 Weeks</span>",
+        "ggxXbq8652L_text": "Look <span style=\"color:#0155B6;\">Visibly Younger</span> in <span style=\"color:#000000;\">Weeks</span>",
+        "ggVF7Qko72Q_text": "<p>Maximum effectiveness after 2 bottle. Results may vary from person to person</p>",
+        "ggTLdlvZ44q_srcSet_desktop_src_1132165393": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-17b99e05-108d-478f-9d3e-004944565760.webp",
+        "ggTLdlvZ44q_srcSet_mobile_src_668209794": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-444c675d-997e-477a-8d62-7467a7b38bda.webp",
+        "ggLw4HNwL53_srcSet_desktop_src_-757472712": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/Frame_163989_1.webp",
+        "ggLw4HNwL53_srcSet_mobile_src_56896559": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-dcb1543d-6ef6-467e-8484-bbfc18002b1e.webp",
+        "ggamToZ-UeZ_srcSet_desktop_src_-358689335": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-785ed93b-ba6c-47cc-b440-74df179bfa86.webp",
+        "ggamToZ-UeZ_srcSet_mobile_src_-508113423": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-28fefee4-fb7d-43ef-887e-a60032da5945.webp",
+        "ggshJgcRBtW_srcSet_desktop_src_50498093": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-b14ec810-4d26-4429-9eff-3bc1efd819db.webp",
+        "ggM3U0GyqjS_srcSet_desktop_src_-950800374": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/Frame_163987_1.webp"
+      }
+    },
+    "gp_global_section_578706541595591561-3": {
+      "type": "gp-global-section-578706541595591561",
+      "settings": {
+        "section_preload": "false",
+        "checksum": "",
+        "ggHMUVHYxt9_text": "The Science Behind <span style=\"color:#0155B6;\">OMNIS</span>",
+        "ggtpX4uWQHM_text": "<p>Every year after 40 men <strong>lose 1% of collagen</strong>. Omnis helps counteract this process for a more <strong>toned </strong>and <strong>youthful</strong> face.</p>",
+        "ggXSXul8Pb0_youtubeUrl_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "ggXSXul8Pb0_vimeoUrl_953545672": "https://vimeo.com/347119375",
+        "ggXSXul8Pb0_html5Url_-1613709259": "https://cdn.shopify.com/videos/c/o/v/93cf94fbbf534a6988e475a4544a1b2e.mp4"
+      }
+    },
+    "gp_global_section_578689601556710119-4": {
+      "type": "gp-global-section-578689601556710119",
+      "settings": {
+        "section_preload": "false",
+        "checksum": "",
+        "ggHosKKcadx_text": "From the First Application,<br><span style=\"color:#0155B6;\">Softer and More Elastic Skin</span>",
+        "ggzd_zWr5Wx_text": "From the First Application, <span style=\"color:#0155B6;\">Softer and More Elastic Skin</span>",
+        "gg3Pl7IEX-5_srcSet_desktop_src_1741163281": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-0f2c7329-0ab3-4888-b82a-e3d2ebcf66ab.svg",
+        "gg3Pl7IEX-5_srcSet_mobile_src_1741163281": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-0f2c7329-0ab3-4888-b82a-e3d2ebcf66ab.svg",
+        "ggDoSa4V4Gj_text": "<p>Visible <strong>wrinkle reduction*</strong></p>",
+        "ggRvUnjM2Al_srcSet_desktop_src_-1269647264": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-fb1a0d0a-9405-4b03-a23b-9f85bd584106.svg",
+        "ggRvUnjM2Al_srcSet_mobile_src_-1269647264": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-fb1a0d0a-9405-4b03-a23b-9f85bd584106.svg",
+        "ggc2NMC_Vh5_text": "<p>Confirms rapid absorption <strong>without greasy effect</strong></p>",
+        "ggUAuj_X2KA_srcSet_desktop_src_-12201032": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-9544cea0-05a9-4c36-908b-aedc5a80a4b4.svg",
+        "ggUAuj_X2KA_srcSet_mobile_src_-12201032": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-9544cea0-05a9-4c36-908b-aedc5a80a4b4.svg",
+        "ggfOmDqZVXB_text": "<p>More compact and toned skin in <strong>2 weeks</strong></p>",
+        "ggpJgU9SzKh_text": "<p>*Tests conducted on 124 men for 60 days</p>",
+        "ggOLGAltLka_srcSet_desktop_src_853504081": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-a4e42ded-befb-46ab-9985-0fda1a50b14f.webp",
+        "ggOLGAltLka_srcSet_mobile_src_853504081": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-a4e42ded-befb-46ab-9985-0fda1a50b14f.webp"
+      }
+    },
+    "gp_global_section_578438903275455207-5": {
+      "type": "gp-global-section-578438903275455207",
+      "settings": {
+        "section_preload": "false",
+        "checksum": "",
+        "ggDj1z2tnA3_srcSet_desktop_src_-1026882975": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-fd204759-bd9d-4564-9e30-3ff2facb72de.png",
+        "ggeG8yd9s-9_srcSet_desktop_src_342360715": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-83e1af8d-ad67-4b33-83ee-51f80fee6167.png",
+        "ggK-Q7SsHN9_srcSet_desktop_src_-1400922343": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-eee8f948-1544-47ee-acc0-8fe5b99f735a.png",
+        "ggB7S6Uvcx0_srcSet_desktop_src_161672369": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-2b1f58d6-457d-4734-a2f5-b5db983ef2fb.png",
+        "ggkPYRcnNAl_srcSet_desktop_src_1431088712": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-af77021a-12c9-40dd-8132-2c59edf287dc.png",
+        "ggY7xmCavmS_srcSet_desktop_src_1431088712": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-af77021a-12c9-40dd-8132-2c59edf287dc.png",
+        "ggSfwSLEuoz_srcSet_desktop_src_1431088712": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-af77021a-12c9-40dd-8132-2c59edf287dc.png",
+        "gg368pMj5-u_srcSet_desktop_src_1431088712": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-af77021a-12c9-40dd-8132-2c59edf287dc.png"
       }
     },
     "gp_section_580496207122727432": {
@@ -200,83 +238,152 @@
         "judge_me_reviews_preview_badge_gCDgEW"
       ],
       "settings": {
+        "section_preload": "false",
         "checksum": "1f1682901f701d6548c376499916c6f80e6a5b8c9152bcc5577efa3c17ac6c1f_1_1_1_0__1"
       }
     },
-    "gp_section_580496207122792968": {
-      "type": "gp-section-580496207122792968",
-      "blocks": {
-        "moast_carousel_UTR3Wg": {
-          "type": "shopify://apps/moast/blocks/carousel/1ac7547b-5443-446c-868c-7fab4566ee16",
-          "settings": {
-            "dynamic": false,
-            "feed": "520dd46b-c399-4c10-be60-1a93918655d9",
-            "feed_usage": "back_up",
-            "header": "",
-            "slide_type": "cards",
-            "product_cards": "none",
-            "autoplay_mode": "all",
-            "autoscroll_duration": 0,
-            "slide_size": "100",
-            "border": 0,
-            "border_color": "linear-gradient(to right, #833ab4, #fd1d1d, #fcb045)",
-            "slide_rounding": "6",
-            "slide_spacing": 16,
-            "padding_top": 40,
-            "pagination": "overlay",
-            "alignment": "center",
-            "click_action": "fullscreen",
-            "float_location": "bottom_right",
-            "float_size": "medium",
-            "show_captions": false,
-            "custom_css": ""
-          }
-        },
-        "gp_app_kaching-bundles_g8yoLhOsaC": {
-          "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
-          "settings": {
-            "product": "{{ product }}"
-          }
-        }
-      },
-      "block_order": [
-        "moast_carousel_UTR3Wg",
-        "gp_app_kaching-bundles_g8yoLhOsaC"
-      ],
+    "gp_global_section_578690485296563073-6": {
+      "type": "gp-global-section-578690485296563073",
       "settings": {
-        "section_preload": "true",
-        "checksum": "222fe8acc5adc5ba2025d6122f6660a9a982b3709b9497c0b3f44cc8a2f7715b_1_1_1_0__1",
-        "ggviiph8ERl_text": "<p>Omnis AntiAge Night Cream • 50ml</p>",
-        "ggSzrYgvgcA_text": "<p><strong>4.6 Excellent</strong> | 3,439+ reviews</p>",
-        "ggVLmbUDTCI_text": "<p><span style=\"font-size:23px;\">\"I've been using it for 2 months... nobody believes my real age anymore!\"</span></p>",
-        "gg81WwevIKk_childItem_0": "<p>100% Made In Italy</p>",
-        "gg81WwevIKk_childItem_1": "<p>Dermatologically Tested</p>",
-        "gg81WwevIKk_childItem_2": "<p>Firms and smooths skin texture</p>",
-        "ggbsEHDd1cH_label": "Add to Cart",
-        "ggbsEHDd1cH_outOfStockLabel": "Out of stock",
-        "ggbsEHDd1cH_unavailableLabel": "Unavailable",
-        "ggbsEHDd1cH_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
-        "ggd3njxJyN7_text": "60-day Guarantee",
-        "ggCdVdus-lO_text": "<p>If the product doesn't meet your expectations, you have up to 60 days to request a complete refund, without any complications.</p>",
-        "ggB9Gp8U8JQ_childItem_0": "<p>Will Omnis work for me?</p>",
-        "ggB9Gp8U8JQ_childItem_1": "<p>Can it be found in stores/pharmacies?</p>",
-        "ggB9Gp8U8JQ_childItem_2": "<p>How long does it last?</p>",
-        "ggB9Gp8U8JQ_childItem_3": "<p>How to use it?</p>",
-        "ggB9Gp8U8JQ_childItem_4": "<p>How long does it take to see results?</p>",
-        "ggB9Gp8U8JQ_childItem_5": "<p>How long does shipping take?</p>",
-        "ggB9Gp8U8JQ_childItem_6": "<p>Where is the formula produced?</p>",
-        "ggKZrkCgfQz_text": "<p><strong>Here's the honest truth: OMNIS works for the vast majority of men, but we can't promise it works for absolutely everyone.</strong></p><p>&nbsp;</p><p>Our formula has delivered results for thousands of Italian men aged 40+. The clinical studies prove it - 87% see significant wrinkle reduction in 8 weeks. But every man's skin is different, and we'd be lying if we said it's 100% guaranteed for everyone.</p><p>&nbsp;</p><p><strong>That's exactly why we offer the 60-day money-back guarantee.</strong> We don't want your money if OMNIS doesn't give you the younger, firmer skin you're looking for. Try it for two full months - if you don't see dramatic improvements, we'll refund every penny.</p>",
-        "ggLuQ0nuQN8_text": "<p><strong>NO</strong> at the moment<strong> the Omnis cream is only available on our website.</strong></p><p>&nbsp;</p><p>We just launched in the US and we have a very limited batch available.</p>",
-        "ggR8kqovO2L_text": "<p><strong>1 bottle lasts exactly 1 month with daily use - which is why we recommend at least 2.</strong></p><p>&nbsp;</p><p><strong>Month 1</strong> gives initial improvements, but <strong>month 2</strong> is when 93% of men see dramatic results. Most men desperately search for more after seeing early changes.</p><p>&nbsp;</p><p>Plus our <strong>60-day money-back </strong>guarantee covers your entire transformation journey.</p>",
-        "ggFipoBsWwP_text": "<p><strong>In the evening, </strong>after cleaning and drying your face, apply 1-2 doses on the clean face and massage with circular movements until completely absorbed. Bring the excess along the neck.</p>",
-        "ggNgskm7d42_text": "<p><strong>Men notice improvements from the very first use, but the real transformation happens week by week.</strong></p><p>&nbsp;</p><p><strong>Week 1-2:</strong> skin feels immediately smoother and more hydrated. People start saying \"you look rested today.\"</p><p>&nbsp;</p><p><strong>Week 6-8:</strong> This is where the magic happens. 93% of men see a significant reduction in wrinkles and fine lines. Skin looks visibly younger, and people start asking \"what's your secret?\"</p><p>&nbsp;</p><p><strong>The science behind it:</strong> OMNIS works deep beneath the surface to stimulate collagen production - that's why it takes 6-8 weeks for the dramatic results. Unlike basic moisturizers that just sit on top, omnis uses a <strong>bio-identical form of Vitamin A</strong> your skin naturally stores. Your body recognizes it. It welcomes it in. So you get the collagen rebuilding of a prescription cream, with the gentleness of a moisturizer. All gain. No burn.</p><p>&nbsp;</p><p><strong>Here's the best part:</strong> <strong>60 days</strong> to see these results risk-free. If you don't look in the mirror after 8 weeks and see noticeably younger, firmer skin, we'll refund every penny. Thousands of men across Italy are already experiencing this transformation - <strong>try it yourself with zero risk</strong>.</p>",
-        "ggg59nFYXJE_text": "<p>We ship from our <strong>warehouse in New Jersey</strong> within 24h of receiving your order!<br><br>You will receive your order in <strong>2-5 business days!</strong></p>",
-        "ggWWrnyOmWZ_text": "<p>Omnis is 100% formulated and made in italy 🇮🇹 following the strictest italian tests and regulation.</p><p>&nbsp;</p><p>Formulated with 95% natural ingredients, it contains:</p><p>NO Alcohol, No Paraben, No harsh silicones</p><p>&nbsp;</p><p>It's vegan, cruelty free. and dermatologically tested</p>"
+        "section_preload": "false",
+        "checksum": "",
+        "ggLDUvfbJ4K_text": "Quick Absorption without Greasiness!",
+        "ggNrANFvusz_childItem_0": "<p><strong>The fragrance: </strong>light touch of lavender</p>",
+        "ggNrANFvusz_childItem_1": "<p><strong>The consistency: </strong>light and very fresh</p>",
+        "ggNrANFvusz_childItem_2": "<p><strong>Makes your skin feel: </strong>hydrated, soft and smooth</p>",
+        "ggNrANFvusz_childItem_3": "<p><strong>Makes your skin look: revitalized, deflated and radiant</strong></p>",
+        "ggSSIuKrMWU_srcSet_desktop_src_1776530958": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-125795d9-78a8-49a8-a9b8-fecd2b6e53f4.webp",
+        "ggSSIuKrMWU_srcSet_mobile_src_1776530958": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-125795d9-78a8-49a8-a9b8-fecd2b6e53f4.webp"
+      }
+    },
+    "gp_global_section_578003548697002949-7": {
+      "type": "gp-global-section-578003548697002949",
+      "settings": {
+        "section_preload": "false",
+        "checksum": "",
+        "ggnGs12-Z1B_text": "Anti-aging ingredients. <span style=\"color:#0155B6;\">Dermatologist Approved.</span>",
+        "ggB9ocecH-q_text": "<p>They don't just hydrate, but actively fight the signs of time</p>",
+        "gg8DyOAR_Ix_background_desktop_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "gg8DyOAR_Ix_background_desktop_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "gg8DyOAR_Ix_background_tablet_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "gg8DyOAR_Ix_background_tablet_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "gg8DyOAR_Ix_background_mobile_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "gg8DyOAR_Ix_background_mobile_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "gg0WvBBUSA6_srcSet_desktop_src_1757670813": "https://cdn.shopify.com/s/files/1/0781/7075/1319/files/Retinolo.webp?v=1722324400",
+        "ggRyjsa0tmT_label": "<p>Rebuild</p>",
+        "gg0LM__B8FF_text": "<p>Retynal Palmitate</p>",
+        "gga63BqK69q_text": "<p>Unlike harsh retinol that irritates, this is a Bio-identical Vitamin A your skin recognizes as its own. It stimulates collagen production without redness or peeling</p>",
+        "gg4LnzpokIB_background_desktop_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "gg4LnzpokIB_background_desktop_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "gg4LnzpokIB_background_tablet_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "gg4LnzpokIB_background_tablet_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "gg4LnzpokIB_background_mobile_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "gg4LnzpokIB_background_mobile_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "ggq0XJ2jB6F_srcSet_desktop_src_-1462061262": "https://cdn.shopify.com/s/files/1/0781/7075/1319/files/gempages_491166728353481762-74b56743-48eb-49c9-9ad9-121ed4ece5fb.webp?v=1740449985",
+        "ggUArggES35_label": "<p>Protect</p>",
+        "ggxUgzRm_Jj_text": "<p>Italian Olive Oil</p>",
+        "ggfZyen1cpu_text": "<p>Powerful antioxidant that prevents collagen loss and protects skin from environmental damage</p>",
+        "ggHydKpWxcb_background_desktop_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "ggHydKpWxcb_background_desktop_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "ggHydKpWxcb_background_tablet_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "ggHydKpWxcb_background_tablet_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "ggHydKpWxcb_background_mobile_video_-1560504240": "https://www.youtube.com/watch?v=cyzh48XRS4M",
+        "ggHydKpWxcb_background_mobile_videoHtml5_-1555583689": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        "ggLlXBIY-yC_srcSet_desktop_src_183012178": "https://cdn.shopify.com/s/files/1/0781/7075/1319/files/Acido_Ialuronico.webp?v=1722324383",
+        "ggpuoFL-R1O_label": "<p>Restore</p>",
+        "gghliwIxolK_text": "<p>Sodium Hyaluronate</p>",
+        "ggBtHP5oI8R_text": "<p>Unlike regular hyaluronic acid that stays on top, this low molecular weight version penetrates deep into the skin. Fills wrinkles from within for visible lifting</p>",
+        "ggSZDcGHmcC_childItem_0": "<p>Full Ingredient List</p>",
+        "ggRnfRQhKZp_text": "<p><span style=\"background-color:transparent;color:#000000;font-size:11pt;\">aqua, propylene glycol, glycerin, caprylic/capric triglyceride, hydrogenated ethylhexyl olivate, glyceryl stearate se, aloe barbadensis leaf juice, sodium polyacrylate, phenoxyethanol, hydrogenated olive oil unsaponifiables, tocopherol, tetrasodium glutamate diacetate, urea, trehalose, ethylhexylglycerin, hydrolyzed rice protein, lavandula angustifolia oil, propanediol, sorbitol, linalool, lecithin, olive oil peg-8 esters, helianthus annuus seed oil, tocopheryl acetate, hydroxyethylcellulose, sodium hyaluronate, potassium sorbate, sodium benzoate, xanthan gum, benzyl alcohol, sodium ascorbyl phosphate, limonene, retinyl palmitate, daucus carota sativa root, ascorbic acid, citric acid.</span></p>"
+      }
+    },
+    "gp_global_section_578707057360765825-8": {
+      "type": "gp-global-section-578707057360765825",
+      "settings": {
+        "section_preload": "false",
+        "checksum": "",
+        "ggCmWO2e_1k_srcSet_desktop_src_933730333": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-5cf3263a-7f3f-47ae-9b67-527360e3f4c7.png",
+        "ggCmWO2e_1k_srcSet_mobile_src_933730333": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-5cf3263a-7f3f-47ae-9b67-527360e3f4c7.png",
+        "ggVGF-d7M8K_srcSet_desktop_src_-144181350": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-d13dc2e8-e5f4-4a73-b0db-c03519d55004.png",
+        "ggVGF-d7M8K_srcSet_mobile_src_-144181350": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-d13dc2e8-e5f4-4a73-b0db-c03519d55004.png",
+        "gghq1ue0xdO_srcSet_desktop_src_1891778180": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-52ac829d-9c27-41e3-ad0b-8a6107af13f4.png",
+        "gghq1ue0xdO_srcSet_mobile_src_1891778180": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-52ac829d-9c27-41e3-ad0b-8a6107af13f4.png",
+        "ggK3z_t_kfM_srcSet_desktop_src_-1275148210": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-0ee5ff69-3b41-4eb0-96b4-19ede0707ddf.png",
+        "ggK3z_t_kfM_srcSet_mobile_src_-1275148210": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-0ee5ff69-3b41-4eb0-96b4-19ede0707ddf.png",
+        "ggFEDeWX9eG_srcSet_desktop_src_956690665": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-b9762d13-8f2d-42e5-9b16-4c7c602f9cc8.png",
+        "ggFEDeWX9eG_srcSet_mobile_src_956690665": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-b9762d13-8f2d-42e5-9b16-4c7c602f9cc8.png",
+        "ggwNBatZ5x6_srcSet_desktop_src_1347625937": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-ac917f07-d57d-44a2-b17b-eaf595d0d211.png",
+        "ggwNBatZ5x6_srcSet_mobile_src_1347625937": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-ac917f07-d57d-44a2-b17b-eaf595d0d211.png"
+      }
+    },
+    "gp_global_section_578689344378766209-9": {
+      "type": "gp-global-section-578689344378766209",
+      "settings": {
+        "section_preload": "false",
+        "checksum": "",
+        "ggEWS0HyaFY_text": "Dermatologically <span style=\"color:#0156B4;\">Tested in Italy </span>🇮🇹",
+        "ggKNKvSk1wm_text": "Dermatologically <br><span style=\"color:#0156B4;\">Tested in Italy </span>🇮🇹",
+        "ggQB_w3uTu1_srcSet_desktop_src_1545514955": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-110e3836-f08b-4573-b0c4-8b068bc90158.png",
+        "gg35OU3qs2i_text": "<p>All Omnis creams are <strong>Made in Italy,</strong> produced by a<strong> small family owned</strong> <strong>lab with 38 years of experience.</strong></p><p> </p><p>❌ You won’t find: silicones, parabens, alcohol, synthetic fragrances. And of course, we do NOT test on animals!</p>",
+        "ggoU9AGwQDe_srcSet_desktop_src_-1026882975": "https://cdn.shopify.com/s/files/1/0703/5214/2562/files/gempages_518090459516502570-fd204759-bd9d-4564-9e30-3ff2facb72de.png",
+        "ggUJ9UngUjg_srcSet_desktop_src_-542399803": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-7d367004-345b-4043-9c72-afc7d87c0d0f.svg",
+        "ggUJ9UngUjg_srcSet_mobile_src_-1320817922": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-56fd53f7-8efc-4739-9a22-53c0f65750f5.svg",
+        "ggxRTfXQ3B5_srcSet_desktop_src_-357747852": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-59f03ce9-5093-49a7-8899-4ed2c59f9c6e.svg",
+        "ggxRTfXQ3B5_srcSet_mobile_src_1653538111": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-3924ecee-e1e0-4e43-800b-caf5813f81ee.svg",
+        "ggNCQRAbHPp_srcSet_desktop_src_-1015726911": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-e46a3a2f-849d-44f9-af18-1f896711cf75.svg",
+        "ggNCQRAbHPp_srcSet_mobile_src_-1793690871": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-c655eed5-781e-4573-ae8f-dcc158d1ba54.svg",
+        "ggjC4G8gGd5_srcSet_desktop_src_1268530449": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-95f97f96-3ac6-43f3-a6c4-2d9c145ac439.svg",
+        "ggjC4G8gGd5_srcSet_mobile_src_-496958220": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-68760459-e9b5-4dcc-9f72-c98497c3c7ae.svg",
+        "ggdL8HV0bOP_srcSet_desktop_src_1681077951": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-f38c5f91-d5da-4d32-bd0d-baa7d21d94d9.svg",
+        "ggdL8HV0bOP_srcSet_mobile_src_963678685": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-ccd458cb-6d00-4a2e-88a2-83f5fdd2a52f.svg",
+        "ggPvzUtyXBR_srcSet_desktop_src_-389925813": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/gempages_577442117282956003-c201111b-2c79-4cb4-adc9-950c1d554fa0.svg"
+      }
+    },
+    "gp_global_section_578994961920295705-10": {
+      "type": "gp-global-section-578994961920295705",
+      "settings": {
+        "section_preload": "false",
+        "checksum": "",
+        "ggCKxnWloLD_text": "Do You Still Have <span style=\"color:#0155B6;\">Any Doubts</span>?",
+        "ggQVgYjz4RJ_childItem_0": "<p><span style=\"font-size:16px;\">How long does it take to see results?</span></p>",
+        "ggQVgYjz4RJ_childItem_1": "<p><span style=\"font-size:16px;\">How long does it last?</span></p>",
+        "ggQVgYjz4RJ_childItem_2": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Will Omnis work for me?</span></p>",
+        "ggQVgYjz4RJ_childItem_3": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Where is the formula produced?</span></p>",
+        "ggQVgYjz4RJ_childItem_4": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Is it suitable for sensitive skin?</span></p>",
+        "ggQVgYjz4RJ_childItem_5": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Does it leave a greasy feeling on the skin?</span></p>",
+        "ggQVgYjz4RJ_childItem_6": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">What is the full list of ingredients?</span></p>",
+        "ggQVgYjz4RJ_childItem_7": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">How do you use it?</span></p>",
+        "ggQVgYjz4RJ_childItem_8": "<p><span style=\"background-color:rgb(239,240,241);color:rgb(0,0,0);font-size:16px;\">Can it visibly reduce the appearance of eye bags and puffy eyes?</span></p>",
+        "ggkCktYhb1__text": "<p><strong>You'll notice improvements from the very first use, but the real transformation happens week by week.</strong></p><p> </p><p><strong>Week 1-2:</strong> Your skin feels immediately smoother and more hydrated. People start saying \"you look rested today.\"</p><p> </p><p><strong>Week 6-8:</strong> This is where the magic happens. 93% of men see a significant reduction in wrinkles and fine lines. Your skin looks visibly younger, and people start asking \"what's your secret?\"</p><p> </p><p><strong>The science behind it:</strong> OMNIS works deep beneath the surface to stimulate collagen production - that's why it takes 6-8 weeks for the dramatic results. Unlike basic moisturizers that just sit on top, omnis uses a <strong>bio-identical form of Vitamin A</strong> your skin naturally stores. Your body recognizes it. It welcomes it in. So you get the collagen rebuilding of a prescription cream, with the gentleness of a moisturizer. All gain. No burn.</p><p> </p><p><strong>Here's the best part:</strong> You have <strong>60 days</strong> to see these results risk-free. If you don't look in the mirror after 8 weeks and see noticeably younger, firmer skin, we'll refund every penny. Thousands of men across Italy are already experiencing this transformation - <strong>try it yourself with zero risk</strong>.</p>",
+        "ggvB4QVVEaP_text": "<p><strong>1 bottle lasts exactly 1 month with daily use - which is why we recommend at least 2.</strong></p><p> </p><p><strong>Month 1</strong> gives initial improvements, but <strong>month 2</strong> is when 93% of men see dramatic results. Most men desperately search for more after seeing early changes.</p><p> </p><p>Plus our <strong>60-day money-back </strong>guarantee covers your entire transformation journey.</p>",
+        "ggbUHOmTnxs_text": "<p><strong>Here's the honest truth: OMNIS works for the vast majority of men, but we can't promise it works for absolutely everyone.</strong></p><p> </p><p>Our formula has delivered results for thousands of Italian men aged 40+. The clinical studies prove it - 87% see significant wrinkle reduction in 8 weeks. But every man's skin is different, and we'd be lying if we said it's 100% guaranteed for everyone.</p><p> </p><p><strong>That's exactly why we offer the 60-day money-back guarantee.</strong> We don't want your money if OMNIS doesn't give you the younger, firmer skin you're looking for. Try it for two full months - if you don't see dramatic improvements, we'll refund every penny.</p>",
+        "ggRc5Y_1poF_text": "<p>Omnis is 100% formulated and <strong>made in italy 🇮🇹</strong>  following the strictest italian tests and standards. </p><p> </p><p>Formulated with 93% natural ingredients, it contains:</p><p>NO Alcohol, No Paraben, No harsh silicones</p><p> </p><p>It's vegan, cruelty free. and <strong>dermatologically tested.</strong></p>",
+        "ggCBDbaKf6F_text": "<p> Yes, the formula is gentle and suitable for all skin types, including sensitive skin.</p>",
+        "ggOXNDMBmah_text": "<p> No, it has a <strong>lightweight, fast-absorbing texture</strong> that does not leave an oily residue.</p>",
+        "ggrsN-dkHKO_text": "<p> <strong>Full INCI:</strong></p><p> Aqua, propylene glycol, glycerin, caprylic/capric triglyceride, hydrogenated ethylhexyl olivate, glyceryl stearate se, aloe barbadensis leaf juice, sodium polyacrylate, phenoxyethanol, hydrogenated olive oil unsaponifiables, tocopherol, tetrasodium glutamate diacetate, urea, trehalose, ethylhexylglycerin, hydrolyzed rice protein, lavandula angustifolia oil, propanediol, sorbitol, linalool, lecithin, olive oil peg-8 esters, helianthus annuus seed oil, tocopheryl acetate, hydroxyethylcellulose, sodium hyaluronate, potassium sorbate, sodium benzoate, xanthan gum, benzyl alcohol, sodium ascorbyl phosphate, limonene, retinyl palmitate, daucus carota sativa root, ascorbic acid, citric acid.</p>",
+        "ggR6q8BZYnK_text": "<p> The <strong>Omnis Night Face Cream</strong> should be applied <strong>only at night</strong>. After cleansing your face, massage <strong>1-2 doses</strong> in circular motions until fully absorbed. Extend any excess product down to the neck.</p>",
+        "ggRuH9EFC9j_text": "<p> <strong>The cream is not specifically formulated for eye bags,</strong> but its firming and smoothing effect can help make the skin appear tighter and more youthful.</p>"
+      }
+    },
+    "gp_section_580496207122661896": {
+      "type": "gp-section-580496207122661896",
+      "settings": {
+        "section_preload": "false",
+        "checksum": "d76e175200157f5e6791e30c63b0d4b236a40086872cf4d9eb2ccc29d2f6a926_1_1_1_0__1"
+      }
+    },
+    "gp_section_580496207122596360": {
+      "type": "gp-section-580496207122596360",
+      "settings": {
+        "section_preload": "false",
+        "checksum": "5b71f90f6c81d4772c0cac1bfadeac36fc7356bbd2cc06449ab1cc4b31d3101a_1_1_1_0__1",
+        "ggkMvQwLxsF_label": "Back to Top ↑"
       }
     },
     "gp_section_580496207122858504": {
       "type": "gp-section-580496207122858504",
       "settings": {
+        "section_preload": "false",
         "checksum": "0718e1820f7b363340d174eeff7ffe2060b0d5dbfc27f3b074ea07645198c137_1_1_1_0__1",
         "ggSPMKwPQge_label": "<p>TRY OMNIS CREAM TODAY</p>",
         "ggN9tsbUxz4_text": "<p><span style=\"color:#27B57C;\">60-DAY MONEY-BACK GUARANTEE</span></p>"
