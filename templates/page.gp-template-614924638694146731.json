@@ -1,0 +1,38 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_614924638761255595": {
+      "settings": {
+        "checksum": "8ba91bb7dbdeb950f6bca56257bd1f5a2ae5018cb67f1d469c95b1b049be8851_1_1_1_0__1",
+        "gg1GSfoGVxb_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/5._youtube_thumbnail_the_core_kit.webp",
+        "gg4acr0HSMq_text": "<p>1.5 min guide</p>",
+        "gg5afTEGTHg_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/4._youtube_thumbnail_self-tanning.webp",
+        "ggA7tSYyHib_text": "<p>Eye Cream</p>",
+        "ggEuEj5S-_w_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/2._youtube_thumbnail_eye_cream.webp",
+        "ggEwe4LzxPE_text": "<p>Self-Tanning Drops</p>",
+        "ggLrLYqL_ci_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0871/6681/2407/files/1._youtube_thumbnail_night_face_cream_a6b22ee0-5d85-4144-a76c-3fc3df0103ee.webp",
+        "ggScWmY1nj5_text": "<p>Night Face Cream</p>",
+        "gggWIghkoLj_text": "<p>The Core Kit</p>",
+        "ggk1PeHmVzC_text": "<p>1 min guide</p>",
+        "ggl0NxBI-r8_text": "How to use your product",
+        "ggoh5KeK7tb_text": "Select your product below to watch a quick guide",
+        "ggqru3c-dDK_text": "<p>1 min guide</p>",
+        "ggv9TJ_IRjh_text": "<p>1 min guide</p>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-614924638761255595"
+    }
+  },
+  "order": [
+    "gp_section_614924638761255595"
+  ],
+  "layout": "theme.gempages.blank"
+}
