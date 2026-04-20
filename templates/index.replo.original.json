@@ -1,1 +1,344 @@
-{"sections":{"image_banner":{"type":"image-banner","blocks":{"heading":{"type":"heading","disabled":true,"settings":{"heading":"OMNIS Takes The US","heading_size":"h1"}},"button":{"type":"buttons","settings":{"button_label_1":"","button_link_1":"shopify:\/\/products\/antiage-night-cream","button_style_secondary_1":true,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading","button"],"custom_css":["@media screen and (max-width: 750px) {.banner, slideshow-component {display: none; }}"],"settings":{"image":"shopify:\/\/shop_images\/OMNIS_USA_-_Shopify_theme_banner-_Desk.webp","image_overlay_opacity":10,"image_height":"adapt","image_behavior":"none","desktop_content_position":"middle-left","desktop_content_alignment":"center","show_text_box":false,"color_scheme":"scheme-2","stack_images_on_mobile":false,"mobile_content_alignment":"left","show_text_below":false}},"image_banner_eTrjPC":{"type":"image-banner","blocks":{"heading_R64yqi":{"type":"heading","disabled":true,"settings":{"heading":"OMNIS Takes The US","heading_size":"h1"}},"buttons_p88Ak4":{"type":"buttons","disabled":true,"settings":{"button_label_1":"Shop all","button_link_1":"shopify:\/\/collections\/all","button_style_secondary_1":true,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading_R64yqi","buttons_p88Ak4"],"custom_css":["@media screen and (min-width: 750px) {.banner, slideshow-component {display: none; }}"],"settings":{"image":"shopify:\/\/shop_images\/OMNIS_USA_-_Shopify_theme_banner-_Mobile.webp","image_overlay_opacity":10,"image_height":"adapt","image_behavior":"none","desktop_content_position":"middle-left","desktop_content_alignment":"center","show_text_box":false,"color_scheme":"scheme-2","stack_images_on_mobile":false,"mobile_content_alignment":"left","show_text_below":false}},"featured_collection":{"type":"featured-collection","settings":{"collection":"frontpage","products_to_show":3,"title":"Best Seller","heading_size":"h1","description":"","show_description":false,"description_style":"body","columns_desktop":4,"enable_desktop_slider":false,"full_width":false,"show_view_all":true,"view_all_style":"solid","color_scheme":"scheme-2","image_ratio":"adapt","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":false,"padding_top":52,"padding_bottom":52}},"gp_global_section_577875850125378322_j3pmrq":{"type":"gp-global-section-577875850125378322","disabled":true,"name":"GEM - Custom Video","settings":{"section_preload":"off_lazy_script","checksum":"","ggCU25UBsGd_text":"Oltre 32.000 Italiani Si Affidano Ad Omnis","ggpAFEqGCJb_text":"<p>Il 98% dei nostri clienti ci raccomanda a un amico.<\/p>","ggYGVQUlHbx_text":"<p>4.9 Voto Medio<\/p>","ggoBmC1Moko_text":"<p>\"Ho provato tante creme... ma questa è la migliore\"<\/p>","ggSBZJSf1R5_text":"<p>- Fabio G.<\/p>","gg1TDP5QgMJ_text":"<p>\"Ero scettico, ma i risultati sono stati sorprendenti!\"<\/p>","ggzIjU1pUMJ_text":"<p>- Daniele C.<\/p>","ggQiO-Hh3sQ_text":"<p>\"Come viene spiegato bisogna avere costanza...\"<\/p>","gg3OiQYiLmR_text":"<p>- Salvatore B.<\/p>"}},"gp_global_section_577883941206229520_c3jrrh":{"type":"gp-global-section-577883941206229520","name":"GEM - Models","settings":{"section_preload":"off_lazy_script","checksum":"","ggRHZzH4epS_text":"Omnis Men","gg8_hOYbV6U_text":"<p>\"Omnis night cream is a true miracle in a jar. In just a few weeks, I saw a visible reduction in wrinkles and an improvement in skin elasticity.\"<\/p>","ggfcnkPuuRr_text":"<p><strong>Andrea Croin, Model<\/strong><\/p>","ggNTKbTA-88_text":"<p>\"Omnis eye contour has become my number one ally against dark circles and under-eye bags. Finally I can look in the mirror and see a fresh and rested look, even after sleepless nights.\"<\/p>","ggswNso7TFe_text":"<p><strong>Riccardo Stellini, actor and model<\/strong><\/p>","ggHsrO_4S0O_text":"<p>\"The Omnis kit is perfect for those who want a complete and simple routine. In just three minutes a day, my skin is younger and more elastic, and wrinkles are visibly reduced\"<\/p>","gg8i_ZKF-mi_text":"<p><strong>Francesco Allegra, Model<\/strong><\/p>","ggYV6K4FeKJ_text":"<p>\"After just two weeks of use, I noticed a huge difference under my eyes. Dark circles have faded and wrinkles have visibly reduced, making my face look younger.\"<\/p>","gg8wkEezTyM_text":"<p><strong>Salvatore Borruto, attore<\/strong><\/p>","ggD88dS1kvf_text":"<p>\"The combination of the three Omnis products has transformed my skin, making it smoother and softer.\"<\/p>","ggYjQ_5BXr4_text":"<p><strong>Ignazio di Noto, model<\/strong><\/p>","ggE3drNnFxD_text":"<p>\"Omnis night cream is a true miracle in a jar. In just a few weeks, I saw a visible reduction in wrinkles and an improvement in skin elasticity.\"<\/p>","ggTMh_USu1s_text":"<p><strong>Manuel Bruno, Italian champion<\/strong><\/p>","ggdQ7Axgte__text":"<p>\"Omnis face cream is light and non-greasy, perfect for more toned and radiant skin.\"<\/p>","ggdrDw5dQ1S_text":"<p><strong>Alessandro Mancini, Mr. Italia 2020<\/strong><\/p>","ggz1KMgJDyI_text":"<p>\"Omnis night cream is a true miracle in a jar. In just a few weeks, I saw a visible reduction in wrinkles and an improvement in skin elasticity.\"<\/p>","gg6DmUHjlWh_text":"<p>Andrea Croin, Model<\/p>","ggQQrOj9858_text":"<p>\"Omnis eye contour has become my number one ally against dark circles and under-eye bags. Finally I can look in the mirror and see a fresh and rested look, even after sleepless nights.\"<\/p>","ggHWxQy6DIT_text":"<p>Riccardo Stellini, actor and model<\/p>","ggGUNOyfwxP_text":"<p>\"The Omnis kit is perfect for those who want a complete and simple routine. In just three minutes a day, my skin is younger and more elastic, and wrinkles are visibly reduced\"<\/p>","ggqjMfAZEHQ_text":"<p>Francesco Allegra, Model<\/p>","ggNRvF0ZzJE_text":"<p>\"After just two weeks of use, I noticed a huge difference under my eyes. Dark circles have faded and wrinkles have visibly reduced, making my face look younger.\"<\/p>","ggVTWF8Jy57_text":"<p>Salvatore Borruto, ACTOR<\/p>","ggalFeFDPks_text":"<p>\"Since I've been using Omnis face cream, my skin has been reborn. The signs of aging have diminished and my skin appears more elastic.\"<\/p>","gg_qLlO7Aoj_text":"<p>Ignazio di Noto, model<\/p>","ggjIBpWGbpo_text":"<p>\"The combination of the three Omnis products has transformed my skin, making it smoother and softer.\"<\/p>","gg6BYygS7b1_text":"<p>Manuel Bruno, Italian volleyball champion<\/p>","ggq9oxpxOxI_text":"<p>\"Omnis face cream is light and non-greasy, perfect for more toned and radiant skin.\"<\/p>","gg8DKPwuDP4_text":"<p>Alessandro Mancini, Mr. Italia 2020<\/p>"}},"image_with_text_gJkenD":{"type":"image-with-text","blocks":{"heading_xQN9Xq":{"type":"heading","settings":{"heading":"Real Men Real Results","heading_size":"h1"}},"text_mikY6z":{"type":"text","settings":{"text":"","text_style":"body"}}},"block_order":["heading_xQN9Xq","text_mikY6z"],"disabled":true,"settings":{"image":"shopify:\/\/shop_images\/Untitled_design_-_2025-04-19T094856.980.png","height":"adapt","desktop_image_width":"medium","layout":"image_first","image_behavior":"none","content_layout":"no-overlap","desktop_content_position":"top","desktop_content_alignment":"left","mobile_content_alignment":"left","section_color_scheme":"","color_scheme":"","padding_top":36,"padding_bottom":36}},"multicolumn_3LXGBm":{"type":"multicolumn","blocks":{"column_VYETd7":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/1_delivery_box.png","title":"Shipping in 2-5 Days","text":"<p>FREE Shipping for orders over $75<\/p>","link_label":"","link":""}},"column_AtCTy8":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/Multicolumn_icons.png","title":"Made In Italy 🇮🇹","text":"<p>Highest quality ingredient sourced from Italian farm and high tech labs<\/p>","link_label":"","link":""}},"column_XMgdEM":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/3_star.png","title":"4.7\/5 ⭐️⭐️⭐️⭐️⭐️","text":"<p>The N.1 brand in Italy for men's skincare<\/p>","link_label":"","link":""}},"column_FaNKHn":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/chat_support.png","title":"Exeptional Support","text":"<p>Available 7 days a week: <\/p><p>info@serlinolab.com<br\/>+1 813-419-0008<\/p>","link_label":"","link":""}}},"block_order":["column_VYETd7","column_AtCTy8","column_XMgdEM","column_FaNKHn"],"name":"t:sections.multicolumn.presets.name","settings":{"title":"","heading_size":"h1","image_width":"third","image_ratio":"adapt","button_label":"","button_link":"","columns_desktop":4,"column_alignment":"center","background_style":"none","color_scheme":"scheme-2","columns_mobile":"1","swipe_on_mobile":true,"padding_top":36,"padding_bottom":36}},"176172773152b89858":{"type":"apps","blocks":{"judge_me_reviews_videos_carousel_7nip68":{"type":"shopify:\/\/apps\/judge-me-reviews\/blocks\/videos_carousel\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8","disabled":true,"settings":{"show_sample_reviews":true,"reviews_selection":"all","products":[],"star_rating":"all","review_type":"photo_and_video","max_reviews":20,"show_reviewer_name":true,"stars_size":"medium","text_size":"medium","arrows_position":"bottom","max_width":1100,"corner_styling":"soft","header_text_color":"#000000","card_color":"#7d7d7d","stars_color":"","text_color":"#ffffff","arrows_color":"#000000","show_drop_shadow":false,"show_border":false,"border_color":"#108474","autoplay_media":true,"transition_speed":5,"carousel_style":"highlight","header_text":"Real customer stories","show_average_rating":true}}},"block_order":["judge_me_reviews_videos_carousel_7nip68"],"settings":{"include_margins":true}}},"order":["image_banner","image_banner_eTrjPC","featured_collection","gp_global_section_577875850125378322_j3pmrq","gp_global_section_577883941206229520_c3jrrh","image_with_text_gJkenD","multicolumn_3LXGBm","176172773152b89858"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "OMNIS Takes The US",
+            "heading_size": "h1"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "shopify://products/antiage-night-cream",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 750px) {.banner, slideshow-component {display: none; }}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/OMNIS_USA_-_Shopify_theme_banner-_Desk.webp",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-2",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "image_banner_eTrjPC": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_R64yqi": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "OMNIS Takes The US",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_p88Ak4": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_R64yqi",
+        "buttons_p88Ak4"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.banner, slideshow-component {display: none; }}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/OMNIS_USA_-_Shopify_theme_banner-_Mobile.webp",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-2",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "frontpage",
+        "products_to_show": 3,
+        "title": "Best Seller",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-2",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "gp_global_section_577875850125378322_j3pmrq": {
+      "type": "gp-global-section-577875850125378322",
+      "disabled": true,
+      "name": "GEM - Custom Video",
+      "settings": {
+        "section_preload": "off_lazy_script",
+        "checksum": "",
+        "ggCU25UBsGd_text": "Oltre 32.000 Italiani Si Affidano Ad Omnis",
+        "ggpAFEqGCJb_text": "<p>Il 98% dei nostri clienti ci raccomanda a un amico.</p>",
+        "ggYGVQUlHbx_text": "<p>4.9 Voto Medio</p>",
+        "ggoBmC1Moko_text": "<p>\"Ho provato tante creme... ma questa è la migliore\"</p>",
+        "ggSBZJSf1R5_text": "<p>- Fabio G.</p>",
+        "gg1TDP5QgMJ_text": "<p>\"Ero scettico, ma i risultati sono stati sorprendenti!\"</p>",
+        "ggzIjU1pUMJ_text": "<p>- Daniele C.</p>",
+        "ggQiO-Hh3sQ_text": "<p>\"Come viene spiegato bisogna avere costanza...\"</p>",
+        "gg3OiQYiLmR_text": "<p>- Salvatore B.</p>"
+      }
+    },
+    "gp_global_section_577883941206229520_c3jrrh": {
+      "type": "gp-global-section-577883941206229520",
+      "name": "GEM - Models",
+      "settings": {
+        "section_preload": "off_lazy_script",
+        "checksum": "",
+        "ggRHZzH4epS_text": "Omnis Men",
+        "gg8_hOYbV6U_text": "<p>\"Omnis night cream is a true miracle in a jar. In just a few weeks, I saw a visible reduction in wrinkles and an improvement in skin elasticity.\"</p>",
+        "ggfcnkPuuRr_text": "<p><strong>Andrea Croin, Model</strong></p>",
+        "ggNTKbTA-88_text": "<p>\"Omnis eye contour has become my number one ally against dark circles and under-eye bags. Finally I can look in the mirror and see a fresh and rested look, even after sleepless nights.\"</p>",
+        "ggswNso7TFe_text": "<p><strong>Riccardo Stellini, actor and model</strong></p>",
+        "ggHsrO_4S0O_text": "<p>\"The Omnis kit is perfect for those who want a complete and simple routine. In just three minutes a day, my skin is younger and more elastic, and wrinkles are visibly reduced\"</p>",
+        "gg8i_ZKF-mi_text": "<p><strong>Francesco Allegra, Model</strong></p>",
+        "ggYV6K4FeKJ_text": "<p>\"After just two weeks of use, I noticed a huge difference under my eyes. Dark circles have faded and wrinkles have visibly reduced, making my face look younger.\"</p>",
+        "gg8wkEezTyM_text": "<p><strong>Salvatore Borruto, attore</strong></p>",
+        "ggD88dS1kvf_text": "<p>\"The combination of the three Omnis products has transformed my skin, making it smoother and softer.\"</p>",
+        "ggYjQ_5BXr4_text": "<p><strong>Ignazio di Noto, model</strong></p>",
+        "ggE3drNnFxD_text": "<p>\"Omnis night cream is a true miracle in a jar. In just a few weeks, I saw a visible reduction in wrinkles and an improvement in skin elasticity.\"</p>",
+        "ggTMh_USu1s_text": "<p><strong>Manuel Bruno, Italian champion</strong></p>",
+        "ggdQ7Axgte__text": "<p>\"Omnis face cream is light and non-greasy, perfect for more toned and radiant skin.\"</p>",
+        "ggdrDw5dQ1S_text": "<p><strong>Alessandro Mancini, Mr. Italia 2020</strong></p>",
+        "ggz1KMgJDyI_text": "<p>\"Omnis night cream is a true miracle in a jar. In just a few weeks, I saw a visible reduction in wrinkles and an improvement in skin elasticity.\"</p>",
+        "gg6DmUHjlWh_text": "<p>Andrea Croin, Model</p>",
+        "ggQQrOj9858_text": "<p>\"Omnis eye contour has become my number one ally against dark circles and under-eye bags. Finally I can look in the mirror and see a fresh and rested look, even after sleepless nights.\"</p>",
+        "ggHWxQy6DIT_text": "<p>Riccardo Stellini, actor and model</p>",
+        "ggGUNOyfwxP_text": "<p>\"The Omnis kit is perfect for those who want a complete and simple routine. In just three minutes a day, my skin is younger and more elastic, and wrinkles are visibly reduced\"</p>",
+        "ggqjMfAZEHQ_text": "<p>Francesco Allegra, Model</p>",
+        "ggNRvF0ZzJE_text": "<p>\"After just two weeks of use, I noticed a huge difference under my eyes. Dark circles have faded and wrinkles have visibly reduced, making my face look younger.\"</p>",
+        "ggVTWF8Jy57_text": "<p>Salvatore Borruto, ACTOR</p>",
+        "ggalFeFDPks_text": "<p>\"Since I've been using Omnis face cream, my skin has been reborn. The signs of aging have diminished and my skin appears more elastic.\"</p>",
+        "gg_qLlO7Aoj_text": "<p>Ignazio di Noto, model</p>",
+        "ggjIBpWGbpo_text": "<p>\"The combination of the three Omnis products has transformed my skin, making it smoother and softer.\"</p>",
+        "gg6BYygS7b1_text": "<p>Manuel Bruno, Italian volleyball champion</p>",
+        "ggq9oxpxOxI_text": "<p>\"Omnis face cream is light and non-greasy, perfect for more toned and radiant skin.\"</p>",
+        "gg8DKPwuDP4_text": "<p>Alessandro Mancini, Mr. Italia 2020</p>"
+      }
+    },
+    "image_with_text_gJkenD": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_xQN9Xq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real Men Real Results",
+            "heading_size": "h1"
+          }
+        },
+        "text_mikY6z": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xQN9Xq",
+        "text_mikY6z"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/Untitled_design_-_2025-04-19T094856.980.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_3LXGBm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_VYETd7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/1_delivery_box.png",
+            "title": "Shipping in 2-5 Days",
+            "text": "<p>FREE Shipping for orders over $75</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_AtCTy8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Multicolumn_icons.png",
+            "title": "Made In Italy 🇮🇹",
+            "text": "<p>Highest quality ingredient sourced from Italian farm and high tech labs</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_XMgdEM": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/3_star.png",
+            "title": "4.7/5 ⭐️⭐️⭐️⭐️⭐️",
+            "text": "<p>The N.1 brand in Italy for men's skincare</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_FaNKHn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/chat_support.png",
+            "title": "Exeptional Support",
+            "text": "<p>Available 7 days a week: </p><p>info@serlinolab.com<br/>+1 813-419-0008</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_VYETd7",
+        "column_AtCTy8",
+        "column_XMgdEM",
+        "column_FaNKHn"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "176172773152b89858": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_videos_carousel_7nip68": {
+          "type": "shopify://apps/judge-me-reviews/blocks/videos_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {
+            "show_sample_reviews": true,
+            "reviews_selection": "all",
+            "products": [],
+            "star_rating": "all",
+            "review_type": "photo_and_video",
+            "max_reviews": 20,
+            "show_reviewer_name": true,
+            "stars_size": "medium",
+            "text_size": "medium",
+            "arrows_position": "bottom",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "header_text_color": "#000000",
+            "card_color": "#7d7d7d",
+            "stars_color": "",
+            "text_color": "#ffffff",
+            "arrows_color": "#000000",
+            "show_drop_shadow": false,
+            "show_border": false,
+            "border_color": "#108474",
+            "autoplay_media": true,
+            "transition_speed": 5,
+            "carousel_style": "highlight",
+            "header_text": "Real customer stories",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_videos_carousel_7nip68"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "image_banner_eTrjPC",
+    "featured_collection",
+    "gp_global_section_577875850125378322_j3pmrq",
+    "gp_global_section_577883941206229520_c3jrrh",
+    "image_with_text_gJkenD",
+    "multicolumn_3LXGBm",
+    "176172773152b89858"
+  ]
+}

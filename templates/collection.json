@@ -1,1 +1,159 @@
-{"sections":{"rich_text_3qLEjB":{"type":"rich-text","blocks":{"heading_QyGMBM":{"type":"heading","settings":{"heading":"All Products","heading_size":"h0"}},"text_iXcQVU":{"type":"text","settings":{"text":""}},"button_eGgqHn":{"type":"button","settings":{"button_label":"","button_link":"","button_style_secondary":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading_QyGMBM","text_iXcQVU","button_eGgqHn"],"name":"t:sections.rich-text.presets.name","settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"scheme-2","full_width":true,"padding_top":60,"padding_bottom":60}},"banner":{"type":"main-collection-banner","disabled":true,"settings":{"show_collection_description":true,"show_collection_image":false,"color_scheme":"scheme-1"}},"product-grid":{"type":"main-collection-product-grid","settings":{"products_per_page":16,"columns_desktop":4,"columns_mobile":"2","color_scheme":"scheme-2","image_ratio":"adapt","image_shape":"default","show_secondary_image":false,"show_vendor":false,"show_rating":false,"quick_add":"none","enable_filtering":false,"filter_type":"horizontal","enable_sorting":false,"padding_top":36,"padding_bottom":36}},"multicolumn_4HBRmM":{"type":"multicolumn","blocks":{"column_ffQ3R3":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/1_delivery_box.png","title":"Shipping in 2-5 Days","text":"<p>FREE Shipping for orders over $75<\/p>","link_label":"","link":""}},"column_kF7qan":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/Multicolumn_icons.png","title":"Made In Italy 🇮🇹","text":"<p>Highest quality ingredient sourced from Italian farm and high tech labs<\/p>","link_label":"","link":""}},"column_jVLzFq":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/3_star.png","title":"4.7\/5 ⭐️⭐️⭐️⭐️⭐️","text":"<p>The N.1 brand in Italy for men's skincare<\/p>","link_label":"","link":""}},"column_bQqYTf":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/chat_support.png","title":"Exceptional Support","text":"<p>Available 7 days a week: <\/p><p>info@serlinolab.com<br\/>+1 813-419-0008<\/p>","link_label":"","link":""}}},"block_order":["column_ffQ3R3","column_kF7qan","column_jVLzFq","column_bQqYTf"],"name":"t:sections.multicolumn.presets.name","settings":{"title":"","heading_size":"h1","image_width":"third","image_ratio":"adapt","button_label":"","button_link":"","columns_desktop":4,"column_alignment":"center","background_style":"none","color_scheme":"scheme-2","columns_mobile":"1","swipe_on_mobile":true,"padding_top":36,"padding_bottom":36}}},"order":["rich_text_3qLEjB","banner","product-grid","multicolumn_4HBRmM"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_3qLEjB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_QyGMBM": {
+          "type": "heading",
+          "settings": {
+            "heading": "All Products",
+            "heading_size": "h0"
+          }
+        },
+        "text_iXcQVU": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        },
+        "button_eGgqHn": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_QyGMBM",
+        "text_iXcQVU",
+        "button_eGgqHn"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-2",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_4HBRmM": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ffQ3R3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/1_delivery_box.png",
+            "title": "Shipping in 2-5 Days",
+            "text": "<p>FREE Shipping for orders over $75</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_kF7qan": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Multicolumn_icons.png",
+            "title": "Made In Italy 🇮🇹",
+            "text": "<p>Highest quality ingredient sourced from Italian farm and high tech labs</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_jVLzFq": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/3_star.png",
+            "title": "4.7/5 ⭐️⭐️⭐️⭐️⭐️",
+            "text": "<p>The N.1 brand in Italy for men's skincare</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_bQqYTf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/chat_support.png",
+            "title": "Exceptional Support",
+            "text": "<p>Available 7 days a week: </p><p>info@serlinolab.com<br/>+1 813-419-0008</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_ffQ3R3",
+        "column_kF7qan",
+        "column_jVLzFq",
+        "column_bQqYTf"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "rich_text_3qLEjB",
+    "banner",
+    "product-grid",
+    "multicolumn_4HBRmM"
+  ]
+}
