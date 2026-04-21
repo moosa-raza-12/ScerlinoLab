@@ -285,7 +285,12 @@
         </div>
   
         {%- if section.settings.enable_countdown -%}
-          <div class="marquee-countdown" data-countdown-repeat-days="{{ section.settings.countdown_repeat_days }}">
+          <div
+            class="marquee-countdown"
+            data-countdown-target="{{ section.settings.countdown_date }}"
+            data-countdown-repeat="{% if section.settings.countdown_repeat %}true{% else %}false{% endif %}"
+            data-cycle-days="{{ section.settings.countdown_cycle_days | default: 3 }}"
+          >
             <div class="countdown-block">
               <span class="countdown-number" data-days>00</span>
               <span class="countdown-label">DAYS</span>
@@ -324,47 +329,59 @@
     (function() {
       const countdownEl = document.querySelector('.section-{{ section.id }} .marquee-countdown');
       if (!countdownEl) return;
-
-      var repeatDays = Math.max(1, parseInt(countdownEl.dataset.countdownRepeatDays, 10) || 3);
-      var dayMs = 24 * 60 * 60 * 1000;
-
+  
+      const anchorMs = new Date(countdownEl.dataset.countdownTarget).getTime();
+      const repeat = countdownEl.dataset.countdownRepeat === 'true';
+      const cycleDays = Math.max(1, parseInt(countdownEl.dataset.cycleDays || '3', 10) || 3);
+      const periodMs = cycleDays * 24 * 60 * 60 * 1000;
+  
       const daysEl = countdownEl.querySelector('[data-days]');
       const hoursEl = countdownEl.querySelector('[data-hours]');
       const minutesEl = countdownEl.querySelector('[data-minutes]');
       const secondsEl = countdownEl.querySelector('[data-seconds]');
-
+  
       function pad(n) { return n < 10 ? '0' + n : n; }
-
-      function getTargetMs() {
-        var intervalMs = repeatDays * dayMs;
-        var nowMs = Date.now();
-        return Math.floor(nowMs / intervalMs) * intervalMs + intervalMs;
+  
+      function remainingMs(now) {
+        if (Number.isNaN(anchorMs)) return 0;
+        if (!repeat || periodMs <= 0) {
+          return anchorMs - now;
+        }
+        if (now < anchorMs) {
+          return anchorMs - now;
+        }
+        var elapsed = now - anchorMs;
+        var phase = elapsed % periodMs;
+        var diff = periodMs - phase;
+        if (phase === 0 && elapsed > 0) {
+          diff = periodMs;
+        }
+        return diff;
       }
-
+  
       function updateCountdown() {
-        var targetDate = getTargetMs();
-        var now = new Date().getTime();
-        var diff = targetDate - now;
-
-        if (diff <= 0 || isNaN(targetDate)) {
+        var now = Date.now();
+        var diff = remainingMs(now);
+  
+        if (diff <= 0) {
           daysEl.textContent = '00';
           hoursEl.textContent = '00';
           minutesEl.textContent = '00';
           secondsEl.textContent = '00';
           return;
         }
-
+  
         var days = Math.floor(diff / (1000 * 60 * 60 * 24));
         var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
+  
         daysEl.textContent = pad(days);
         hoursEl.textContent = pad(hours);
         minutesEl.textContent = pad(minutes);
         secondsEl.textContent = pad(seconds);
       }
-
+  
       updateCountdown();
       setInterval(updateCountdown, 1000);
     })();
@@ -453,14 +470,28 @@
         "default": true
       },
       {
+        "type": "checkbox",
+        "id": "countdown_repeat",
+        "label": "Repeat countdown on a cycle",
+        "default": true,
+        "info": "When on, the timer resets every N days from the anchor date. When off, it counts down once to the date below."
+      },
+      {
         "type": "range",
-        "id": "countdown_repeat_days",
+        "id": "countdown_cycle_days",
         "min": 1,
         "max": 30,
         "step": 1,
         "default": 3,
-        "label": "Countdown repeats every (days)",
-        "info": "Timer resets after each interval. Deadlines align to repeating windows in UTC (same moment for all visitors)."
+        "label": "Cycle length (days)",
+        "info": "Used when repeat is enabled. Timer shows time until the end of the current N-day window."
+      },
+      {
+        "type": "text",
+        "id": "countdown_date",
+        "label": "Countdown anchor / end date",
+        "default": "2026-04-30T23:59:59",
+        "info": "Format: YYYY-MM-DDTHH:MM:SS (store timezone). Repeat: anchor instant for the cycle (time until next boundary). One-shot: final end date and time."
       }
     ],
     "blocks": [
