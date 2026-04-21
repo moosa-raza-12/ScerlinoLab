@@ -285,13 +285,7 @@
         </div>
   
         {%- if section.settings.enable_countdown -%}
-          <div
-            class="marquee-countdown"
-            data-countdown-target="{{ section.settings.countdown_date }}"
-            data-countdown-repeating="{% if section.settings.countdown_repeating %}true{% else %}false{% endif %}"
-            data-countdown-anchor="{{ section.settings.countdown_repeat_anchor | escape }}"
-            data-countdown-repeat-days="{{ section.settings.countdown_repeat_days }}"
-          >
+          <div class="marquee-countdown" data-countdown-repeat-days="{{ section.settings.countdown_repeat_days }}">
             <div class="countdown-block">
               <span class="countdown-number" data-days>00</span>
               <span class="countdown-label">DAYS</span>
@@ -331,10 +325,8 @@
       const countdownEl = document.querySelector('.section-{{ section.id }} .marquee-countdown');
       if (!countdownEl) return;
 
-      const repeating = countdownEl.dataset.countdownRepeating === 'true';
-      const repeatDays = Math.max(1, parseInt(countdownEl.dataset.countdownRepeatDays, 10) || 3);
-      const anchorStr = (countdownEl.dataset.countdownAnchor || '').trim();
-      const fixedTargetStr = countdownEl.dataset.countdownTarget || '';
+      var repeatDays = Math.max(1, parseInt(countdownEl.dataset.countdownRepeatDays, 10) || 3);
+      var dayMs = 24 * 60 * 60 * 1000;
 
       const daysEl = countdownEl.querySelector('[data-days]');
       const hoursEl = countdownEl.querySelector('[data-hours]');
@@ -344,17 +336,9 @@
       function pad(n) { return n < 10 ? '0' + n : n; }
 
       function getTargetMs() {
-        if (repeating && anchorStr) {
-          var anchorMs = new Date(anchorStr).getTime();
-          var intervalMs = repeatDays * 24 * 60 * 60 * 1000;
-          if (!isNaN(anchorMs) && intervalMs > 0) {
-            var nowMs = Date.now();
-            var next = anchorMs;
-            while (next <= nowMs) next += intervalMs;
-            return next;
-          }
-        }
-        return new Date(fixedTargetStr).getTime();
+        var intervalMs = repeatDays * dayMs;
+        var nowMs = Date.now();
+        return Math.floor(nowMs / intervalMs) * intervalMs + intervalMs;
       }
 
       function updateCountdown() {
@@ -469,35 +453,14 @@
         "default": true
       },
       {
-        "type": "checkbox",
-        "id": "countdown_repeating",
-        "label": "Repeat countdown on an interval",
-        "default": false,
-        "info": "Counts down to the next deadline, then restarts after each interval (e.g. every 3 days). Turn on and set anchor + days below. Off = single fixed end date."
-      },
-      {
         "type": "range",
         "id": "countdown_repeat_days",
         "min": 1,
         "max": 30,
         "step": 1,
         "default": 3,
-        "label": "Repeat every (days)",
-        "info": "Used when “Repeat countdown on an interval” is on. Example: 3 = new deadline every 3 days."
-      },
-      {
-        "type": "text",
-        "id": "countdown_repeat_anchor",
-        "label": "Repeating countdown anchor date & time",
-        "default": "2026-04-01T00:00:00",
-        "info": "First deadline in the cycle (store/local time). Same time of day repeats every N days. Format: YYYY-MM-DDTHH:MM:SS"
-      },
-      {
-        "type": "text",
-        "id": "countdown_date",
-        "label": "Fixed countdown end date",
-        "default": "2026-04-30T23:59:59",
-        "info": "Only used when “Repeat countdown on an interval” is off. Format: YYYY-MM-DDTHH:MM:SS"
+        "label": "Countdown repeats every (days)",
+        "info": "Timer resets after each interval. Deadlines align to repeating windows in UTC (same moment for all visitors)."
       }
     ],
     "blocks": [
